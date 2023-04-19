@@ -14,17 +14,18 @@
 
       form {
          position: fixed;
-         top: 30px;
-         left: 30px;
-         right: 30px;
+         top: 20px;
+         left: 20px;
+         right: 20px;
+         background-color: #57449a54;
+         padding: 5px;
+         border-radius: 10px;
       }
 
       .form-group {
          margin: 10px 0px;
 
       }
-
-      p {}
 
       button {
          margin-left: 4px;
@@ -33,7 +34,7 @@
 </head>
 
 <body>
-   <form>
+   <form action="conexao.php" method="POST">
       <div class="container-fluid">
          <div class="row">
             <p class="col-sm-0 col-md-1"></p>
@@ -55,7 +56,7 @@
          </div>
          <div class="row gx-0 gy-1">
             <p class="col-1 col-sm-3 col-md-1"></p>
-            <button type="submit" class="col-sm-6 col-md-1 btn btn-primary">Entrar</button>
+            <button type="submit" value="Enviar" class="col-sm-6 col-md-1 btn btn-primary">Entrar</button>
          </div>
       </div>
    </form>

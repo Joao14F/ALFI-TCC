@@ -1,0 +1,4 @@
+{
+    "git.branchRandomName.enable": false,
+    "git.pullBeforeCheckout": false
+}

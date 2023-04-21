@@ -31,7 +31,14 @@
 </head>
 
 <body>
-   <form>
+<?php
+$conn = mysqli_connect('localhost','root','','tcc');
+if (mysqli_connect_errno()) {
+    echo "Falha de conexão com o MySQL: " . mysqli_connect_error();
+    exit();
+    }
+    ?>
+  <form action="tcc" method="POST">
       <div class="container-fluid">
          <div class="row">
             <p class="col-sm-0 col-md-1"></p>
@@ -86,9 +93,9 @@
     formFields.appendChild(field3);
 
  } else if (select.value === "option2") {
-    var field1 = createFormField("Cintura", "text", "form-control");
+    var field1 = createFormField("Medidas cintura", "text", "form-control");
     var field2 = createFormField("Comprimento", "text", "form-control");
-    var field3 = createFormField("Quadril", "text", "form-control");
+    var field3 = createFormField("Medidas quadril", "text", "form-control");
     var field4 = createFormField("Altura de gancho", "text", "form-control");
     formFields.appendChild(field1);
     formFields.appendChild(field2);
@@ -96,9 +103,9 @@
     formFields.appendChild(field4);
 
  } else if (select.value === "option3") {
-    var field1 = createFormField("Cintura", "text", "form-control");
+    var field1 = createFormField("Medidas cintura", "text", "form-control");
     var field2 = createFormField("Comprimento", "text", "form-control");
-    var field3 = createFormField("Quadril", "text", "form-control");
+    var field3 = createFormField("Medidas quadril", "text", "form-control");
     var field4 = createFormField("Altura de gancho", "text", "form-control");
     formFields.appendChild(field1);
     formFields.appendChild(field2);
@@ -185,6 +192,7 @@
          </div>
       </div>
    </form>
+
 </body>
 
 </html>

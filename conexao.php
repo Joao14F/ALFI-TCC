@@ -7,4 +7,10 @@ if (mysqli_connect_errno()) {
 else {
     echo "Sucesso de conexão com o MySQL";
 }
+
+$sql = "INSERT INTO modelo (titulo, pass, tel) 
+VALUES ('$user', '$pass', '$tel')"
+
+
+
 ?>

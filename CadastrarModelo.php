@@ -12,10 +12,6 @@
          background-color: #D9D7EF;
       }
 
-      form {
-   
-      }
-
       .form-group {
          margin: 10px 0px;
 

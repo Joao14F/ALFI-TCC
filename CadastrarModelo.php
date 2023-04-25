@@ -13,10 +13,7 @@
       }
 
       form {
-         position: fixed;
-         top: 30px;
-         left: 30px;
-         right: 30px;
+   
       }
 
       .form-group {
@@ -26,18 +23,12 @@
 
       button {
          margin-left: 4px;
+         margin-bottom: 10px;
       }
    </style>
 </head>
 
 <body>
-   <?php
-   $conn = mysqli_connect('localhost', 'root', '', 'tcc');
-   if (mysqli_connect_errno()) {
-      echo "Falha de conexão com o MySQL: " . mysqli_connect_error();
-      exit();
-   }
-   ?>
    <form action="conexao.php" method="POST">
       <div class="container-fluid">
          <div class="row">
@@ -45,7 +36,7 @@
             <div class="col-sm-12 col-md-10">
                <div class="form-group">
                   <label for="InputEmail1">Insira o titulo do modelo</label>
-                  <input type="name" class="form-control" id="Nome" placeholder="Titulo">
+                  <input type="name" class="form-control" id="Nome" placeholder="Titulo" name="Título">
                </div>
             </div>
          </div>
@@ -53,21 +44,29 @@
             <p class="col-sm-0 col-md-1"></p>
             <div class="col-sm-12 col-md-10">
                <div class="form-group">
-                  <input class="form-check-input" type="checkbox" value="Sustentavel" id="Check">
-                  <label class="label" for="Check">
-                     Sustentavel
+               <label class="label">
+                     É Sustentável
+                  </label>
+                  <br>
+                  <input type="radio" value="Sim" name="Sustentável">
+                  <label class="label">
+                     Sim
+                  </label>
+                  <input type="radio" value="Não" name="Sustentável">
+                  <label class="label">
+                  Não
                   </label>
                </div>
                <div class="row">
-                  
+
                   <div class="col-sm-12 col-md-10">
                      <div class="form-group">
                         <label for="select-options">Selecione o tipo de roupa</label>
-                        <select id="select-options" class="form-select">
+                        <select id="select-options" class="form-select" name="Tipo">
                            <option value="option0">Selecione uma das opções</option>
-                           <option value="option1">Saia</option>
-                           <option value="option2">Calça</option>
-                           <option value="option3">Bermuda</option>
+                           <option value="Saia" >Saia</option>
+                           <option value="Calça">Calça</option>
+                           <option value="Bermuda" >Bermuda</option>
                         </select>
 
                         <div id="form-fields"></div>
@@ -83,29 +82,27 @@
                      formFields.innerHTML = "";
 
                      // Cria novos campos com base na opção selecionada
-                     if (select.value === "option1") {
-                        var field1 = createFormField("Comprimento", "text", "form-control");
-                        var field2 = createFormField("Medidas quadril", "text", "form-control");
-                        var field3 = createFormField("Medidas cintura", "text", "form-control");
+                     if (select.value === "Saia") {
+                        var field1 = createFormField("Comprimento", "text", "Comprimento");
+                        var field2 = createFormField("Medidas Quadril", "text", "Quadril");
+                        var field3 = createFormField("Medidas cintura", "text", "Cintura");
                         formFields.appendChild(field1);
                         formFields.appendChild(field2);
                         formFields.appendChild(field3);
-
-                     } else if (select.value === "option2") {
-                        var field1 = createFormField("Medidas cintura", "text", "form-control");
-                        var field2 = createFormField("Comprimento", "text", "form-control");
-                        var field3 = createFormField("Medidas quadril", "text", "form-control");
-                        var field4 = createFormField("Altura de gancho", "text", "form-control");
+                     } else if (select.value === "Calça") {
+                        var field2 = createFormField("Comprimento", "text", "Comprimento");
+                        var field3 = createFormField("Medidas quadril", "text", "Quadril");
+                        var field1 = createFormField("Medidas cintura", "text", "Cintura");
+                        var field4 = createFormField("Altura de gancho", "text", "Gancho");
                         formFields.appendChild(field1);
                         formFields.appendChild(field2);
                         formFields.appendChild(field3);
                         formFields.appendChild(field4);
-
-                     } else if (select.value === "option3") {
-                        var field1 = createFormField("Medidas cintura", "text", "form-control");
-                        var field2 = createFormField("Comprimento", "text", "form-control");
-                        var field3 = createFormField("Medidas quadril", "text", "form-control");
-                        var field4 = createFormField("Altura de gancho", "text", "form-control");
+                     } else if (select.value === "Bermuda") {
+                        var field2 = createFormField("Comprimento", "text", "Comprimento");
+                        var field3 = createFormField("Medidas quadril", "text", "Quadril");
+                        var field1 = createFormField("Medidas cintura", "text", "Cintura");
+                        var field4 = createFormField("Altura de gancho", "text", "Gancho");
                         formFields.appendChild(field1);
                         formFields.appendChild(field2);
                         formFields.appendChild(field3);
@@ -114,7 +111,7 @@
                   });
 
                   // Função auxiliar para criar um campo do formulário
-                  function createFormField(labelText, type, className, options) {
+                  function createFormField(labelText, type, name, options) {
                      var label = document.createElement("label");
                      label.textContent = labelText;
 
@@ -125,9 +122,9 @@
                         for (var i = 0; i < options.length; i++) {
                            var option = document.createElement("input");
                            option.type = "radio";
-                           option.name = labelText;
+                           option.name = name;
                            option.value = options[i];
-                           option.className = className;
+                           option.className = "form-check-input";
                            var optionLabel = document.createElement("label");
                            optionLabel.textContent = options[i];
                            optionLabel.className = "form-check-label";
@@ -137,8 +134,8 @@
                      } else {
                         input = document.createElement("input");
                         input.type = type;
-                        input.name = labelText;
-                        input.className = className;
+                        input.name = name;
+                        input.className = "form-control";
                      }
 
                      var field = document.createElement("div");
@@ -149,11 +146,11 @@
                   }
                </script>
                <div class="row">
-                  
+
                   <div class="col-sm-12 col-md-10">
                      <div class="form-group">
                         <label for="Tipo">Insira o arquivo</label>
-                        <input type="file" class="form-control" id="Email1" placeholder="E-mail">
+                        <input type="file" class="form-control" id="Email1" placeholder="E-mail" name="Arquivo">
                      </div>
                   </div>
                </div>

@@ -121,7 +121,7 @@
                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                <button class="btn btn-outline-success" type="submit">Search</button>
             </div>
-          
+
          </div>
          <div class="row">
             <div class="menu col-12 col-sm-12 col-md-12">
@@ -145,10 +145,19 @@
          <div class="col-0 col-sm-0 col-md-1">
             <p></p>
          </div>
+
          <div class="modelos col-12 col-sm-12 col-md-10">
-            <a href="Adm.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="CadastrarModelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="teste.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
+
+            <a href="acesso-modelo.php">
+               <?php
+               $conn = mysqli_connect('localhost', 'root', '', 'modelo');
+               $result = mysqli_query($conn, "SELECT Arquivo FROM modelo WHERE tipo = 'Saia'");
+
+               $row = mysqli_fetch_assoc($result);
+               header("Content-type: image/jpg");
+               echo $row['Arquivo'];
+               ?>
+            </a>
             <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
             <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
             <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
@@ -177,8 +186,9 @@
             <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
             <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
             <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
+
          </div>
+
          <div class="col-0 col-sm-0 col-md-1">
             <p></p>
          </div>

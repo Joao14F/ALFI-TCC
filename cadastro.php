@@ -1,3 +1,25 @@
+<?php
+$conn = mysqli_connect('localhost','root','','tcc');
+if (mysqli_connect_errno()) {
+    echo "Falha de conexão com o MySQL: " . mysqli_connect_error();
+
+    exit();
+    }
+else {
+    echo "Sucesso de conexão com o MySQL";
+}
+$Título = $_POST['Título'];
+$Sustentável = $_POST['Sustentável'];
+$Tipo = $_POST['Tipo'];
+
+if (mysqli_query($conn, $sql)) {
+    echo " Deu certo";
+}
+else {
+    echo " Deu merda";
+}
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -24,8 +46,6 @@
 
       }
 
-      p {}
-
       button {
          margin-left: 4px;
       }
@@ -33,7 +53,7 @@
 </head>
 
 <body>
-   <form>
+   <form action="cadastro.php" method="post">
       <div class="container-fluid">
          <div class="row">
             <p class="col-sm-0 col-md-1"></p>

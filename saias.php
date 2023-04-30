@@ -105,7 +105,6 @@
 </head>
 
 <body>
-    <?php
       <div class="container-fluid">
          <header>
             <div class="row gx-0">
@@ -146,15 +145,16 @@
             <div class="col-0 col-sm-0 col-md-1">
                <p></p>
             </div>
-
+            
             <div class="modelos col-12 col-sm-12 col-md-10">
+            
             $conn = mysqli_connect('localhost','root','','modelo');
 
                $numero = 1;
-               for ($numero=1, $numero +1, $numero==28) {
+               for ($i=0; $i =20 ; $i++) {
                   <a href="pra que isso"><img src="" alt=""></a>
                }
-            
+           
             </div>
          </div>
          <div class="row">
@@ -167,7 +167,6 @@
          </div>
 
       </div>
-   ?>
 </body>
 
 </html>

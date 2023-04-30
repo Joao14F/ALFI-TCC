@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect('localhost','root','','modelo');
+$conn = mysqli_connect('localhost','root','','tcc');
 if (mysqli_connect_errno()) {
     echo "Falha de conexão com o MySQL: " . mysqli_connect_error();
 
@@ -48,7 +48,7 @@ if (mysqli_query($conn, $sql)) {
     echo " Deu certo";
 }
 else {
-    echo " Merda";
+    echo " Deu merda";
 }
 
 ?>

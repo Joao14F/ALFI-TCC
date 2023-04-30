@@ -1,3 +1,57 @@
+<?php
+$conn = mysqli_connect('localhost','root','','tcc');
+if (mysqli_connect_errno()) {
+    echo "Falha de conexão com o MySQL: " . mysqli_connect_error();
+
+    exit();
+    }
+else {
+    echo "Sucesso de conexão com o MySQL";
+}
+$Título = $_POST['Título'];
+$Sustentável = $_POST['Sustentável'];
+$Tipo = $_POST['Tipo'];
+
+if ($Tipo == 'Saia') {
+    $Comprimento = $_POST['Comprimento'];
+    $Quadril = $_POST['Quadril'];
+    $Cintura = $_POST['Cintura'];
+    $Arquivo = $_POST['Arquivo'];
+
+    $sql = "INSERT INTO modelo (`Título`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Arquivo`) 
+VALUES ('$Título', '$Sustentável', '$Tipo', '$Comprimento', '$Quadril', '$Cintura', '$Arquivo')";
+}
+
+if ($Tipo == 'Calça') {
+    $Comprimento = $_POST['Comprimento'];
+    $Quadril = $_POST['Quadril'];
+    $Cintura = $_POST['Cintura'];
+    $Gancho = $_POST['Gancho'];
+    $Arquivo = $_POST['Arquivo'];
+
+    $sql = "INSERT INTO modelo (`Título`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Gancho`, `Arquivo`) 
+VALUES ('$Título', '$Sustentável', '$Tipo', '$Comprimento', '$Quadril', '$Cintura', '$Gancho', '$Arquivo')";
+}
+
+if ($Tipo == 'Bermuda') {
+    $Comprimento = $_POST['Comprimento'];
+    $Quadril = $_POST['Quadril'];
+    $Cintura = $_POST['Cintura'];
+    $Gancho = $_POST['Gancho'];
+    $Arquivo = $_POST['Arquivo'];
+
+    $sql = "INSERT INTO modelo (`Título`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Gancho`, `Arquivo`) 
+VALUES ('$Título', '$Sustentável', '$Tipo', '$Comprimento', '$Quadril', '$Cintura', '$Gancho', '$Arquivo')";
+}
+
+if (mysqli_query($conn, $sql)) {
+    echo " Deu certo";
+}
+else {
+    echo " Deu merda";
+}
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -25,7 +79,7 @@
 </head>
 
 <body>
-   <form action="conexao.php" method="POST">
+   <form action="CadastrarModelo.php" method="POST">
       <div class="container-fluid">
          <div class="row">
             <p class="col-sm-0 col-md-1"></p>
@@ -40,7 +94,7 @@
             <p class="col-sm-0 col-md-1"></p>
             <div class="col-sm-12 col-md-10">
                <div class="form-group">
-               <label class="label">
+                  <label class="label">
                      É Sustentável
                   </label>
                   <br>
@@ -50,25 +104,25 @@
                   </label>
                   <input type="radio" value="Não" name="Sustentável">
                   <label class="label">
-                  Não
+                     Não
                   </label>
                </div>
                <div class="row">
-
                   <div class="col-sm-12 col-md-10">
                      <div class="form-group">
                         <label for="select-options">Selecione o tipo de roupa</label>
                         <select id="select-options" class="form-select" name="Tipo">
                            <option value="option0">Selecione uma das opções</option>
-                           <option value="Saia" >Saia</option>
+                           <option value="Saia">Saia</option>
                            <option value="Calça">Calça</option>
-                           <option value="Bermuda" >Bermuda</option>
+                           <option value="Bermuda">Bermuda</option>
                         </select>
 
-                        <div id="form-fields"></div>
+                        
                      </div>
                   </div>
                </div>
+               <div id="form-fields" class="row"></div>
                <script>
                   var select = document.getElementById("select-options");
                   var formFields = document.getElementById("form-fields");

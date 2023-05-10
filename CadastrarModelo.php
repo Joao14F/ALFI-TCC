@@ -1,57 +1,3 @@
-<?php
-$conn = mysqli_connect('localhost','root','','tcc');
-if (mysqli_connect_errno()) {
-    echo "Falha de conexão com o MySQL: " . mysqli_connect_error();
-
-    exit();
-    }
-else {
-    echo "Sucesso de conexão com o MySQL";
-}
-$Título = $_POST['Título'];
-$Sustentável = $_POST['Sustentável'];
-$Tipo = $_POST['Tipo'];
-
-if ($Tipo == 'Saia') {
-    $Comprimento = $_POST['Comprimento'];
-    $Quadril = $_POST['Quadril'];
-    $Cintura = $_POST['Cintura'];
-    $Arquivo = $_POST['Arquivo'];
-
-    $sql = "INSERT INTO modelo (`Título`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Arquivo`) 
-VALUES ('$Título', '$Sustentável', '$Tipo', '$Comprimento', '$Quadril', '$Cintura', '$Arquivo')";
-}
-
-if ($Tipo == 'Calça') {
-    $Comprimento = $_POST['Comprimento'];
-    $Quadril = $_POST['Quadril'];
-    $Cintura = $_POST['Cintura'];
-    $Gancho = $_POST['Gancho'];
-    $Arquivo = $_POST['Arquivo'];
-
-    $sql = "INSERT INTO modelo (`Título`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Gancho`, `Arquivo`) 
-VALUES ('$Título', '$Sustentável', '$Tipo', '$Comprimento', '$Quadril', '$Cintura', '$Gancho', '$Arquivo')";
-}
-
-if ($Tipo == 'Bermuda') {
-    $Comprimento = $_POST['Comprimento'];
-    $Quadril = $_POST['Quadril'];
-    $Cintura = $_POST['Cintura'];
-    $Gancho = $_POST['Gancho'];
-    $Arquivo = $_POST['Arquivo'];
-
-    $sql = "INSERT INTO modelo (`Título`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Gancho`, `Arquivo`) 
-VALUES ('$Título', '$Sustentável', '$Tipo', '$Comprimento', '$Quadril', '$Cintura', '$Gancho', '$Arquivo')";
-}
-
-if (mysqli_query($conn, $sql)) {
-    echo " Deu certo";
-}
-else {
-    echo " Deu merda";
-}
-
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -79,7 +25,7 @@ else {
 </head>
 
 <body>
-   <form action="CadastrarModelo.php" method="POST">
+   <form enctype="multipart/form-data" action="enviaModelo.php" method="POST">
       <div class="container-fluid">
          <div class="row">
             <p class="col-sm-0 col-md-1"></p>
@@ -200,7 +146,7 @@ else {
                   <div class="col-sm-12 col-md-10">
                      <div class="form-group">
                         <label for="Tipo">Insira o arquivo</label>
-                        <input type="file" class="form-control" id="Email1" placeholder="E-mail" name="Arquivo">
+                        <input type="file" class="form-control" placeholder="E-mail" name="Arquivo">
                      </div>
                   </div>
                </div>

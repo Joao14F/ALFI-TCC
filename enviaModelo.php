@@ -42,10 +42,10 @@ if ($Tipo == 'Calça') {
     
     if (isset($_FILES['Arquivo'])) {
         
-        $ponto = strtolower(pathinfo($_FILES['Arquivo']['nome'], PATHINFO_EXTENSION));
+        $ponto = strtolower(pathinfo($_FILES['Arquivo']['name'], PATHINFO_EXTENSION));
         $pasta = 'Arquivos/';
-        $nome = uniqid().'.$ponto';
-        $temporario = $_FILES['arquivo']['tmp_name'];
+        $nome = uniqid().'.'.$ponto;
+        $temporario = $_FILES['Arquivo']['tmp_name'];
        
         if ($ponto =!'jpg' || $ponto =!'png' || $ponto =!'pdf') {
             echo 'Apenas arquivos jpg, png e pdf são aceitos';
@@ -73,10 +73,10 @@ if ($Tipo == 'Bermuda') {
     
     if (isset($_FILES['Arquivo'])) {
         
-        $ponto = strtolower(pathinfo($_FILES['Arquivo']['nome'], PATHINFO_EXTENSION));
+        $ponto = strtolower(pathinfo($_FILES['Arquivo']['name'], PATHINFO_EXTENSION));
         $pasta = 'Arquivos/';
-        $nome = uniqid().'.$ponto';
-        $temporario = $_FILES['arquivo']['tmp_name'];
+        $nome = uniqid().'.'.$ponto;
+        $temporario = $_FILES['Arquivo']['tmp_name'];
        
         if ($ponto =!'jpg' || $ponto =!'png' || $ponto =!'pdf') {
             echo 'Apenas arquivos jpg, png e pdf são aceitos';

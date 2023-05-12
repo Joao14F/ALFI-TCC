@@ -147,46 +147,13 @@
          </div>
 
          <div class="modelos col-12 col-sm-12 col-md-10">
-
-            <a href="acesso-modelo.php">
                <?php
-               $conn = mysqli_connect('localhost', 'root', '', 'modelo');
-               $result = mysqli_query($conn, "SELECT Arquivo FROM modelo WHERE tipo = 'Saia'");
-
-               $row = mysqli_fetch_assoc($result);
-               header("Content-type: image/jpg");
-               echo $row['Arquivo'];
+               include_once('conexao.php');
+               
+               for ($i=0; $i = 25; $i++) { 
+                  echo "<img src='".$Arquivo[$i]."'>";
+               }
                ?>
-            </a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-            <a href="acesso-modelo.php"><img src="imgal.JPG" alt="modelo tal" width="10%" class="modelosimg"></a>
-
          </div>
 
          <div class="col-0 col-sm-0 col-md-1">

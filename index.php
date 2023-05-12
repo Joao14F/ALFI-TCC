@@ -147,13 +147,17 @@
          </div>
 
          <div class="modelos col-12 col-sm-12 col-md-10">
-               <?php
-               include_once('conexao.php');
-               
-               for ($i=0; $i = 25; $i++) { 
-                  echo "<img src='".$Arquivo[$i]."'>";
-               }
-               ?>
+         <a><img src="imagal.jpeg" href='acesso-modelo.php'></a>
+         <a><img src="imagal.jpeg" href='acesso-modelo.php'></a>
+         <a><img src="imagal.jpeg" href='acesso-modelo.php'></a>
+         <a><img src="imagal.jpeg" href='acesso-modelo.php'></a>
+         <a><img src="imagal.jpeg" href='acesso-modelo.php'></a>
+         <a><img src="imagal.jpeg" href='acesso-modelo.php'></a>
+         <a><img src="imagal.jpeg" href='acesso-modelo.php'></a>
+         <a><img src="imagal.jpeg" href='acesso-modelo.php'></a>
+         <a><img src="imagal.jpeg" href='acesso-modelo.php'></a>
+         <a><img src="imagal.jpeg" href='acesso-modelo.php'></a>
+         <a><img src="imagal.jpeg" href='acesso-modelo.php'></a>
          </div>
 
          <div class="col-0 col-sm-0 col-md-1">

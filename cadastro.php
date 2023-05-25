@@ -7,10 +7,6 @@ if (mysqli_connect_errno()) {
     }
 else {
     echo "Sucesso de conexão com o MySQL";
-}
-$Título = $_POST['Título'];
-$Sustentável = $_POST['Sustentável'];
-$Tipo = $_POST['Tipo'];
 
 if (mysqli_query($conn, $sql)) {
     echo " Deu certo";

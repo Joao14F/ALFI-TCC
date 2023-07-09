@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -145,28 +146,45 @@ section.images .circle {
     }
 }
 
+a {
+    cursor: pointer;
+    border: 2rem;
+    border-radius: 32px;
+    background: #8880FE;
+    color: white;
+    font-size: 1rem;
+    transition: all .3s ease-in-out;
+    margin-left: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 40rem;
+
+    }
+
    </style>
 
+<link rel="icon" type="image/png" href="imagens/navlogo.png">
 
 </head>
 <body>
+
+<a class="voltar" href="index.php"> Voltar </a>
     <main>
         <h1>Logue sua conta</h1>
         
-        <form action="">
+        <form action="testelogin.php" method="POST">
             
 
             <label for="email">
                 <span>E-mail</span>
-                <input type="email" id="email" name="email" placeholder="E-mail">
+                <input type="text" id="email" name="email" placeholder="E-mail">
             </label>
 
             <label for="password">
                 <span>Senha</span>
-                <input type="password" id="password" name="password" placeholder="Senha">
+                <input type="password" id="senha" name="senha" placeholder="Senha">
             </label>
 
-            <input type="submit" value="Logar" id="button">
+            <input class="" type="submit" name="submit" value="Logar" >
         </form>
     </main>
     <section class="images">

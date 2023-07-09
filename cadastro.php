@@ -1,5 +1,28 @@
 <?php
-include_once('conexao.php');
+
+if(isset($_POST['submit'])) {
+    // print_r('Nome: ' . $_POST['nome']);
+    // print_r('<br>');
+    // print_r('E-mail: ' . $_POST['email']);
+    // print_r('<br>');
+    // print_r('Telefone: ' . $_POST['telefone']);
+    // print_r('<br>');
+    // print_r('Senha: ' . $_POST['senha']);
+
+    include_once('conexao.php');
+
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $telefone = $_POST['telefone'];
+    $senha = $_POST['senha'];
+
+    $result= mysqli_query($conn, "INSERT INTO usuário(nome,email,telefone,senha) 
+    VALUES ('$nome', '$email', '$telefone', '$senha')");
+
+header('Location: login.php');
+
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -149,19 +172,23 @@ section.images .circle {
     main form label span, main form input[type="submit"] {
         font-size: 1rem;
     }
+
 }
 
    </style>
     
+    <link rel="icon" type="image/png" href="imagens/navlogo.png">
 </head>
 <body>
+
+<a href="index.php"> Voltar </a>
     <main>
         <h1>Crie sua conta</h1>
 
-        <form action="">
+        <form action="cadastro.php" method="POST">
             <label for="name">
                 <span>Insira seu nome</span>
-                <input type="text" id="name" name="name" placeholder="Nome">
+                <input type="text" id="name" name="nome" placeholder="Nome">
             </label>
 
             <label for="email">
@@ -176,10 +203,10 @@ section.images .circle {
 
             <label for="password">
                 <span>Insira sua senha</span>
-                <input type="password" id="password" name="password" placeholder="Senha">
+                <input type="password" id="senha" name="senha" placeholder="Senha">
             </label>
 
-            <input type="submit" value="Cadastrar" id="button">
+            <input type="submit" value="Cadastrar" id="button" name="submit">
         </form>
     </main>
     <section class="images">

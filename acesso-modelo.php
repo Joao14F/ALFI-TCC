@@ -1,3 +1,6 @@
+<?php
+include_once('conexao.php');
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -178,8 +181,7 @@
       </nav>
    </div>
    <section class="modelo">
-      <h2>Bem-vindo ao ALFI</h2>
-      <p>Este é o ALFI.</p>
+       <img src="<?php echo $imagem; ?>" alt="Minha Imagem">
    </section>
    <section class="comentario">
       <h2>comentários</h2>

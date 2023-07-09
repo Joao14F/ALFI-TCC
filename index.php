@@ -211,6 +211,21 @@
          <p id="ptitulo"> Seu site de compartilhamento de moldes</p>
          </br>
          </br>
+         <?php
+            include_once('conexao.php');
+           /* for ($i=1; $i = 20; $i++) { 
+               $sql = "SELECT `Arquivo` from modelo  WHERE $i";
+            $res = mysqli_query($conn, $sql);
+            if ($res && mysqli_num_rows($res) > 0) {
+                $row = mysqli_fetch_assoc($res);
+                $endereco_imagem = $row['Arquivo'];
+            
+                echo '<img src="' . $endereco_imagem . '" alt="Imagem">';
+            } else {
+                echo 'Nenhuma imagem encontrada.';
+            }
+            }*/
+         ?>
          </br>
          <p id="pp">O ALFI é um site de compartilhamento de moldes de roupas, focado em disponibilizar aos usúarios uma plataforma para obter e compartilhar os moldes
             das roupas desejedas pelos mesmos. Fique ciente que este site ainda está em desenvolvimento portanto, alguns erros podem ocorrer em relação a responsividade, login, cadastro e entre outros. Com isso, qualquer erro identificado irá ser corrigido o mais rápido possível pelos Devs para que estes erros não afetem sua experiência com o site.

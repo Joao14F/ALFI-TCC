@@ -1,18 +1,13 @@
 <?php
+include_once('conexao.php');
+$sql = "SELECT `Arquivo` from modelo  WHERE 20";
+$res = mysqli_query($conn, $sql);
+if ($res && mysqli_num_rows($res) > 0) {
+    $row = mysqli_fetch_assoc($res);
+    $endereco_imagem = $row['Arquivo'];
 
-$imagem = "INSERT INTO modelo `Arquivo` WHERE 19";
-header('Content-Type: image/jpeg');
-mysqli_query($conn, $sql);
-readfile($imagem);
+    echo '<img src="' . $endereco_imagem . '" alt="Imagem">';
+} else {
+    echo 'Nenhuma imagem encontrada.';
+}
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>

@@ -12,4 +12,16 @@ if (mysqli_query($conn, $sql)) {
 } else {
     echo " Deu merda";
 }
+
+$select = "SELECT `aa` FROM `a` ORDER BY `aa` ASC
+LIMIT 1;";
+$res = mysqli_query($conn, $select);
+
+if ($res) {
+    $row = mysqli_fetch_assoc($res);
+    $resposta = $row['aa'];
+    echo $resposta;
+} else {
+    echo "Não foi encontrado nenhum resultado";
+}
 ?>

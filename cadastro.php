@@ -34,6 +34,7 @@ header('Location: login.php');
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="CSS/bootstrap.min.css">
     <title>Cadastro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
 
@@ -57,7 +58,7 @@ body {
 }
 
 main {
-    width: 50vw;
+    width: 40vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -88,14 +89,14 @@ main form label {
 
 main form label span {
     font-size: 1rem;
-    margin-top: 1.1rem;
+    margin-top: 1rem;
 }
 
 main form input {
     background: #161923;
     width: 300px;
-    height: 50px;
-    padding: 0 0.5rem;
+    height: 45px;
+    padding: 0.8rem;
     margin-top: 1rem;
     outline: none;
     color: rgba(166, 166, 166);
@@ -107,12 +108,12 @@ main form input {
 main form input[type="submit"] {
     cursor: pointer;
     width: 40%;
-    margin-top: 2rem;
+    margin-top: 0.5rem;
     border: none;
     border-radius: 32px;
     background: #6C63FF;
     color: white;
-    font-size: 1.1rem;
+    font-size: 1rem;
     transition: all .3s ease-in-out;
 }
 
@@ -175,36 +176,54 @@ section.images .circle {
 
 }
 
+a {
+    color: #8880FE;
+}
+
+p {
+    margin-top: 1rem;
+}
+
+i {
+    color: white;
+    padding-left: 0.5rem;
+    padding-top: 1.5rem;
+    margin-left: 0rem;
+}
+
    </style>
     
     <link rel="icon" type="image/png" href="imagens/navlogo.png">
 </head>
 <body>
 
-<a href="index.php"> Voltar </a>
+<a href="index.php"><i class="fa-sharp fa-solid fa-angles-left fa-xl"></i></a>
+
     <main>
         <h1>Crie sua conta</h1>
 
         <form action="cadastro.php" method="POST">
             <label for="name">
                 <span>Insira seu nome</span>
-                <input type="text" id="name" name="nome" placeholder="Nome">
+                <input type="text" id="name" name="nome" placeholder="Nome" required>
             </label>
 
             <label for="email">
                 <span>Insira seu E-mail</span>
-                <input type="email" id="email" name="email" placeholder="E-mail">
+                <input type="email" id="email" name="email" placeholder="E-mail" required>
             </label>
 
             <label for="telefone">
                 <span>Insira seu telefone </span>
-                <input type="telefone" id="telefone" name="telefone" placeholder="Telefone">
+                <input type="telefone" id="telefone" name="telefone" placeholder="Telefone" required>
             </label>
 
             <label for="password">
                 <span>Insira sua senha</span>
-                <input type="password" id="senha" name="senha" placeholder="Senha">
+                <input type="password" id="senha" name="senha" placeholder="Senha" required>
             </label>
+
+            <p> Já possui uma conta? <a class="login" href="login.php">Login</a> </p>
 
             <input type="submit" value="Cadastrar" id="button" name="submit">
         </form>

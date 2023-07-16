@@ -7,7 +7,8 @@ CREATE TABLE `modelo` (
   `Quadril` varchar(50) DEFAULT NULL,
   `Cintura` varchar(50) DEFAULT NULL,
   `Gancho` varchar(50) DEFAULT NULL,
-  `Arquivo` varchar(200) NOT NULL
+  `Arquivo` varchar(200) NOT NULL,
+  `Tempo` TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `moderador` (
@@ -29,19 +30,13 @@ CREATE TABLE `usuário` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 ALTER TABLE `modelo`
-  ADD PRIMARY KEY (`Id modelo`);
+  ADD PRIMARY KEY (`Id modelo`),
+  MODIFY `Id modelo` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `moderador`
-  ADD PRIMARY KEY (`Id moderador`);
-
-ALTER TABLE `usuário`
-  ADD PRIMARY KEY (`Id usuário`);
-
-ALTER TABLE `modelo`
-  MODIFY `Id modelo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
-ALTER TABLE `moderador`
+  ADD PRIMARY KEY (`Id moderador`),
   MODIFY `Id moderador` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `usuário`
+  ADD PRIMARY KEY (`Id usuário`),
   MODIFY `Id usuário` int(11) NOT NULL AUTO_INCREMENT;

@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
@@ -39,7 +41,7 @@ main {
 main h1 {
     color: #8880FE;
     font-size: 3rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1-rem;
     text-align: center;
 }
 
@@ -79,7 +81,7 @@ main form input {
 main form input[type="submit"] {
     cursor: pointer;
     width: 50%;
-    margin-top: 4rem;
+    margin-top: 2.5rem;
     border: none;
     border-radius: 32px;
     background: #6C63FF;
@@ -101,7 +103,9 @@ section.images {
 }
 
 section.images img {
-    width: 88%;
+    width: 92%;
+    margin-right:2rem;
+    margin-bottom:2rem;
 }
 
 section.images .circle {
@@ -147,18 +151,19 @@ section.images .circle {
 }
 
 a {
-    cursor: pointer;
-    border: 2rem;
-    border-radius: 32px;
-    background: #8880FE;
-    color: white;
-    font-size: 1rem;
-    transition: all .3s ease-in-out;
-    margin-left: 0.5rem;
-    margin-top: 2rem;
-    margin-bottom: 40rem;
+    color: #8880FE;
+}
 
-    }
+p {
+    margin-top: 1rem;
+}
+
+i {
+    color: white;
+    padding-left: 0.5rem;
+    padding-top: 1.5rem;
+    margin-left: 0rem;
+}
 
    </style>
 
@@ -167,7 +172,7 @@ a {
 </head>
 <body>
 
-<a class="voltar" href="index.php"> Voltar </a>
+<a href="index.php"><i class="fa-sharp fa-solid fa-angles-left fa-xl"></i></a>
     <main>
         <h1>Logue sua conta</h1>
         
@@ -176,19 +181,21 @@ a {
 
             <label for="email">
                 <span>E-mail</span>
-                <input type="text" id="email" name="email" placeholder="E-mail">
+                <input type="text" id="email" name="email" placeholder="E-mail" required>
             </label>
 
             <label for="password">
                 <span>Senha</span>
-                <input type="password" id="senha" name="senha" placeholder="Senha">
+                <input type="password" id="senha" name="senha" placeholder="Senha" required>
             </label>
 
-            <input class="" type="submit" name="submit" value="Logar" >
+            <p> Não possui uma conta? <a class="Cadastro" href="cadastro.php">Cadastrar </a> </p>
+
+            <input class="" type="submit" name="submit" value="Login">
         </form>
     </main>
     <section class="images">
-        <img src="imagens/mcostura.png" alt="mcostura">
+        <img src="imagens/bvindo.png" alt="mcostura">
         <div class="circle"></div>
     </section>
 </body>

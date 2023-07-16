@@ -7,9 +7,12 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="CSS/bootstrap.min.css">
    <title>Cadastro</title>
+
    <style>
+
       body {
-         background-color: #D9D7EF;
+         background-color: #1B2029;
+         color: #8880FE;
       }
 
       .form-group {
@@ -18,9 +21,23 @@
       }
 
       button {
-         margin-left: 4px;
-         margin-bottom: 10px;
-      }
+         cursor: pointer;
+         width: 50%;
+         margin-top: 2.5rem;
+         border: none;
+         border-radius: 32px;
+         background: #6C63FF;
+         color: white;
+         font-size: 1.1rem;
+         transition: all .3s ease-in-out;
+         padding: 5px;
+         margin-right: 10rem;
+}
+
+button:hover {
+    background: #5952d4;
+}
+
    </style>
 </head>
 
@@ -31,7 +48,7 @@
             <p class="col-sm-0 col-md-1"></p>
             <div class="col-sm-12 col-md-10">
                <div class="form-group">
-                  <label for="InputEmail1">Insira o titulo do modelo</label>
+                  <label class="areas" for="InputEmail1">Insira o titulo do modelo</label>
                   <input type="name" class="form-control" id="Nome" placeholder="Titulo" name="Título">
                </div>
             </div>
@@ -152,7 +169,7 @@
                </div>
                <div class="row gx-0 gy-1">
                   <p class="col-1 col-sm-3 col-md-1"></p>
-                  <button type="submit" class="col-sm-6 col-md-1 btn btn-primary" value="Enviar">Cadastrar</button>
+                  <button type="submit" value="Enviar">Cadastrar</button>
                </div>
             </div>
    </form>

@@ -11,13 +11,14 @@ if(isset($_POST['submit'])) {
 
     include_once('conexao.php');
 
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $telefone = $_POST['telefone'];
-    $senha = $_POST['senha'];
+    $nome = $_POST['Nome usuário'];
+    $email = $_POST['E-mail usuário'];
+    $telefone = $_POST['Telefone usuário'];
+    $senha = $_POST['Senha usuário'];
 
-    $result= mysqli_query($conn, "INSERT INTO usuário(nome,email,telefone,senha) 
-    VALUES ('$nome', '$email', '$telefone', '$senha')");
+    $sql = "INSERT INTO usuário (`Nome usuário`, `E-mail usuário`, `Telefone usuário`, `Senha usuário`)
+    VALUES ('$nome', '$email', '$telefone', '$senha')";
+    $result= mysqli_query($conn, $sql);
 
 header('Location: login.php');
 

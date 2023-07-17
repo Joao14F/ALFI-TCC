@@ -11,10 +11,10 @@ if(isset($_POST['submit'])) {
 
     include_once('conexao.php');
 
-    $nome = $_POST['Nome usuário'];
-    $email = $_POST['E-mail usuário'];
-    $telefone = $_POST['Telefone usuário'];
-    $senha = $_POST['Senha usuário'];
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $telefone = $_POST['telefone'];
+    $senha = $_POST['senha'];
 
     $sql = "INSERT INTO usuário (`Nome usuário`, `E-mail usuário`, `Telefone usuário`, `Senha usuário`)
     VALUES ('$nome', '$email', '$telefone', '$senha')";
@@ -206,7 +206,7 @@ i {
         <form action="cadastro.php" method="POST">
             <label for="name">
                 <span>Insira seu nome</span>
-                <input type="text" id="name" name="nome" placeholder="Nome" required>
+                <input type="text" id="nome" name="nome" placeholder="Nome" required>
             </label>
 
             <label for="email">

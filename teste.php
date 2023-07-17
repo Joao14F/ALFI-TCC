@@ -41,17 +41,17 @@ if ($res && mysqli_num_rows($res) > 0) {
 
     // Link para a página anterior, se não estiver na primeira página
     if ($pagina_atual > 1) {
-        echo '<a href="?page=' . ($pagina_atual - 1) . '">Anterior</a>';
+        echo '<a href="?page=' . ($pagina_atual - 1) . '">Anterior</a>' . ' ';
     }
 
     // Links para as páginas individuais
     for ($i = 1; $i <= $total_paginas; $i++) {
-        echo '<a href="?page=' . $i . '">' . $i . '</a>';
+        echo '<a href="?page=' . $i . '">' . $i . '</a>' . ' ';
     }
 
     // Link para a próxima página, se não estiver na última página
     if ($pagina_atual < $total_paginas) {
-        echo '<a href="?page=' . ($pagina_atual + 1) . '">Próxima</a>';
+        echo '<a href="?page=' . ($pagina_atual + 1) . '">Próxima</a>' . ' ';
     }
 
     echo '</div>';

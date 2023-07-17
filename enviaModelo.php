@@ -97,7 +97,9 @@ if ($Tipo == 'Bermuda') {
 }
 
 if (mysqli_query($conn, $sql)) {
+    echo '</br>';
     echo " Deu certo";
 } else {
+    echo '</br>';
     echo " Deu merda";
 }

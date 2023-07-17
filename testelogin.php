@@ -13,7 +13,7 @@ if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['senha'])
 // print_r('<br>');
 // print_r('Senha: ' . $senha);
 
-$sql = "SELECT * FROM usuário WHERE email = '$email' and senha = '$senha'";
+$sql = "SELECT * FROM usuário WHERE `E-mail usuário` = '$email' and `Senha usuário` = '$senha'";
 
 $result = $conn->query($sql);
 

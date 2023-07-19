@@ -15,7 +15,7 @@
 </head>
 
 <body>
-   <form>
+   <form enctype="multipart/form-data" action="enviaModelo.php" method="POST">
       <div class="container-fluid">
          <div class="row">
             <p class="col-sm-0 col-md-1"></p>

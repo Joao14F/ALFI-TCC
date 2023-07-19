@@ -1,6 +1,6 @@
-CREATE TABLE `modelo` (
-  `Id modelo` int(11) NOT NULL,
-  `Título` varchar(50) NOT NULL,
+CREATE TABLE modelo (
+  `Id modelo` INT NOT NULL,
+  `Título` varchar (50) NOT NULL,
   `Sustentável` varchar(50) NOT NULL,
   `Tipo` varchar(50) NOT NULL,
   `Comprimento` varchar(50) DEFAULT NULL,
@@ -11,8 +11,8 @@ CREATE TABLE `modelo` (
   `Tempo` TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `moderador` (
-  `Id moderador` int(11) NOT NULL,
+CREATE TABLE moderador (
+  `Id moderador` INT NOT NULL,
   `Cadastro moderador` varchar(90) NOT NULL,
   `Nome moderador` varchar(30) NOT NULL,
   `E-mail moderador` varchar(30) NOT NULL,
@@ -20,8 +20,8 @@ CREATE TABLE `moderador` (
   `Modelos inspecionados` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `usuário` (
-  `Id usuário` int(11) NOT NULL,
+CREATE TABLE usuário (
+  `Id usuário` INT NOT NULL,
   `Cadastro` varchar(120) NOT NULL,
   `Nome usuário` varchar(30) NOT NULL,
   `E-mail usuário` varchar(30) NOT NULL,
@@ -29,14 +29,14 @@ CREATE TABLE `usuário` (
   `Senha usuário` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-ALTER TABLE `modelo`
+ALTER TABLE modelo
   ADD PRIMARY KEY (`Id modelo`),
-  MODIFY `Id modelo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id modelo` INT NOT NULL AUTO_INCREMENT;
 
-ALTER TABLE `moderador`
+ALTER TABLE moderador
   ADD PRIMARY KEY (`Id moderador`),
-  MODIFY `Id moderador` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id moderador` INT NOT NULL AUTO_INCREMENT;
 
-ALTER TABLE `usuário`
+ALTER TABLE usuário
   ADD PRIMARY KEY (`Id usuário`),
-  MODIFY `Id usuário` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id usuário` INT NOT NULL AUTO_INCREMENT;

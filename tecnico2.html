@@ -14,20 +14,18 @@
 </head>
 
 <body>
-    <form action="index.html">
-        <div class="botaoleft">
-            <button class="voltar">
-                voltar
-              </button>
-        </div>
-        </form>
     <aside class="sidebar">
-        <select onchange="select_iframe(this.value)">
-            <option value="">Selecione um curso</option>
-            <option value="informatica_bd.html">INFORMÁTICA</option>
-            <option value="hospedagem_bd.html">HOSPEDAGEM</option>
-        </select>
+        <section class="section_form">
+            <div class="feed-form">
+              <button class="i" onclick="select_iframe('informatica_bd.html')">INFORMÁTICA</button>
+            </div>
+        <br>
+        <section class="section_form">
+            <div>
+                <button class="h" onclick="select_iframe('hospedagem_bd.html')">HOSPEDAGEM</button>
+            </div>
     </aside>
+    
     <aside class="centerbar">
         <iframe src="" name="janela" class="posicao"></iframe>
     </aside>

@@ -15,73 +15,27 @@
 </head>
 
 <body>
-   <form enctype="multipart/form-data" action="enviaModelo.php" method="POST">
-      <div class="container-fluid">
-         <div class="row">
-            <p class="col-sm-0 col-md-1"></p>
-            <div class="col-sm-12 col-md-10">
-               <div class="form-group">
-                  <label class="areas" for="InputEmail1">Insira o titulo do modelo</label>
-                  <input type="name" class="form-control" id="Nome" placeholder="Titulo" name="Título">
-               </div>
-            </div>
+   <div class="row">
+      <div class="col-sm-12 col-md-10">
+         <div class="form-group">
+            <section class="section_form">
+               <aside class="sidebar">
+                  <label for="select-options">Selecione o tipo de roupa</label>
+                  <select id="select-options" class="form-select" name="Tipo" onchange="select_iframe(this.value)">
+                     <option value="option0">Selecione uma das opções</option>
+                     <option value="cadastrarSaia.php">Saia</option>
+                     <option value="cadastrarCalça.php">Calça</option>
+                     <option value="cadastrarBermuda.php">Bermuda</option>
+                  </select>
+               </aside>                          
+            </section>
          </div>
-         <div class="row">
-            <p class="col-sm-0 col-md-1"></p>
-            <div class="col-sm-12 col-md-10">
-               <div class="form-group">
-                  <label class="label">
-                     É Sustentável
-                  </label>
-                  <br>
-                  <input type="radio" value="Sim" name="Sustentável">
-                  <label class="label">
-                     Sim
-                  </label>
-                  <input type="radio" value="Não" name="Sustentável">
-                  <label class="label">
-                     Não
-                  </label>
-               </div>
-               <div class="row">
-                  <div class="col-sm-12 col-md-10">
-                     <div class="form-group">
-                        <section class="section_form">
-                           <aside class="sidebar">
-                              <label for="select-options">Selecione o tipo de roupa</label>
-                              <select id="select-options" class="form-select" name="Tipo" onchange="select_iframe(this.value)">
-                                 <option value="option0">Selecione uma das opções</option>
-                                 <option value="Saia.html">Saia</option>
-                                 <option value="Calça.html">Calça</option>
-                                 <option value="Bermuda.html">Bermuda</option>
-                              </select>
-                              </select>
-                          </aside>                          
-                        </section>
-                     </div>
-                  </div>
-               </div>
-               <div class="row">
-                  <aside class="centerbar">
-                     <iframe src="" name="janela" class="aqui"></iframe>
-                 </aside>
-               </div>
-
-               <div class="row">
-
-                  <div class="col-sm-12 col-md-10">
-                     <div class="form-group">
-                        <label for="Tipo">Insira o arquivo</label>
-                        <input type="file" class="form-control" placeholder="E-mail" name="Arquivo">
-                     </div>
-                  </div>
-               </div>
-               <div class="row gx-0 gy-1">
-                  <p class="col-1 col-sm-3 col-md-1"></p>
-                  <button type="submit" value="Enviar">Cadastrar</button>
-               </div>
       </div>
-   </form>
+   </div>
+   <div class="row">
+      <aside class="centerbar">
+         <iframe src="" name="janela" class="aqui"></iframe>
+      </aside>
+   </div>
 </body>
-
 </html>

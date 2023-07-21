@@ -28,9 +28,13 @@
             font-family: Arial, sans-serif;
          }
          header {
-            background-color: #8880FE;
-            margin: 0px -12px;
+            background-color: #1B2029;
+            margin: 0px -24px;
             border-bottom: 2px solid #444079;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
          }
          a.logo img {
             width: 35%;
@@ -39,89 +43,60 @@
          }
          .botões {
             margin: 5px;
+            display: inline-block;
+            margin-top: 22px;
+            margin-bottom: -30px;
          }
+
          .CadastraModelo {
-            border: none;
-            background-color: #2b5d8f;
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 3px;
-            margin: 2px;
-            background: #1B2029;
-            cursor: pointer;
-            width: 70%;
-            margin-top: 0.6rem;
-            border: none;
-            border-radius: 32px;
-            color: white;
+            border: 2px solid #8880FE;
+            padding: 8px;
+            border-radius: 30px;
             font-size: 1.5rem;
-            transition: all .3s ease-in-out;
+            width: 60%;
+            background: #1B2029;
          }
          .login {
-            border: none;
-            background-color: #2b5d8f;
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 3px;
-            margin: 2px;
-            background: #1B2029;
-            cursor: pointer;
-            width: 30%;
-            margin-top: 0.6rem;
-            border: none;
-            border-radius: 32px;
-            color: white;
+            border: 2px solid #8880FE;
+            padding: 8px;
+            border-radius: 30px;
             font-size: 1.5rem;
-            transition: all .3s ease-in-out;
+            width: 30%;
+            background: #1B2029;
+            margin-right: 2rem;
          }
+
          .cadastro {
-            border: none;
-            background-color: #0ead78;
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 3px;
-            margin: 2px;
-            background: #1B2029;
-            cursor: pointer;
-            width: 30%;
-            margin-top: 0.6rem;
-            border: none;
-            border-radius: 32px;
-            color: white;
+            border: 2px solid #8880FE;
+            padding: 8px;
+            border-radius: 30px;
             font-size: 1.5rem;
-            transition: all .3s ease-in-out;
+            width: 40%;
+            background: #1B2029;
          }
+         
+         .login:hover{
+            background: #8880FE;
+            color: white;
+            transition: 0.3s all;
+         }
+
+         .CadastraModelo:hover{
+            background: #8880FE;
+            color: white;
+            transition: 0.3s all;
+         }
+
+         .cadastro:hover{
+            background: #8880FE;
+            color: white;
+            transition: 0.3s all;
+         }
+
          form {
             display: flex;
             align-items: center;
-         }
-         input[type="text"] {
-            border: none;
-            border-bottom: 2px solid #ccc;
-            font-size: 16px;
-            padding: 5px;
-            border-radius: 5px;
-         }        
-         input[type="search"] {
-            cursor: pointer;
-            width: 50%;
-            margin-top: 1rem;
-            border: none;
-            border-radius: 32px;
-            background: #1B2029;
-            color: white;
-            font-size: 2rem;
-            transition: all .3s ease-in-out;
-            text-align: center;
-         }
-         input[type="search"] {
-            background: #1B2029;
-            font-size: 1rem;
-            float: right;
-         }
+         }      
 
          input [placeholder] {
             background-color: white;
@@ -148,6 +123,8 @@
             border: 1px solid #444079;
             border-radius: 8px;
          }
+
+
          /* footer */
 
          
@@ -243,6 +220,11 @@ footer .container .quicklinks ul li a {
     color: #d9d9d9;
     text-decoration: none;
     margin-left: -5rem;
+}
+
+footer .container .quicklinks ul li a:hover {
+    color: #8880FE;
+    transition: 0.3s all;
 }
 
 footer .container .contact .info {
@@ -385,10 +367,8 @@ footer .container .lk p {
      <div class="sec quicklinks">
      <h2>Suporte</h2>
      <ul>
-        <li><a href="#">FAQ</a></li>
-        <li><a href="#">Política de Privacidade</a></li>
-        <li><a href="#">Ajuda</a></li>
-        <li><a href="#">Contato</a></li>
+        <li><a href="FAQ.php">FAQ</a></li>
+        <li><a href="pdep.php">Política de Privacidade</a></li>
      </ul>
      </div>
      

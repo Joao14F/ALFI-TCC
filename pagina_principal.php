@@ -122,6 +122,11 @@ footer .container .quicklinks ul li a {
     margin-left: -5rem;
 }
 
+footer .container .quicklinks ul li a:hover {
+    color: #8880FE;
+    transition: 0.3s all;
+}
+
 footer .container .contact .info {
     position: relative;
 }
@@ -229,10 +234,8 @@ echo "<h1>Bem Vindo <u>$logado</u></h1>";
      <div class="sec quicklinks">
      <h2>Suporte</h2>
      <ul>
-        <li><a href="#">FAQ</a></li>
-        <li><a href="#">Política de Privacidade</a></li>
-        <li><a href="#">Ajuda</a></li>
-        <li><a href="#">Contato</a></li>
+        <li><a href="FAQ.phpt">FAQ</a></li>
+        <li><a href="pdep2.php">Política de Privacidade</a></li>
      </ul>
      </div>
      

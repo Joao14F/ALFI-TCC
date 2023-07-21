@@ -27,7 +27,7 @@
    <div class="container-fluid">
       <div class="row">
          <div class="col-sm-12 col-md-12">
-            <div class="form-group">
+            <div class="form-grou9p">
                <section class="section_form">
                   <aside class="sidebar">
                      <label for="select-options">Selecione o tipo de roupa</label>

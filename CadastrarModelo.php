@@ -71,7 +71,7 @@ button:hover {
                   </label>
                </div>
                <div class="row">
-                  <div class="col-sm-12 col-md-10">
+                  <div class="col-sm-12 col-md-12">
                      <div class="form-group">
                         <label for="select-options">Selecione o tipo de roupa</label>
                         <select id="select-options" class="form-select" name="Tipo">
@@ -160,7 +160,7 @@ button:hover {
                </script>
                <div class="row">
 
-                  <div class="col-sm-12 col-md-10">
+                  <div class="col-sm-12 col-md-12">
                      <div class="form-group">
                         <label for="Tipo">Insira o arquivo</label>
                         <input type="file" class="form-control" placeholder="E-mail" name="Arquivo">

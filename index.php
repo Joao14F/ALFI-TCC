@@ -305,6 +305,32 @@ footer .container .lk p {
     line-height: 2;
 }
 
+div.scrollmenu {
+  background-color: #333;
+  overflow: hidden; /* Oculta a barra de rolagem vertical */
+}
+
+.trilho_classe {
+  overflow-x: hidden; /* Oculta a barra de rolagem horizontal */
+  white-space: nowrap;
+}
+
+.trilho_classe_Contents {
+  display: inline-flex;
+}
+
+/* Estilize os botões de rolagem se desejar */
+button {
+  background-color: #777;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #444;
+} 
             
 
       </style>
@@ -328,25 +354,55 @@ footer .container .lk p {
                </div>
             </div>
          </header>
-       
-         </br>
-         </br>
-         <?php
-            include_once('conexao.php');
-           /* for ($i=1; $i = 20; $i++) { 
-               $sql = "SELECT `Arquivo` from modelo  WHERE $i";
-            $res = mysqli_query($conn, $sql);
-            if ($res && mysqli_num_rows($res) > 0) {
-                $row = mysqli_fetch_assoc($res);
-                $endereco_imagem = $row['Arquivo'];
-            
-                echo '<img src="' . $endereco_imagem . '" alt="Imagem">';
-            } else {
-                echo 'Nenhuma imagem encontrada.';
-            }
-            }*/
-         ?>
-         </br>
+       //////////////////
+         <div class="scrollmenu">
+    <div class="trilho_classe" id="trilho">
+      <div class="trilho_classe_Contents">
+        <img src="imagens/bvindo.png" alt="Imagem 1" style="width: 5%;">
+        <img src="imagens/bvindo.png" alt="Imagem 2" style="width: 5%;">
+        <img src="imagens/bvindo.png" alt="Imagem 3" style="width: 5%;">
+        <img src="imagens/bvindo.png" alt="Imagem 4" style="width: 5%;">
+        <img src="imagens/bvindo.png" alt="Imagem 5" style="width: 5%;">
+        <img src="imagens/bvindo.png" alt="Imagem 6" style="width: 5%;">
+        <img src="imagens/bvindo.png" alt="Imagem 7" style="width: 5%;">
+        <img src="imagens/bvindo.png" alt="Imagem 8" style="width: 5%;">
+        <img src="imagens/bvindo.png" alt="Imagem 9" style="width: 5%;">
+        <img src="imagens/bvindo.png" alt="Imagem 10" style="width: 5%;">
+        <img src="imagens/bvindo.png" alt="Imagem 6" style="width: 5%;">
+        <img src="imagens/bvindo.png" alt="Imagem 11" style="width: 5%;">
+        <img src="imagens/bvindo.png" alt="Imagem 12"style="width: 5%;">
+        <img src="imagens/bvindo.png" alt="Imagem 13" style="width: 5%;">
+        <img src="imagens/bvindo.png" alt="Imagem 14" style="width: 5%;">
+        <img src="imagens/bvindo.png" alt="Imagem 15" style="width: 5%;">
+        <img src="imagens/bvindo.png" alt="Imagem 16" style="width: 5%;">
+        <img src="imagens/bvindo.png" alt="Imagem 17" style="width: 5%;">
+        <img src="imagens/bvindo.png" alt="Imagem 18" style="width: 5%;">
+        <img src="imagens/bvindo.png" alt="Imagem 19" style="width: 5%;">
+        <img src="imagens/bvindo.png" alt="Imagem 20" style="width: 5%;">
+        <img src="imagens/bvindo.png" alt="Imagem 21" style="width: 5%;">
+
+
+        <!-- Adicione outras imagens aqui -->
+      </div>
+    </div>
+    <button onclick="scrollGaleria(-100)">&#10094; Anterior</button>
+    <button onclick="scrollGaleria(100)">Próximo &#10095;</button>
+  </div>
+
+  <script>
+   const trilho = document.getElementById('trilho');
+const trilhoWidth = trilho.scrollWidth;
+
+// Função para rolar a galeria
+function scrollGaleria(scrollAmount) {
+  trilho.scrollBy({
+    top: 0,
+    left: scrollAmount,
+    behavior: 'smooth'
+  });
+}
+  </script>
+  //////////////
          
          <div class="row">
             <div class="col-12">

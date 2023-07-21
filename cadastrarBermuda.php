@@ -77,17 +77,25 @@ button:hover {
                </div>
                <div id="form-fields" class="row"></div>
                     <form id="formulario">
+                    <div class="form-group">
                         <label class="areas" for="Comprimento">Insira o comprimento em centimetros</label>
-                        <input type="text" class="Comprimento" placeholder="Comprimento">
+                        <input type="text" class="form-control" placeholder="Comprimento">
+                    </div>
                         <br>
+                        <div class="form-group">
                         <label class="areas" for="Quadril">Insira o comprimento do quadril em centimetros</label>
-                        <input type="text" class="Quadril" placeholder="Quadril">
+                        <input type="text" class="form-control" placeholder="Quadril">
+                        </div>
                         <br>
+                        <div class="form-group">
                         <label class="areas" for="Cintura">Insira o comprimento da cintura em centimetros</label>
-                        <input type="text" class="Cintura" placeholder="Cintura">
+                        <input type="text" class="form-control" placeholder="Cintura">
+                        </div>
                         <br>
+                        <div class="form-group">
                         <label class="areas" for="Gancho">Insira o comprimento do gancho em centimetros</label>
-                        <input type="text" class="Gancho" placeholder="Gancho">
+                        <input type="text" class="form-control" placeholder="Gancho">
+                        </div>
                     </form>
                <div class="row">
 

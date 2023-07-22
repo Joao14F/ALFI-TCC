@@ -5,15 +5,17 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="CSS/bootstrap.min.css">
-   <script defer src="JS/bootstrap.bundle.min.js"></script>
    <link rel="icon" type="image/png" href="imagens/navlogo.png">
-
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
    <title>Index</title>
+
+   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+   <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <!--
+   <link rel="stylesheet" href="CSS/bootstrap.min.css">
+   <script src="JS/bootstrap.bundle.min.js"></script>
+-->
+   
    <style>
       /* Global styles */
       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
@@ -96,6 +98,10 @@
          background: #8880FE;
          color: white;
          transition: 0.3s all;
+      }
+
+      .dropdown-menu {
+         margin: 5px;
       }
 
       input[placeholder] {
@@ -300,28 +306,41 @@
 
 <body>
    <div class="container-fluid">
-      <header>
-         <div class="row gx-0">
-            <div class="col-12 col-sm-12 col-md-3">
-               <a class="logo" href="index.php">
-                  <img src="imagens/logo.png" alt="logo!">
-               </a>
-            </div>
-            <div class="botões col-12 col-sm-12 col-md-4">
-               <a href="CadastrarModelo.php"><button class="CadastraModelo">Cadastrar Modelo</button></a>
-            </div>
-            <div class="botões col-12 col-sm-12 col-md-4">
-               <a href="login.php"><button class="login">Login</button></a>
-               <a href="cadastro.php"><button class="cadastro">Cadastro</button></a>
-            </div>
+   <header>
+   <div class="container-fluid">
+      <div class="row gx-0">
+         <div class="col-12 col-sm-12 col-md-3">
+            <a class="logo" href="index.php">
+               <img src="imagens/logo.png" alt="logo!">
+            </a>
          </div>
-      </header>
-
-      <div class="row">
-         <div class="col-12">
-
+         <div class="botões col-12 col-sm-12 col-md-4">
+            <a href="CadastrarModelo.php"><button class="CadastraModelo">Cadastrar Modelo</button></a>
+         </div>
+         <div class="botões col-12 col-sm-12 col-md-4">
+            <a href="login.php"><button class="login">Login</button></a>
+            <a href="cadastro.php"><button class="cadastro">Cadastro</button></a>
          </div>
       </div>
+
+      <!-- Dropdown menu -->
+      <div class="row gx-0">
+         <div class="col-12 col-sm-12 col-md-3">
+            <div class="dropdown">
+               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Dropdown
+               </button>
+               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Item 1</a>
+                  <a class="dropdown-item" href="#">Item 2</a>
+                  <a class="dropdown-item" href="#">Item 3</a>
+                  <!-- Adicione mais itens do menu conforme necessário -->
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</header>
    </div>
 
    <footer id="footer">

@@ -8,6 +8,7 @@
     div.scrollmenu {
     background-color: #333;
     overflow: hidden; /* Oculta a barra de rolagem vertical */
+    margin: 0px 50px;
     }
 
     .trilho_classe {
@@ -18,6 +19,15 @@
     .trilho_classe_Contents {
     display: inline-flex;
     }
+
+    img {
+      width: 130px;
+      margin: 10px;
+      border: solid green;
+      border-radius: 7px;
+    }
+
+
 
     /* Estilize os botões de rolagem se desejar */
     button {
@@ -36,22 +46,40 @@
 
 </head>
 <body>
-  <div class="scrollmenu">
+<div class="scrollmenu">
     <div class="trilho_classe" id="trilho">
       <div class="trilho_classe_Contents">
-        <img src="imagem1.jpg" alt="Imagem 1">
-        <img src="imagem2.jpg" alt="Imagem 2">
-        <img src="imagem3.jpg" alt="Imagem 3">
-        <!-- Adicione outras imagens aqui -->
+        <img src="../imagens/bvindo.png" alt="Imagem 1">
+        <img src="../imagens/bvindo.png" alt="Imagem 2">
+        <img src="../imagens/bvindo.png" alt="Imagem 3">
+        <img src="../imagens/bvindo.png" alt="Imagem 4">
+        <img src="../imagens/bvindo.png" alt="Imagem 5">
+        <img src="../imagens/bvindo.png" alt="Imagem 6">
+        <img src="../imagens/bvindo.png" alt="Imagem 7">
+        <img src="../imagens/bvindo.png" alt="Imagem 8">
+        <img src="../imagens/bvindo.png" alt="Imagem 9">
+        <img src="../imagens/bvindo.png" alt="Imagem 10">
+        <img src="../imagens/bvindo.png" alt="Imagem 6">
+        <img src="../imagens/bvindo.png" alt="Imagem 11">
+        <img src="../imagens/bvindo.png" alt="Imagem 12">
+        <img src="../imagens/bvindo.png" alt="Imagem 13">
+        <img src="../imagens/bvindo.png" alt="Imagem 14">
+        <img src="../imagens/bvindo.png" alt="Imagem 15">
+        <img src="../imagens/bvindo.png" alt="Imagem 16">
+        <img src="../imagens/bvindo.png" alt="Imagem 17">
+        <img src="../imagens/bvindo.png" alt="Imagem 18">
+        <img src="../imagens/bvindo.png" alt="Imagem 19">
+        <img src="../imagens/bvindo.png" alt="Imagem 20">
+        <img src="../imagens/bvindo.png" alt="Imagem 21">
       </div>
     </div>
     <button onclick="scrollGaleria(-100)">&#10094; Anterior</button>
     <button onclick="scrollGaleria(100)">Próximo &#10095;</button>
   </div>
+  
 
   <script>
-    // Obtém o elemento da galeria e a largura do trilho
-const trilho = document.getElementById('trilho');
+   const trilho = document.getElementById('trilho');
 const trilhoWidth = trilho.scrollWidth;
 
 // Função para rolar a galeria

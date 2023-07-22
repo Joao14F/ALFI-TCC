@@ -15,6 +15,7 @@
 
    <title>Index</title>
    <style>
+      /* Global styles */
       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
       * {
@@ -34,6 +35,7 @@
          background: #1B2029;
       }
 
+      /* Header styles */
       header {
          background-color: #1B2029;
          margin: 0px -24px;
@@ -56,7 +58,7 @@
          margin-top: 22px;
          margin-bottom: -30px;
       }
-
+     
       .CadastraModelo {
          border: 2px solid #8880FE;
          padding: 8px;
@@ -64,6 +66,7 @@
          font-size: 1.5rem;
          width: 60%;
          background: #1B2029;
+         color: #8880FE;
       }
 
       .login {
@@ -74,6 +77,7 @@
          width: 30%;
          background: #1B2029;
          margin-right: 2rem;
+         color: #8880FE;
       }
 
       .cadastro {
@@ -83,27 +87,18 @@
          font-size: 1.5rem;
          width: 40%;
          background: #1B2029;
+         color: #8880FE;
       }
 
-      .CadastraModelo:hover {
-         background: #8880FE;
-         color: white;
-         transition: 0.3s all;
-      }
-
-      .login:hover {
-         background: #8880FE;
-         color: white;
-         transition: 0.3s all;
-      }
-
+      .CadastraModelo:hover,
+      .login:hover,
       .cadastro:hover {
          background: #8880FE;
          color: white;
          transition: 0.3s all;
       }
 
-      input [placeholder] {
+      input[placeholder] {
          background-color: white;
       }
 
@@ -132,15 +127,15 @@
          border-radius: 8px;
       }
 
-
-      /* footer */
-
-
-      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
-
-      * {
-         font-family: "Poppins", sans-serif;
-         color: #8880FE;
+      /* Footer styles */
+      footer {
+         position: absolute;
+         width: 100%;
+         display: grid;
+         font-size: 12px;
+         background: #1B2029;
+         left: 0px;
+         padding-bottom: 0rem;
       }
 
       #page-container {
@@ -159,16 +154,6 @@
          width: 100%;
          height: 2.5rem;
          /* altura do rodapé */
-      }
-
-      footer {
-         position: absolute;
-         width: 100%;
-         display: grid;
-         font-size: 12px;
-         background: #1B2029;
-         left: 0px;
-         padding-bottom: 0rem;
       }
 
       h2 {
@@ -190,7 +175,6 @@
          color: white;
          font-weight: 600;
          margin-left: -4rem;
-
       }
 
       footer .container .sec p {
@@ -229,35 +213,34 @@
          transition: 0.3s all;
       }
 
-      footer .container .contact .info {
+      footer .container .contact {
          position: relative;
          align-items: flex-start;
       }
 
       footer .container .contact h2 {
-
          color: white;
          font-weight: 600;
          margin-left: -8rem;
          margin-right: -3rem;
       }
 
-      footer .container .contact .info li {
+      footer .container .contact ul li {
          display: grid;
          grid-template-columns: 30px 1fr;
       }
 
-      footer .container .contact .info li span {
+      footer .container .contact ul li span {
          font-size: 20px;
       }
 
-      footer .container .contact .info li a {
+      footer .container .contact ul li a {
          color: #d9d9d9;
          text-decoration: none;
          margin-left: -5rem;
       }
 
-      footer .container .contact .info li i {
+      footer .container .contact ul li i {
          color: white;
          margin-left: -10rem;
          margin-top: 1.4rem;
@@ -276,7 +259,6 @@
          padding: 5px;
          text-decoration: none;
          margin-left: -10.1rem;
-
       }
 
       footer .container .lk a:hover {
@@ -290,6 +272,13 @@
          margin-right: -3rem;
          line-height: 2;
       }
+
+      /* Other styles */
+      .container-fluid {
+         /* Add any container-fluid styles if necessary */
+      }
+
+      /* Add any additional styles for specific sections or elements here */
 
       .copyrightText {
          width: 100%;
@@ -341,7 +330,8 @@
             <h2>Sobre Nós</h2>
             <p>O ALFI é um site de compartilhamento de moldes de roupas,
                focado em disponibilizar aos usúarios uma plataforma para
-               obter e compartilhar os moldes das roupas desejedas pelos mesmos.</p>
+               obter e compartilhar os moldes das roupas desejedas pelos mesmos.
+            </p>
          </div>
 
          <div class="sec quicklinks">
@@ -370,20 +360,11 @@
             </ul>
             <a class="" href="testeform.php">Contato</a>
          </div>
-
-
-      </div>
-
-
-
       </div>
    </footer>
 
    <div class="copyrightText">
       <p>Copyright © 2023 ALFI All rights reserved.</p>
-   </div>
-
-   </div>
    </div>
 </body>
 

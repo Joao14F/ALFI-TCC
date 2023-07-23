@@ -10,21 +10,13 @@
 
    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-   <!--
-   <link rel="stylesheet" href="CSS/bootstrap.min.css">
-   <script src="JS/bootstrap.bundle.min.js"></script>
--->
-   
+
    <style>
       /* Global styles */
       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
       * {
-         margin: 0;
-         padding: 0;
-         border: 0;
-         box-sizing: border-box;
+
          font-family: "Poppins", sans-serif;
       }
 
@@ -60,7 +52,7 @@
          margin-top: 22px;
          margin-bottom: -30px;
       }
-     
+
       .CadastraModelo {
          border: 2px solid #8880FE;
          padding: 8px;
@@ -166,7 +158,7 @@
          font-size: 22px;
       }
 
-      footer .container {
+      .caixote {
          width: 100%;
          grid-template-columns: repeat(4, 1fr);
          grid-gap: 14rem;
@@ -176,14 +168,14 @@
          align-items: flex-start;
       }
 
-      footer .container .sec h2 {
+      .caixote .sec h2 {
          position: relative;
          color: white;
          font-weight: 600;
          margin-left: -4rem;
       }
 
-      footer .container .sec p {
+      .caixote .sec p {
          color: #d9d9d9;
          margin-left: -4rem;
          padding-top: 0.1rem;
@@ -192,67 +184,67 @@
          line-height: 2;
       }
 
-      footer .container .quicklinks {
+      .caixote .quicklinks {
          position: relative;
          align-items: flex-start;
       }
 
-      footer .container .quicklinks h2 {
+      .caixote .quicklinks h2 {
          position: relative;
          color: white;
          font-weight: 600;
          margin-left: -3rem;
       }
 
-      footer .container .quicklinks ul li {
+      .caixote .quicklinks ul li {
          list-style: none;
       }
 
-      footer .container .quicklinks ul li a {
+      .caixote .quicklinks ul li a {
          color: #d9d9d9;
          text-decoration: none;
          margin-left: -5rem;
       }
 
-      footer .container .quicklinks ul li a:hover {
+      .caixote .quicklinks ul li a:hover {
          color: #8880FE;
          transition: 0.3s all;
       }
 
-      footer .container .contact {
+      .caixote .contact {
          position: relative;
          align-items: flex-start;
       }
 
-      footer .container .contact h2 {
+      .caixote .contact h2 {
          color: white;
          font-weight: 600;
          margin-left: -8rem;
          margin-right: -3rem;
       }
 
-      footer .container .contact ul li {
+      .caixote .contact ul li {
          display: grid;
          grid-template-columns: 30px 1fr;
       }
 
-      footer .container .contact ul li span {
+      .caixote .contact ul li span {
          font-size: 20px;
       }
 
-      footer .container .contact ul li a {
+      .caixote .contact ul li a {
          color: #d9d9d9;
          text-decoration: none;
          margin-left: -5rem;
       }
 
-      footer .container .contact ul li i {
+      .caixote .contact ul li i {
          color: white;
          margin-left: -10rem;
          margin-top: 1.4rem;
       }
 
-      footer .container .lk a {
+      .caixote .lk a {
          cursor: pointer;
          width: 15%;
          border: none;
@@ -267,24 +259,17 @@
          margin-left: -10.1rem;
       }
 
-      footer .container .lk a:hover {
+      .caixote .lk a:hover {
          background: #d9d9d9;
       }
 
-      footer .container .lk p {
+      .caixote .lk p {
          color: #d9d9d9;
          margin-left: -12rem;
          text-align: justify;
          margin-right: -3rem;
          line-height: 2;
       }
-
-      /* Other styles */
-      .container-fluid {
-         /* Add any container-fluid styles if necessary */
-      }
-
-      /* Add any additional styles for specific sections or elements here */
 
       .copyrightText {
          width: 100%;
@@ -306,84 +291,89 @@
 
 <body>
    <div class="container-fluid">
-   <header>
-   <div class="container-fluid">
-      <div class="row gx-0">
-         <div class="col-12 col-sm-12 col-md-3">
-            <a class="logo" href="index.php">
-               <img src="imagens/logo.png" alt="logo!">
-            </a>
-         </div>
-         <div class="botões col-12 col-sm-12 col-md-4">
-            <a href="CadastrarModelo.php"><button class="CadastraModelo">Cadastrar Modelo</button></a>
-         </div>
-         <div class="botões col-12 col-sm-12 col-md-4">
-            <a href="login.php"><button class="login">Login</button></a>
-            <a href="cadastro.php"><button class="cadastro">Cadastro</button></a>
-         </div>
-      </div>
+      <header>
+         <div class="row gx-0">
+            <div class="col-sm-12 col-md-3">
+               <a class="logo" href="index.php">
+                  <img src="imagens/logo.png" alt="logo!">
+               </a>
+            </div>
+            <div class="botões col-sm-12 col-md-4">
+               <a href="CadastrarModelo.php"><button class="CadastraModelo">Cadastrar Modelo</button></a>
+            </div>
 
-      <!-- Dropdown menu -->
-      <div class="row gx-0">
-         <div class="col-12 col-sm-12 col-md-3">
-            <div class="dropdown">
-               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Dropdown
-               </button>
-               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Item 1</a>
-                  <a class="dropdown-item" href="#">Item 2</a>
-                  <a class="dropdown-item" href="#">Item 3</a>
-                  <!-- Adicione mais itens do menu conforme necessário -->
-               </div>
+            <div class="botões col-sm-12 col-md-4">
+               <a href="login.php"><button class="login">Login</button></a>
+               <a href="cadastro.php"><button class="cadastro">Cadastro</button></a>
             </div>
          </div>
+      </header>
+      <div class="row gx-0">
+         <nav class="navbar navbar-expand-lg">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown
+                     </a>
+                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Saias</a></li>
+                        <li><a class="dropdown-item" href="#">Calças</a></li>
+                        <li><a class="dropdown-item" href="#">Bermuda</a></li>
+                        <li>
+                           <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                     </ul>
+                  </li>
+               </ul>
+            </div>
+         </nav>
       </div>
-   </div>
-</header>
-   </div>
 
-   <footer id="footer">
-      <div class="container">
-         <div class="sec sobrenos">
-            <h2>Sobre Nós</h2>
-            <p>O ALFI é um site de compartilhamento de moldes de roupas,
-               focado em disponibilizar aos usúarios uma plataforma para
-               obter e compartilhar os moldes das roupas desejedas pelos mesmos.
-            </p>
-         </div>
 
-         <div class="sec quicklinks">
-            <h2>Suporte</h2>
-            <ul>
-               <li><a href="FAQ.php">FAQ</a></li>
-               <li><a href="pdep.php">Política de Privacidade</a></li>
-            </ul>
-         </div>
+      <footer id="footer">
+         <div class="caixote">
+            <div class="sec sobrenos">
+               <h2>Sobre Nós</h2>
+               <p>O ALFI é um site de compartilhamento de moldes de roupas,
+                  focado em disponibilizar aos usúarios uma plataforma para
+                  obter e compartilhar os moldes das roupas desejedas pelos mesmos.
+               </p>
+            </div>
 
-         <div class="sec contact">
-            <h2>Entre em Contato</h2>
-            <ul class="info">
-               <li>
-                  <span><i class="fa-solid fa-envelope"></i></span>
-                  <p><a href="mailto:teamalfi2023@gmail.com">teamalfi2023@gmail.com</a></p>
-               </li>
-            </ul>
-         </div>
+            <div class="sec quicklinks">
+               <h2>Suporte</h2>
+               <ul>
+                  <li><a href="FAQ.php">FAQ</a></li>
+                  <li><a href="pdep.php">Política de Privacidade</a></li>
+               </ul>
+            </div>
 
-         <div class="lk">
-            <ul>
-               <li>
-                  <p>Caso queira enviar alguma sugestão, solicitação ou mensagem, você pode nos contatar clicando no botão abaixo:</p>
-               </li>
-            </ul>
-            <a class="" href="testeform.php">Contato</a>
+            <div class="sec contact">
+               <h2>Entre em Contato</h2>
+               <ul class="info">
+                  <li>
+                     <span><i class="fa-solid fa-envelope"></i></span>
+                     <p><a href="mailto:teamalfi2023@gmail.com">teamalfi2023@gmail.com</a></p>
+                  </li>
+               </ul>
+            </div>
+
+            <div class="lk">
+               <ul>
+                  <li>
+                     <p>Caso queira enviar alguma sugestão, solicitação ou mensagem, você pode nos contatar clicando no botão abaixo:</p>
+                  </li>
+               </ul>
+               <a class="" href="testeform.php">Contato</a>
+            </div>
          </div>
+      </footer>
+
+      <div class="copyrightText">
+         <p>Copyright © 2023 ALFI All rights reserved.</p>
       </div>
-   </footer>
-
-   <div class="copyrightText">
-      <p>Copyright © 2023 ALFI All rights reserved.</p>
    </div>
 </body>
 

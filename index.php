@@ -94,6 +94,7 @@
 
       .dropdown-menu {
          margin: 5px;
+         
       }
 
       input[placeholder] {

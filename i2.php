@@ -77,7 +77,9 @@
          transition: 0.3s all;
       }
 
-      .dropdown-menu {}
+      .dropdown-toggle {
+         background-color: azure;
+      }
 
       /* Footer styles */
       footer {
@@ -163,7 +165,6 @@
          text-align: center;
          padding: 5px;
          text-decoration: none;
-         margin-left: -10.1rem;
       }
 
       .xinga:hover {
@@ -190,12 +191,12 @@
    <div class="container-fluid">
       <header>
          <div class="row">
-            <div class="col-sm-12 col-md-3">
+            <div class="col-sm-6 col-md-3">
                <a class="logo" href="index.php">
                   <img src="imagens/logo.png" alt="logo!">
                </a>
             </div>
-            <div class="botões col-sm-12 col-md-4">
+            <div class="botões col-sm-6 col-md-4">
                <a href="CadastrarModelo.php"><button class="CadastraModelo">Cadastrar Modelo</button></a>
             </div>
 
@@ -207,26 +208,14 @@
          </div>
       </header>
       <div class="row">
-         <nav class="navbar navbar-expand-lg">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Modelos
-                     </a>
-                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Saias</a></li>
-                        <li><a class="dropdown-item" href="#">Calças</a></li>
-                        <li><a class="dropdown-item" href="#">Bermuda</a></li>
-                        <li>
-                           <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                     </ul>
-                  </li>
-               </ul>
-            </div>
-         </nav>
+         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <select class="form-select">
+               <option hidden>Escolha o tipo de peça desejado</option>
+               <option>Saias</option>
+               <option>Calças</option>
+               <option>Bermudas</option>
+            </select>
+         </div>
       </div>
       <footer>
          <div class="caixote">

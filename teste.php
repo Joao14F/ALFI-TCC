@@ -372,15 +372,6 @@
                 </div>
             </div>
         </header>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <select class="form-select">
-               <option hidden>Escolha o tipo de peça desejado</option>
-               <option>Todas as peças</option>
-               <option>Saias</option>
-               <option>Calças</option>
-               <option>Bermudas</option>
-            </select>
-         </div>
 
         <?php
             include_once('conexao.php');
@@ -398,29 +389,8 @@
             // Calcula o deslocamento (offset) com base na página atual
             $offset = ($pagina_atual - 1) * $resultados_por_pagina;
 
-            //Começo do meio merda
-
-            // Define the selected option value from the dropdown menu
-            $selectedOption = isset($_POST['select1']) ? $_POST['select1'] : '';
-
-            // Define the default condition for the WHERE clause
-            $condition = "1"; // This will always be true, showing all images if no option is selected
-
-            // Add additional conditions based on the selected option
-            if ($selectedOption === "Todas as peças") {
-                $condition = "ID modelo > 0";            
-            }elseif ($selectedOption === "Saias") {
-                $condition = "Tipo = 'Saia'";
-            } elseif ($selectedOption === "Calças") {
-                $condition = "Tipo = 'Calça'";
-            } elseif ($selectedOption === "Bermudas") {
-                $condition = "Tipo = 'Bermuda'";
-            }
-            
-            //Fim do meio merda
-
-            // Continue with the existing code
-            $sql = "SELECT `Arquivo` FROM `modelo` WHERE $condition LIMIT $offset, $resultados_por_pagina";
+            // Consulta o banco de dados para obter os caminhos das imagens limitados pelos resultados da página atual
+            $sql = "SELECT `Arquivo` FROM `modelo` LIMIT $offset, $resultados_por_pagina";
             $res = mysqli_query($conn, $sql);
 
             if ($res && mysqli_num_rows($res) > 0) {

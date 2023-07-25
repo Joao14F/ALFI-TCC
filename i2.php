@@ -187,12 +187,12 @@
    <div class="container-fluid">
       <header>
          <div class="row">
-            <div class="col-sm-6 col-md-3">
+            <div class="col-sm-12 col-md-3">
                <a class="logo" href="index.php">
                   <img src="imagens/logo.png" alt="logo!">
                </a>
             </div>
-            <div class="botões col-sm-6 col-md-4">
+            <div class="botões col-sm-12 col-md-4">
                <a href="CadastrarModelo.php"><button class="CadastraModelo">Cadastrar Modelo</button></a>
             </div>
 

@@ -76,11 +76,7 @@
          color: white;
          transition: 0.3s all;
       }
-
-      .dropdown-toggle {
-         background-color: azure;
-      }
-
+      
       /* Footer styles */
       footer {
          font-size: 12px;
@@ -98,58 +94,58 @@
          background: #1B2029;
       }
 
-      .caixote .sec h2 {
+      .sec h2 {
          color: white;
          font-weight: 600;
       }
 
-      .caixote .sec p {
+      .sec p {
          color: #d9d9d9;
          padding-top: 0.1rem;
          text-align: justify;
          line-height: 2;
       }
 
-      .caixote .quicklinks {}
+      .quicklinks {}
 
-      .caixote .quicklinks h2 {
+      .quicklinks h2 {
          color: white;
          font-weight: 600;
       }
 
-      .caixote .quicklinks ul li {
+      .quicklinks ul li {
          list-style: none;
       }
 
-      .caixote .quicklinks ul li a {
+      .quicklinks ul li a {
          color: #d9d9d9;
          text-decoration: none;
       }
 
-      .caixote .quicklinks ul li a:hover {
+      .quicklinks ul li a:hover {
          color: #8880FE;
          transition: 0.3s all;
       }
 
-      .caixote .contact {}
+      .contact {}
 
-      .caixote .contact h2 {
+      .contact h2 {
          color: white;
          font-weight: 600;
       }
 
-      .caixote .contact ul li {}
+      .contact ul li {}
 
-      .caixote .contact ul li span {
+      .contact ul li span {
          font-size: 20px;
       }
 
-      .caixote .contact ul li a {
+      .contact ul li a {
          color: #d9d9d9;
          text-decoration: none;
       }
 
-      .caixote .contact ul li i {
+      .contact ul li i {
          color: white;
       }
 
@@ -211,6 +207,7 @@
          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <select class="form-select">
                <option hidden>Escolha o tipo de peça desejado</option>
+               <option>Todas as peças</option>
                <option>Saias</option>
                <option>Calças</option>
                <option>Bermudas</option>
@@ -235,20 +232,26 @@
                      <li><a href="pdep.php">Política de Privacidade</a></li>
                   </ul>
                </div>
-
-               <div class="sec contact col-sm-12 col-md-4">
-                  <h2>Entre em Contato</h2>
-                  <ul class="info">
-                     <li>
-                        <p>Caso queira enviar alguma sugestão, solicitação ou mensagem, você pode nos contatar clicando no botão abaixo ou através do e-mail: <a href="mailto:teamalfi2023@gmail.com" class="mail">teamalfi2023@gmail.com</a></p>
-                     </li>
-                     <a class="xinga" href="testeform.php">Contato</a>
-                  </ul>
+               <div class="col-sm12 col-md-4">
+                  <div class="sec contact">
+                     <h2>Entre em Contato</h2>
+                     <ul class="info">
+                        <li>
+                           <p>Caso queira enviar alguma sugestão, solicitação ou mensagem, você pode nos contatar clicando no botão abaixo ou através do e-mail: <a href="mailto:teamalfi2023@gmail.com" class="mail">teamalfi2023@gmail.com</a></p>
+                        </li>
+                        <a class="xinga" href="testeform.php">Contato</a>
+                     </ul>
+                  </div>
                </div>
+
             </div>
          </div>
-         <div class="copyrightText">
-            <p>Copyright © 2023 ALFI All rights reserved.</p>
+         <div class="row">
+            <div class="col-12">
+               <div class="copyrightText">
+                  <p>Copyright © 2023 ALFI All rights reserved.</p>
+               </div>
+            </div>
          </div>
       </footer>
    </div>

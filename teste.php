@@ -234,7 +234,7 @@
         $res = mysqli_query($conn, $sql);
 
         if ($res && mysqli_num_rows($res) > 0) {
-            // Exibe as imagens dentro do laço `while`
+            // Exibe as imagens dentro do laço `while` 
             while ($row = mysqli_fetch_assoc($res)) {
                 if (isset($row['Arquivo'])) { // Verifica se a chave 'Arquivo' está definida
                     $nome = $row['Arquivo']; // Atribui o valor do ID à variável $id

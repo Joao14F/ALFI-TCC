@@ -31,8 +31,8 @@ if ($Tipo == 'Saia') {
            }
         }
     }
-        $sql = "INSERT INTO modelo (`Título`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Arquivo`) 
-    VALUES ('$Título', '$Sustentável', '$Tipo', '$Comprimento', '$Quadril', '$Cintura', '$Arquivo')";
+        $sql = "INSERT INTO modelo (`Título`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Capa`, `Arquivo`) 
+    VALUES ('$Título', '$Sustentável', '$Tipo', '$Comprimento', '$Quadril', '$Cintura', '$Capa', '$Arquivo')";
 }
 if ($Tipo == 'Calça') {
     $Comprimento = $_POST['Comprimento'];
@@ -61,8 +61,8 @@ if ($Tipo == 'Calça') {
            }
         }
     }
-        $sql = "INSERT INTO modelo (`Título`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Gancho`, `Arquivo`) 
-    VALUES ('$Título', '$Sustentável', '$Tipo', '$Comprimento', '$Quadril', '$Cintura', '$Gancho', '$Arquivo')";
+        $sql = "INSERT INTO modelo (`Título`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Gancho`, `Capa`, `Arquivo`) 
+    VALUES ('$Título', '$Sustentável', '$Tipo', '$Comprimento', '$Quadril', '$Cintura', '$Gancho', '$Capa', '$Arquivo')";
 }
 
 if ($Tipo == 'Bermuda') {
@@ -92,8 +92,8 @@ if ($Tipo == 'Bermuda') {
            }
         }
     }
-        $sql = "INSERT INTO modelo (`Título`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Arquivo`) 
-    VALUES ('$Título', '$Sustentável', '$Tipo', '$Comprimento', '$Quadril', '$Cintura', '$Arquivo')";
+        $sql = "INSERT INTO modelo (`Título`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Capa`, `Arquivo`) 
+    VALUES ('$Título', '$Sustentável', '$Tipo', '$Comprimento', '$Quadril', '$Cintura', '$Capa', '$Arquivo')";
 }
 
 if (mysqli_query($conn, $sql)) {

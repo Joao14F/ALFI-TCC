@@ -45,7 +45,7 @@ button:hover {
    <form enctype="multipart/form-data" action="enviaModelo.php" method="POST">
       <div class="container-fluid">
          <div class="row">
-            <p class="col-sm-0 col-md-1"></p>
+            <p class="col-0 col-sm-0 col-md-1"></p>
             <div class="col-sm-12 col-md-10">
                <div class="form-group">
                   <label class="areas" for="InputEmail1">Insira o titulo do modelo</label>
@@ -54,8 +54,8 @@ button:hover {
             </div>
          </div>
          <div class="row">
-            <p class="col-sm-0 col-md-1"></p>
-            <div class="col-sm-12 col-md-10">
+            <p class="col-0 col-sm-0 col-md-1"></p>
+            <div class="col-12 col-sm-12 col-md-10">
                <div class="form-group">
                   <label class="label">
                      É Sustentável
@@ -71,7 +71,7 @@ button:hover {
                   </label>
                </div>
                <div class="row">
-                  <div class="col-sm-12 col-md-12">
+                  <div class="col-12 col-sm-12 col-md-12">
                      <div class="form-group">
                         <label for="select-options">Selecione o tipo de roupa</label>
                         <select id="select-options" class="form-select" name="Tipo">
@@ -79,9 +79,7 @@ button:hover {
                            <option value="Saia">Saia</option>
                            <option value="Calça">Calça</option>
                            <option value="Bermuda">Bermuda</option>
-                        </select>
-
-                        
+                        </select>                        
                      </div>
                   </div>
                </div>
@@ -159,11 +157,18 @@ button:hover {
                   }
                </script>
                <div class="row">
-
-                  <div class="col-sm-12 col-md-12">
+                  <div class="col-12 col-sm-12 col-md-12">
                      <div class="form-group">
-                        <label for="Tipo">Insira o arquivo</label>
+                        <label for="Tipo">Insira o arquivo referente a peça concluida</label>
                         <input type="file" class="form-control" placeholder="E-mail" name="Arquivo">
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-12 col-sm-12 col-md-12">
+                     <div class="form-group">
+                        <label for="Tipo">Insira o arquivo referente aos moldes</label>
+                        <input type="file" class="form-control" placeholder="E-mail" name="Capa">
                      </div>
                   </div>
                </div>
@@ -173,7 +178,5 @@ button:hover {
                </div>
             </div>
    </form>
-
 </body>
-
 </html>

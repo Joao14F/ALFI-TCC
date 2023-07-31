@@ -36,8 +36,6 @@
          width: 35%;
       }
 
-      .botões {}
-
       .CadastraModelo {
          border: 2px solid #8880FE;
          padding: 8px;
@@ -106,8 +104,6 @@
          line-height: 2;
       }
 
-      .quicklinks {}
-
       .quicklinks h2 {
          color: white;
          font-weight: 600;
@@ -127,15 +123,10 @@
          transition: 0.3s all;
       }
 
-      .contact {}
-
       .contact h2 {
          color: white;
          font-weight: 600;
       }
-
-      .contact ul li {}
-
       .contact ul li span {
          font-size: 20px;
       }
@@ -187,16 +178,16 @@
    <div class="container-fluid">
       <header>
          <div class="row">
-            <div class="col-sm-12 col-md-3">
+            <div class="col-12 col-sm-12 col-md-3">
                <a class="logo" href="index.php">
                   <img src="imagens/logo.png" alt="logo!">
                </a>
             </div>
-            <div class="botões col-sm-12 col-md-4">
+            <div class="botões col-12 col-sm-12 col-md-4">
                <a href="CadastrarModelo.php"><button class="CadastraModelo">Cadastrar Modelo</button></a>
             </div>
 
-            <div class="botões col-sm-12 col-md-4">
+            <div class="botões col-12 col-sm-12 col-md-4">
                <a href="login.php"><button class="login">Login</button></a>
                <a href="cadastro.php"><button class="cadastro">Cadastro</button></a>
             </div>
@@ -204,7 +195,7 @@
          </div>
       </header>
       <div class="row">
-         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
             <select class="form-select">
                <option hidden>Escolha o tipo de peça desejado</option>
                <option>Todas as peças</option>
@@ -217,7 +208,7 @@
       <footer>
          <div class="caixote">
             <div class="row">
-               <div class="sec sobrenos col-sm-12 col-md-4">
+               <div class="sec sobrenos col-12 col-sm-12 col-md-4">
                   <h2>Sobre Nós</h2>
                   <p>O ALFI é um site de compartilhamento de moldes de roupas,
                      focado em disponibilizar aos usúarios uma plataforma para
@@ -225,14 +216,14 @@
                   </p>
                </div>
 
-               <div class="sec quicklinks col-sm-12 col-md-4">
+               <div class="sec quicklinks col-12 col-sm-12 col-md-4">
                   <h2>Suporte</h2>
                   <ul>
                      <li><a href="FAQ.php">FAQ</a></li>
                      <li><a href="pdep.php">Política de Privacidade</a></li>
                   </ul>
                </div>
-               <div class="col-sm12 col-md-4">
+               <div class="col-12 col-sm12 col-md-4">
                   <div class="sec contact">
                      <h2>Entre em Contato</h2>
                      <ul class="info">

@@ -9,7 +9,6 @@
    <title>Cadastro</title>
 
    <style>
-
       body {
          background-color: #1B2029;
          color: #8880FE;
@@ -32,12 +31,11 @@
          transition: all .3s ease-in-out;
          padding: 5px;
          margin-right: 10rem;
-}
+      }
 
-button:hover {
-    background: #5952d4;
-}
-
+      button:hover {
+         background: #5952d4;
+      }
    </style>
 </head>
 
@@ -79,7 +77,7 @@ button:hover {
                            <option value="Saia">Saia</option>
                            <option value="Calça">Calça</option>
                            <option value="Bermuda">Bermuda</option>
-                        </select>                        
+                        </select>
                      </div>
                   </div>
                </div>
@@ -160,7 +158,7 @@ button:hover {
                   <div class="col-12 col-sm-12 col-md-12">
                      <div class="form-group">
                         <label for="Tipo">Insira o arquivo referente a peça concluida</label>
-                        <input type="file" class="form-control" placeholder="E-mail" name="Arquivo">
+                        <input type="file" class="form-control" placeholder="Capa" name="Capa">
                      </div>
                   </div>
                </div>
@@ -168,7 +166,7 @@ button:hover {
                   <div class="col-12 col-sm-12 col-md-12">
                      <div class="form-group">
                         <label for="Tipo">Insira o arquivo referente aos moldes</label>
-                        <input type="file" class="form-control" placeholder="E-mail" name="Capa">
+                        <input type="file" class="form-control" placeholder="moldes" name="Moldes[]" multiple>
                      </div>
                   </div>
                </div>
@@ -179,4 +177,5 @@ button:hover {
             </div>
    </form>
 </body>
+
 </html>

@@ -13,14 +13,12 @@ if (isset($_FILES['Capa'])) {
     $temporarioCapa = $_FILES['Capa']['tmp_name'];
 
     if ($ponto != 'jpg' && $ponto != 'png' && $ponto != 'pdf') {
-        echo 'Apenas arquivos jpg, png e pdf são aceitos para a capa';
+        echo '<script>alert("Apenas arquivos jpg, png e pdf são aceitos para os moldes"); window.location.href = "CadastrarModelo.php";</script>';
         exit();
     } else {
         if (move_uploaded_file($temporarioCapa, $pasta . $nomeCapa)) {
-            echo 'Capa enviada com sucesso';
             $Capa = $pasta . $nomeCapa;
         } else {
-            echo 'Erro ao enviar a capa';
             exit();
         }
     }
@@ -35,13 +33,13 @@ if (isset($_FILES['Moldes'])) {
         $nomeMolde = uniqid() . '.' . $pontoMolde;
 
         if ($pontoMolde != 'jpg' && $pontoMolde != 'png' && $pontoMolde != 'pdf') {
-            echo '<script>alert("Apenas arquivos jpg, png e pdf são aceitos para os moldes");</script>';
+            echo '<script>alert("Apenas arquivos jpg, png e pdf são aceitos para os moldes"); window.location.href = "CadastrarModelo.php";</script>';
             exit();
         } else {
             if (move_uploaded_file($temporarioMolde, $pastaMoldes . $nomeMolde)) {
                 $nomesMoldes[] = $pastaMoldes . $nomeMolde;
             } else {
-                echo '<script>alert("Erro ao enviar o molde");</script>';
+                echo '<script>alert("Erro ao enviar o molde"); window.location.href = "CadastrarModelo.php";</script>';
                 exit();
             }
         }
@@ -79,8 +77,8 @@ if ($Tipo == 'Saia') {
 
 if (mysqli_query($conn, $sql)) {
     echo '</br>';
-    echo '<script>alert("Molde enviado com sucesso");</script>';
+    echo '<script>alert("Molde enviado com sucesso"); window.location.href = "index.php";</script>';
 } else {
     echo '</br>';
-    echo '<script>alert("Erro");</script>';
+    echo '<script>alert("Erro"); window.location.href = "CadastrarModelo.php";</script>';
 }

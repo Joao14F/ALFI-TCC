@@ -230,15 +230,15 @@
         $offset = ($pagina_atual - 1) * $resultados_por_pagina;
 
         // Consulta o banco de dados para obter os caminhos das imagens limitados pelos resultados da página atual
-        $sql = "SELECT `Arquivo` FROM `modelo` LIMIT $offset, $resultados_por_pagina";
+        $sql = "SELECT `Capa` FROM `modelo` LIMIT $offset, $resultados_por_pagina";
         $res = mysqli_query($conn, $sql);
 
         if ($res && mysqli_num_rows($res) > 0) {
             // Exibe as imagens dentro do laço `while` 
             while ($row = mysqli_fetch_assoc($res)) {
-                if (isset($row['Arquivo'])) { // Verifica se a chave 'Arquivo' está definida
-                    $nome = $row['Arquivo']; // Atribui o valor do ID à variável $id
-                    $caminho_imagem = $row['Arquivo'];
+                if (isset($row['Capa'])) { // Verifica se a chave 'Capa' está definida
+                    $nome = $row['Capa']; // Atribui o valor do ID à variável $id
+                    $caminho_imagem = $row['Capa'];
                     echo '<a href="Acesso.php?valor=' . $nome . '">';
                     echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos">';
                     echo '</a>';

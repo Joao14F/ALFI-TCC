@@ -16,7 +16,6 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
         * {
-
             font-family: "Poppins", sans-serif;
         }
 
@@ -211,7 +210,7 @@
                 <div class="titulo" style="background-color: #8880FE;">
                     <?php
                     include_once('conexao.php');
-                    $valor = $_GET['valor'];
+                    $valor = mysqli_real_escape_string($conn, $_GET['valor']);
                     $sql = "SELECT `Título` FROM `modelo` WHERE `Id modelo` = $valor";
                     $res = mysqli_query($conn, $sql);
 
@@ -225,12 +224,12 @@
                 </div>
                 <div class="imagem" style="background-color: white;">
                     <?php
-                    $sql = "SELECT `Arquivo` FROM `modelo` WHERE `Id modelo` = $valor";
+                    $sql = "SELECT `Capa` FROM `modelo` WHERE `Id modelo` = $valor";
                     $res = mysqli_query($conn, $sql);
 
                     if ($res && mysqli_num_rows($res) > 0) {
                         $row = mysqli_fetch_assoc($res);
-                        $endereco_imagem = $row['Arquivo'];
+                        $endereco_imagem = $row['Capa'];
                         echo '<img src="' . $endereco_imagem . '" alt="Imagem">';
                     } else {
                         echo 'Nenhuma imagem encontrada.';
@@ -255,7 +254,7 @@
                             
                         }
                         if ($Tipo == 'Bermuda') {
-                            $sql = "SELECT `Comprimento`, `Quadril`, `Cintura` `Gancho` FROM `modelo` WHERE `Id modelo` = $valor";
+                            $sql = "SELECT `Comprimento`, `Quadril`, `Cintura`, `Gancho` FROM `modelo` WHERE `Id modelo` = $valor";
                             $res = mysqli_query($conn, $sql);
                             $row = mysqli_fetch_assoc($res);
                             $Comprimento = $row['Comprimento'];

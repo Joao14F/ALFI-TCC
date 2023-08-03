@@ -214,6 +214,7 @@
             </div>
         </div>
         <?php
+        // Seu código de conexão ao banco de dados aqui
         include_once('conexao.php');
 
         // Define a quantidade de resultados a serem exibidos por página
@@ -234,7 +235,7 @@
         $res = mysqli_query($conn, $sql);
 
         if ($res && mysqli_num_rows($res) > 0) {
-            // Exibe as imagens dentro do laço `while` 
+            // Exibe as imagens dentro do laço `while`
             while ($row = mysqli_fetch_assoc($res)) {
                 if (isset($row['Capa'])) { // Verifica se a chave 'Capa' está definida
                     $nome = $row['Capa']; // Atribui o valor do ID à variável $id
@@ -273,6 +274,9 @@
         } else {
             echo 'Nenhuma imagem encontrada.';
         }
+
+        // Fecha a conexão com o banco de dados
+        $conn->close();
         ?>
 
         <footer>

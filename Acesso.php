@@ -210,7 +210,7 @@
                 <div class="titulo" style="background-color: #8880FE;">
                     <?php
                     include_once('conexao.php');
-                    $valor = mysqli_real_escape_string($conn, $_GET['valor']);
+                    $valor = $_GET['valor'];
                     $sql = "SELECT `Título` FROM `modelo` WHERE `Id modelo` = $valor";
                     $res = mysqli_query($conn, $sql);
 
@@ -251,18 +251,8 @@
                             $Comprimento = $row['Comprimento'];
                             $Quadril = $row['Quadril'];
                             $Cintura = $row['Cintura'];
-                            
                         }
-                        if ($Tipo == 'Bermuda') {
-                            $sql = "SELECT `Comprimento`, `Quadril`, `Cintura`, `Gancho` FROM `modelo` WHERE `Id modelo` = $valor";
-                            $res = mysqli_query($conn, $sql);
-                            $row = mysqli_fetch_assoc($res);
-                            $Comprimento = $row['Comprimento'];
-                            $Quadril = $row['Quadril'];
-                            $Cintura = $row['Cintura'];
-                            $Gancho = $row['Gancho'];
-                        }
-                        if ($Tipo == 'Calça') {
+                        if ($Tipo == 'Bermuda || Calça ') {
                             $sql = "SELECT `Comprimento`, `Quadril`, `Cintura`, `Gancho` FROM `modelo` WHERE `Id modelo` = $valor";
                             $res = mysqli_query($conn, $sql);
                             $row = mysqli_fetch_assoc($res);

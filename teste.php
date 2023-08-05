@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="imagens/navlogo.png">
-    <title>Index</title>
+    <title>modelos</title>
 
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
+ 
     <style>
         /* Global styles */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
@@ -214,7 +214,6 @@
             </div>
         </div>
         <?php
-        // Seu código de conexão ao banco de dados aqui
         include_once('conexao.php');
 
         // Define a quantidade de resultados a serem exibidos por página

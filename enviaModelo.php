@@ -55,23 +55,21 @@ if ($Tipo == 'Saia') {
 
     $sql = "INSERT INTO modelo (`Título`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Capa`, `Moldes`) 
     VALUES ('$Título', '$Sustentável', '$Tipo', '$Comprimento', '$Quadril', '$Cintura', '$Capa', '$Moldes')";
-
 } elseif ($Tipo == 'Calça') {
     $Comprimento = $_POST['Comprimento'];
     $Quadril = $_POST['Quadril'];
     $Cintura = $_POST['Cintura'];
     $Gancho = $_POST['Gancho'];
 
-     $sql = "INSERT INTO modelo (`Título`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Gancho`, `Capa`, `Moldes`) 
+    $sql = "INSERT INTO modelo (`Título`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Gancho`, `Capa`, `Moldes`) 
     VALUES ('$Título', '$Sustentável', '$Tipo', '$Comprimento', '$Quadril', '$Cintura', '$Gancho', '$Capa', '$Moldes')";
-
 } elseif ($Tipo == 'Bermuda') {
     $Comprimento = $_POST['Comprimento'];
     $Quadril = $_POST['Quadril'];
     $Cintura = $_POST['Cintura'];
     $Gancho = $_POST['Gancho'];
 
-     $sql = "INSERT INTO modelo (`Título`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Gancho`, `Capa`, `Moldes`) 
+    $sql = "INSERT INTO modelo (`Título`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Gancho`, `Capa`, `Moldes`) 
     VALUES ('$Título', '$Sustentável', '$Tipo', '$Comprimento', '$Quadril', '$Cintura', '$Gancho', '$Capa', '$Moldes')";
 }
 

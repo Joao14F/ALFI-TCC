@@ -196,12 +196,12 @@
       </header>
       <div class="row">
          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-            <select class="form-select">
-               <option hidden>Escolha o tipo de peça desejado</option>
-               <option>Todas as peças</option>
-               <option>Saias</option>
-               <option>Calças</option>
-               <option>Bermudas</option>
+         <select class="form-select">
+               <option>Escolha o tipo de peça desejado</option>
+               <a href="teste.php?peça='IS NOT NULL'"><option>Todas as peças</option></a>
+               <a href="teste.php?peça='Saia'"><option>Saias</option></a>
+               <a href="teste.php?peça='Calça'"><option>Calças</option></a>
+               <a href="teste.php?peça='Bermuda'"><option>Bermudas</option></a>
             </select>
          </div>
       </div>

@@ -26,7 +26,6 @@
             background: #1B2029;
         }
 
-        /* Header styles */
         header {
             background-color: #1B2029;
             border-bottom: 2px solid #444079;
@@ -206,9 +205,13 @@
                 </select>
             </div>
         </div>
-        <div class="row">
+        <!--<div class="row">
+                <div class="col-2 col-sm-2 col-md-2">
+                </div>
+            </div>-->
+            <div class="row">
             <?php
-            include_once('conexao.php');
+            include_once('conexao.php');            
             // Define a quantidade de resultados a serem exibidos por página
             $resultados_por_pagina = 8;
 
@@ -268,6 +271,7 @@
 
             // Fecha a conexão com o banco de dados
             $conn->close();
+            
             ?>
         </div>
         <footer>

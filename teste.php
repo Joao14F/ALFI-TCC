@@ -16,7 +16,6 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
         * {
-
             font-family: "Poppins", sans-serif;
         }
 
@@ -73,6 +72,12 @@
             color: white;
             transition: 0.3s all;
         }
+
+        .modelos {
+            margin: 5px;
+            border-radius: 10px;
+        }
+
 
         /* Footer styles */
         footer {
@@ -229,16 +234,18 @@
             $sql = "SELECT `Capa`,`Id modelo` FROM `modelo` ORDER BY `Id modelo` DESC LIMIT $offset, $resultados_por_pagina";
             $res = mysqli_query($conn, $sql);
 
+            echo '<div style="width: 100%; white-space: nowrap; overflow-x: auto;">'; // Container com largura fixa e rolagem horizontal
             if ($res && mysqli_num_rows($res) > 0) {
                 // Exibe as imagens dentro do laço `while`
                 while ($row = mysqli_fetch_assoc($res)) {
                     if (isset($row['Capa'])) { // Verifica se a chave 'Capa' está definida
                         $caminho_imagem = $row['Capa'];
                         echo '<a href="Acesso.php?valor=' . $row['Id modelo'] . '">';
-                        echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos">';
+                        echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos col-8 col-sm-8 col-md-8>';
                         echo '</a>';
                     }
                 }
+            echo '</div>';
 
                 // Cria os links de paginação
                 $sql_total = "SELECT COUNT(*) AS total FROM `modelo`";

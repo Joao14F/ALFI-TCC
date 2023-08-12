@@ -197,21 +197,23 @@
         </header>
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                <select class="form-select">
-                    <option>Escolha o tipo de peça desejado</option>
-                    <a href="teste.php?peça='IS NOT NULL'">
-                        <option>Todas as peças</option>
-                    </a>
-                    <a href="teste.php?peça='Saia'">
-                        <option>Saias</option>
-                    </a>
-                    <a href="teste.php?peça='Calça'">
-                        <option>Calças</option>
-                    </a>
-                    <a href="teste.php?peça='Bermuda'">
-                        <option>Bermudas</option>
-                    </a>
+                <select id="seletor" onchange="trocarPagina()" class="form-select">
+                    <option hidden>Selecione uma página</option>
+                    <option value="teste.php?peça='IS NOT NULL'">Todas as peças</option>
+                    <option value="teste.php?peça='Saia'">Saias</option>
+                    <option value="teste.php?peça='Calça'">Calças</option>
+                    <option value="teste.php?peça='Bermuda'">Bermudas</option>
                 </select>
+
+                <script>
+                    function trocarPagina() {
+                        var select = document.getElementById("seletor");
+                        var paginaSelecionada = select.value;
+                        if (paginaSelecionada !== "") {
+                            window.location.href = paginaSelecionada;
+                        }
+                    }
+                </script>
             </div>
         </div>
         <?php
@@ -267,8 +269,7 @@
                     echo $Comprimento . $Quadril . $Cintura . $Gancho;
                 }
             }
-        }
-        else {
+        } else {
             echo '<script>alert("Erro ao carregar o modelo"); window.location.href = "teste.php";</script>';
         };
         ?>

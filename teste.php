@@ -201,8 +201,15 @@
         </header>
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-            <select id="seletor" onchange="trocarPagina()" class="form-select">
-    <option hidden>Escolha o tipo de peça desejado</option>
+            <select id="select" onchange="trocarPagina()" class="form-select">
+    <option hidden>      <?php
+                    if (isset($_GET['peça'])) {
+                        $peca = $_GET['peça'];
+                        echo $peca . "s";
+                    }else{
+                        echo 'Selecione o tipo de peça desejado';
+                    }                         
+                        ?></option>
     <option value="teste.php" data-peca="IS NOT NULL">Todas as peças</option>
     <option value="teste.php" data-peca="Saia">Saias</option>
     <option value="teste.php" data-peca="Calça">Calças</option>
@@ -210,7 +217,7 @@
 </select>
 <script>
     function trocarPagina() {
-        var select = document.getElementById("seletor");
+        var select = document.getElementById("select");
         var paginaSelecionada = select.options[select.selectedIndex].value;
         var tipoPeca = select.options[select.selectedIndex].getAttribute("data-peca");
 

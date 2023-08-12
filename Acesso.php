@@ -75,6 +75,10 @@
             transition: 0.3s all;
         }
 
+        .Titulo {
+            background-color: aliceblue;
+        }
+
         /* Footer styles */
         footer {
             font-size: 12px;
@@ -198,7 +202,15 @@
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <select id="seletor" onchange="trocarPagina()" class="form-select">
-                    <option hidden>Selecione uma página</option>
+                    <option hidden>
+                        <?php
+                    if (isset($_GET['peça'])) {
+                        $peca = $_GET['peça'];
+                    }else{
+                        echo 'Selecione o tipo de peça desejado';
+                    }                         
+                        ?>
+                    </option>
                     <option value="teste.php?peça='IS NOT NULL'">Todas as peças</option>
                     <option value="teste.php?peça='Saia'">Saias</option>
                     <option value="teste.php?peça='Calça'">Calças</option>
@@ -216,63 +228,59 @@
                 </script>
             </div>
         </div>
+        <!--<div class="row"><div class="col-12 col-sm-12 col-md-12"></div></div>-->
         <?php
-        include_once('conexao.php');
-        if ($valor = $_GET['valor']) {
+include_once('conexao.php');
+if (isset($_GET['valor'])) {
+    $valor = $_GET['valor'];
 
-            // Titulo
-            $sqlt = "SELECT `Título` FROM `modelo` WHERE `Id modelo` = $valor";
-            $rest = mysqli_query($conn, $sqlt);
+    // Consulta para buscar o título, capa e tipo do modelo
+    $sql = "SELECT `Título`, `Capa`, `Tipo` FROM `modelo` WHERE `Id modelo` = $valor";
+    $res = mysqli_query($conn, $sql);
 
-            if ($rest && mysqli_num_rows($rest) > 0) {
-                $rowt = mysqli_fetch_assoc($rest);
-                $Titulo = $rowt['Título'];
-                echo $Titulo;
-            }
+    if ($res && mysqli_num_rows($res) > 0) {
+        $row = mysqli_fetch_assoc($res);
+        $Titulo = $row['Título'];
+        echo '<div class="row">' . '<h1 class="col-12 col-sm-12 col-md-12 Titulo">' . $Titulo . '</h1>' . '</div>';
 
-            // Capa
-            $sqlc = "SELECT `Capa` FROM `modelo` WHERE `Id modelo` = $valor";
-            $resc = mysqli_query($conn, $sqlc);
-
-            if ($resc && mysqli_num_rows($resc) > 0) {
-                $rowc = mysqli_fetch_assoc($resc);
-                $endereco_imagem = $rowc['Capa'];
-                echo '<img src="' . $endereco_imagem . '" alt="Imagem">';
-            } else {
-                echo 'Nenhuma imagem encontrada.';
-            }
-
-            //Medidas
-            $sqld = "SELECT `Tipo` FROM `modelo` WHERE `Id modelo` = $valor";
-            $resd = mysqli_query($conn, $sqld);
-
-            if ($resd && mysqli_num_rows($resd) > 0) {
-                $rowd = mysqli_fetch_assoc($resd);
-                $Tipo = $rowd['Tipo'];
-                if ($Tipo == 'Saia') {
-                    $sql = "SELECT `Comprimento`, `Quadril`, `Cintura` FROM `modelo` WHERE `Id modelo` = $valor";
-                    $res = mysqli_query($conn, $sql);
-                    $row = mysqli_fetch_assoc($res);
-                    $Comprimento = $row['Comprimento'];
-                    $Quadril = $row['Quadril'];
-                    $Cintura = $row['Cintura'];
-                    echo $Comprimento . $Quadril . $Cintura;
-                }
-                if ($Tipo == 'Bermuda || Calça') {
-                    $sql = "SELECT `Comprimento`, `Quadril`, `Cintura`, `Gancho` FROM `modelo` WHERE `Id modelo` = $valor";
-                    $res = mysqli_query($conn, $sql);
-                    $row = mysqli_fetch_assoc($res);
-                    $Comprimento = $row['Comprimento'];
-                    $Quadril = $row['Quadril'];
-                    $Cintura = $row['Cintura'];
-                    $Gancho = $row['Gancho'];
-                    echo $Comprimento . $Quadril . $Cintura . $Gancho;
-                }
-            }
+        $endereco_imagem = $row['Capa'];
+        if ($endereco_imagem) {
+            echo '<div class="row">' . '<div class="col-12 col-sm-12 col-md-12">' . '<img src="' . $endereco_imagem .  '"alt="Imagem">' . '</div>' . '</div>';
         } else {
-            echo '<script>alert("Erro ao carregar o modelo"); window.location.href = "teste.php";</script>';
-        };
-        ?>
+            echo 'Nenhuma imagem encontrada.';
+        }
+
+        $Tipo = $row['Tipo'];
+        if ($Tipo == 'Saia') {
+            $sqlMedidas = "SELECT `Comprimento`, `Quadril`, `Cintura` FROM `modelo` WHERE `Id modelo` = $valor";
+            $resMedidas = mysqli_query($conn, $sqlMedidas);
+
+            if ($resMedidas && mysqli_num_rows($resMedidas) > 0) {
+                $rowMedidas = mysqli_fetch_assoc($resMedidas);
+                $Comprimento = $rowMedidas['Comprimento'];
+                $Quadril = $rowMedidas['Quadril'];
+                $Cintura = $rowMedidas['Cintura'];
+                echo '<div class="row">' . '<h1 class="col-12 col-sm-12 col-md-12 Titulo">' . $Titulo . '</h1>' . '</div>';
+                echo $Comprimento . $Quadril . $Cintura;
+            }
+        } elseif ($Tipo == 'Bermuda' || $Tipo == 'Calça') {
+            $sqlMedidas = "SELECT `Comprimento`, `Quadril`, `Cintura`, `Gancho` FROM `modelo` WHERE `Id modelo` = $valor";
+            $resMedidas = mysqli_query($conn, $sqlMedidas);
+
+            if ($resMedidas && mysqli_num_rows($resMedidas) > 0) {
+                $rowMedidas = mysqli_fetch_assoc($resMedidas);
+                $Comprimento = $rowMedidas['Comprimento'];
+                $Quadril = $rowMedidas['Quadril'];
+                $Cintura = $rowMedidas['Cintura'];
+                $Gancho = $rowMedidas['Gancho'];
+                echo $Comprimento . $Quadril . $Cintura . $Gancho;
+            }
+        }
+    } else {
+        echo '<script>alert("Erro ao carregar o modelo"); window.location.href = "teste.php";</script>';
+    }
+}
+?>
         <footer>
             <div class="caixote">
                 <div class="row">

@@ -201,31 +201,31 @@
         </header>
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-            <select id="select" onchange="trocarPagina()" class="form-select">
-    <option hidden>      <?php
-                    if (isset($_GET['peça'])) {
-                        $peca = $_GET['peça'];
-                        echo $peca . "s";
-                    }else{
-                        echo 'Selecione o tipo de peça desejado';
-                    }                         
-                        ?></option>
-    <option value="teste.php" data-peca="IS NOT NULL">Todas as peças</option>
-    <option value="teste.php" data-peca="Saia">Saias</option>
-    <option value="teste.php" data-peca="Calça">Calças</option>
-    <option value="teste.php" data-peca="Bermuda">Bermudas</option>
-</select>
-<script>
-    function trocarPagina() {
-        var select = document.getElementById("select");
-        var paginaSelecionada = select.options[select.selectedIndex].value;
-        var tipoPeca = select.options[select.selectedIndex].getAttribute("data-peca");
+                <select id="select" onchange="trocarPagina()" class="form-select">
+                    <option hidden> <?php
+                                    if (isset($_GET['peça'])) {
+                                        $peca = $_GET['peça'];
+                                        echo $peca . "s";
+                                    } else {
+                                        echo 'Selecione o tipo de peça desejado';
+                                    }
+                                    ?></option>
+                    <option value="teste.php" data-peca="Toda">Todas as peças</option>
+                    <option value="teste.php" data-peca="Saia">Saias</option>
+                    <option value="teste.php" data-peca="Calça">Calças</option>
+                    <option value="teste.php" data-peca="Bermuda">Bermudas</option>
+                </select>
+                <script>
+                    function trocarPagina() {
+                        var select = document.getElementById("select");
+                        var paginaSelecionada = select.options[select.selectedIndex].value;
+                        var tipoPeca = select.options[select.selectedIndex].getAttribute("data-peca");
 
-        if (paginaSelecionada !== "") {
-            window.location.href = paginaSelecionada + "?peça=" + encodeURIComponent(tipoPeca);
-        }
-    }
-</script>
+                        if (paginaSelecionada !== "") {
+                            window.location.href = paginaSelecionada + "?peça=" + encodeURIComponent(tipoPeca);
+                        }
+                    }
+                </script>
             </div>
         </div>
         <div class="row">
@@ -247,15 +247,22 @@
 
             if (isset($_GET['peça'])) {
                 $peca = $_GET['peça'];
-                $stmt = $conn->prepare("SELECT `Capa`,`Id modelo` FROM `modelo` where `Tipo` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?");
-                $stmt->bind_param("sii", $peca, $offset, $resultados_por_pagina);
+                if ($peca == 'Toda') {
+                    $query = "SELECT `Capa`, `Id modelo` FROM `modelo` ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                    $stmt = $conn->prepare($query);
+                    $stmt->bind_param("ii", $offset, $resultados_por_pagina);
+                } else {
+                    $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Tipo` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                    $stmt = $conn->prepare($query);
+                    $stmt->bind_param("sii", $peca, $offset, $resultados_por_pagina);
+                }
                 $stmt->execute();
                 $res = $stmt->get_result();
             } else {
                 $sql = "SELECT `Capa`,`Id modelo` FROM `modelo` ORDER BY `Id modelo` DESC LIMIT $offset, $resultados_por_pagina";
                 $res = mysqli_query($conn, $sql);
             }
-            
+
 
             echo '<div style="width: 100%; white-space: nowrap; overflow-x: auto;">'; // Container com largura fixa e rolagem horizontal
             if ($res && mysqli_num_rows($res) > 0) {

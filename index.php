@@ -2,380 +2,376 @@
 <html lang="pt-br">
 
 <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="icon" type="image/png" href="imagens/navlogo.png">
-   <title>Index</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="imagens/navlogo.png">
+    <title>Index</title>
 
-   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-   <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-   <style>
-      /* Global styles */
-      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+    <style>
+        /* Global styles */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
-      * {
+        * {
+            font-family: "Poppins", sans-serif;
+        }
 
-         font-family: "Poppins", sans-serif;
-      }
+        body {
+            background-color: #1B2029;
+            font-family: Arial, sans-serif;
+            background: #1B2029;
+        }
 
-      body {
-         background-color: #1B2029;
-         font-family: Arial, sans-serif;
-         justify-content: center;
-         align-content: end;
-         min-height: 100vh;
-         background: #1B2029;
-      }
+        header {
+            background-color: #1B2029;
+        }
 
-      /* Header styles */
-      header {
-         background-color: #1B2029;
-         margin: 0px -24px;
-         border-bottom: 2px solid #444079;
-         display: flex;
-         flex-direction: row;
-         justify-content: space-between;
-         align-items: center;
-      }
+        a.logo img {
+            width: 35%;
+        }
 
-      a.logo img {
-         width: 35%;
-         margin-left: 4rem;
-         margin-top: -1rem;
-      }
+        .CadastraModelo {
+            border: 2px solid #8880FE;
+            padding: 8px;
+            border-radius: 30px;
+            font-size: 1.5rem;
+            width: 60%;
+            background: #1B2029;
+            color: #8880FE;
+        }
 
-      .botões {
-         margin: 5px;
-         display: inline-block;
-         margin-top: 22px;
-         margin-bottom: -30px;
-      }
+        .login {
+            border: 2px solid #8880FE;
+            padding: 8px;
+            border-radius: 30px;
+            font-size: 1.5rem;
+            width: 30%;
+            background: #1B2029;
+            margin-right: 2rem;
+            color: #8880FE;
+        }
 
-      .CadastraModelo {
-         border: 2px solid #8880FE;
-         padding: 8px;
-         border-radius: 30px;
-         font-size: 1.5rem;
-         width: 60%;
-         background: #1B2029;
-         color: #8880FE;
-      }
+        .cadastro {
+            border: 2px solid #8880FE;
+            padding: 8px;
+            border-radius: 30px;
+            font-size: 1.5rem;
+            width: 40%;
+            background: #1B2029;
+            color: #8880FE;
+        }
 
-      .login {
-         border: 2px solid #8880FE;
-         padding: 8px;
-         border-radius: 30px;
-         font-size: 1.5rem;
-         width: 30%;
-         background: #1B2029;
-         margin-right: 2rem;
-         color: #8880FE;
-      }
+        .CadastraModelo:hover,
+        .login:hover,
+        .cadastro:hover {
+            background: #8880FE;
+            color: white;
+            transition: 0.3s all;
+        }
 
-      .cadastro {
-         border: 2px solid #8880FE;
-         padding: 8px;
-         border-radius: 30px;
-         font-size: 1.5rem;
-         width: 40%;
-         background: #1B2029;
-         color: #8880FE;
-      }
+        .borda {
+            border: 2px solid #444079;
+        }
 
-      .CadastraModelo:hover,
-      .login:hover,
-      .cadastro:hover {
-         background: #8880FE;
-         color: white;
-         transition: 0.3s all;
-      }
+        .modelos {
+            margin: 7px;
+            border-radius: 10px;
+            width: 250px;
+        }
 
-      .dropdown-menu {
-         margin: 5px;
-         
-      }
 
-      input[placeholder] {
-         background-color: white;
-      }
+        /* Footer styles */
+        footer {
+            font-size: 12px;
+            background: #1B2029;
+            height: 2.5rem;
+            /* altura do rodapé */
+        }
 
-      input[type="submit"] {
-         cursor: pointer;
-         width: 25%;
-         margin-top: 0.2rem;
-         border: 1px 1px 1px white;
-         border-radius: 35px;
-         background: #1B2029;
-         color: white;
-         font-size: 1.1rem;
-         transition: all .3s ease-in-out;
-         margin-left: 12.2em;
-      }
+        h2 {
+            font-size: 22px;
+        }
 
-      p {
-         color: white;
-         margin-top: 1rem;
-         line-height: 50px;
-         text-align: center;
-      }
+        .caixote {
+            width: 100%;
+            background: #1B2029;
+        }
 
-      input {
-         border: 1px solid #444079;
-         border-radius: 8px;
-      }
+        .sec h2 {
+            color: white;
+            font-weight: 600;
+        }
 
-      /* Footer styles */
-      footer {
-         position: absolute;
-         width: 100%;
-         display: grid;
-         font-size: 12px;
-         background: #1B2029;
-         left: 0px;
-         padding-bottom: 0rem;
-      }
+        .sec p {
+            color: #d9d9d9;
+            padding-top: 0.1rem;
+            text-align: justify;
+            line-height: 2;
+        }
 
-      #page-container {
-         position: relative;
-         min-height: 100vh;
-      }
+        .quicklinks h2 {
+            color: white;
+            font-weight: 600;
+        }
 
-      #content-wrap {
-         padding-bottom: 1rem;
-         /* altura do rodapé */
-      }
+        .quicklinks ul li {
+            list-style: none;
+        }
 
-      #footer {
-         position: absolute;
-         bottom: 0px;
-         width: 100%;
-         height: 2.5rem;
-         /* altura do rodapé */
-      }
+        .quicklinks ul li a {
+            color: #d9d9d9;
+            text-decoration: none;
+        }
 
-      h2 {
-         font-size: 22px;
-      }
+        .quicklinks ul li a:hover {
+            color: #8880FE;
+            transition: 0.3s all;
+        }
 
-      .caixote {
-         width: 100%;
-         grid-template-columns: repeat(4, 1fr);
-         grid-gap: 14rem;
-         position: flex;
-         background: #1B2029;
-         display: flex;
-         align-items: flex-start;
-      }
+        .contact h2 {
+            color: white;
+            font-weight: 600;
+        }
 
-      .caixote .sec h2 {
-         position: relative;
-         color: white;
-         font-weight: 600;
-         margin-left: -4rem;
-      }
+        .contact ul li span {
+            font-size: 20px;
+        }
 
-      .caixote .sec p {
-         color: #d9d9d9;
-         margin-left: -4rem;
-         padding-top: 0.1rem;
-         text-align: justify;
-         margin-right: -6rem;
-         line-height: 2;
-      }
+        .contact ul li a {
+            color: #d9d9d9;
+            text-decoration: none;
+        }
 
-      .caixote .quicklinks {
-         position: relative;
-         align-items: flex-start;
-      }
+        .contact ul li i {
+            color: white;
+        }
 
-      .caixote .quicklinks h2 {
-         position: relative;
-         color: white;
-         font-weight: 600;
-         margin-left: -3rem;
-      }
+        .xinga {
+            cursor: pointer;
+            width: 15%;
+            border: none;
+            border-radius: 32px;
+            background: white;
+            color: #161923;
+            font-size: 0.9rem;
+            transition: all .3s ease-in-out;
+            text-align: center;
+            padding: 5px;
+            text-decoration: none;
+        }
 
-      .caixote .quicklinks ul li {
-         list-style: none;
-      }
+        .xinga:hover {
+            background: #d9d9d9;
+        }
 
-      .caixote .quicklinks ul li a {
-         color: #d9d9d9;
-         text-decoration: none;
-         margin-left: -5rem;
-      }
+        .copyrightText {
+            width: 100%;
+            padding: 8px;
+            text-align: center;
+            color: white;
+            background: #1f252f;
+            border-top: 1px solid rgba(0, 0, 0, 0.15);
+            border-color: #8880FE;
+        }
 
-      .caixote .quicklinks ul li a:hover {
-         color: #8880FE;
-         transition: 0.3s all;
-      }
-
-      .caixote .contact {
-         position: relative;
-         align-items: flex-start;
-      }
-
-      .caixote .contact h2 {
-         color: white;
-         font-weight: 600;
-         margin-left: -8rem;
-         margin-right: -3rem;
-      }
-
-      .caixote .contact ul li {
-         display: grid;
-         grid-template-columns: 30px 1fr;
-      }
-
-      .caixote .contact ul li span {
-         font-size: 20px;
-      }
-
-      .caixote .contact ul li a {
-         color: #d9d9d9;
-         text-decoration: none;
-         margin-left: -5rem;
-      }
-
-      .caixote .contact ul li i {
-         color: white;
-         margin-left: -10rem;
-         margin-top: 1.4rem;
-      }
-
-      .caixote .lk a {
-         cursor: pointer;
-         width: 15%;
-         border: none;
-         border-radius: 32px;
-         background: white;
-         color: #161923;
-         font-size: 0.9rem;
-         transition: all .3s ease-in-out;
-         text-align: center;
-         padding: 5px;
-         text-decoration: none;
-         margin-left: -10.1rem;
-      }
-
-      .caixote .lk a:hover {
-         background: #d9d9d9;
-      }
-
-      .caixote .lk p {
-         color: #d9d9d9;
-         margin-left: -12rem;
-         text-align: justify;
-         margin-right: -3rem;
-         line-height: 2;
-      }
-
-      .copyrightText {
-         width: 100%;
-         padding: 8px;
-         text-align: center;
-         color: white;
-         background: #1f252f;
-         border-top: 1px solid rgba(0, 0, 0, 0.15);
-         border-color: #8880FE;
-         position: absolute;
-         margin-top: 39rem;
-      }
-
-      .copyrightText p {
-         color: white;
-      }
-   </style>
+        .copyrightText p {
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
-   <div class="container-fluid">
-      <header>
-         <div class="row gx-0">
-            <div class="col-sm-12 col-md-3">
-               <a class="logo" href="index.php">
-                  <img src="imagens/logo.png" alt="logo!">
-               </a>
-            </div>
-            <div class="botões col-sm-12 col-md-4">
-               <a href="CadastrarModelo.php"><button class="CadastraModelo">Cadastrar Modelo</button></a>
-            </div>
+    <div class="container-fluid">
+        <header>
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-3">
+                    <a class="logo" href="index.php">
+                        <img src="imagens/logo.png" alt="logo!">
+                    </a>
+                </div>
+                <div class="botões col-12 col-sm-12 col-md-4">
+                    <a href="CadastrarModelo.php"><button class="CadastraModelo">Cadastrar Modelo</button></a>
+                </div>
 
-            <div class="botões col-sm-12 col-md-4">
-               <a href="login.php"><button class="login">Login</button></a>
-               <a href="cadastro.php"><button class="cadastro">Cadastro</button></a>
+                <div class="botões col-12 col-sm-12 col-md-4">
+                    <a href="login.php"><button class="login">Login</button></a>
+                    <a href="cadastro.php"><button class="cadastro">Cadastro</button></a>
+                </div>
+                <div class="col-md-1"></div>
             </div>
-         </div>
-      </header>
-      <div class="row gx-0">
-         <nav class="navbar navbar-expand-lg">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Modelos
-                     </a>
-                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Saias</a></li>
-                        <li><a class="dropdown-item" href="#">Calças</a></li>
-                        <li><a class="dropdown-item" href="#">Bermuda</a></li>
-                        <li>
-                           <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                     </ul>
-                  </li>
-               </ul>
+        </header>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <select id="select" onchange="trocarPagina()" class="form-select borda">
+                    <option hidden> <?php
+                                    if (isset($_GET['peça'])) {
+                                        $peca = $_GET['peça'];
+                                        echo $peca . "s";
+                                    } else {
+                                        echo 'Selecione o tipo de peça desejado';
+                                    }
+                                    ?></option>
+                    <option value="index.php" data-peca="Toda">Todas as peças</option>
+                    <option value="index.php" data-peca="Saia">Saias</option>
+                    <option value="index.php" data-peca="Calça">Calças</option>
+                    <option value="index.php" data-peca="Bermuda">Bermudas</option>
+                </select>
+                <script>
+                    function trocarPagina() {
+                        var select = document.getElementById("select");
+                        var paginaSelecionada = select.options[select.selectedIndex].value;
+                        var tipoPeca = select.options[select.selectedIndex].getAttribute("data-peca");
+
+                        if (paginaSelecionada !== "") {
+                            window.location.href = paginaSelecionada + "?peça=" + encodeURIComponent(tipoPeca);
+                        }
+                    }
+                </script>
             </div>
-         </nav>
-      </div>
+        </div>
+        <div class="row">
+            <?php
+            include_once('conexao.php');
+
+            // Define a quantidade de resultados a serem exibidos por página
+            $resultados_por_pagina = 8;
+
+            // Obtém o número da página atual a partir do parâmetro "pagina" na URL
+            if (isset($_GET['pagina']) && is_numeric($_GET['pagina'])) {
+                $pagina_atual = $_GET['pagina'];
+            } else {
+                $pagina_atual = 1;
+            }
+
+            // Calcula o deslocamento (offset) com base na página atual
+            $offset = ($pagina_atual - 1) * $resultados_por_pagina;
+
+            if (isset($_GET['peça'])) {
+                $peca = $_GET['peça'];
+                if ($peca == 'Toda') {
+                    $query = "SELECT `Capa`, `Id modelo` FROM `modelo` ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                    $stmt = $conn->prepare($query);
+                    $stmt->bind_param("ii", $offset, $resultados_por_pagina);
+                } else {
+                    $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Tipo` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                    $stmt = $conn->prepare($query);
+                    $stmt->bind_param("sii", $peca, $offset, $resultados_por_pagina);
+                }
+                $stmt->execute();
+                $res = $stmt->get_result();
+            } else {
+                $sql = "SELECT `Capa`,`Id modelo` FROM `modelo` ORDER BY `Id modelo` DESC LIMIT $offset, $resultados_por_pagina";
+                $res = mysqli_query($conn, $sql);
+            }
 
 
-      <footer id="footer">
-         <div class="caixote">
-            <div class="sec sobrenos">
-               <h2>Sobre Nós</h2>
-               <p>O ALFI é um site de compartilhamento de moldes de roupas,
-                  focado em disponibilizar aos usúarios uma plataforma para
-                  obter e compartilhar os moldes das roupas desejedas pelos mesmos.
-               </p>
-            </div>
+            echo '<div>';
+            if ($res && mysqli_num_rows($res) > 0) {
+                // Exibe as imagens dentro do laço `while`
+                while ($row = mysqli_fetch_assoc($res)) {
+                    if (isset($row['Capa'])) { // Verifica se a chave 'Capa' está definida
+                        $caminho_imagem = $row['Capa'];
+                        echo '<a href="Acesso.php?valor=' . $row['Id modelo'] . '">';
+                        echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos col-8 col-sm-8 col-md-8">';
+                        echo '</a>';
+                    }
+                }
+                echo '</div>';
 
-            <div class="sec quicklinks">
-               <h2>Suporte</h2>
-               <ul>
-                  <li><a href="FAQ.php">FAQ</a></li>
-                  <li><a href="pdep.php">Política de Privacidade</a></li>
-               </ul>
-            </div>
+                // Cria os links de paginação
+                $sql_total = "SELECT COUNT(*) AS total FROM `modelo`";
+                $res_total = mysqli_query($conn, $sql_total);
+                $row_total = mysqli_fetch_assoc($res_total);
+                $total_resultados = $row_total['total'];
+                $total_paginas = ceil($total_resultados / $resultados_por_pagina);
 
-            <div class="sec contact">
-               <h2>Entre em Contato</h2>
-               <ul class="info">
-                  <li>
-                     <span><i class="fa-solid fa-envelope"></i></span>
-                     <p><a href="mailto:teamalfi2023@gmail.com">teamalfi2023@gmail.com</a></p>
-                  </li>
-               </ul>
-            </div>
+                echo '<div class="row">';
 
-            <div class="lk">
-               <ul>
-                  <li>
-                     <p>Caso queira enviar alguma sugestão, solicitação ou mensagem, você pode nos contatar clicando no botão abaixo:</p>
-                  </li>
-               </ul>
-               <a class="" href="testeform.php">Contato</a>
-            </div>
-         </div>
-      </footer>
+                echo '<div class="pagination">';
 
-      <div class="copyrightText">
-         <p>Copyright © 2023 ALFI All rights reserved.</p>
-      </div>
-   </div>
+                // Link para a página anterior, se não estiver na primeira página
+                if ($pagina_atual > 1) {
+                    echo '<a href="?pagina=' . ($pagina_atual - 1);
+                    if (isset($_GET['peça'])) {
+                        echo '&peça=' . urlencode($_GET['peça']);
+                    }
+                    echo '">Anterior</a>' . ' ';
+                }
+
+                // Links para as páginas individuais
+                for ($i = 1; $i <= $total_paginas; $i++) {
+                    echo '<a href="?pagina=' . $i;
+                    if (isset($_GET['peça'])) {
+                        echo '&peça=' . urlencode($_GET['peça']);
+                    }
+                    echo '">' . $i . '</a>' . ' ';
+                }
+
+                // Link para a próxima página, se não estiver na última página
+                if ($pagina_atual < $total_paginas) {
+                    echo '<a href="?pagina=' . ($pagina_atual + 1);
+                    if (isset($_GET['peça'])) {
+                        echo '&peça=' . urlencode($_GET['peça']);
+                    }
+                    echo '">Próxima</a>' . ' ';
+                }
+
+
+                echo '</div>';
+                echo '</div>';
+            } else {
+                echo 'Nenhuma imagem encontrada.';
+            }
+
+            // Fecha a conexão com o banco de dados
+            $conn->close();
+
+            ?>
+        </div>
+        <footer>
+            <div class="caixote">
+                <div class="row">
+                    <div class="sec sobrenos col-12 col-sm-12 col-md-4">
+                        <h2>Sobre Nós</h2>
+                        <p>O ALFI é um site de compartilhamento de moldes de roupas,
+                            focado em disponibilizar aos usúarios uma plataforma para
+                            obter e compartilhar os moldes das roupas desejedas pelos mesmos.
+                        </p>
+                    </div>
+
+                    <div class="sec quicklinks col-12 col-sm-12 col-md-4">
+                        <h2>Suporte</h2>
+                        <ul>
+                            <li><a href="FAQ.php">FAQ</a></li>
+                            <li><a href="pdep.php">Política de Privacidade</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-sm12 col-md-4">
+                        <div class="sec contact">
+                            <h2>Entre em Contato</h2>
+                            <ul class="info">
+                                <li>
+                                    <p>Caso queira enviar alguma sugestão, solicitação ou mensagem, você pode nos contatar clicando no botão abaixo ou através do e-mail: <a href="mailto:teamalfi2023@gmail.com" class="mail">teamalfi2023@gmail.com</a></p>
+                                </li>
+                                <a class="xinga" href="testeform.php">Contato</a>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="copyrightText">
+                        <p>Copyright © 2023 ALFI All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
 </body>
 
 </html>

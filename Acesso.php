@@ -16,7 +16,6 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
         * {
-
             font-family: "Poppins", sans-serif;
         }
 
@@ -29,7 +28,6 @@
         /* Header styles */
         header {
             background-color: #1B2029;
-            border-bottom: 2px solid #444079;
         }
 
         a.logo img {
@@ -73,6 +71,10 @@
             background: #8880FE;
             color: white;
             transition: 0.3s all;
+        }
+
+        select {
+            border: 2px solid #444079;
         }
 
         .Titulo {
@@ -211,10 +213,10 @@
                     }                         
                         ?>
                     </option>
-                    <option value="teste.php?peça='IS NOT NULL'">Todas as peças</option>
-                    <option value="teste.php?peça='Saia'">Saias</option>
-                    <option value="teste.php?peça='Calça'">Calças</option>
-                    <option value="teste.php?peça='Bermuda'">Bermudas</option>
+                    <option value="index.php?peça='IS NOT NULL'">Todas as peças</option>
+                    <option value="index.php?peça='Saia'">Saias</option>
+                    <option value="index.php?peça='Calça'">Calças</option>
+                    <option value="index.php?peça='Bermuda'">Bermudas</option>
                 </select>
 
                 <script>
@@ -277,7 +279,7 @@ if (isset($_GET['valor'])) {
             }
         }
     } else {
-        echo '<script>alert("Erro ao carregar o modelo"); window.location.href = "teste.php";</script>';
+        echo '<script>alert("Erro ao carregar o modelo"); window.location.href = "index.php";</script>';
     }
 }
 ?>

@@ -203,28 +203,28 @@
         </header>
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                <select id="seletor" onchange="trocarPagina()" class="form-select">
-                    <option hidden>
-                        <?php
-                    if (isset($_GET['peça'])) {
-                        $peca = $_GET['peça'];
-                    }else{
-                        echo 'Selecione o tipo de peça desejado';
-                    }                         
-                        ?>
-                    </option>
-                    <option value="index.php?peça='IS NOT NULL'">Todas as peças</option>
-                    <option value="index.php?peça='Saia'">Saias</option>
-                    <option value="index.php?peça='Calça'">Calças</option>
-                    <option value="index.php?peça='Bermuda'">Bermudas</option>
+                <select id="select" onchange="trocarPagina()" class="form-select borda">
+                    <option hidden> <?php
+                                    if (isset($_GET['peça'])) {
+                                        $peca = $_GET['peça'];
+                                        echo $peca . "s";
+                                    } else {
+                                        echo 'Selecione o tipo de peça desejado';
+                                    }
+                                    ?></option>
+                    <option value="index.php" data-peca="Toda">Todas as peças</option>
+                    <option value="index.php" data-peca="Saia">Saias</option>
+                    <option value="index.php" data-peca="Calça">Calças</option>
+                    <option value="index.php" data-peca="Bermuda">Bermudas</option>
                 </select>
-
                 <script>
                     function trocarPagina() {
-                        var select = document.getElementById("seletor");
-                        var paginaSelecionada = select.value;
+                        var select = document.getElementById("select");
+                        var paginaSelecionada = select.options[select.selectedIndex].value;
+                        var tipoPeca = select.options[select.selectedIndex].getAttribute("data-peca");
+
                         if (paginaSelecionada !== "") {
-                            window.location.href = paginaSelecionada;
+                            window.location.href = paginaSelecionada + "?peça=" + encodeURIComponent(tipoPeca);
                         }
                     }
                 </script>
@@ -232,57 +232,62 @@
         </div>
         <!--<div class="row"><div class="col-12 col-sm-12 col-md-12"></div></div>-->
         <?php
-include_once('conexao.php');
-if (isset($_GET['valor'])) {
-    $valor = $_GET['valor'];
+        include_once('conexao.php');
+        if (isset($_GET['valor'])) {
+            $valor = $_GET['valor'];
 
-    // Consulta para buscar o título, capa e tipo do modelo
-    $sql = "SELECT `Título`, `Capa`, `Tipo` FROM `modelo` WHERE `Id modelo` = $valor";
-    $res = mysqli_query($conn, $sql);
+            // Consulta para buscar o título, capa e tipo do modelo
+            $sql = "SELECT `Título`, `Capa`, `Moldes`, `Tipo` FROM `modelo` WHERE `Id modelo` = $valor";
+            $res = mysqli_query($conn, $sql);
 
-    if ($res && mysqli_num_rows($res) > 0) {
-        $row = mysqli_fetch_assoc($res);
-        $Titulo = $row['Título'];
-        echo '<div class="row">' . '<h1 class="col-12 col-sm-12 col-md-12 Titulo">' . $Titulo . '</h1>' . '</div>';
-
-        $endereco_imagem = $row['Capa'];
-        if ($endereco_imagem) {
-            echo '<div class="row">' . '<div class="col-12 col-sm-12 col-md-12">' . '<img src="' . $endereco_imagem .  '"alt="Imagem">' . '</div>' . '</div>';
-        } else {
-            echo 'Nenhuma imagem encontrada.';
-        }
-
-        $Tipo = $row['Tipo'];
-        if ($Tipo == 'Saia') {
-            $sqlMedidas = "SELECT `Comprimento`, `Quadril`, `Cintura` FROM `modelo` WHERE `Id modelo` = $valor";
-            $resMedidas = mysqli_query($conn, $sqlMedidas);
-
-            if ($resMedidas && mysqli_num_rows($resMedidas) > 0) {
-                $rowMedidas = mysqli_fetch_assoc($resMedidas);
-                $Comprimento = $rowMedidas['Comprimento'];
-                $Quadril = $rowMedidas['Quadril'];
-                $Cintura = $rowMedidas['Cintura'];
+            if ($res && mysqli_num_rows($res) > 0) {
+                $row = mysqli_fetch_assoc($res);
+                $Titulo = $row['Título'];
                 echo '<div class="row">' . '<h1 class="col-12 col-sm-12 col-md-12 Titulo">' . $Titulo . '</h1>' . '</div>';
-                echo $Comprimento . $Quadril . $Cintura;
-            }
-        } elseif ($Tipo == 'Bermuda' || $Tipo == 'Calça') {
-            $sqlMedidas = "SELECT `Comprimento`, `Quadril`, `Cintura`, `Gancho` FROM `modelo` WHERE `Id modelo` = $valor";
-            $resMedidas = mysqli_query($conn, $sqlMedidas);
 
-            if ($resMedidas && mysqli_num_rows($resMedidas) > 0) {
-                $rowMedidas = mysqli_fetch_assoc($resMedidas);
-                $Comprimento = $rowMedidas['Comprimento'];
-                $Quadril = $rowMedidas['Quadril'];
-                $Cintura = $rowMedidas['Cintura'];
-                $Gancho = $rowMedidas['Gancho'];
-                echo $Comprimento . $Quadril . $Cintura . $Gancho;
+                $endereco_capa = $row['Capa'];
+                if ($endereco_capa) {
+                    echo '<div class="row">' . '<img src="' . $endereco_capa .  '"alt="Imagem" class="col-12 col-sm-12 col-md-12">' . '</div>';
+                } else {
+                    echo 'Falha ao buscar imagem.';
+                }
+
+                $Moldes = $row['Moldes'];
+                $Moldes = explode(',', $Moldes);
+                foreach ($Moldes as $Molde) {
+                    echo '<div class="row">' . '<img src="' . $Molde .  '"alt="Imagem" class="col-12 col-sm-12 col-md-12">' . '</div>';
+                }
+
+                $Tipo = $row['Tipo'];
+                if ($Tipo == 'Saia') {
+                    $sqlMedidas = "SELECT `Comprimento`, `Quadril`, `Cintura` FROM `modelo` WHERE `Id modelo` = $valor";
+                    $resMedidas = mysqli_query($conn, $sqlMedidas);
+
+                    if ($resMedidas && mysqli_num_rows($resMedidas) > 0) {
+                        $rowMedidas = mysqli_fetch_assoc($resMedidas);
+                        $Comprimento = $rowMedidas['Comprimento'];
+                        $Quadril = $rowMedidas['Quadril'];
+                        $Cintura = $rowMedidas['Cintura'];
+                        echo '<p style="color: azure;">' . $Comprimento . $Quadril . $Cintura . '</p>';
+                    }
+                } elseif ($Tipo == 'Bermuda' || $Tipo == 'Calça') {
+                    $sqlMedidas = "SELECT `Comprimento`, `Quadril`, `Cintura`, `Gancho` FROM `modelo` WHERE `Id modelo` = $valor";
+                    $resMedidas = mysqli_query($conn, $sqlMedidas);
+
+                    if ($resMedidas && mysqli_num_rows($resMedidas) > 0) {
+                        $rowMedidas = mysqli_fetch_assoc($resMedidas);
+                        $Comprimento = $rowMedidas['Comprimento'];
+                        $Quadril = $rowMedidas['Quadril'];
+                        $Cintura = $rowMedidas['Cintura'];
+                        $Gancho = $rowMedidas['Gancho'];
+                        echo $Comprimento . $Quadril . $Cintura . $Gancho;
+                    }
+                }
+            } else {
+                echo '<script>alert("Erro ao carregar o modelo"); window.location.href = "index.php";</script>';
             }
         }
-    } else {
-        echo '<script>alert("Erro ao carregar o modelo"); window.location.href = "index.php";</script>';
-    }
-}
-?>
+        ?>
         <footer>
             <div class="caixote">
                 <div class="row">

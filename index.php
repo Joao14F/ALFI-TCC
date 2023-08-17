@@ -323,7 +323,8 @@
                 echo '</div>';
                 echo '</div>';
             } else {
-                echo 'Nenhuma imagem encontrada.';
+
+                echo '<p style="color: azure;">Nenhuma imagem encontrada.</p>';
             }
 
             // Fecha a conexão com o banco de dados

@@ -30,7 +30,6 @@ CREATE TABLE moderador (
 
 CREATE TABLE usuário (
   `Id usuário` INT NOT NULL AUTO_INCREMENT,
-  `Cadastro` VARCHAR(120) NOT NULL,
   `Nome usuário` VARCHAR(30) NOT NULL,
   `E-mail usuário` VARCHAR(30) NOT NULL,
   `Telefone usuário` VARCHAR(30) NOT NULL,
@@ -38,5 +37,5 @@ CREATE TABLE usuário (
   PRIMARY KEY (`Id usuário`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `usuário` (`Id usuário`, `Cadastro`, `Nome usuário`, `E-mail usuário`, `Telefone usuário`, `Senha usuário`) VALUES
-(1, '', 'JOÃO FRANCISCO', 'eu@gmail.com', '48998340172', '12345');
+INSERT INTO `usuário` (`Id usuário`, `Nome usuário`, `E-mail usuário`, `Telefone usuário`, `Senha usuário`) VALUES
+(1, 'JOÃO FRANCISCO', 'eu@gmail.com', '48998340172', '12345');

@@ -195,8 +195,14 @@
                 <div class="botões col-12 col-sm-12 col-md-4">
                     <a href="CadastrarModelo.php"><button class="CadastraModelo">Cadastrar Modelo</button></a>
                 </div>
-
+                
                 <div class="botões col-12 col-sm-12 col-md-4">
+                <?php
+            include_once('conexao.php');
+                if (isset ($_SESSION['usuario'])) {
+                    # code...
+                }
+            ?>
                     <a href="login.php"><button class="login">Login</button></a>
                     <a href="cadastro.php"><button class="cadastro">Cadastro</button></a>
                 </div>
@@ -236,6 +242,8 @@
             <?php
             include_once('conexao.php');
 
+
+            
             // Define a quantidade de resultados a serem exibidos por página
             $resultados_por_pagina = 8;
 

@@ -85,7 +85,7 @@
         <main>
             <h1>Logue sua conta</h1>
 
-            <form action="testelogin.php" method="POST">
+            <form action="sessao.php" method="POST">
 
 
                 <label for="email">
@@ -100,7 +100,14 @@
 
                 <p> Não possui uma conta? <a class="Cadastro" href="cadastro.php">Cadastrar </a> </p>
 
-                <input class="" type="submit" name="submit" value="Login">
+<input class="" type="submit" name="submit" value="Login">
+</form>
+
+<?php
+if (isset($_POST['submit'])) { // Verifica se o botão de login foi clicado
+include_once('sessao.php');
+}
+?>
             </form>
         </main>
     </div>

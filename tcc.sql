@@ -9,14 +9,13 @@ CREATE TABLE modelo (
   `Gancho` VARCHAR(50),
   `Capa` varchar(50) NOT NULL,
   `Moldes` varchar(200) NOT NULL,
-  `Tempo` TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
   PRIMARY KEY (`Id modelo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `modelo` (`Id modelo`, `Título`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Gancho`, `Capa`, `Moldes`, `Tempo`) VALUES
-(1, 'nf', 'Não', 'Saia', '432', '63', '75', NULL, 'Arquivos/Capas/64cbd60149a1e.jpg', 'Arquivos/Moldes/64cbd60149b79.jpg', '2023-08-03 19:29:53.302330'),
-(2, 'saia', 'Sim', 'Saia', '1', '2', '3', NULL, 'Arquivos/Capas/64cbea17eff7a.jpg', 'Arquivos/Moldes/64cbea17f03c8.jpg,Arquivos/Moldes/64cbea17f06dd.jpg,Arquivos/Moldes/64cbea17f0950.jpg', '2023-08-03 20:55:35.986339'),
-(3, '35', 'Sim', 'Calça', '0742', '68', '169', '13669', 'Arquivos/Capas/64d68d159d8a6.png', 'Arquivos/Moldes/64d68d159db8c.png,Arquivos/Moldes/64d68d159ddef.png,Arquivos/Moldes/64d68d159e063.png', '2023-08-11 19:33:41.648232');
+INSERT INTO `modelo` (`Id modelo`, `Título`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Gancho`, `Capa`, `Moldes`) VALUES
+(1, 'nf', 'Não', 'Saia', '432', '63', '75', NULL, 'Arquivos/Capas/64cbd60149a1e.jpg', 'Arquivos/Moldes/64cbd60149b79.jpg'),
+(2, 'saia', 'Sim', 'Saia', '1', '2', '3', NULL, 'Arquivos/Capas/64cbea17eff7a.jpg', 'Arquivos/Moldes/64cbea17f03c8.jpg,Arquivos/Moldes/64cbea17f06dd.jpg,Arquivos/Moldes/64cbea17f0950.jpg'),
+(3, '35', 'Sim', 'Calça', '0742', '68', '169', '13669', 'Arquivos/Capas/64d68d159d8a6.png', 'Arquivos/Moldes/64d68d159db8c.png,Arquivos/Moldes/64d68d159ddef.png,Arquivos/Moldes/64d68d159e063.png');
 
 CREATE TABLE moderador (
   `Id moderador` INT NOT NULL AUTO_INCREMENT,

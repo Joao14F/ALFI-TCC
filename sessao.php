@@ -28,13 +28,4 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
         exit();
     }
 }
-
-if (!isset($_SESSION['E-mail usuário'])) {
-    // Redireciona para a página de login se não estiver autenticado
-    echo '<script>alert("Erro de autenticação"); window.location.href = "login.php";</script>';
-
-    exit();
-}
-
-// Resto do seu código após a autenticação...
 ?>

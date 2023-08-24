@@ -182,6 +182,9 @@
 </head>
 
 <body>
+    <?php
+    include('conexao.php');
+    ?>
     <div class="container-fluid">
         <header>
             <div class="row">

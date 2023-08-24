@@ -15,9 +15,8 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
 
     if ($res && mysqli_num_rows($res) > 0) {
         // Caso as credenciais sejam válidas, armazena o email na sessão
-        $usuario = mysqli_fetch_assoc($res);
-        $_SESSION['E-mail usuário'] = $usuario['E-mail usuário'];
-
+        $row = mysqli_fetch_assoc($res);
+        $_SESSION['id'] = $row['Id usuário'];
         // Redireciona para index.php após autenticação bem-sucedida
         header('Location: index.php');
         exit();

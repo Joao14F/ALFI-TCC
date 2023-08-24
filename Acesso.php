@@ -182,9 +182,6 @@
 </head>
 
 <body>
-    <?php
-    include('conexao.php');
-    ?>
     <div class="container-fluid">
         <header>
             <div class="row">
@@ -236,6 +233,7 @@
         <!--<div class="row"><div class="col-12 col-sm-12 col-md-12"></div></div>-->
         <?php
         include_once('conexao.php');
+        include('sessao.php');
         if (isset($_GET['valor'])) {
             $valor = $_GET['valor'];
 

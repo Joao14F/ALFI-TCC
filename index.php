@@ -198,13 +198,18 @@
                 
                 <div class="botões col-12 col-sm-12 col-md-4">
                 <?php
-            include_once('conexao.php');
-                if (isset ($_SESSION['usuario'])) {
-                    # code...
-                }
+                print_r($_SESSION);
+            if (isset($_SESSION['id'])) {
+                echo '<a href="modelosCadastrados.php"><button class="login">Modelos Cadastrados</button></a>';
+                echo '<a href="sair.php"><button class="cadastro">Sair</button></a>';
+            } else {
+                echo '<a href="login.php"><button class="login">Login</button></a>';
+                echo '<a href="cadastro.php"><button class="cadastro">Cadastro</button></a>';
+            }
+            
             ?>
-                    <a href="login.php"><button class="login">Login</button></a>
-                    <a href="cadastro.php"><button class="cadastro">Cadastro</button></a>
+                    
+                
                 </div>
                 <div class="col-md-1"></div>
             </div>
@@ -241,6 +246,7 @@
         <div class="row">
             <?php
             include_once('conexao.php');
+           
 
 
             

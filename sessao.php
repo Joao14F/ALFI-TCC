@@ -1,29 +1,26 @@
 <?php
-include_once('conexao.php');
 session_start();
+
+include_once('conexao.php');
 
 if (isset($_POST['email']) && isset($_POST['senha'])) {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    // Realiza a consulta no banco de dados para verificar se o email e senha existem
-    $sql = "SELECT `Id usuário` FROM `usuário` WHERE `E-mail usuário` = ? AND `Senha usuário` = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $email, $senha);
-    $stmt->execute();
-    $res = $stmt->get_result();
+    
+     $sql = "SELECT `Id usuário` FROM `usuário` WHERE `E-mail usuário` = ? AND `Senha usuário` = ?";
+     $stmt = $conn->prepare($sql);
+     $stmt->bind_param("ss", $email, $senha);
+     $stmt->execute();
+     $res = $stmt->get_result();
 
     if ($res && mysqli_num_rows($res) > 0) {
-        // Caso as credenciais sejam válidas, armazena o email na sessão
-        $row = mysqli_fetch_assoc($res);
-        $_SESSION['id'] = $row['Id usuário'];
-        // Redireciona para index.php após autenticação bem-sucedida
-        header('Location: index.php');
+        $_SESSION = mysqli_fetch_assoc($res);
+        print_r($_SESSION);
+        //header('Location: index.php');
         exit();
     } else {
-        // Redireciona de volta para a página de login se as credenciais forem inválidas
-        echo '<script>alert("Dados inválidos"); window.location.href = "login.php";</script>';
-
+       // header('Location: login.php?error=invalid_credentials');
         exit();
     }
 }

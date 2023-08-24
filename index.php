@@ -1,3 +1,5 @@
+<?php include('sessao.php'); ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -41,6 +43,7 @@
             width: 60%;
             background: #1B2029;
             color: #8880FE;
+            margin-top: 20px;
         }
 
         .login {
@@ -52,6 +55,7 @@
             background: #1B2029;
             margin-right: 2rem;
             color: #8880FE;
+            margin-top: 20px;
         }
 
         .cadastro {
@@ -62,6 +66,7 @@
             width: 40%;
             background: #1B2029;
             color: #8880FE;
+            margin-top: 20px;
         }
 
         .CadastraModelo:hover,
@@ -198,8 +203,7 @@
                 
                 <div class="botões col-12 col-sm-12 col-md-4">
                 <?php
-                print_r($_SESSION);
-            if (isset($_SESSION['id'])) {
+            if (isset($_SESSION)) {
                 echo '<a href="modelosCadastrados.php"><button class="login">Modelos Cadastrados</button></a>';
                 echo '<a href="sair.php"><button class="cadastro">Sair</button></a>';
             } else {
@@ -247,9 +251,6 @@
             <?php
             include_once('conexao.php');
            
-
-
-            
             // Define a quantidade de resultados a serem exibidos por página
             $resultados_por_pagina = 8;
 

@@ -230,7 +230,6 @@
                 </script>
             </div>
         </div>
-        <!--<div class="row"><div class="col-12 col-sm-12 col-md-12"></div></div>-->
         <?php
         include_once('conexao.php');
         include('sessao.php');

@@ -203,7 +203,7 @@
                 
                 <div class="botões col-12 col-sm-12 col-md-4">
                 <?php
-            if (isset($_SESSION)) {
+            if (isset($_SESSION['Id usuário'])) {
                 echo '<a href="modelosCadastrados.php"><button class="login">Modelos Cadastrados</button></a>';
                 echo '<a href="sair.php"><button class="cadastro">Sair</button></a>';
             } else {

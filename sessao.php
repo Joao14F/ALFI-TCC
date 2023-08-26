@@ -8,7 +8,7 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
     $senha = $_POST['senha'];
 
     
-     $sql = "SELECT `Id usuário` FROM `usuário` WHERE `E-mail usuário` = ? AND `Senha usuário` = ?";
+     $sql = "SELECT * FROM `usuário` WHERE `E-mail usuário` = ? AND `Senha usuário` = ?";
      $stmt = $conn->prepare($sql);
      $stmt->bind_param("ss", $email, $senha);
      $stmt->execute();
@@ -16,11 +16,10 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
 
     if ($res && mysqli_num_rows($res) > 0) {
         $_SESSION = mysqli_fetch_assoc($res);
-        print_r($_SESSION);
-        //header('Location: index.php');
+        header('Location: index.php');
         exit();
     } else {
-       // header('Location: login.php?error=invalid_credentials');
+        header('Location: login.php?error=invalid_credentials');
         exit();
     }
 }

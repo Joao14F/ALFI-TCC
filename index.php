@@ -206,7 +206,11 @@
             if (isset($_SESSION['Id usuário'])) {
                 echo '<a href="modelosCadastrados.php"><button class="login">Modelos Cadastrados</button></a>';
                 echo '<a href="sair.php"><button class="cadastro">Sair</button></a>';
-            } else {
+            } elseif (isset($_SESSION['Id moderador'])) {
+                echo '<a href="adm.php"><button class="login">gerenciar modelos</button></a>';
+                echo '<a href="sair.php"><button class="cadastro">Sair</button></a>';
+            } 
+            else{
                 echo '<a href="login.php"><button class="login">Login</button></a>';
                 echo '<a href="cadastro.php"><button class="cadastro">Cadastro</button></a>';
             }

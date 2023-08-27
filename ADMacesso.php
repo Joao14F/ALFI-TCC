@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADM</title>
+    <link rel="icon" type="image/png" href="imagens/navlogo.png">
+    <title>Index</title>
+
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -21,6 +25,7 @@
             background: #1B2029;
         }
 
+        /* Header styles */
         header {
             background-color: #1B2029;
         }
@@ -37,7 +42,6 @@
             width: 60%;
             background: #1B2029;
             color: #8880FE;
-            margin-top: 20px;
         }
 
         .login {
@@ -49,7 +53,6 @@
             background: #1B2029;
             margin-right: 2rem;
             color: #8880FE;
-            margin-top: 20px;
         }
 
         .cadastro {
@@ -60,7 +63,6 @@
             width: 40%;
             background: #1B2029;
             color: #8880FE;
-            margin-top: 20px;
         }
 
         .CadastraModelo:hover,
@@ -71,16 +73,13 @@
             transition: 0.3s all;
         }
 
-        .borda {
+        select {
             border: 2px solid #444079;
         }
 
-        .modelos {
-            margin: 7px;
-            border-radius: 10px;
-            width: 250px;
+        .Titulo {
+            background-color: aliceblue;
         }
-
 
         /* Footer styles */
         footer {
@@ -181,6 +180,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container-fluid">
         <header>
@@ -193,20 +193,10 @@
                 <div class="botões col-12 col-sm-12 col-md-4">
                     <a href="CadastrarModelo.php"><button class="CadastraModelo">Cadastrar Modelo</button></a>
                 </div>
-                
+
                 <div class="botões col-12 col-sm-12 col-md-4">
-                <?php
-            if (isset($_SESSION)) {
-                echo '<a href="index.php"><button class="login">Início</button></a>';
-                echo '<a href="sair.php"><button class="cadastro">Sair</button></a>';
-            } else {
-                echo '<a href="login.php"><button class="login">Login</button></a>';
-                echo '<a href="cadastro.php"><button class="cadastro">Cadastro</button></a>';
-            }
-            
-            ?>
-                    
-                
+                    <a href="login.php"><button class="login">Login</button></a>
+                    <a href="cadastro.php"><button class="cadastro">Cadastro</button></a>
                 </div>
                 <div class="col-md-1"></div>
             </div>
@@ -230,8 +220,8 @@
                 <script>
                     function trocarPagina() {
                         var select = document.getElementById("select");
-                        var paginaSelecionada = select.options[select.selectedmodelosCadastrados].value;
-                        var tipoPeca = select.options[select.selectedmodelosCadastrados].getAttribute("data-peca");
+                        var paginaSelecionada = select.options[select.selectedIndex].value;
+                        var tipoPeca = select.options[select.selectedIndex].getAttribute("data-peca");
 
                         if (paginaSelecionada !== "") {
                             window.location.href = paginaSelecionada + "?peça=" + encodeURIComponent(tipoPeca);
@@ -240,110 +230,82 @@
                 </script>
             </div>
         </div>
-        <div class="row">
-            <?php
-            include_once('conexao.php');
-           
-            // Define a quantidade de resultados a serem exibidos por página
-            $resultados_por_pagina = 8;
+        <?php
+        include_once('conexao.php');
+        include('sessao.php');
+        if (isset($_GET['valor'])) {
+            $valor = $_GET['valor'];
 
-            // Obtém o número da página atual a partir do parâmetro "pagina" na URL
-            if (isset($_GET['pagina']) && is_numeric($_GET['pagina'])) {
-                $pagina_atual = $_GET['pagina'];
-            } else {
-                $pagina_atual = 1;
-            }
+            // Consulta para buscar o título, capa e tipo do modelo
+            $sql = "SELECT `Título`, `Capa`, `Moldes`, `Tipo` FROM `modelo` WHERE `Id modelo` = $valor";
+            $res = mysqli_query($conn, $sql);
 
-            // Calcula o deslocamento (offset) com base na página atual
-            $offset = ($pagina_atual - 1) * $resultados_por_pagina;
-
-            if (isset($_GET['peça'])) {
-                $peca = $_GET['peça'];
-                if ($peca == 'Toda') {
-                    $query = "SELECT `Capa`, `Id modelo` FROM `modelo` ORDER BY `Id modelo` DESC LIMIT ?, ?";
-                    $stmt = $conn->prepare($query);
-                    $stmt->bind_param("ii", $offset, $resultados_por_pagina);
-                } else {
-                    $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Tipo` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
-                    $stmt = $conn->prepare($query);
-                    $stmt->bind_param("sii", $peca, $offset, $resultados_por_pagina);
-                }
-                $stmt->execute();
-                $res = $stmt->get_result();
-            } else {
-                $sql = "SELECT `Capa`, `Id modelo` FROM `modelo` ORDER BY `Id modelo` DESC LIMIT ?, ?";
-                $stmt = $conn->prepare($sql);
-                $stmt->bind_param("ii", $offset, $resultados_por_pagina);
-                $stmt->execute();
-                $res = $stmt->get_result();
-            }
-            
-
-
-            echo '<div>';
             if ($res && mysqli_num_rows($res) > 0) {
-                // Exibe as imagens dentro do laço `while`
-                while ($row = mysqli_fetch_assoc($res)) {
-                    if (isset($row['Capa'])) { // Verifica se a chave 'Capa' está definida
-                        $caminho_imagem = $row['Capa'];
-                        echo '<a href="ADMacesso.php?valor=' . $row['Id modelo'] . '">';
-                        echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos col-8 col-sm-8 col-md-8">';
-                        echo '</a>';
-                    }
-                }
-                echo '</div>';
+                $row = mysqli_fetch_assoc($res);
+                $Titulo = $row['Título'];
+                echo '<div class="row">' . '<h1 class="col-12 col-sm-12 col-md-12 Titulo">' . $Titulo . '</h1>' . '</div>';
 
-                // Cria os links de paginação
-                $sql_total = "SELECT COUNT(*) AS total FROM `modelo`";
-                $res_total = mysqli_query($conn, $sql_total);
-                $row_total = mysqli_fetch_assoc($res_total);
-                $total_resultados = $row_total['total'];
-                $total_paginas = ceil($total_resultados / $resultados_por_pagina);
-
-                echo '<div class="row">';
-
-                echo '<div class="pagination">';
-
-                // Link para a página anterior, se não estiver na primeira página
-                if ($pagina_atual > 1) {
-                    echo '<a href="?pagina=' . ($pagina_atual - 1);
-                    if (isset($_GET['peça'])) {
-                        echo '&peça=' . urlencode($_GET['peça']);
-                    }
-                    echo '">Anterior</a>' . ' ';
+                $endereco_capa = $row['Capa'];
+                if ($endereco_capa) {
+                    echo '<div class="row">' . '<img src="' . $endereco_capa .  '"alt="Imagem" class="col-12 col-sm-12 col-md-12">' . '</div>';
+                } else {
+                    echo 'Falha ao buscar imagem.';
                 }
 
-                // Links para as páginas individuais
-                for ($i = 1; $i <= $total_paginas; $i++) {
-                    echo '<a href="?pagina=' . $i;
-                    if (isset($_GET['peça'])) {
-                        echo '&peça=' . urlencode($_GET['peça']);
-                    }
-                    echo '">' . $i . '</a>' . ' ';
+                $Moldes = $row['Moldes'];
+                $Moldes = explode(',', $Moldes);
+                foreach ($Moldes as $Molde) {
+                    echo '<div class="row">' . '<img src="' . $Molde .  '"alt="Imagem" class="col-12 col-sm-12 col-md-12">' . '</div>';
                 }
 
-                // Link para a próxima página, se não estiver na última página
-                if ($pagina_atual < $total_paginas) {
-                    echo '<a href="?pagina=' . ($pagina_atual + 1);
-                    if (isset($_GET['peça'])) {
-                        echo '&peça=' . urlencode($_GET['peça']);
+                $Tipo = $row['Tipo'];
+                if ($Tipo == 'Saia') {
+                    $sqlMedidas = "SELECT `Comprimento`, `Quadril`, `Cintura` FROM `modelo` WHERE `Id modelo` = $valor";
+                    $resMedidas = mysqli_query($conn, $sqlMedidas);
+
+                    if ($resMedidas && mysqli_num_rows($resMedidas) > 0) {
+                        $rowMedidas = mysqli_fetch_assoc($resMedidas);
+                        $Comprimento = $rowMedidas['Comprimento'];
+                        $Quadril = $rowMedidas['Quadril'];
+                        $Cintura = $rowMedidas['Cintura'];
+                        echo '<p style="color: azure;">' . $Comprimento . $Quadril . $Cintura . '</p>';
                     }
-                    echo '">Próxima</a>' . ' ';
+                } elseif ($Tipo == 'Bermuda' || $Tipo == 'Calça') {
+                    $sqlMedidas = "SELECT `Comprimento`, `Quadril`, `Cintura`, `Gancho` FROM `modelo` WHERE `Id modelo` = $valor";
+                    $resMedidas = mysqli_query($conn, $sqlMedidas);
+
+                    if ($resMedidas && mysqli_num_rows($resMedidas) > 0) {
+                        $rowMedidas = mysqli_fetch_assoc($resMedidas);
+                        $Comprimento = $rowMedidas['Comprimento'];
+                        $Quadril = $rowMedidas['Quadril'];
+                        $Cintura = $rowMedidas['Cintura'];
+                        $Gancho = $rowMedidas['Gancho'];
+                        echo $Comprimento . $Quadril . $Cintura . $Gancho;
+                    }
                 }
-
-
-                echo '</div>';
-                echo '</div>';
             } else {
-
-                echo '<p style="color: azure;">Nenhuma imagem encontrada.</p>';
+                echo '<script>alert("Erro ao carregar o modelo"); window.location.href = "index.php";</script>';
             }
-
-            // Fecha a conexão com o banco de dados
-            $conn->close();
-
-            ?>
-        </div>
+            echo '<div class="row">';
+                echo '<div class="col-12 col-sm-12 col-md-12">'; 
+                    echo '<button type="submit" name="deleta">Deletar</button>';
+                    if (isset($_POST['deleta'])) {
+                        $query = "DELETE FROM `modelo` WHERE `Id modelo` = ?";
+                        $stmt = $conn->prepare($query);
+                        $stmt->bind_param("i", $valor);
+                        if ($stmt->execute()) {
+                            echo '<script>alert("Modelo deletado"); window.location.href = "adm.php";</script>';
+                            
+                        } else {
+                            echo '<script>alert("Erro ao deletar modelo"); window.location.href = "ADMacesso.php?valor=$valor";</script>';
+                        }
+                        
+                    }
+                    
+                echo '</div>';
+            echo '</div>';
+        }
+        ?>
         <footer>
             <div class="caixote">
                 <div class="row">
@@ -386,4 +348,5 @@
         </footer>
     </div>
 </body>
+
 </html>

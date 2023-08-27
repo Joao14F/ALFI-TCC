@@ -104,7 +104,7 @@
 </form>
 
 <?php
-if (isset($_POST['submit'])) { // Verifica se o botão de login foi clicado
+if (isset($_POST['submit'])) {
 include_once('sessao.php');
 }
 ?>

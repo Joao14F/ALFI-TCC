@@ -55,9 +55,16 @@ $Quadril = isset($_POST['Quadril']) ? $_POST['Quadril'] : null;
 $Cintura = isset($_POST['Cintura']) ? $_POST['Cintura'] : null;
 $Gancho = isset($_POST['Gancho']) ? $_POST['Gancho'] : null;
 
-
-$sql = "INSERT INTO modelo (`Título`, `Tecido`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Gancho`, `Capa`, `Moldes`, `Usuário cadastrador`) 
+if (isset($_SESSION['Id usuário'])) {
+    $sql = "INSERT INTO modelo (`Título`, `Tecido`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Gancho`, `Capa`, `Moldes`, `Usuário cadastrador`) 
     VALUES ('$Título', '$Tecido', '$Sustentável', '$Tipo', '$Comprimento', '$Quadril', '$Cintura', '$Gancho', '$Capa', '$Moldes', '" . $_SESSION['Id usuário'] . "')";
+}
+
+if (isset($_SESSION['Id moderador'])) {
+    $sql = "INSERT INTO modelo (`Título`, `Tecido`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Gancho`, `Capa`, `Moldes`, `Usuário cadastrador`) 
+    VALUES ('$Título', '$Tecido', '$Sustentável', '$Tipo', '$Comprimento', '$Quadril', '$Cintura', '$Gancho', '$Capa', '$Moldes', '" . $_SESSION['Id moderador'] . "')";
+}
+
 
 
 if (mysqli_query($conn, $sql)) {

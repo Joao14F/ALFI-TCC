@@ -198,7 +198,15 @@
                     </a>
                 </div>
                 <div class="botões col-12 col-sm-12 col-md-4">
-                    <a href="CadastrarModelo.php"><button class="CadastraModelo">Cadastrar Modelo</button></a>
+                <?php
+if (isset($_SESSION['Id moderador'])) {
+    echo '<a href="adm.php"><button class="login">gerenciar modelos</button></a>';
+}
+else {
+    echo ' <a href="CadastrarModelo.php"><button class="CadastraModelo">Cadastrar Modelo</button></a>';
+}
+?>
+                   
                 </div>
                 
                 <div class="botões col-12 col-sm-12 col-md-4">
@@ -206,8 +214,7 @@
             if (isset($_SESSION['Id usuário'])) {
                 echo '<a href="modelosCadastrados.php"><button class="login">Modelos Cadastrados</button></a>';
                 echo '<a href="sair.php"><button class="cadastro">Sair</button></a>';
-            } elseif (isset($_SESSION['Id moderador'])) {
-                echo '<a href="adm.php"><button class="login">gerenciar modelos</button></a>';
+            } elseif (isset($_SESSION['Id moderador'])) {                
                 echo '<a href="sair.php"><button class="cadastro">Sair</button></a>';
             } 
             else{

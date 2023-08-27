@@ -3,6 +3,7 @@ include_once('conexao.php');
 include_once('sessao.php');
 
 $Título = $_POST['Título'];
+$Tecido = $_POST['Tecido'];
 $Sustentável = $_POST['Sustentável'];
 $Tipo = $_POST['Tipo'];
 
@@ -49,36 +50,20 @@ if (isset($_FILES['Moldes'])) {
     $Moldes = implode(',', $nomesMoldes);
 }
 
-if ($Tipo == 'Saia') {
-    $Comprimento = $_POST['Comprimento'];
-    $Quadril = $_POST['Quadril'];
-    $Cintura = $_POST['Cintura'];
+$Comprimento = isset($_POST['Comprimento']) ? $_POST['Comprimento'] : null;
+$Quadril = isset($_POST['Quadril']) ? $_POST['Quadril'] : null;
+$Cintura = isset($_POST['Cintura']) ? $_POST['Cintura'] : null;
+$Gancho = isset($_POST['Gancho']) ? $_POST['Gancho'] : null;
 
-    $sql = "INSERT INTO modelo (`Título`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Gancho`, `Capa`, `Moldes`, `Usuário cadastrador`) 
-    VALUES ('$Título', '$Sustentável', '$Tipo', '$Comprimento', '$Quadril', '$Cintura', '$Gancho', '$Capa', '$Moldes', '".$_SESSION['id']."')";
-    
-} elseif ($Tipo == 'Calça') {
-    $Comprimento = $_POST['Comprimento'];
-    $Quadril = $_POST['Quadril'];
-    $Cintura = $_POST['Cintura'];
-    $Gancho = $_POST['Gancho'];
 
-    $sql = "INSERT INTO modelo (`Título`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Gancho`, `Capa`, `Moldes`, `Usuário cadastrador`) 
-    VALUES ('$Título', '$Sustentável', '$Tipo', '$Comprimento', '$Quadril', '$Cintura', '$Gancho', '$Capa', '$Moldes', '".$_SESSION['id']."')";
-} elseif ($Tipo == 'Bermuda') {
-    $Comprimento = $_POST['Comprimento'];
-    $Quadril = $_POST['Quadril'];
-    $Cintura = $_POST['Cintura'];
-    $Gancho = $_POST['Gancho'];
+$sql = "INSERT INTO modelo (`Título`, `Tecido`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Gancho`, `Capa`, `Moldes`, `Usuário cadastrador`) 
+    VALUES ('$Título', '$Tecido', '$Sustentável', '$Tipo', '$Comprimento', '$Quadril', '$Cintura', '$Gancho', '$Capa', '$Moldes', '" . $_SESSION['Id usuário'] . "')";
 
-    $sql = "INSERT INTO modelo (`Título`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Gancho`, `Capa`, `Moldes`, `Usuário cadastrador`) 
-    VALUES ('$Título', '$Sustentável', '$Tipo', '$Comprimento', '$Quadril', '$Cintura', '$Gancho', '$Capa', '$Moldes', '".$_SESSION['id']."')";
-}
 
 if (mysqli_query($conn, $sql)) {
     echo '</br>';
-  //  echo '<script>alert("Molde enviado com sucesso"); window.location.href = "index.php";</script>';
+      echo '<script>alert("Molde enviado com sucesso"); window.location.href = "index.php";</script>';
 } else {
     echo '</br>';
-  //  echo '<script>alert("Erro"); window.location.href = "CadastrarModelo.php";</script>';
+    echo '<script>alert("Erro"); window.location.href = "CadastrarModelo.php";</script>';
 }

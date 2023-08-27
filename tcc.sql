@@ -1,6 +1,7 @@
 CREATE TABLE modelo (
   `Id modelo` INT NOT NULL AUTO_INCREMENT,
   `Título` VARCHAR(50) NOT NULL,
+  `Tecido` VARCHAR(50) NOT NULL,
   `Sustentável` VARCHAR(50) NOT NULL,
   `Tipo` VARCHAR(50) NOT NULL,
   `Comprimento` VARCHAR(50),

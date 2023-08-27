@@ -46,8 +46,17 @@
             <p class="col-0 col-sm-0 col-md-1"></p>
             <div class="col-sm-12 col-md-10">
                <div class="form-group">
-                  <label class="areas" for="InputEmail1">Insira o titulo do modelo</label>
-                  <input type="name" class="form-control" id="Nome" placeholder="Titulo" name="Título">
+                  <label class="areas" for="Titulo">Insira o titulo do modelo</label>
+                  <input type="name" class="form-control" id="Titulo" placeholder="Titulo" name="Título">
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <p class="col-0 col-sm-0 col-md-1"></p>
+            <div class="col-sm-12 col-md-10">
+               <div class="form-group">
+                  <label class="areas" for="Tecido">Tecido sugerido</label>
+                  <input type="text" class="form-control" id="Tecido" placeholder="Tecido" name="Tecido">
                </div>
             </div>
          </div>

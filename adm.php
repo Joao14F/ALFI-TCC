@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -181,36 +182,12 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container-fluid">
-        <header>
-            <div class="row">
-                <div class="col-12 col-sm-12 col-md-3">
-                    <a class="logo" href="index.php">
-                        <img src="imagens/logo.png" alt="logo!">
-                    </a>
-                </div>
-                <div class="botões col-12 col-sm-12 col-md-4">
-                    <a href="CadastrarModelo.php"><button class="CadastraModelo">Cadastrar Modelo</button></a>
-                </div>
-                
-                <div class="botões col-12 col-sm-12 col-md-4">
-                <?php
-            if (isset($_SESSION)) {
-                echo '<a href="index.php"><button class="login">Início</button></a>';
-                echo '<a href="sair.php"><button class="cadastro">Sair</button></a>';
-            } else {
-                echo '<a href="login.php"><button class="login">Login</button></a>';
-                echo '<a href="cadastro.php"><button class="cadastro">Cadastro</button></a>';
-            }
-            
-            ?>
-                    
-                
-                </div>
-                <div class="col-md-1"></div>
-            </div>
-        </header>
+        <?php
+        require_once('cabecalho.php')
+        ?>
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <select id="select" onchange="trocarPagina()" class="form-select borda">
@@ -243,7 +220,7 @@
         <div class="row">
             <?php
             include_once('conexao.php');
-           
+
             // Define a quantidade de resultados a serem exibidos por página
             $resultados_por_pagina = 8;
 
@@ -277,7 +254,7 @@
                 $stmt->execute();
                 $res = $stmt->get_result();
             }
-            
+
 
 
             echo '<div>';
@@ -386,4 +363,5 @@
         </footer>
     </div>
 </body>
+
 </html>

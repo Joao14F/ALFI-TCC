@@ -10,7 +10,7 @@ CREATE TABLE modelo (
   `Gancho` VARCHAR(50),
   `Capa` varchar(50) NOT NULL,
   `Moldes` varchar(200) NOT NULL,
-  `Usuário cadastrador` INT NOT NULL,
+  `Usuário cadastrador` INT NULL,
   PRIMARY KEY (`Id modelo`)
   CONSTRAINT `cadastrador` FOREIGN KEY (`Usuário cadastrador`) 
   REFERENCES `usuário`(`Id usuário`) ON DELETE CASCADE ON UPDATE CASCADE;

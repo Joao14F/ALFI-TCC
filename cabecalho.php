@@ -66,6 +66,7 @@
                     <option value="index.php" data-peca="Saia">Saias</option>
                     <option value="index.php" data-peca="Calça">Calças</option>
                     <option value="index.php" data-peca="Bermuda">Bermudas</option>
+                    <option value="index.php" data-peca="Sustentável">Sustentáveis</option>
                 </select>
                 <script>
                     function trocarPagina() {

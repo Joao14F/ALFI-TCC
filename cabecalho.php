@@ -21,7 +21,7 @@
 
             if (isset($_SESSION['Id moderador'])) {
                 if (basename($caminho) == 'adm.php' || 'ADMacesso.php') {
-                    echo '<a href=""><button class="CadastraModelo">Modelos verificados</button></a>';
+                    echo '<a href="verificados.php"><button class="CadastraModelo">Modelos verificados</button></a>';
                 }
             } else {
                 echo ' <a href="CadastrarModelo.php"><button class="CadastraModelo">Cadastrar Modelo</button></a>';

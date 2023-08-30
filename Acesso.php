@@ -185,6 +185,7 @@
 <body>
     <div class="container-fluid">
     <?php
+        include_once('logado.php');
         require_once('cabecalho.php');
         include_once('conexao.php');
         if (isset($_GET['valor'])) {

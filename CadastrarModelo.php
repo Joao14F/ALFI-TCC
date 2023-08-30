@@ -19,6 +19,16 @@
 
       }
 
+      form select:focus {
+            border-color: #6C63FF !important;
+            box-shadow: 0 0 0 0.25rem rgba(108, 99, 255, 0.25) !important;
+        }
+
+      form input:focus {
+            border-color: #6C63FF !important;
+            box-shadow: 0 0 0 0.25rem rgba(108, 99, 255, 0.25) !important;
+        }
+
       button {
          cursor: pointer;
          width: 50%;

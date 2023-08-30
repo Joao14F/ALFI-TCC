@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
     <title>Login</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -24,21 +25,18 @@
             font-weight: 500;
         }
 
-        main {
-            justify-content: center;
-        }
 
-        main h1 {
+        h1 {
             color: #8880FE;
             font-size: 3rem;
             text-align: center;
         }
 
-        main form label span {
+        form label span {
             font-size: 1.1rem;
         }
 
-        main form input {
+        form input {
             background: #161923;
             outline: none;
             color: rgba(166, 166, 166);
@@ -47,7 +45,7 @@
             border-radius: 8px;
         }
 
-        main form input[type="submit"] {
+        form input[type="submit"] {
             cursor: pointer;
             border: none;
             border-radius: 32px;
@@ -57,7 +55,7 @@
             transition: all .3s ease-in-out;
         }
 
-        main form input[type="submit"]:hover {
+        form input[type="submit"]:hover {
             background: #5952d4;
         }
 
@@ -73,43 +71,69 @@
         i {
             color: white;
         }
+
+        form input:focus {
+            border-color: #6C63FF !important;
+            box-shadow: 0 0 0 0.25rem rgba(108, 99, 255, 0.25) !important;
+        }
     </style>
 
 </head>
 
 <body>
     <div class="container-fluid">
+        <!-- <a href="index.php"><i class="fa-sharp fa-solid fa-angles-left fa-xl"></i></a>-->
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12">
+                        <h1>Logue sua conta</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
-        <a href="index.php"><i class="fa-sharp fa-solid fa-angles-left fa-xl"></i></a>
-        <main>
-            <h1>Logue sua conta</h1>
 
-            <form action="sessao.php" method="POST">
+        <form action="sessao.php" method="POST">
+
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12">
+                    <label for="password">E-mail</label>
+                    <input class="form-control" type="email" id="email" name="email" placeholder="E-mail" required>
+                </div>
+            </div>
 
 
-                <label for="email">
-                    <span>E-mail</span>
-                    <input type="text" id="email" name="email" placeholder="E-mail" required>
-                </label>
 
-                <label for="password">
-                    <span>Senha</span>
-                    <input type="password" id="senha" name="senha" placeholder="Senha" required>
-                </label>
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12">
+                    <label for="password">Senha</label>
+                    <input class="form-control" type="password" id="senha" name="senha" placeholder="Senha" required>
+                </div>
+            </div>
 
-                <p> Não possui uma conta? <a class="Cadastro" href="cadastro.php">Cadastrar </a> </p>
 
-<input class="" type="submit" name="submit" value="Login">
-</form>
 
-<?php
-if (isset($_POST['submit'])) {
-include_once('sessao.php');
-}
-?>
-            </form>
-        </main>
+
+
+            <div class="row">
+                <div class="col-6 col-sm-6 col-md-3">
+                    <p> Não possui uma conta? <a class="Cadastro" href="cadastro.php">Cadastrar </a> </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <input class="" type="submit" name="submit" value="Login">
+            </div>
+
+        </form>
+
+        <?php
+        if (isset($_POST['submit'])) {
+            include_once('sessao.php');
+        }
+        ?>
     </div>
 </body>
 

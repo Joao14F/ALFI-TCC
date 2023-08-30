@@ -1,3 +1,4 @@
+<?php include('sessao.php');  ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -182,16 +183,15 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+<div class="container-fluid">
     <?php
         require_once('cabecalho.php');
         include_once('conexao.php');
-        include('sessao.php');
         if (isset($_GET['valor'])) {
             $valor = $_GET['valor'];
 
             // Consulta para buscar o título, capa e tipo do modelo
-            $sql = "SELECT `Título`, `Capa`, `Moldes`, `Tipo` FROM `modelo` WHERE `Id modelo` = $valor";
+            $sql = "SELECT `Título`, `Tecido`, `Sustentável`, `Capa`, `Moldes`, `Tipo` FROM `modelo` WHERE `Id modelo` = $valor";
             $res = mysqli_query($conn, $sql);
 
             if ($res && mysqli_num_rows($res) > 0) {
@@ -212,6 +212,11 @@
                     echo '<div class="row">' . '<img src="' . $Molde .  '"alt="Imagem" class="col-12 col-sm-12 col-md-12">' . '</div>';
                 }
 
+                if ($row['Tecido'] !== null) {
+                    echo '<p style="color: azure;">' . 'Tecido sugerido:'  . " " . $row['Tecido'] . '</p>';
+                }
+
+                echo '<p style="color: azure;">Sustentável:' . " " . $row['Sustentável'] . '</p>';
                 $Tipo = $row['Tipo'];
                 if ($Tipo == 'Saia') {
                     $sqlMedidas = "SELECT `Comprimento`, `Quadril`, `Cintura` FROM `modelo` WHERE `Id modelo` = $valor";
@@ -222,7 +227,9 @@
                         $Comprimento = $rowMedidas['Comprimento'];
                         $Quadril = $rowMedidas['Quadril'];
                         $Cintura = $rowMedidas['Cintura'];
-                        echo '<p style="color: azure;">' . $Comprimento . $Quadril . $Cintura . '</p>';
+                        echo '<p style="color: azure;">Comprimento:' . " " . $Comprimento . '</p>';
+                        echo '<p style="color: azure;">Quadril:' . " " . $Quadril . '</p>';
+                        echo '<p style="color: azure;">Cintura:' . " " . $Cintura . '</p>';
                     }
                 } elseif ($Tipo == 'Bermuda' || $Tipo == 'Calça') {
                     $sqlMedidas = "SELECT `Comprimento`, `Quadril`, `Cintura`, `Gancho` FROM `modelo` WHERE `Id modelo` = $valor";
@@ -234,33 +241,54 @@
                         $Quadril = $rowMedidas['Quadril'];
                         $Cintura = $rowMedidas['Cintura'];
                         $Gancho = $rowMedidas['Gancho'];
-                        echo $Comprimento . $Quadril . $Cintura . $Gancho;
+                        echo '<p style="color: azure;">Comprimento:' . " " . $Comprimento . '</p>';
+                        echo '<p style="color: azure;">Quadril:' . " " . $Quadril . '</p>';
+                        echo '<p style="color: azure;">Cintura:' . " " . $Cintura . '</p>';
+                        echo '<p style="color: azure;">Gancho:' . " " . $Gancho . '</p>';
                     }
                 }
             } else {
                 echo '<script>alert("Erro ao carregar o modelo"); window.location.href = "index.php";</script>';
             }
-            echo '<div class="row">';
-                echo '<div class="col-12 col-sm-12 col-md-12">'; 
-                    echo '<button type="submit" name="deleta">Deletar</button>';
-                    if (isset($_POST['deleta'])) {
-                        $query = "DELETE FROM `modelo` WHERE `Id modelo` = ?";
-                        $stmt = $conn->prepare($query);
-                        $stmt->bind_param("i", $valor);
-                        if ($stmt->execute()) {
-                            echo '<script>alert("Modelo deletado"); window.location.href = "adm.php";</script>';
-                            
-                        } else {
-                            echo '<script>alert("Erro ao deletar modelo"); window.location.href = "ADMacesso.php?valor=$valor";</script>';
-                        }
-                        
-                    }
-                    
-                echo '</div>';
-            echo '</div>';
         }
+      
+        echo  '<form action="" method="post">';
+           echo  '<div class="row">';
+           echo '<div class="col-12 col-sm-12 col-md-12">';
+           
+           echo '<button type="submit" name="deleta">Deletar</button>';
+            
+           
+            if (isset($_POST['deleta'])) {
+                $query = "DELETE FROM `modelo` WHERE `Id modelo` = ?";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param("i", $valor);
+                if ($stmt->execute()) {
+                    echo '<script>alert("Modelo deletado"); window.location.href = "adm.php";</script>';
+                } else {
+                    echo '<script>alert("Erro ao deletar modelo"); window.location.href = "ADMacesso.php?valor=$valor";</script>';
+                }
+            }
+
+            echo '</div>';
+            echo '<div class="col-12 col-sm-12 col-md-12">';
+            echo '<button type="submit" name="verifica">Verificar</button>';
+            if (isset($_POST['verifica'])) {
+                $verificado = 'Sim' . ' ' . 'por' . ' ' . $_SESSION['Id moderador'];
+                $query = "UPDATE `modelo` SET `Verificado` = ? WHERE `Id modelo` = ?";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param("si", $verificado, $valor);
+                if ($stmt->execute()) {
+                    echo '<script>alert("Modelo verificado"); window.location.href = "adm.php";</script>';
+                } else {
+                    echo '<script>alert("Erro ao verificar modelo"); window.location.href = "ADMacesso.php?valor=$valor";</script>';
+                }
+            }
+
+            echo '</div>';
+            echo '</form>';
         ?>
-       <?php
+        <?php
         require_once('rodape.php')
         ?>
     </div>

@@ -29,7 +29,7 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
 
     if ($res && mysqli_num_rows($res) > 0) {
         $_SESSION = mysqli_fetch_assoc($res);
-        header('Location: index.php');
+        header('Location: adm.php');
         exit();
     }
 

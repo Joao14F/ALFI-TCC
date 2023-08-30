@@ -1,3 +1,4 @@
+<?php include('sessao.php');  ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -189,35 +190,6 @@
         require_once('cabecalho.php')
         ?>
         <div class="row">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                <select id="select" onchange="trocarPagina()" class="form-select borda">
-                    <option hidden> <?php
-                                    if (isset($_GET['peça'])) {
-                                        $peca = $_GET['peça'];
-                                        echo $peca . "s";
-                                    } else {
-                                        echo 'Selecione o tipo de peça desejado';
-                                    }
-                                    ?></option>
-                    <option value="index.php" data-peca="Toda">Todas as peças</option>
-                    <option value="index.php" data-peca="Saia">Saias</option>
-                    <option value="index.php" data-peca="Calça">Calças</option>
-                    <option value="index.php" data-peca="Bermuda">Bermudas</option>
-                </select>
-                <script>
-                    function trocarPagina() {
-                        var select = document.getElementById("select");
-                        var paginaSelecionada = select.options[select.selectedmodelosCadastrados].value;
-                        var tipoPeca = select.options[select.selectedmodelosCadastrados].getAttribute("data-peca");
-
-                        if (paginaSelecionada !== "") {
-                            window.location.href = paginaSelecionada + "?peça=" + encodeURIComponent(tipoPeca);
-                        }
-                    }
-                </script>
-            </div>
-        </div>
-        <div class="row">
             <?php
             include_once('conexao.php');
 
@@ -237,18 +209,18 @@
             if (isset($_GET['peça'])) {
                 $peca = $_GET['peça'];
                 if ($peca == 'Toda') {
-                    $query = "SELECT `Capa`, `Id modelo` FROM `modelo` ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                    $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Verificado` = 'Não' ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
                     $stmt->bind_param("ii", $offset, $resultados_por_pagina);
                 } else {
-                    $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Tipo` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                    $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Tipo` = ?  AND `Verificado` = 'Não' ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
                     $stmt->bind_param("sii", $peca, $offset, $resultados_por_pagina);
                 }
                 $stmt->execute();
                 $res = $stmt->get_result();
             } else {
-                $sql = "SELECT `Capa`, `Id modelo` FROM `modelo` ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                $sql = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Verificado` = 'Não' ORDER BY `Id modelo` DESC LIMIT ?, ?";
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param("ii", $offset, $resultados_por_pagina);
                 $stmt->execute();

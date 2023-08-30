@@ -212,7 +212,7 @@
                     echo '<div class="row">' . '<img src="' . $Molde .  '"alt="Imagem" class="col-12 col-sm-12 col-md-12">' . '</div>';
                 }
 
-                if ($row['Tecido'] !== null ) {
+                if ($row['Tecido'] !== null) {
                     echo '<p style="color: azure;">' . 'Tecido sugerido:'  . " " . $row['Tecido'] . '</p>';
                 }
 

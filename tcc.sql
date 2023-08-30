@@ -11,6 +11,7 @@ CREATE TABLE modelo (
   `Capa` varchar(50) NOT NULL,
   `Moldes` varchar(200) NOT NULL,
   `Usuário cadastrador` INT NULL,
+  `Verificado` VARCHAR(10) NOT NULL DEFAULT 'Não',
   PRIMARY KEY (`Id modelo`)
   CONSTRAINT `cadastrador` FOREIGN KEY (`Usuário cadastrador`) 
   REFERENCES `usuário`(`Id usuário`) ON DELETE CASCADE ON UPDATE CASCADE;
@@ -18,7 +19,6 @@ CREATE TABLE modelo (
 
 CREATE TABLE moderador (
   `Id moderador` INT NOT NULL AUTO_INCREMENT,
-  `Cadastro moderador` VARCHAR(90) NOT NULL,
   `Nome moderador` VARCHAR(30) NOT NULL,
   `E-mail moderador` VARCHAR(30) NOT NULL,
   `Senha moderador` VARCHAR(30) NOT NULL,

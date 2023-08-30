@@ -12,7 +12,7 @@
                 <img src="imagens/logo.png" alt="logo!">
             </a>
         </div>
-        <div class="botões col-12 col-sm-12 col-md-4">
+        
             <?php
 
             $pagina_completa = $_SERVER['REQUEST_URI'];
@@ -20,36 +20,47 @@
             $caminho = $partes_url['path'];
 
             if (isset($_SESSION['Id moderador'])) {
+                print_r($_SESSION);
                 if (basename($caminho) == 'adm.php' || 'ADMacesso.php') {
+                    echo '<div class="botões col-12 col-sm-12 col-md-5">';
                     echo '<a href="verificados.php"><button class="CadastraModelo">Modelos verificados</button></a>';
                 }
+                elseif (basename($caminho) == 'verificados.php') {
+                    echo '<div class="botões col-12 col-sm-12 col-md-5">';
+                    echo '<a href="verificados.php"><button class="CadastraModelo">Gerenciar modelos</button></a>';
+                }
             } else {
-                echo ' <a href="CadastrarModelo.php"><button class="CadastraModelo">Cadastrar Modelo</button></a>';
+                echo '<div class="botões col-12 col-sm-12 col-md-4">';
+                echo '<a href="CadastrarModelo.php"><button class="CadastraModelo">Cadastrar Modelo</button></a>';
             }
 
 
             echo '</div>';
 
-            echo '<div class="botões col-12 col-sm-12 col-md-4">';
+            
 
 
 
             if (isset($_SESSION['Id usuário'])) {
                 if (basename($caminho) == 'modelosCadastrados.php') {
-                    echo '<a href="index.php"><button class="login">Início</button></a>';
-                    echo '<a href="sair.php"><button class="cadastro">Sair</button></a>';
+                    echo '<a href="index.php"><button class="login botões col-12 col-sm-12 col-md-3">Início</button></a>';
+                    echo '<a href="sair.php"><button class="cadastro botões col-12 col-sm-12 col-md-1">Sair</button></a>';
                 } else {
+                    echo '<div class="botões col-12 col-sm-12 col-md-5">';
                     echo '<a href="modelosCadastrados.php"><button class="login">Modelos Cadastrados</button></a>';
                     echo '<a href="sair.php"><button class="cadastro">Sair</button></a>';
                 }
             } elseif (isset($_SESSION['Id moderador'])) {
                 if (basename($caminho) == 'ADMacesso.php') {
+                    echo '<div class="botões col-12 col-sm-12 col-md-4">';
                     echo '<a href="adm.php"><button class="login">Início</button></a>';
                     echo '<a href="sair.php"><button class="cadastro">Sair</button></a>';
                 } else {
+                    echo '<div class="botões col-12 col-sm-12 col-md-4">';
                     echo '<a href="sair.php"><button class="cadastro">Sair</button></a>';
                 }
             } else {
+                echo '<div class="botões col-12 col-sm-12 col-md-4">';
                 echo '<a href="login.php"><button class="login">Login</button></a>';
                 echo '<a href="cadastro.php"><button class="cadastro">Cadastro</button></a>';
             }

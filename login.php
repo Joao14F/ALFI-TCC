@@ -85,11 +85,7 @@
         <!-- <a href="index.php"><i class="fa-sharp fa-solid fa-angles-left fa-xl"></i></a>-->
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12">
-                <div class="row">
-                    <div class="col-12 col-sm-12 col-md-12">
-                        <h1>Logue sua conta</h1>
-                    </div>
-                </div>
+                <h1>Logue sua conta</h1>
             </div>
         </div>
 
@@ -98,7 +94,8 @@
         <form action="sessao.php" method="POST">
 
             <div class="row">
-                <div class="col-12 col-sm-12 col-md-12">
+                <div class="col-1"></div>
+                <div class="col-10 col-sm-10 col-md-10">
                     <label for="password">E-mail</label>
                     <input class="form-control" type="email" id="email" name="email" placeholder="E-mail" required>
                 </div>
@@ -107,7 +104,8 @@
 
 
             <div class="row">
-                <div class="col-12 col-sm-12 col-md-12">
+                <div class="col-1"></div>
+                <div class="col-10 col-sm-10 col-md-10">
                     <label for="password">Senha</label>
                     <input class="form-control" type="password" id="senha" name="senha" placeholder="Senha" required>
                 </div>
@@ -118,7 +116,7 @@
 
 
             <div class="row">
-                <div class="col-6 col-sm-6 col-md-3">
+                <div class="col-12 col-sm-6 col-md-3">
                     <p> Não possui uma conta? <a class="Cadastro" href="cadastro.php">Cadastrar </a> </p>
                 </div>
             </div>

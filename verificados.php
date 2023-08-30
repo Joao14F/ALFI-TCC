@@ -210,28 +210,29 @@
 
             // Calcula o deslocamento (offset) com base na página atual
             $offset = ($pagina_atual - 1) * $resultados_por_pagina;
-
+            
             if (isset($_GET['peça'])) {
                 $peca = $_GET['peça'];
+                $verificado = 'Sim' . ' ' . 'por' . ' ' . $_SESSION['Id moderador'];
                 if ($peca == 'Toda') {
-                    $query = "SELECT `Capa`, `Id modelo` FROM `modelo` ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                    $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `verificado` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
-                    $stmt->bind_param("ii", $offset, $resultados_por_pagina);
+                    $stmt->bind_param("sii", $verificado, $offset, $resultados_por_pagina);
                 } elseif ($peca == 'Sustentável') {
-                    $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Sustentável` = 'Sim' ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                    $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Sustentável` = 'Sim' AND `verificado` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
-                    $stmt->bind_param("ii", $offset, $resultados_por_pagina);
+                    $stmt->bind_param("sii", $verificado, $offset, $resultados_por_pagina);
                 } 
                 else{
-                    $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Tipo` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                    $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Tipo` = ? AND `verificado` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
-                    $stmt->bind_param("sii", $peca, $offset, $resultados_por_pagina);
+                    $stmt->bind_param("ssii", $peca, $verificado, $offset, $resultados_por_pagina);
                 }
                 
             } else {
-                $query = "SELECT `Capa`, `Id modelo` FROM `modelo` ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `verificado` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
                 $stmt = $conn->prepare($query);
-                $stmt->bind_param("ii", $offset, $resultados_por_pagina);
+                $stmt->bind_param("sii", $verificado, $offset, $resultados_por_pagina);
             }
             $stmt->execute();
             $res = $stmt->get_result();
@@ -243,7 +244,7 @@
                 while ($row = mysqli_fetch_assoc($res)) {
                     if (isset($row['Capa'])) { // Verifica se a chave 'Capa' está definida
                         $caminho_imagem = $row['Capa'];
-                        echo '<a href="Acesso.php?valor=' . $row['Id modelo'] . '">';
+                        echo '<a href="ADMacesso.php?valor=' . $row['Id modelo'] . '">';
                         echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos col-8 col-sm-8 col-md-8">';
                         echo '</a>';
                     }

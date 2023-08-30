@@ -1,5 +1,4 @@
 <?php
-
 if (isset($_POST['submit'])) {
 
     include_once('conexao.php');
@@ -15,7 +14,6 @@ if (isset($_POST['submit'])) {
 
     header('Location: login.php');
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -47,7 +45,6 @@ if (isset($_POST['submit'])) {
 
         main form input {
             background: #161923;
-
             color: rgba(166, 166, 166);
             border: 1px solid #040B18;
             border-radius: 8px;

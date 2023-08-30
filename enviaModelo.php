@@ -14,7 +14,7 @@ if (isset($_FILES['Capa'])) {
     $nomeCapa = uniqid() . '.' . $ponto;
     $temporarioCapa = $_FILES['Capa']['tmp_name'];
 
-    if ($ponto != 'jpg' && $ponto != 'png' && $ponto != 'pdf') {
+    if ($ponto != 'jpg' && $ponto != 'png') {
         echo '<script>alert("Apenas arquivos jpg, png e pdf são aceitos para os moldes"); window.location.href = "CadastrarModelo.php";</script>';
         exit();
     } else {
@@ -34,7 +34,7 @@ if (isset($_FILES['Moldes'])) {
         $pontoMolde = strtolower(pathinfo($_FILES['Moldes']['name'][$index], PATHINFO_EXTENSION));
         $nomeMolde = uniqid() . '.' . $pontoMolde;
 
-        if ($pontoMolde != 'jpg' && $pontoMolde != 'png' && $pontoMolde != 'pdf') {
+        if ($pontoMolde != 'jpg' && $pontoMolde != 'png') {
             echo '<script>alert("Apenas arquivos jpg, png e pdf são aceitos para os moldes"); window.location.href = "CadastrarModelo.php";</script>';
             exit();
         } else {

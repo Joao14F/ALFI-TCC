@@ -83,9 +83,14 @@
                         <label for="select-options">Selecione o tipo de roupa</label>
                         <select id="select-options" class="form-select" name="Tipo">
                            <option value="option0">Selecione uma das opções</option>
-                           <option value="Saia">Saia</option>
-                           <option value="Calça">Calça</option>
                            <option value="Bermuda">Bermuda</option>
+                           <option value="Blusa">Blusa</option>
+                           <option value="Calça">Calça</option>
+                           <option value="Camisa">Camisa</option>
+                           <option value="Casacos">Casacos</option>
+                           <option value="Saia">Saia</option>                                             
+                           <option value="Top">Top</option>
+                           <option value="Vestido">Vestido</option>
                         </select>
                      </div>
                   </div>

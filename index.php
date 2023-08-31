@@ -64,7 +64,6 @@
             $res = $stmt->get_result();
 
 
-            echo '<div>';
             if ($res && mysqli_num_rows($res) > 0) {
                 // Exibe as imagens dentro do laço `while`
                 while ($row = mysqli_fetch_assoc($res)) {
@@ -127,7 +126,7 @@
             $conn->close();
 
             ?>
-        </div>
+        
         <?php
         require_once('rodape.php')
         ?>

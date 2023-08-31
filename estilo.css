@@ -15,7 +15,7 @@ header {
 }
 
 a.logo img {
-    width: 35%;
+    width: 80%;
 }
 
 .CadastraModelo {
@@ -23,7 +23,6 @@ a.logo img {
     padding: 8px;
     border-radius: 30px;
     font-size: 1.5rem;
-    width: 60%;
     background: #1B2029;
     color: #8880FE;
     margin-top: 20px;
@@ -34,7 +33,6 @@ a.logo img {
     padding: 8px;
     border-radius: 30px;
     font-size: 1.5rem;
-    width: 30%;
     background: #1B2029;
     margin-right: 2rem;
     color: #8880FE;
@@ -46,7 +44,6 @@ a.logo img {
     padding: 8px;
     border-radius: 30px;
     font-size: 1.5rem;
-    width: 40%;
     background: #1B2029;
     color: #8880FE;
     margin-top: 20px;
@@ -60,12 +57,6 @@ a.logo img {
     transition: 0.3s all;
 }
 
-select {
-    border: 2px solid #444079;
-}
-
-
-
 /* Acesso */
 .Titulo {
     color: aliceblue;
@@ -73,13 +64,9 @@ select {
 }
 
 .imagens {
-    overflow: hidden;
-    width: 100%; /* Ajuste conforme necessário */
-}
-
-.imagens-inner {
     display: flex;
-    width: fit-content;
+    overflow-x: scroll;
+    width: 100%; /* Ajuste conforme necessário */
 }
 
 .imagens img {

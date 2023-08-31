@@ -16,11 +16,10 @@
 
 <body>
     <div class="container-fluid">
-        <?php
+    <?php
         include_once('logado.php');
         require_once('cabecalho.php');
         include_once('conexao.php');
-
         if (isset($_GET['valor'])) {
             $valor = $_GET['valor'];
 
@@ -34,8 +33,7 @@
 
                 $endereco_capa = $row['Capa'];
                 if ($endereco_capa) {
-                    echo '<div class="row">' . '<div class="imagens-inner">' . '<div class="imagens">';
-                    echo '<img src="' . $endereco_capa . '" alt="Imagem" class="col-12 col-sm-12 col-md-12">';
+                    echo '<div class="row">' . '<div class="imagens">' . '<img src="' . $endereco_capa .  '"alt="Imagem" class="col-12 col-sm-12 col-md-12">';
                 } else {
                     echo 'Falha ao buscar imagem.';
                 }
@@ -43,10 +41,10 @@
                 $Moldes = $row['Moldes'];
                 $Moldes = explode(',', $Moldes);
                 foreach ($Moldes as $Molde) {
-                    echo '<img src="' . $Molde . '" alt="Imagem" class="col-12 col-sm-12 col-md-12">';
+                    echo '<img src="' . $Molde .  '"alt="Imagem" class="col-12 col-sm-12 col-md-12">' . '</div>';
                 }
 
-                echo '</div>' . '</div>' . '</div>';
+                echo '</div>' . '</div>';
 
                 if ($row['Tecido'] !== null) {
                     echo '<p style="color: azure;">' . 'Tecido sugerido:'  . " " . $row['Tecido'] . '</p>';
@@ -87,41 +85,11 @@
                 echo '<script>alert("Erro ao carregar o modelo"); window.location.href = "index.php";</script>';
             }
         }
-
-        require_once('rodape.php');
+        ?>
+        <?php
+        require_once('rodape.php')
         ?>
     </div>
-    <script>
-        let isDragging = false;
-        let startPos;
-        let scrollLeft;
-
-        const imagensInner = document.querySelector('.imagens-inner');
-
-        imagensInner.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            startPos = e.clientX;
-            scrollLeft = imagensInner.scrollLeft;
-
-            // Evita seleção de texto durante o arraste
-            e.preventDefault();
-        });
-
-        imagensInner.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-
-            const dx = e.clientX - startPos;
-            imagensInner.scrollLeft = scrollLeft - dx;
-        });
-
-        imagensInner.addEventListener('mouseup', () => {
-            isDragging = false;
-        });
-
-        imagensInner.addEventListener('mouseleave', () => {
-            isDragging = false;
-        });
-    </script>
 </body>
 
 </html>

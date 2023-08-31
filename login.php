@@ -116,13 +116,21 @@
 
 
             <div class="row">
+            <div class="col-0 col-sm-0 col-md-1">
+                    <p></p>
+                </div>
                 <div class="col-12 col-sm-6 col-md-3">
                     <p> Não possui uma conta? <a class="Cadastro" href="cadastro.php">Cadastrar </a> </p>
                 </div>
             </div>
 
             <div class="row">
-                <input class="" type="submit" name="submit" value="Login">
+                <div class="col-0 col-sm-0 col-md-1">
+                    <p></p>
+                </div>
+                <div class="">
+                    <input class="col-0 col-sm-0 col-md-10" type="submit" name="submit" value="Login">
+                </div>
             </div>
 
         </form>

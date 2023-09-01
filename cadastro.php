@@ -77,7 +77,7 @@ if (isset($_POST['submit'])) {
 <body>
     <div class="container-fluid">
         <div class="row">
-            <a href="index.php"><i class="fa-sharp fa-solid fa-angles-left fa-xl"></i>volta</a>
+        <!--  <a href="index.php"><i class="fa-sharp fa-solid fa-angles-left fa-xl"></i>volta</a> -->
         </div>
         <main>
             <div class="row">
@@ -124,12 +124,15 @@ if (isset($_POST['submit'])) {
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 col-sm-4 col-md-5">
-                        <p> Já possui uma conta? <a class="login" href="login.php">Login</a> </p>
-                    </div>
+            <div class="col-0 col-sm-0 col-md-1"></div>
+                <div class="col-12 col-sm-6 col-md-3">
+                <p>Já possui uma conta? <a class="login" href="login.php">Login</a> </p>
                 </div>
+            </div>
+                
                 <div class="row">
-                    <input type="submit" value="Cadastrar" id="button" name="submit" class="col-12 col-sm-12 col-md-12">
+                <div class="col-0 col-sm-0 col-md-1"></div>
+                    <input type="submit" value="Cadastrar" id="button" name="submit" class="col-12 col-sm-12 col-md-10">
                 </div>
             </form>
         </main>

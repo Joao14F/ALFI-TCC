@@ -25,15 +25,11 @@
             font-weight: 500;
         }
 
-
         h1 {
             color: #8880FE;
             font-size: 3rem;
             text-align: center;
-        }
-
-        form label span {
-            font-size: 1.1rem;
+            margin-top: 20px;
         }
 
         form input {
@@ -43,6 +39,7 @@
             font-size: 1rem;
             border: 1px solid #040B18;
             border-radius: 8px;
+            margin: 5px;
         }
 
         form input[type="submit"] {
@@ -62,6 +59,10 @@
         section.images .circle {
             background: linear-gradient(45deg, #E8CBC0, #636FA4);
             clip-path: circle(40% at right 80%);
+        }
+
+        p{
+            margin-top: 8px;;
         }
 
         a {
@@ -89,8 +90,6 @@
             </div>
         </div>
 
-
-
         <form action="sessao.php" method="POST">
 
             <div class="row">
@@ -101,8 +100,6 @@
                 </div>
             </div>
 
-
-
             <div class="row">
                 <div class="col-1"></div>
                 <div class="col-10 col-sm-10 col-md-10">
@@ -111,26 +108,16 @@
                 </div>
             </div>
 
-
-
-
-
             <div class="row">
-            <div class="col-0 col-sm-0 col-md-1">
-                    <p></p>
-                </div>
+            <div class="col-0 col-sm-0 col-md-1"></div>
                 <div class="col-12 col-sm-6 col-md-3">
-                    <p> Não possui uma conta? <a class="Cadastro" href="cadastro.php">Cadastrar </a> </p>
+                    <p>Não possui uma conta? <a class="Cadastro" href="cadastro.php">Cadastrar </a> </p>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-0 col-sm-0 col-md-1">
-                    <p></p>
-                </div>
-                <div class="">
+                <div class="col-0 col-sm-0 col-md-1"></div>
                     <input class="col-0 col-sm-0 col-md-10" type="submit" name="submit" value="Login">
-                </div>
             </div>
 
         </form>

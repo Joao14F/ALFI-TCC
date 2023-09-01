@@ -10,6 +10,7 @@ body {
     background: #1B2029;
 }
 
+/* Cabeçalho */
 header {
     background-color: #1B2029;
 }
@@ -25,7 +26,7 @@ a.logo img {
     font-size: 1.5rem;
     background: #1B2029;
     color: #8880FE;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .login {
@@ -36,7 +37,7 @@ a.logo img {
     background: #1B2029;
     margin-right: 2rem;
     color: #8880FE;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .cadastro {
@@ -46,7 +47,7 @@ a.logo img {
     font-size: 1.5rem;
     background: #1B2029;
     color: #8880FE;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .CadastraModelo:hover,
@@ -57,24 +58,75 @@ a.logo img {
     transition: 0.3s all;
 }
 
+select:focus {
+    border-color: #6C63FF !important;
+    box-shadow: 0 0 0 0.25rem rgba(108, 99, 255, 0.25) !important;
+}
+
+/* Index */
+.modelos {
+    max-width: 200px;
+    max-height: 200px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
 /* Acesso */
 .Titulo {
     color: aliceblue;
     text-align: center;
 }
 
-.imagens {
+.linhagimg {
+    text-align: center;
     display: flex;
-    overflow-x: scroll;
-    width: 100%; /* Ajuste conforme necessário */
+    justify-content: center;
+    align-items: center;
 }
 
-.imagens img {
+.imagem {
     width: 700px;
     height: 700px;
-    margin: 10px 30px;
+    transition: opacity 0.3s ease-in-out;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.imagensp {
+    width: 70px;
+    height: 70px;
+    margin: 10px 5px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.dados {
+    background-color: whitesmoke;
+    text-indent: 5px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.deleta {
+    cursor: pointer;
+    width: 50%;
+    margin-top: 2.5rem;
+    border: none;
+    border-radius: 32px;
+    background: #6C63FF;
+    color: white;
+    font-size: 1.1rem;
+    transition: all .3s ease-in-out;
+    padding: 5px;
+    margin-right: 10rem;
+}
+
+.verifica {
+    color: blue;
+}
+
+/* Rodapé */
 footer {
     font-size: 12px;
     background: #1B2029;

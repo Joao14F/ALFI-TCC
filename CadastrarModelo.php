@@ -41,6 +41,7 @@
          transition: all .3s ease-in-out;
          padding: 5px;
          margin-right: 10rem;
+         margin-bottom: 8px;
       }
 
       button:hover {
@@ -50,6 +51,10 @@
 </head>
 
 <body>
+<?php 
+include('sessao.php'); 
+include_once('logado.php'); 
+?>
    <form enctype="multipart/form-data" action="enviaModelo.php" method="POST">
       <div class="container-fluid">
          <div class="row">
@@ -94,13 +99,13 @@
                         <select id="select-options" class="form-select" name="Tipo">
                            <option value="option0">Selecione uma das opções</option>
                            <option value="Bermuda">Bermuda</option>
-                           <option value="Blusa">Blusa</option>
+                           <!--<option value="Blusa">Blusa</option>-->
                            <option value="Calça">Calça</option>
-                           <option value="Camisa">Camisa</option>
-                           <option value="Casacos">Casacos</option>
+                           <!--<option value="Camisa">Camisa</option>-->
+                           <!--<option value="Casacos">Casacos</option>-->
                            <option value="Saia">Saia</option>                                             
-                           <option value="Top">Top</option>
-                           <option value="Vestido">Vestido</option>
+                           <!--<option value="Top">Top</option>-->
+                           <!--<option value="Vestido">Vestido</option>-->
                         </select>
                      </div>
                   </div>
@@ -116,26 +121,26 @@
 
                      // Cria novos campos com base na opção selecionada
                      if (select.value === "Saia") {
-                        var field1 = createFormField("Comprimento", "text", "Comprimento");
-                        var field2 = createFormField("Medidas Quadril", "text", "Quadril");
-                        var field3 = createFormField("Medidas cintura", "text", "Cintura");
+                        var field1 = createFormField("Comprimento em cm", "text", "Comprimento");
+                        var field2 = createFormField("Medidas Quadril em cm", "text", "Quadril");
+                        var field3 = createFormField("Medidas cintura em cm", "text", "Cintura");
                         formFields.appendChild(field1);
                         formFields.appendChild(field2);
                         formFields.appendChild(field3);
                      } else if (select.value === "Calça") {
-                        var field2 = createFormField("Comprimento", "text", "Comprimento");
-                        var field3 = createFormField("Medidas quadril", "text", "Quadril");
-                        var field1 = createFormField("Medidas cintura", "text", "Cintura");
-                        var field4 = createFormField("Altura de gancho", "text", "Gancho");
+                        var field2 = createFormField("Comprimento em cm", "text", "Comprimento");
+                        var field3 = createFormField("Medidas quadril em cm", "text", "Quadril");
+                        var field1 = createFormField("Medidas cintura em cm", "text", "Cintura");
+                        var field4 = createFormField("Altura de gancho em cm", "text", "Gancho");
                         formFields.appendChild(field1);
                         formFields.appendChild(field2);
                         formFields.appendChild(field3);
                         formFields.appendChild(field4);
                      } else if (select.value === "Bermuda") {
-                        var field2 = createFormField("Comprimento", "text", "Comprimento");
-                        var field3 = createFormField("Medidas quadril", "text", "Quadril");
-                        var field1 = createFormField("Medidas cintura", "text", "Cintura");
-                        var field4 = createFormField("Altura de gancho", "text", "Gancho");
+                        var field2 = createFormField("Comprimento em cm", "text", "Comprimento");
+                        var field3 = createFormField("Medidas quadril em cm", "text", "Quadril");
+                        var field1 = createFormField("Medidas cintura em cm", "text", "Cintura");
+                        var field4 = createFormField("Altura de gancho em cm", "text", "Gancho");
                         formFields.appendChild(field1);
                         formFields.appendChild(field2);
                         formFields.appendChild(field3);

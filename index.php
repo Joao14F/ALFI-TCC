@@ -69,9 +69,11 @@
                 while ($row = mysqli_fetch_assoc($res)) {
                     if (isset($row['Capa'])) { // Verifica se a chave 'Capa' está definida
                         $caminho_imagem = $row['Capa'];
+                        echo '<div class="col-12 col-sm-12 col-md-3">';
                         echo '<a href="Acesso.php?valor=' . $row['Id modelo'] . '">';
-                        echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos col-8 col-sm-8 col-md-8">';
+                        echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos">';
                         echo '</a>';
+                        echo '</div>';
                     }
                 }
                 echo '</div>';

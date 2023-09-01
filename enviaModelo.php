@@ -15,7 +15,7 @@ if (isset($_FILES['Capa'])) {
     $temporarioCapa = $_FILES['Capa']['tmp_name'];
 
     if ($ponto != 'jpg' && $ponto != 'png') {
-        echo '<script>alert("Apenas arquivos jpg, png e pdf são aceitos para os moldes"); window.location.href = "CadastrarModelo.php";</script>';
+        echo '<script>alert("Apenas arquivos jpg e png são aceitos para os moldes"); window.location.href = "CadastrarModelo.php";</script>';
         exit();
     } else {
         if (move_uploaded_file($temporarioCapa, $pasta . $nomeCapa)) {
@@ -35,7 +35,7 @@ if (isset($_FILES['Moldes'])) {
         $nomeMolde = uniqid() . '.' . $pontoMolde;
 
         if ($pontoMolde != 'jpg' && $pontoMolde != 'png') {
-            echo '<script>alert("Apenas arquivos jpg, png e pdf são aceitos para os moldes"); window.location.href = "CadastrarModelo.php";</script>';
+            echo '<script>alert("Apenas arquivos jpg e png são aceitos para os moldes"); window.location.href = "CadastrarModelo.php";</script>';
             exit();
         } else {
             if (move_uploaded_file($temporarioMolde, $pastaMoldes . $nomeMolde)) {
@@ -59,12 +59,6 @@ if (isset($_SESSION['Id usuário'])) {
     $sql = "INSERT INTO modelo (`Título`, `Tecido`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Gancho`, `Capa`, `Moldes`, `Usuário cadastrador`) 
     VALUES ('$Título', '$Tecido', '$Sustentável', '$Tipo', '$Comprimento', '$Quadril', '$Cintura', '$Gancho', '$Capa', '$Moldes', '" . $_SESSION['Id usuário'] . "')";
 }
-
-if (isset($_SESSION['Id moderador'])) {
-    $sql = "INSERT INTO modelo (`Título`, `Tecido`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Gancho`, `Capa`, `Moldes`, `Usuário cadastrador`) 
-    VALUES ('$Título', '$Tecido', '$Sustentável', '$Tipo', '$Comprimento', '$Quadril', '$Cintura', '$Gancho', '$Capa', '$Moldes', '" . $_SESSION['Id moderador'] . "')";
-}
-
 
 
 if (mysqli_query($conn, $sql)) {

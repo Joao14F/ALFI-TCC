@@ -14,85 +14,115 @@
 
         <?php
 
-        $pagina_completa = $_SERVER['REQUEST_URI'];
-        $partes_url = parse_url($pagina_completa);
-        $caminho = $partes_url['path'];
+$pagina_completa = $_SERVER['REQUEST_URI'];
+$partes_url = parse_url($pagina_completa);
+$caminho = $partes_url['path'];
+$atual = basename($caminho);
 
-        if (basename($caminho) == 'adm.php') {
+switch ($atual) {
+    case 'adm.php':
+        echo '<div class="col-12 col-sm-12 col-md-5">';
+        echo '<a href="verificados.php"><button class="CadastraModelo">Modelos verificados</button></a>';
+        echo '</div>';
+        echo '<div class="col-12 col-sm-12 col-md-5">';
+        echo '<a href="sair.php"><button class="CadastraModelo">Sair</button></a>';
+        echo '</div>';
+        break;
+    
+    case 'ADMacesso.php':
+        echo '<div class="col-12 col-sm-12 col-md-5">';
+        echo '<a href="verificados.php"><button class="CadastraModelo">Modelos verificados</button></a>';
+        echo '</div>';
+        echo '<div class="col-12 col-sm-12 col-md-3">';
+        echo '<a href="adm.php"><button class="CadastraModelo">Início</button></a>';
+        echo '</div>';
+        echo '<div class="col-12 col-sm-12 col-md-2">';
+        echo '<a href="sair.php"><button class="CadastraModelo">Sair</button></a>';
+        echo '</div>';
+        break;
+
+    case 'verificados.php':
+        echo '<div class="col-12 col-sm-12 col-md-5">';
+        echo '<a href="adm.php"><button class="CadastraModelo">Gerenciar Modelos</button></a>';
+        echo '</div>';
+        echo '<div class="col-12 col-sm-12 col-md-2">';
+        echo '<a href="sair.php"><button class="CadastraModelo">Sair</button></a>';
+        echo '</div>';
+        break;
+
+    case 'index.php':
+        if (isset($_SESSION['Id usuário'])) {
             echo '<div class="col-12 col-sm-12 col-md-5">';
-            echo '<a href="verificados.php"><button class="CadastraModelo">Modelos verificados</button></a>';
-            echo '</div>';
-            echo '<div class="col-12 col-sm-12 col-md-5">';
-            echo '<a href="verificados.php"><button class="CadastraModelo">Sair</button></a>';
-            echo '</div>';
-        }
-        if (basename($caminho) == 'ADMacesso.php') {
-            echo '<div class="col-12 col-sm-12 col-md-5">';
-            echo '<a href="verificados.php"><button class="CadastraModelo">Modelos verificados</button></a>';
+            echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
             echo '</div>';
             echo '<div class="col-12 col-sm-12 col-md-3">';
-            echo '<a href="verificados.php"><button class="CadastraModelo">Início</button></a>';
+            echo '<a href="modelosCadastrados.php"><button class="CadastraModelo">Modelos Cadastrados</button></a>';
             echo '</div>';
             echo '<div class="col-12 col-sm-12 col-md-2">';
-            echo '<a href="verificados.php"><button class="CadastraModelo">Sair</button></a>';
+            echo '<a href="sair.php"><button class="CadastraModelo">Sair</button></a>';
             echo '</div>';
-        }
-        if (basename($caminho) == 'verificados.php') {
+        } else {
             echo '<div class="col-12 col-sm-12 col-md-5">';
-            echo '<a href="verificados.php"><button class="CadastraModelo">Gerenciar Modelos</button></a>';
+            echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
             echo '</div>';
             echo '<div class="col-12 col-sm-12 col-md-3">';
-            echo '<a href="verificados.php"><button class="CadastraModelo">Início</button></a>';
+            echo '<a href="cadastro.php"><button class="CadastraModelo">Cadastro</button></a>';
             echo '</div>';
             echo '<div class="col-12 col-sm-12 col-md-2">';
-            echo '<a href="verificados.php"><button class="CadastraModelo">Sair</button></a>';
+            echo '<a href="login.php"><button class="CadastraModelo">Login</button></a>';
             echo '</div>';
         }
-        if (basename($caminho) == 'index.php') {
-            if (isset($_SESSION['Id usuário'])) {
-                echo '<div class="col-12 col-sm-12 col-md-5">';
-                echo '<a href="verificados.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
-                echo '</div>';
-                echo '<div class="col-12 col-sm-12 col-md-3">';
-                echo '<a href="verificados.php"><button class="CadastraModelo">Modelos Cadastrados</button></a>';
-                echo '</div>';
-                echo '<div class="col-12 col-sm-12 col-md-2">';
-                echo '<a href="verificados.php"><button class="CadastraModelo">Sair</button></a>';
-                echo '</div>';
-            } else {
-                echo '<div class="col-12 col-sm-12 col-md-5">';
-                echo '<a href="verificados.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
-                echo '</div>';
-                echo '<div class="col-12 col-sm-12 col-md-3">';
-                echo '<a href="verificados.php"><button class="CadastraModelo">Cadastro</button></a>';
-                echo '</div>';
-                echo '<div class="col-12 col-sm-12 col-md-2">';
-                echo '<a href="verificados.php"><button class="CadastraModelo">Login</button></a>';
-                echo '</div>';
-            }
-        }
-        if (basename($caminho) == 'modelosCadastrados.php') {
-            echo '<div class="col-12 col-sm-12 col-md-5">';
-            echo '<a href="verificados.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
-            echo '</div>';
-            echo '<div class="col-12 col-sm-12 col-md-3">';
-            echo '<a href="verificados.php"><button class="CadastraModelo">Início</button></a>';
-            echo '</div>';
-            echo '<div class="col-12 col-sm-12 col-md-2">';
-            echo '<a href="verificados.php"><button class="CadastraModelo">Sair</button></a>';
-            echo '</div>';
-        }
-        if (basename($caminho) == 'Acesso.php') {
-            echo '<div class="col-12 col-sm-12 col-md-5">';
-            echo '<a href="verificados.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
-            echo '</div>';
-            echo '<div class="col-12 col-sm-12 col-md-3">';
-            echo '<a href="verificados.php"><button class="CadastraModelo">Modelos Cadastrados</button></a>';
-            echo '</div>';
-            echo '<div class="col-12 col-sm-12 col-md-2">';
-            echo '<a href="verificados.php"><button class="CadastraModelo">Sair</button></a>';
-            echo '</div>';
-        }
+        break;
+
+    case 'modelosCadastrados.php':
+        echo '<div class="col-12 col-sm-12 col-md-5">';
+        echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
+        echo '</div>';
+        echo '<div class="col-12 col-sm-12 col-md-3">';
+        echo '<a href="index.php"><button class="CadastraModelo">Início</button></a>';
+        echo '</div>';
+        echo '<div class="col-12 col-sm-12 col-md-2">';
+        echo '<a href="sair.php"><button class="CadastraModelo">Sair</button></a>';
+        echo '</div>';
+        break;
+
+    case 'Acesso.php':
+        echo '<div class="col-12 col-sm-12 col-md-5">';
+        echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
+        echo '</div>';
+        echo '<div class="col-12 col-sm-12 col-md-3">';
+        echo '<a href="modelosCadastrados.php"><button class="CadastraModelo">Modelos Cadastrados</button></a>';
+        echo '</div>';
+        echo '<div class="col-12 col-sm-12 col-md-2">';
+        echo '<a href="sair.php"><button class="CadastraModelo">Sair</button></a>';
+        echo '</div>';
+        break;
+    
+    default:
+    if (isset($_SESSION['Id usuário'])) {
+        echo '<div class="col-12 col-sm-12 col-md-5">';
+        echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
+        echo '</div>';
+        echo '<div class="col-12 col-sm-12 col-md-3">';
+        echo '<a href="modelosCadastrados.php"><button class="CadastraModelo">Modelos Cadastrados</button></a>';
+        echo '</div>';
+        echo '<div class="col-12 col-sm-12 col-md-2">';
+        echo '<a href="sair.php"><button class="CadastraModelo">Sair</button></a>';
+        echo '</div>';
+    } else {
+        echo '<div class="col-12 col-sm-12 col-md-5">';
+        echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
+        echo '</div>';
+        echo '<div class="col-12 col-sm-12 col-md-3">';
+        echo '<a href="cadastro.php"><button class="CadastraModelo">Cadastro</button></a>';
+        echo '</div>';
+        echo '<div class="col-12 col-sm-12 col-md-2">';
+        echo '<a href="login.php"><button class="CadastraModelo">Login</button></a>';
+        echo '</div>';
+    }
+        break;
+}
+
         ?>
     </div>
 </header>

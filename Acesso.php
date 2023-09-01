@@ -16,7 +16,7 @@
 
 <body>
     <div class="container-fluid">
-    <?php
+        <?php
         include_once('logado.php');
         require_once('cabecalho.php');
         include_once('conexao.php');
@@ -33,24 +33,25 @@
 
                 $endereco_capa = $row['Capa'];
                 if ($endereco_capa) {
-                    echo '<div class="row">' . '<div class="imagens">' . '<img src="' . $endereco_capa .  '"alt="Imagem" class="col-12 col-sm-12 col-md-12">';
+                    echo '<div class="row linhagimg">' . '<img id="big-image" src="' . $endereco_capa .  '"alt="Imagem" class=" imagem col-12 col-sm-12 col-md-12">' .  '</div>';
+                    echo '<div class="row linhagimg">' . '<img src="' . $endereco_capa .  '"alt="Imagem" class=" imagensp col-12 col-sm-12 col-md-12" onclick="changeImage(' .  "'" . $endereco_capa . "'" . ')">';
                 } else {
                     echo 'Falha ao buscar imagem.';
                 }
-
+                //termina essa funçao
                 $Moldes = $row['Moldes'];
                 $Moldes = explode(',', $Moldes);
                 foreach ($Moldes as $Molde) {
-                    echo '<img src="' . $Molde .  '"alt="Imagem" class="col-12 col-sm-12 col-md-12">' . '</div>';
+                    echo '<img src="' . $Molde .  '"alt="Imagem" class="  imagensp col-12 col-sm-12 col-md-12" onclick="changeImage(' . "'" . $Molde . "'" . ')">';
                 }
 
-                echo '</div>' . '</div>';
-
+                echo '</div>';
+                echo '<div class="row dados">';
                 if ($row['Tecido'] !== null) {
-                    echo '<p style="color: azure;">' . 'Tecido sugerido:'  . " " . $row['Tecido'] . '</p>';
+                    echo '<p class="dado">' . 'Tecido sugerido:'  . " " . $row['Tecido'] . '</p>';
                 }
 
-                echo '<p style="color: azure;">Sustentável:' . " " . $row['Sustentável'] . '</p>';
+                echo '<p class="dado">Sustentável:' . " " . $row['Sustentável'] . '</p>';
                 $Tipo = $row['Tipo'];
                 if ($Tipo == 'Saia') {
                     $sqlMedidas = "SELECT `Comprimento`, `Quadril`, `Cintura` FROM `modelo` WHERE `Id modelo` = $valor";
@@ -61,9 +62,9 @@
                         $Comprimento = $rowMedidas['Comprimento'];
                         $Quadril = $rowMedidas['Quadril'];
                         $Cintura = $rowMedidas['Cintura'];
-                        echo '<p style="color: azure;">Comprimento:' . " " . $Comprimento . '</p>';
-                        echo '<p style="color: azure;">Quadril:' . " " . $Quadril . '</p>';
-                        echo '<p style="color: azure;">Cintura:' . " " . $Cintura . '</p>';
+                        echo '<p class="dado">Comprimento:' . " " . $Comprimento . ' cm' . '</p>';
+                        echo '<p class="dado">Quadril:' . " " . $Quadril . ' cm' . '</p>';
+                        echo '<p class="dado">Cintura:' . " " . $Cintura . ' cm' . '</p>';
                     }
                 } elseif ($Tipo == 'Bermuda' || $Tipo == 'Calça') {
                     $sqlMedidas = "SELECT `Comprimento`, `Quadril`, `Cintura`, `Gancho` FROM `modelo` WHERE `Id modelo` = $valor";
@@ -75,10 +76,10 @@
                         $Quadril = $rowMedidas['Quadril'];
                         $Cintura = $rowMedidas['Cintura'];
                         $Gancho = $rowMedidas['Gancho'];
-                        echo '<p style="color: azure;">Comprimento:' . " " . $Comprimento . '</p>';
-                        echo '<p style="color: azure;">Quadril:' . " " . $Quadril . '</p>';
-                        echo '<p style="color: azure;">Cintura:' . " " . $Cintura . '</p>';
-                        echo '<p style="color: azure;">Gancho:' . " " . $Gancho . '</p>';
+                        echo '<p class="dado">Comprimento:' . " " . $Comprimento . ' cm' . '</p>';
+                        echo '<p class="dado">Quadril:' . " " . $Quadril . ' cm' . '</p>';
+                        echo '<p class="dado">Cintura:' . " " . $Cintura . ' cm' . '</p>';
+                        echo '<p class="dado">Gancho:' . " " . $Gancho . ' cm' . '</p>';
                     }
                 }
             } else {
@@ -89,6 +90,12 @@
         <?php
         require_once('rodape.php')
         ?>
+        <script>
+            function changeImage(newImageSrc) {
+                var bigImage = document.getElementById('big-image');
+                bigImage.src = newImageSrc;
+            }
+        </script>
     </div>
 </body>
 

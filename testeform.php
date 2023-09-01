@@ -24,21 +24,15 @@
 
         body {
             background: #1B2029;
-        }
-
-        section {
-            justify-content: center;
-        }
-
-        section h2 {
-            color: #8880FE;
-            font-size: 40px;
-            text-align: center;
-        }
-
-        form label {
             color: white;
-            font-size: 17px;
+            font-weight: 500;
+        }
+
+        h2 {
+            color: #8880FE;
+            font-size: 3rem;
+            text-align: center;
+            margin-top: 20px;
         }
 
         form input {
@@ -48,65 +42,92 @@
             font-size: 1rem;
             border: 1px solid #040B18;
             border-radius: 8px;
+            margin: 5px;
         }
 
-        form textarea {
-            background: #161923;
-            outline: none;
-            color: rgba(166, 166, 166);
-            font-size: 1rem;
-            border: 1px solid #040B18;
-            border-radius: 8px;
-        }
-
-        form input.botao {
+        form input[type="submit"] {
             cursor: pointer;
             border: none;
             border-radius: 32px;
-            background: #8880FE;
+            background: #6C63FF;
             color: white;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             transition: all .3s ease-in-out;
-            text-align: center;
+            margin: 5px;
         }
 
-        form input.botao:hover {
+        form input[type="submit"]:hover {
             background: #5952d4;
         }
 
-        a i {
+        section.images .circle {
+            background: linear-gradient(45deg, #E8CBC0, #636FA4);
+            clip-path: circle(40% at right 80%);
+        }
+
+        p{
+            margin-top: 8px;;
+        }
+
+        a {
+            color: #8880FE;
+        }
+
+        i {
             color: white;
+        }
+
+        form input:focus {
+            border-color: #6C63FF !important;
+            box-shadow: 0 0 0 0.25rem rgba(108, 99, 255, 0.25) !important;
         }
     </style>
 
 </head>
 
 <body>
-    <div class="container-fluid">
+<div class="container-fluid">
+        <!-- <a href="index.php"><i class="fa-sharp fa-solid fa-angles-left fa-xl"></i></a>-->
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12">
+            <h2>Contato</h2>
+            </div>
+        </div>
 
-    
-    <a href="pagina_principal.php"><i class="fa-sharp fa-solid fa-angles-left fa-xl"></i></a>
-
-    <section>
-        <h2>Contato</h2>
         <form action="https://api.staticforms.xyz/submit" method="post">
-            <label class="nm">Nome</label>
-            <input type="text" name="name" placeholder="Digite o seu nome" autocomplete="off" required>
 
-            <label class="txt">E-mail</label>
-            <input type="email" name="email" placeholder="Digite o seu E-mail" autocomplete="off" required>
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-10 col-sm-10 col-md-10">
+                    <label for="password">Nome</label>
+                    <input class="form-control" type="text" id="email" name="name" placeholder="Nome" required>
+                </div>
+            </div>
 
-            <label class="msg">Mensagem</label>
-            <textarea name="message" cols="30" rows="10" placeholder="Digite sua mensagem" required></textarea>
-            <input class="botao" type="submit" name="Enviar">
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-10 col-sm-10 col-md-10">
+                    <label for="password">E-mail</label>
+                    <input class="form-control" type="email" id="senha" name="email" placeholder="E-mail" required>
+                </div>
+            </div>
 
-            <input type="hidden" name="accessKey" value="c7eb727b-32ba-4ed6-b10f-f84b2af09f42">
-            <input type="hidden" name="redirectTo" value="http://localhost/Tcc/ALFI-TCC/obrigado.php">
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-10 col-sm-10 col-md-10">
+                    <label for="password">Tua duvida</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-1 col-sm-1 col-md-1"></div>
+                <input class="btn col-10 col-sm-10 col-md-10" type="submit" name="Enviar">               
+                <input type="hidden" name="accessKey" value="c7eb727b-32ba-4ed6-b10f-f84b2af09f42">
+                <input type="hidden" name="redirectTo" value="http://localhost/Tcc/ALFI-TCC/obrigado.php">
+            </div>
 
         </form>
-
-
-    </section>
     </div>
 </body>
 

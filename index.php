@@ -20,23 +20,11 @@
         <?php
         require_once('cabecalho.php')
         ?>
-        
+
         <div class="row">
             <?php
             include_once('conexao.php');
-
-            // Define a quantidade de resultados a serem exibidos por página
-            $resultados_por_pagina = 8;
-
-            // Obtém o número da página atual a partir do parâmetro "pagina" na URL
-            if (isset($_GET['pagina']) && is_numeric($_GET['pagina'])) {
-                $pagina_atual = $_GET['pagina'];
-            } else {
-                $pagina_atual = 1;
-            }
-
-            // Calcula o deslocamento (offset) com base na página atual
-            $offset = ($pagina_atual - 1) * $resultados_por_pagina;
+            include('paginaçaoVar.php');
 
             if (isset($_GET['peça'])) {
                 $peca = $_GET['peça'];
@@ -48,13 +36,11 @@
                     $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Sustentável` = 'Sim' ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
                     $stmt->bind_param("ii", $offset, $resultados_por_pagina);
-                } 
-                else{
+                } else {
                     $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Tipo` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
                     $stmt->bind_param("sii", $peca, $offset, $resultados_por_pagina);
                 }
-                
             } else {
                 $query = "SELECT `Capa`, `Id modelo` FROM `modelo` ORDER BY `Id modelo` DESC LIMIT ?, ?";
                 $stmt = $conn->prepare($query);
@@ -78,47 +64,7 @@
                 }
                 echo '</div>';
 
-                // Cria os links de paginação
-                $sql_total = "SELECT COUNT(*) AS total FROM `modelo`";
-                $res_total = mysqli_query($conn, $sql_total);
-                $row_total = mysqli_fetch_assoc($res_total);
-                $total_resultados = $row_total['total'];
-                $total_paginas = ceil($total_resultados / $resultados_por_pagina);
-
-                echo '<div class="row">';
-
-                echo '<div class="pagination">';
-
-                // Link para a página anterior, se não estiver na primeira página
-                if ($pagina_atual > 1) {
-                    echo '<a href="?pagina=' . ($pagina_atual - 1);
-                    if (isset($_GET['peça'])) {
-                        echo '&peça=' . urlencode($_GET['peça']);
-                    }
-                    echo '">Anterior</a>' . ' ';
-                }
-
-                // Links para as páginas individuais
-                for ($i = 1; $i <= $total_paginas; $i++) {
-                    echo '<a href="?pagina=' . $i;
-                    if (isset($_GET['peça'])) {
-                        echo '&peça=' . urlencode($_GET['peça']);
-                    }
-                    echo '">' . $i . '</a>' . ' ';
-                }
-
-                // Link para a próxima página, se não estiver na última página
-                if ($pagina_atual < $total_paginas) {
-                    echo '<a href="?pagina=' . ($pagina_atual + 1);
-                    if (isset($_GET['peça'])) {
-                        echo '&peça=' . urlencode($_GET['peça']);
-                    }
-                    echo '">Próxima</a>' . ' ';
-                }
-
-
-                echo '</div>';
-                echo '</div>';
+                require('paginaçao.php');
             } else {
 
                 echo '<p style="color: azure;">Nenhuma imagem encontrada.</p>';
@@ -128,11 +74,11 @@
             $conn->close();
 
             ?>
-        
-        <?php
-        require_once('rodape.php')
-        ?>
-    </div>
+
+            <?php
+            require_once('rodape.php')
+            ?>
+        </div>
 </body>
 
 </html>

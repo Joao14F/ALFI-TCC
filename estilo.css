@@ -126,6 +126,24 @@ select:focus {
     color: blue;
 }
 
+/* Paginação */
+.pagination {
+    text-align: center;
+}
+
+.pagination-link {
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    color: #333;
+    margin: 5px;
+}
+
+.pagination-link:hover {
+    background-color: #ccc;
+}
+
 /* Rodapé */
 footer {
     font-size: 12px;

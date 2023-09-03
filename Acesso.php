@@ -42,7 +42,7 @@
                 $Moldes = $row['Moldes'];
                 $Moldes = explode(',', $Moldes);
                 foreach ($Moldes as $Molde) {
-                    echo '<div class="col-1">' . '<img src="' . $Molde .  '"alt="Imagem" class="img-fluid" onclick="changeImage(' . "'" . $Molde . "'" . ')">' . '</div>';
+                    echo '<div class="col-1">' . '<img src="' . $Molde .  '"alt="Imagem" class="img-fluid h-100" onclick="changeImage(' . "'" . $Molde . "'" . ')">' . '</div>';
                 }
 
                 echo '</div>';

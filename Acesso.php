@@ -33,8 +33,8 @@
 
                 $endereco_capa = $row['Capa'];
                 if ($endereco_capa) {
-                    echo '<div class="row linhagimg">' . '<img id="big-image" src="' . $endereco_capa .  '"alt="Imagem" class=" imagem col-12 col-sm-12 col-md-12">' .  '</div>';
-                    echo '<div class="row linhagimg">' . '<img src="' . $endereco_capa .  '"alt="Imagem" class=" imagensp col-12 col-sm-12 col-md-12" onclick="changeImage(' .  "'" . $endereco_capa . "'" . ')">';
+                    echo '<div class="row justify-content-center">' . '<div class="col-10 col-sm-10 col-md-10">' . '<img id="big-image" src="' . $endereco_capa .  '"alt="Imagem" class=" imagem col-12 col-sm-12 col-md-12 img-fluid">' . '</div>' . '</div>';
+                    echo '<div class="row 2 justify-content-center">' . '<div class="col-1">' . '<img src="' . $endereco_capa .  '"alt="Imagem" class="img-fluid" onclick="changeImage(' .  "'" . $endereco_capa . "'" . ')">' . '</div>';
                 } else {
                     echo 'Falha ao buscar imagem.';
                 }
@@ -42,10 +42,12 @@
                 $Moldes = $row['Moldes'];
                 $Moldes = explode(',', $Moldes);
                 foreach ($Moldes as $Molde) {
-                    echo '<img src="' . $Molde .  '"alt="Imagem" class="  imagensp col-12 col-sm-12 col-md-12" onclick="changeImage(' . "'" . $Molde . "'" . ')">';
+                    echo '<div class="col-1">' . '<img src="' . $Molde .  '"alt="Imagem" class="img-fluid" onclick="changeImage(' . "'" . $Molde . "'" . ')">' . '</div>';
                 }
 
                 echo '</div>';
+                echo '<button onclick="prevImage()">Anterior</button>';
+                echo '<button onclick="nextImage()">Próxima</button>';
                 echo '<div class="row dados">';
                 if ($row['Tecido'] !== null) {
                     echo '<p class="dado">' . 'Tecido sugerido:'  . " " . $row['Tecido'] . '</p>';
@@ -90,11 +92,27 @@
         <?php
         require_once('rodape.php')
         ?>
-        <script>
-            function changeImage(newImageSrc) {
-                var bigImage = document.getElementById('big-image');
-                bigImage.src = newImageSrc;
-            }
+       <script>
+           var currentImageIndex = 0;
+           var imageSources = [
+               <?php echo json_encode($endereco_capa); ?>,
+               <?php echo json_encode($Molde); ?>
+           ];
+
+           function changeImage(newImageSrc) {
+               var bigImage = document.getElementById('big-image');
+               bigImage.src = newImageSrc;
+           }
+
+           function prevImage() {
+               currentImageIndex = (currentImageIndex - 1 + imageSources.length) % imageSources.length;
+               changeImage(imageSources[currentImageIndex]);
+           }
+
+           function nextImage() {
+               currentImageIndex = (currentImageIndex + 1) % imageSources.length;
+               changeImage(imageSources[currentImageIndex]);
+           }
         </script>
     </div>
 </body>

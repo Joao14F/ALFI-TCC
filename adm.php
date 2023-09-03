@@ -1,11 +1,15 @@
-<?php include('sessao.php');  ?>
+<?php include('sessao.php'); ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADM</title>
+    <link rel="icon" type="image/png" href="imagens/navlogo.png">
+    <title>Index</title>
+
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" type="text/css" href="estilo.css">
@@ -14,24 +18,14 @@
 <body>
     <div class="container-fluid">
         <?php
-        require_once('cabecalho.php')
+        require_once('cabecalho.php');
+        require('logadoADM.php');
         ?>
+
         <div class="row">
             <?php
             include_once('conexao.php');
-
-            // Define a quantidade de resultados a serem exibidos por página
-            $resultados_por_pagina = 8;
-
-            // Obtém o número da página atual a partir do parâmetro "pagina" na URL
-            if (isset($_GET['pagina']) && is_numeric($_GET['pagina'])) {
-                $pagina_atual = $_GET['pagina'];
-            } else {
-                $pagina_atual = 1;
-            }
-
-            // Calcula o deslocamento (offset) com base na página atual
-            $offset = ($pagina_atual - 1) * $resultados_por_pagina;
+            include('paginaçaoVar.php');
 
             if (isset($_GET['peça'])) {
                 $peca = $_GET['peça'];
@@ -44,72 +38,30 @@
                     $stmt = $conn->prepare($query);
                     $stmt->bind_param("sii", $peca, $offset, $resultados_por_pagina);
                 }
-                $stmt->execute();
-                $res = $stmt->get_result();
             } else {
                 $sql = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Verificado` = 'Não' ORDER BY `Id modelo` DESC LIMIT ?, ?";
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param("ii", $offset, $resultados_por_pagina);
-                $stmt->execute();
-                $res = $stmt->get_result();
             }
+            $stmt->execute();
+            $res = $stmt->get_result();
 
 
-
-            echo '<div>';
             if ($res && mysqli_num_rows($res) > 0) {
                 // Exibe as imagens dentro do laço `while`
                 while ($row = mysqli_fetch_assoc($res)) {
                     if (isset($row['Capa'])) { // Verifica se a chave 'Capa' está definida
                         $caminho_imagem = $row['Capa'];
-                        echo '<a href="ADMacesso.php?valor=' . $row['Id modelo'] . '">';
-                        echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos col-8 col-sm-8 col-md-8">';
+                        echo '<div class="col-12 col-sm-12 col-md-3">';
+                        echo '<a href="Acesso.php?valor=' . $row['Id modelo'] . '">';
+                        echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos">';
                         echo '</a>';
+                        echo '</div>';
                     }
                 }
                 echo '</div>';
 
-                // Cria os links de paginação
-                $sql_total = "SELECT COUNT(*) AS total FROM `modelo`";
-                $res_total = mysqli_query($conn, $sql_total);
-                $row_total = mysqli_fetch_assoc($res_total);
-                $total_resultados = $row_total['total'];
-                $total_paginas = ceil($total_resultados / $resultados_por_pagina);
-
-                echo '<div class="row">';
-
-                echo '<div class="pagination">';
-
-                // Link para a página anterior, se não estiver na primeira página
-                if ($pagina_atual > 1) {
-                    echo '<a href="?pagina=' . ($pagina_atual - 1);
-                    if (isset($_GET['peça'])) {
-                        echo '&peça=' . urlencode($_GET['peça']);
-                    }
-                    echo '">Anterior</a>' . ' ';
-                }
-
-                // Links para as páginas individuais
-                for ($i = 1; $i <= $total_paginas; $i++) {
-                    echo '<a href="?pagina=' . $i;
-                    if (isset($_GET['peça'])) {
-                        echo '&peça=' . urlencode($_GET['peça']);
-                    }
-                    echo '">' . $i . '</a>' . ' ';
-                }
-
-                // Link para a próxima página, se não estiver na última página
-                if ($pagina_atual < $total_paginas) {
-                    echo '<a href="?pagina=' . ($pagina_atual + 1);
-                    if (isset($_GET['peça'])) {
-                        echo '&peça=' . urlencode($_GET['peça']);
-                    }
-                    echo '">Próxima</a>' . ' ';
-                }
-
-
-                echo '</div>';
-                echo '</div>';
+                require('paginaçao.php');
             } else {
 
                 echo '<p style="color: azure;">Nenhuma imagem encontrada.</p>';
@@ -119,48 +71,11 @@
             $conn->close();
 
             ?>
+
+            <?php
+            require_once('rodape.php')
+            ?>
         </div>
-        <footer>
-            <div class="caixote">
-                <div class="row">
-                    <div class="sec sobrenos col-12 col-sm-12 col-md-4">
-                        <h2>Sobre Nós</h2>
-                        <p>O ALFI é um site de compartilhamento de moldes de roupas,
-                            focado em disponibilizar aos usúarios uma plataforma para
-                            obter e compartilhar os moldes das roupas desejedas pelos mesmos.
-                        </p>
-                    </div>
-
-                    <div class="sec quicklinks col-12 col-sm-12 col-md-4">
-                        <h2>Suporte</h2>
-                        <ul>
-                            <li><a href="FAQ.php">FAQ</a></li>
-                            <li><a href="pdep.php">Política de Privacidade</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-12 col-sm12 col-md-4">
-                        <div class="sec contact">
-                            <h2>Entre em Contato</h2>
-                            <ul class="info">
-                                <li>
-                                    <p>Caso queira enviar alguma sugestão, solicitação ou mensagem, você pode nos contatar clicando no botão abaixo ou através do e-mail: <a href="mailto:teamalfi2023@gmail.com" class="mail">teamalfi2023@gmail.com</a></p>
-                                </li>
-                                <a class="xinga" href="testeform.php">Contato</a>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="copyrightText">
-                        <p>Copyright © 2023 ALFI All rights reserved.</p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </div>
 </body>
 
 </html>

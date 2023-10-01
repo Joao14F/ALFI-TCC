@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+
     <title>Política de Privacidade</title>
+    <link rel="icon" type="image/png" href="imagens/logonav.png">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -16,56 +19,133 @@ body {
     font-family: "Poppins", sans-serif;
     color: white;
     font-weight: 500;
+    margin: 0;
+    padding: 0;
 }
 
 header{
-    display: flex;
     border-bottom: 2px solid white;
     border-color: #8880FE;
 }
 h1 {
     color: #8880FE;
     font-size: 2rem;
-    margin-bottom: 1-rem;
-    text-align: center;
-    padding-left: 26rem;
+    padding: 15px;
 }
 
 h2 {
-    padding: 15px;
     color: #8880FE;
-}
-
-.pb {
-    padding-bottom: 2rem;
+    font-size: 1.5rem;
 }
 
 p {
-    padding-left: 20px;
     color: #8880FE;
     text-align: justify;
-    padding-right: 20px;
 }
 
 li {
     color: #8880FE;
 }
 
-i {
-    color: #8880FE;
-    padding-left: 0.5rem;
-    padding-top: 1.5rem;
-    margin-left: 0rem;
+@media (max-width: 454px) {
+    h1 {
+        text-align: center;
+    }
+}
+
+@media (min-width: 118px) and (max-width: 767px) {
+    h1 {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    padding: 10px;
+    }
+
+    p {
+        padding: 10px;
+    }
+
+    .p2 {
+        padding: 10px;
+    }
+
+    h2 {
+        padding-left: 10px;
+    }
+
+    li {
+        padding: 10px;
+    }
+
+
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+
+    h1 {
+    display: flex;
+    justify-content: center;
+    }
+
+    p {
+        padding: 15px 10px 10px 10px;
+    }
+
+    .p2 {
+        padding:  10px 10px 0px 10px;
+    }
+
+    h2 {
+        padding-left: 10px;
+    }
+
+    li {
+        padding: 10px;
+    }
+
+
+}
+
+@media (min-width: 1201px) and (max-width: 2000px) {
+    h1 {
+    display: flex;
+    justify-content: center;
+    }
+
+    p {
+        padding: 15px 10px 10px 10px;
+    }
+
+    .p2 {
+        padding:  10px 10px 0px 10px;
+    }
+
+    h2 {
+        padding-left: 10px;
+    }
+
+    li {
+        padding: 10px;
+    }
+
+
 }
 
     </style>
 </head>
 <body>
-    <header>
-    <a href="index.php"><i class="fa-sharp fa-solid fa-angles-left fa-xl"></i></a>
-
+<div class="container-fluid">
+<div class="row">
+    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+     <header> 
         <h1>POLÍTICA DE PRIVACIDADE</h1>
     </header>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12"></div>
+        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
     <p>Agradecemos por visitar nosso site. A proteção da sua privacidade é importante para nós. 
         Esta Política de Privacidade descreve como coletamos, usamos, protegemos e compartilhamos 
@@ -104,12 +184,16 @@ Também pode optar por não receber comunicações promocionais futuras. Para ex
 
 <h2>5- Contato </h2>
 
-<p>Se tiver alguma dúvida, preocupação ou solicitação relacionada à privacidade, entre em contato conosco 
+<p class="p2">Se tiver alguma dúvida, preocupação ou solicitação relacionada à privacidade, entre em contato conosco 
 através dos seguintes detalhes:
 </p>
-<p class="pb">
+<p>
 Nos rodapés do nosso site estão disponíveis o email da equipe no qual você pode nos contatar diretamente e temos um formulário específico para mensagens, sugestões e etc, no qual revisamos e respondemos em um prazo de no máximo uma semana.
 </p>
+
+
+</div>
+    </div>
 
 </body>
 </html>

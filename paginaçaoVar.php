@@ -1,3 +1,6 @@
+
+
+
 <?php
 $resultados_por_pagina = 20;
 if (isset($_GET['pagina']) && is_numeric($_GET['pagina'])) {

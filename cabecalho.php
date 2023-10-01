@@ -8,7 +8,7 @@
                 echo '<a class="logo" href="index.php">';
             }
             ?>
-            <img src="imagens/logo.png" alt="logo!">
+            <img style="padding: 10px; wisth: 10%;"src="imagens/ALFI.png" alt="logo!">
             </a>
         </div>
 

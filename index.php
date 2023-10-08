@@ -67,7 +67,7 @@
                 require('paginaçao.php');
             } else {
 
-                echo '<p style="color: azure;">Nenhuma imagem encontrada.</p>';
+                echo '<p style="color: white;">Nenhuma imagem encontrada.</p>';
             }
 
             // Fecha a conexão com o banco de dados

@@ -16,7 +16,7 @@ header {
 }
 
 .logo img {
-    width: 80%;
+    width: 90%;
 }
 
 .CadastraModelo {
@@ -26,18 +26,17 @@ header {
     font-size: 1.5rem;
     background: #1B2029;
     color: #8880FE;
-    margin-top: 40px;
 }
 
 .login {
     border: 2px solid #8880FE;
-    padding: 8px;
+    padding: 10px;
     border-radius: 30px;
     font-size: 1.5rem;
     background: #1B2029;
     margin-right: 2rem;
     color: #8880FE;
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
 .cadastro {
@@ -103,12 +102,13 @@ select:focus {
 /* Paginação */
 .paginaton {
     text-align: center;
+    
 }
 
 .paginaton-link {
     text-decoration: none;
-    padding: 5px 10px;
-    color: #2aae7b;
+    padding: 10 px;
+    color: #ccc;
 }
 
 .paginaton-link:hover {
@@ -180,23 +180,7 @@ h2 {
     color: white;
 }
 
-.xinga {
-    cursor: pointer;
-    width: 15%;
-    border: none;
-    border-radius: 32px;
-    background: white;
-    color: #161923;
-    font-size: 0.9rem;
-    transition: all .3s ease-in-out;
-    text-align: center;
-    padding: 5px;
-    text-decoration: none;
-}
 
-.xinga:hover {
-    background: #d9d9d9;
-}
 
 .copyrightText {
     width: 100%;

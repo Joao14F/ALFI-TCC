@@ -7,11 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="imagens/navlogo.png">
-    <title>Index</title>
+    <title>Modelo</title>
 
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" type="text/css" href="estilo.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha384-n6KAgNq2Yo46bTT4pG1zYK2l/EAq/ZGW0pmKwXkgH70VxObekHvJVsj02StilL3p" crossorigin="anonymous">
 </head>
 
 <body>
@@ -29,26 +31,45 @@
             if ($res && mysqli_num_rows($res) > 0) {
                 $row = mysqli_fetch_assoc($res);
                 $Titulo = $row['Título'];
+                $capa = $row['Capa'];
+                $moldes = explode(',', $row['Moldes']);
+
                 echo '<div class="row">' . '<h1 class="col-12 col-sm-12 col-md-12 Titulo">' . $Titulo . '</h1>' . '</div>';
+                echo '<div class="row justify-content-center">';
+                echo '<div class=" col-10 justfy-content-center">';
+                echo '<div id="carouselExampleIndicators" class="carousel slide"> <div class="carousel-indicators">';
 
-                $endereco_capa = $row['Capa'];
-                if ($endereco_capa) {
-                    echo '<div class="row justify-content-center">' . '<div class="col-10 col-sm-10 col-md-10">' . '<img id="big-image" src="' . $endereco_capa .  '"alt="Imagem" class=" imagem col-12 col-sm-12 col-md-12 img-fluid">' . '</div>' . '</div>';
-                    echo '<div class="row 2 justify-content-center">' . '<div class="col-1">' . '<img src="' . $endereco_capa .  '"alt="Imagem" class="img-fluid" onclick="changeImage(' .  "'" . $endereco_capa . "'" . ')">' . '</div>';
-                } else {
-                    echo 'Falha ao buscar imagem.';
-                }
-                //termina essa funçao
-                $Moldes = $row['Moldes'];
-                $Moldes = explode(',', $Moldes);
-                foreach ($Moldes as $Molde) {
-                    echo '<div class="col-1">' . '<img src="' . $Molde .  '"alt="Imagem" class="img-fluid h-100" onclick="changeImage(' . "'" . $Molde . "'" . ')">' . '</div>';
-                }
+                echo '<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>';
+                echo '<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>';
+                echo '</div>
+                        <div class="carousel-inner">';
 
-                echo '</div>';
-                echo '<button onclick="prevImage()">Anterior</button>';
-                echo '<button onclick="nextImage()">Próxima</button>';
-                echo '<div class="row dados">';
+                // Adicionando a imagem da capa como primeiro slide
+                echo '<div class="carousel-item active">
+                        <img src="' . $capa . '" class="img-fluid" alt="Imagem de Capa">
+                      </div>';
+
+                // Adicionando os slides dos moldes
+                foreach ($moldes as $Molde) {
+                    echo '<div class="carousel-item">';
+                    echo '<img src="' . $Molde .  '"alt="Imagem" class="img-fluid w-100">';
+                    echo '</div>';
+                }
+        ?>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+    </div>
+    </div>
+    </div>
+    <div class="row dados">
+<?php
                 if ($row['Tecido'] !== null) {
                     echo '<p class="dado">' . 'Tecido sugerido:'  . " " . $row['Tecido'] . '</p>';
                 }
@@ -88,32 +109,9 @@
                 echo '<script>alert("Erro ao carregar o modelo"); window.location.href = "index.php";</script>';
             }
         }
-        ?>
-        <?php
-        require_once('rodape.php')
-        ?>
-       <script>
-           var currentImageIndex = 0;
-           var imageSources = [
-               <?php echo json_encode($endereco_capa); ?>,
-               <?php echo json_encode($Molde); ?>
-           ];
+require_once('rodape.php')
+?>
 
-           function changeImage(newImageSrc) {
-               var bigImage = document.getElementById('big-image');
-               bigImage.src = newImageSrc;
-           }
-
-           function prevImage() {
-               currentImageIndex = (currentImageIndex - 1 + imageSources.length) % imageSources.length;
-               changeImage(imageSources[currentImageIndex]);
-           }
-
-           function nextImage() {
-               currentImageIndex = (currentImageIndex + 1) % imageSources.length;
-               changeImage(imageSources[currentImageIndex]);
-           }
-        </script>
     </div>
 </body>
 

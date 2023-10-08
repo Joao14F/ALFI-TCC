@@ -2,7 +2,7 @@
 
 
 <?php
-$resultados_por_pagina = 20;
+$resultados_por_pagina = 18;
 if (isset($_GET['pagina']) && is_numeric($_GET['pagina'])) {
     $pagina_atual = $_GET['pagina'];
 } else {

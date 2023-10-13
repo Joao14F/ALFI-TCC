@@ -1,6 +1,6 @@
 <header>
-    <div class="row">
-        <div class="col-12 col-sm-12 col-md-2">
+    <div class="row py-3 text-center align-items-center d-flex justify-content-center">
+        <div class="col-8 col-sm-6 col-md-2 text-center align-items-center d-flex">
             <?php
             if (isset($_SESSION['Id moderador'])) {
                 echo '<a class="logo" href="adm.php">';
@@ -8,7 +8,7 @@
                 echo '<a class="logo" href="index.php">';
             }
             ?>
-            <img style="padding: 10px; wisth: 10%;"src="imagens/ALFI.png" alt="logo!">
+            <img style="padding: 10px;"src="imagens/ALFI.png" alt="logo!">
             </a>
         </div>
 
@@ -21,102 +21,102 @@ $atual = basename($caminho);
 
 switch ($atual) {
     case 'adm.php':
-        echo '<div class="col-12 col-sm-12 col-md-5">';
+        echo '<div class="col-12 col-sm-12 col-md-5 justify-content-center align-items-center d-flex">';
         echo '<a href="verificados.php"><button class="CadastraModelo">Modelos verificados</button></a>';
         echo '</div>';
-        echo '<div class="col-12 col-sm-12 col-md-5">';
+        echo '<div class="col-12 col-sm-12 col-md-5 justify-content-center align-items-center d-flex">';
         echo '<a href="sair.php"><button class="CadastraModelo">Sair</button></a>';
         echo '</div>';
         break;
     
     case 'ADMacesso.php':
-        echo '<div class="col-12 col-sm-12 col-md-5">';
+        echo '<div class="col-12 col-sm-12 col-md-5 justify-content-center align-items-center d-flex">';
         echo '<a href="verificados.php"><button class="CadastraModelo">Modelos verificados</button></a>';
         echo '</div>';
-        echo '<div class="col-12 col-sm-12 col-md-3">';
+        echo '<div class="col-12 col-sm-12 col-md-3 justify-content-center align-items-center d-flex">';
         echo '<a href="adm.php"><button class="CadastraModelo">Início</button></a>';
         echo '</div>';
-        echo '<div class="col-12 col-sm-12 col-md-2">';
+        echo '<div class="col-12 col-sm-12 col-md-2 justify-content-center align-items-center d-flex">';
         echo '<a href="sair.php"><button class="CadastraModelo">Sair</button></a>';
         echo '</div>';
         break;
 
     case 'verificados.php':
-        echo '<div class="col-12 col-sm-12 col-md-5">';
+        echo '<div class="col-12 col-sm-12 col-md-5 justify-content-center align-items-center d-flex">';
         echo '<a href="adm.php"><button class="CadastraModelo">Gerenciar Modelos</button></a>';
         echo '</div>';
-        echo '<div class="col-12 col-sm-12 col-md-2">';
+        echo '<div class="col-12 col-sm-12 col-md-2 justify-content-center align-items-center d-flex">';
         echo '<a href="sair.php"><button class="CadastraModelo">Sair</button></a>';
         echo '</div>';
         break;
 
     case 'index.php':
         if (isset($_SESSION['Id usuário'])) {
-            echo '<div class="col-12 col-sm-12 col-md-5">';
+            echo '<div class="col-12 col-sm-12 col-md-5 justify-content-center align-items-center d-flex">';
             echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
             echo '</div>';
-            echo '<div class="col-12 col-sm-12 col-md-3">';
+            echo '<div class="col-12 col-sm-12 col-md-3 justify-content-center align-items-center d-flex">';
             echo '<a href="modelosCadastrados.php"><button class="CadastraModelo">Modelos Cadastrados</button></a>';
             echo '</div>';
-            echo '<div class="col-12 col-sm-12 col-md-2">';
+            echo '<div class="col-12 col-sm-12 col-md-2 justify-content-center align-items-center d-flex">';
             echo '<a href="sair.php"><button class="CadastraModelo">Sair</button></a>';
             echo '</div>';
         } else {
-            echo '<div class="col-12 col-sm-12 col-md-5">';
+            echo '<div class="col-12 col-sm-12 col-md-5 justify-content-center align-items-center d-flex">';
             echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
             echo '</div>';
-            echo '<div class="col-12 col-sm-12 col-md-3">';
+            echo '<div class="col-12 col-sm-12 col-md-3 justify-content-center align-items-center d-flex">';
             echo '<a href="cadastro.php"><button class="CadastraModelo">Cadastro</button></a>';
             echo '</div>';
-            echo '<div class="col-12 col-sm-12 col-md-2">';
+            echo '<div class="col-12 col-sm-12 col-md-2 justify-content-center align-items-center d-flex">';
             echo '<a href="login.php"><button class="CadastraModelo">Login</button></a>';
             echo '</div>';
         }
         break;
 
     case 'modelosCadastrados.php':
-        echo '<div class="col-12 col-sm-12 col-md-5">';
+        echo '<div class="col-12 col-sm-12 col-md-5 justify-content-center align-items-center d-flex">';
         echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
         echo '</div>';
-        echo '<div class="col-12 col-sm-12 col-md-3">';
+        echo '<div class="col-12 col-sm-12 col-md-3 justify-content-center align-items-center d-flex">';
         echo '<a href="index.php"><button class="CadastraModelo">Início</button></a>';
         echo '</div>';
-        echo '<div class="col-12 col-sm-12 col-md-2">';
+        echo '<div class="col-12 col-sm-12 col-md-2 justify-content-center align-items-center d-flex">';
         echo '<a href="sair.php"><button class="CadastraModelo">Sair</button></a>';
         echo '</div>';
         break;
 
     case 'Acesso.php':
-        echo '<div class="col-12 col-sm-12 col-md-5">';
+        echo '<div class="col-12 col-sm-12 col-md-5 justify-content-center align-items-center d-flex">';
         echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
         echo '</div>';
-        echo '<div class="col-12 col-sm-12 col-md-3">';
+        echo '<div class="col-12 col-sm-12 col-md-3 justify-content-center align-items-center d-flex">';
         echo '<a href="modelosCadastrados.php"><button class="CadastraModelo">Modelos Cadastrados</button></a>';
         echo '</div>';
-        echo '<div class="col-12 col-sm-12 col-md-2">';
+        echo '<div class="col-12 col-sm-12 col-md-2 justify-content-center align-items-center d-flex">';
         echo '<a href="sair.php"><button class="CadastraModelo">Sair</button></a>';
         echo '</div>';
         break;
     
     default:
     if (isset($_SESSION['Id usuário'])) {
-        echo '<div class="col-12 col-sm-12 col-md-5">';
+        echo '<div class="col-12 col-sm-12 col-md-5 justify-content-center align-items-center d-flex">';
         echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
         echo '</div>';
-        echo '<div class="col-12 col-sm-12 col-md-3">';
+        echo '<div class="col-12 col-sm-12 col-md-3 justify-content-center align-items-center d-flex">';
         echo '<a href="modelosCadastrados.php"><button class="CadastraModelo">Modelos Cadastrados</button></a>';
         echo '</div>';
-        echo '<div class="col-12 col-sm-12 col-md-2">';
+        echo '<div class="col-12 col-sm-12 col-md-2 justify-content-center align-items-center d-flex">';
         echo '<a href="sair.php"><button class="CadastraModelo">Sair</button></a>';
         echo '</div>';
     } else {
-        echo '<div class="col-12 col-sm-12 col-md-5">';
+        echo '<div class="col-12 col-sm-12 col-md-5 justify-content-center align-items-center d-flex">';
         echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
         echo '</div>';
-        echo '<div class="col-12 col-sm-12 col-md-3">';
+        echo '<div class="col-12 col-sm-12 col-md-3 justify-content-center align-items-center d-flex">';
         echo '<a href="cadastro.php"><button class="CadastraModelo">Cadastro</button></a>';
         echo '</div>';
-        echo '<div class="col-12 col-sm-12 col-md-2">';
+        echo '<div class="col-12 col-sm-12 col-md-2 justify-content-center align-items-center d-flex">';
         echo '<a href="login.php"><button class="CadastraModelo">Login</button></a>';
         echo '</div>';
     }

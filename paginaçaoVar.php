@@ -1,6 +1,3 @@
-
-
-
 <?php
 $resultados_por_pagina = 18;
 if (isset($_GET['pagina']) && is_numeric($_GET['pagina'])) {
@@ -15,4 +12,6 @@ $res_total = mysqli_query($conn, $sql_total);
 $row_total = mysqli_fetch_assoc($res_total);
 $total_resultados = $row_total['total'];
 $total_paginas = ceil($total_resultados / $resultados_por_pagina);
+
+$paginas_anteriores = $pagina_atual - 1;
 ?>

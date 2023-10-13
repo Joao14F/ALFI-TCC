@@ -36,7 +36,7 @@
 
                 echo '<div class="row">' . '<h1 class="col-12 col-sm-12 col-md-12 Titulo">' . $Titulo . '</h1>' . '</div>';
                 echo '<div class="row justify-content-center">';
-                echo '<div class=" col-10 justfy-content-center">';
+                echo '<div class=" col-6 justfy-content-center">';
                 echo '<div id="carouselExampleIndicators" class="carousel slide"> <div class="carousel-indicators">';
 
                 echo '<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>';
@@ -44,15 +44,13 @@
                 echo '</div>
                         <div class="carousel-inner">';
 
-                // Adicionando a imagem da capa como primeiro slide
                 echo '<div class="carousel-item active">
                         <img src="' . $capa . '" class="img-fluid" alt="Imagem de Capa">
                       </div>';
 
-                // Adicionando os slides dos moldes
                 foreach ($moldes as $Molde) {
                     echo '<div class="carousel-item">';
-                    echo '<img src="' . $Molde .  '"alt="Imagem" class="img-fluid w-100">';
+                    echo '<img src="' . $Molde .  '"alt="Imagem" class="w-100">';
                     echo '</div>';
                 }
         ?>

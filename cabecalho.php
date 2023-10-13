@@ -1,3 +1,16 @@
+<style>
+header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    border-color: #8880FE;
+}
+
+button {
+    padding-top: 10px;
+
+}
+    </style>
+
 <header>
     <div class="row py-3 text-center align-items-center d-flex justify-content-center">
         <div class="col-8 col-sm-6 col-md-2 text-center align-items-center d-flex">
@@ -8,7 +21,7 @@
                 echo '<a class="logo" href="index.php">';
             }
             ?>
-            <img style="padding: 10px;"src="imagens/ALFI.png" alt="logo!">
+            <img style="padding: 10px; "src="imagens/ALFI.png" alt="logo!">
             </a>
         </div>
 
@@ -126,6 +139,12 @@ switch ($atual) {
         ?>
     </div>
 </header>
+
+<<div class="row">
+
+<p></p>
+</div>
+
 <div class="row">
     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
         <select id="select" onchange="trocarPagina()" class="form-select borda">

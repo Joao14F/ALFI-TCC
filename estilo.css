@@ -104,16 +104,20 @@ select:focus {
     
 }
 
+.paginaAtual {
+    color: #8880FE;
+}
+
 .paginaton-link {
     text-decoration: none;
     padding: 5px 10px;
     color: #ccc;
-    padding: 10 px;
+    padding: 10 px; 
     color: #ccc;
 }
 
 .paginaton-link:hover {
-    color: #8880FE;
+    color: rgb(89, 89, 89);
 }
 
 /* Rodapé */

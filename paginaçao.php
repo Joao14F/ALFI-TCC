@@ -1,5 +1,5 @@
 <?php
-echo '<div class="row">';
+echo '<div class="row mt-5 mb-3">';
 echo '<div class="paginaton">';
 if (isset($_GET['pagina'])) {
     if ($pagina_atual > 1) {
@@ -22,7 +22,7 @@ if (isset($_GET['pagina'])) {
     if (isset($_GET['peça'])) {
         echo '&peça=' . urlencode($_GET['peça']);
     }
-    echo '" class="paginaton-link">' . $pagina_atual . '</a>' . ' ';
+    echo '" class="paginaAtual">' . $pagina_atual . '</a>' . ' ';
 
 
     if ($pagina_atual < $total_paginas) {
@@ -39,6 +39,7 @@ if (isset($_GET['pagina'])) {
         }
         echo '" class="paginaton-link">Próxima</a>' . ' ';
     }
+
 } else {
     echo '<a href="?pagina=' . '1';
     if (isset($_GET['peça'])) {

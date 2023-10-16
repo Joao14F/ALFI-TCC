@@ -6,14 +6,60 @@ header {
 }
 
 button {
-    padding-top: 10px;
+    margin-top: 20px;
 
 }
+
+.escolha{
+    padding-top: 5px;
+}
+
+.logo img {
+    min-width: 100px;
+}
+
+.CadastraModelo,
+.login,
+.cadastro {
+    padding: 12px;
+}
+
+@media (min-width: 300px) and (max-width: 460px) {
+.CadastraModelo,
+.login,
+.cadastro{
+        font-size: 8px; 
+        padding: 5px 5px; 
+    }
+
+    .logo img {
+        width: 100px;
+    }
+}
+
+@media (max-width: 800px) {
+    .CadastraModelo,
+.login,
+.cadastro{
+        font-size: 12px; 
+        padding: 5px 10px; 
+    }
+}
+
+@media (min-width: 801px) and (max-width: 1236px) {
+    .logo img {
+        margin-top: 30px;
+        width: 150px;
+    }
+}
+
+
     </style>
 
 <header>
+<div class="container-fluid">
     <div class="row">
-        <div class="col-12 col-sm-12 col-md-2">
+        <div class="col-6 col-xs-6 col-sm-3 col-md-3 col-lg-3 text-center">
             <?php
             if (isset($_SESSION['Id moderador'])) {
                 echo '<a class="logo" href="adm.php">';
@@ -21,7 +67,7 @@ button {
                 echo '<a class="logo" href="index.php">';
             }
             ?>
-            <img style="padding-top: 30px; wisth: 10%;"src="imagens/ALFI.png" alt="logo!">
+            <img style="padding-top: 20px; width: 45%;"src="imagens/ALFI.png" alt="logo!">
             </a>
         </div>
 
@@ -34,102 +80,102 @@ $atual = basename($caminho);
 
 switch ($atual) {
     case 'adm.php':
-        echo '<div class="col-12 col-sm-12 col-md-5">';
+        echo '<div class="col-6 text-center col-xs-6 col-sm-4 col-md-5 col-lg-5">';
         echo '<a href="verificados.php"><button class="CadastraModelo">Modelos verificados</button></a>';
         echo '</div>';
-        echo '<div class="col-12 col-sm-12 col-md-5">';
+        echo '<div class="col-6 text-center col-xs-6 col-sm-4 col-md-4 col-lg-4">';
         echo '<a href="sair.php"><button class="CadastraModelo">Sair</button></a>';
         echo '</div>';
         break;
     
     case 'ADMacesso.php':
-        echo '<div class="col-12 col-sm-12 col-md-5">';
+        echo '<div class="col-6 col-xs-6 col-sm-3 col-md-3 col-lg-3 text-center">';
         echo '<a href="verificados.php"><button class="CadastraModelo">Modelos verificados</button></a>';
         echo '</div>';
-        echo '<div class="col-12 col-sm-12 col-md-3">';
+        echo '<div class="col-6 col-xs-6 col-sm-3 col-md-3 col-lg-3 text-center">';
         echo '<a href="adm.php"><button class="CadastraModelo">Início</button></a>';
         echo '</div>';
-        echo '<div class="col-12 col-sm-12 col-md-2">';
+        echo '<div class="col-6 col-xs-6 col-sm-3 col-md-3 col-lg-3 text-center">';
         echo '<a href="sair.php"><button class="CadastraModelo">Sair</button></a>';
         echo '</div>';
         break;
 
     case 'verificados.php':
-        echo '<div class="col-12 col-sm-12 col-md-5">';
+        echo '<div class="col-6 text-center col-xs-6 col-sm-4 col-md-5 col-lg-5">';
         echo '<a href="adm.php"><button class="CadastraModelo">Gerenciar Modelos</button></a>';
         echo '</div>';
-        echo '<div class="col-12 col-sm-12 col-md-2">';
+        echo '<div class="col-6 text-center col-xs-6 col-sm-4 col-md-4 col-lg-4">';
         echo '<a href="sair.php"><button class="CadastraModelo">Sair</button></a>';
         echo '</div>';
         break;
 
     case 'index.php':
         if (isset($_SESSION['Id usuário'])) {
-            echo '<div class="col-12 col-sm-12 col-md-5">';
+            echo '<div class="col-6 col-xs-6 col-sm-3 col-md-3 col-lg-3 text-center">';
             echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
             echo '</div>';
-            echo '<div class="col-12 col-sm-12 col-md-3">';
+            echo '<div class="col-6 col-xs-6 col-sm-3 col-md-3 col-lg-3 text-center">';
             echo '<a href="modelosCadastrados.php"><button class="CadastraModelo">Modelos Cadastrados</button></a>';
             echo '</div>';
-            echo '<div class="col-12 col-sm-12 col-md-2">';
+            echo '<div class="col-6 col-xs-6 col-sm-3 col-md-3 col-lg-3 text-center">';
             echo '<a href="sair.php"><button class="CadastraModelo">Sair</button></a>';
             echo '</div>';
         } else {
-            echo '<div class="col-12 col-sm-12 col-md-5">';
+            echo '<div class="col-6 col-xs-6 col-sm-3 col-md-3 col-lg-3 text-center">';
             echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
             echo '</div>';
-            echo '<div class="col-12 col-sm-12 col-md-3">';
+            echo '<div class="col-6 col-xs-6 col-sm-3 col-md-3 col-lg-3 text-center">';
             echo '<a href="cadastro.php"><button class="CadastraModelo">Cadastro</button></a>';
             echo '</div>';
-            echo '<div class="col-12 col-sm-12 col-md-2">';
+            echo '<div class="col-6 col-xs-6 col-sm-3 col-md-3 col-lg-3 text-center">';
             echo '<a href="login.php"><button class="CadastraModelo">Login</button></a>';
             echo '</div>';
         }
         break;
 
     case 'modelosCadastrados.php':
-        echo '<div class="col-12 col-sm-12 col-md-5">';
+        echo '<div class="col-6 col-xs-6 col-sm-3 col-md-3 col-lg-3 text-center">';
         echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
         echo '</div>';
-        echo '<div class="col-12 col-sm-12 col-md-3">';
+        echo '<div class="col-6 col-xs-6 col-sm-3 col-md-3 col-lg-3 text-center">';
         echo '<a href="index.php"><button class="CadastraModelo">Início</button></a>';
         echo '</div>';
-        echo '<div class="col-12 col-sm-12 col-md-2">';
+        echo '<div class="col-6 col-xs-6 col-sm-3 col-md-3 col-lg-3 text-center">';
         echo '<a href="sair.php"><button class="CadastraModelo">Sair</button></a>';
         echo '</div>';
         break;
 
     case 'Acesso.php':
-        echo '<div class="col-12 col-sm-12 col-md-5">';
+        echo '<div class="col-6 col-xs-6 col-sm-3 col-md-3 col-lg-3 text-center">';
         echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
         echo '</div>';
-        echo '<div class="col-12 col-sm-12 col-md-3">';
+        echo '<div class="col-6 col-xs-6 col-sm-3 col-md-3 col-lg-3 text-center">';
         echo '<a href="modelosCadastrados.php"><button class="CadastraModelo">Modelos Cadastrados</button></a>';
         echo '</div>';
-        echo '<div class="col-12 col-sm-12 col-md-2">';
+        echo '<div class="col-6 col-xs-6 col-sm-3 col-md-3 col-lg-3 text-center">';
         echo '<a href="sair.php"><button class="CadastraModelo">Sair</button></a>';
         echo '</div>';
         break;
     
     default:
     if (isset($_SESSION['Id usuário'])) {
-        echo '<div class="col-12 col-sm-12 col-md-5">';
+        echo '<div class="col-6 col-xs-6 col-sm-3 col-md-3 col-lg-3 text-center">';
         echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
         echo '</div>';
-        echo '<div class="col-12 col-sm-12 col-md-3">';
+        echo '<div class="col-6 col-xs-6 col-sm-3 col-md-3 col-lg-3 text-center">';
         echo '<a href="modelosCadastrados.php"><button class="CadastraModelo">Modelos Cadastrados</button></a>';
         echo '</div>';
-        echo '<div class="col-12 col-sm-12 col-md-2">';
+        echo '<div class="col-6 col-xs-6 col-sm-3 col-md-3 col-lg-3 text-center">';
         echo '<a href="sair.php"><button class="CadastraModelo">Sair</button></a>';
         echo '</div>';
     } else {
-        echo '<div class="col-12 col-sm-12 col-md-5">';
+        echo '<div class="col-6 col-xs-6 col-sm-3 col-md-3 col-lg-3 text-center">';
         echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
         echo '</div>';
-        echo '<div class="col-12 col-sm-12 col-md-3">';
+        echo '<div class="col-6 col-xs-6 col-sm-3 col-md-3 col-lg-3 text-center">';
         echo '<a href="cadastro.php"><button class="CadastraModelo">Cadastro</button></a>';
         echo '</div>';
-        echo '<div class="col-12 col-sm-12 col-md-2">';
+        echo '<div class="col-6 col-xs-6 col-sm-3 col-md-3 col-lg-3 text-center">';
         echo '<a href="login.php"><button class="CadastraModelo">Login</button></a>';
         echo '</div>';
     }
@@ -138,15 +184,14 @@ switch ($atual) {
 
         ?>
     </div>
-</header>
-
-<<div class="row">
-
-<p></p>
 </div>
 
-<div class="row">
-    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+</header>
+
+
+
+<div class="row escolha">
+    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <select id="select" onchange="trocarPagina()" class="form-select borda">
             <option hidden> <?php
                             if (isset($_GET['peça'])) {

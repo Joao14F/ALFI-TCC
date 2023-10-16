@@ -1,3 +1,5 @@
+
+
 <?php include('sessao.php'); ?>
 
 <!DOCTYPE html>
@@ -17,6 +19,7 @@
 
 <body>
     <div class="container-fluid">
+        
         <?php
         require_once('cabecalho.php')
         ?>
@@ -48,6 +51,7 @@
             }
             $stmt->execute();
             $res = $stmt->get_result();
+            
 
 
             if ($res && mysqli_num_rows($res) > 0) {
@@ -55,7 +59,7 @@
                 while ($row = mysqli_fetch_assoc($res)) {
                     if (isset($row['Capa'])) { // Verifica se a chave 'Capa' está definida
                         $caminho_imagem = $row['Capa'];
-                        echo '<div class="col-10 col-sm-10 col-md-2 gy-4 gx-4">';
+                        echo '<div class="col-12 text-center col-xs-12 col-sm-4 col-md-2 col-lg-2 gy-4 gx-4">';
                         echo '<a href="Acesso.php?valor=' . $row['Id modelo'] . '">';
                         echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos img-fluid h-100">';
                         echo '</a>';
@@ -67,7 +71,7 @@
                 require('paginaçao.php');
             } else {
 
-                echo '<p style="color: white;">Nenhuma imagem encontrada.</p>';
+                echo '<p style="color: white; padding-top: 10px;">Nenhuma imagem encontrada.</p>';
             }
 
             // Fecha a conexão com o banco de dados

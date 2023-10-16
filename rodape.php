@@ -42,7 +42,7 @@ a {
 <footer>
             <div class="container-fluid">
                 <div class="row justify-content-center align-items-center">
-                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 align-self-start justify-content-center align-items-center">
+                    <div class="col-12 col-xs-12 col-sm-12 col-md-5 col-lg-5 align-self-start justify-content-center align-items-center">
                         <h2 class="ttl">Sobre Nós</h2>
                         <p class="ttl">O ALFI é um site de compartilhamento de moldes de roupas,
                             focado em disponibilizar aos usúarios uma plataforma para
@@ -50,7 +50,7 @@ a {
                         </p>
                     </div>
 
-                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 align-self-start justify-content-center align-items-center">
+                    <div class="col-12 col-xs-12 col-sm-12 col-md-3 col-lg-3 align-self-start justify-content-center align-items-center ">
                         <h2 class="ttl">Suporte</h2>
                         <ul class="">
                             <li><a href="FAQ.php">FAQ</a></li>
@@ -59,7 +59,7 @@ a {
                     </div>
                
 
-                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 align-self-start justify-content-center align-items-center">
+                    <div class="col-12 col-xs-12 col-sm-12 col-md-4 col-lg-4 align-self-start justify-content-center align-items-center">
                             <h2 class="ttl">Entre em Contato</h2>
                             <ul class="info">
                                 <li>

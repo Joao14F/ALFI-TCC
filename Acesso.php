@@ -1,3 +1,37 @@
+<style>
+    img {
+        width: 550px;
+    }
+
+    .Titulo {
+    color: #8880FE;
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 7px;
+}
+
+.dados {
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: whitesmoke;
+}
+
+.carousel-item img {
+    width: 50%;
+    height: auto;
+}
+
+@media (max-width: 720px) {
+    .carousel-item img {
+        width: 100%; /* Ou qualquer outro estilo desejado para telas menores */
+    }
+}
+
+
+      
+    </style>
+
+
 <?php include('sessao.php'); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -14,10 +48,14 @@
     <link rel="stylesheet" type="text/css" href="estilo.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha384-n6KAgNq2Yo46bTT4pG1zYK2l/EAq/ZGW0pmKwXkgH70VxObekHvJVsj02StilL3p" crossorigin="anonymous">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 
 <body>
     <div class="container-fluid">
+    <div class="col-12 col-sm-12 col-md-12 col-xs-12 col-lg-12">
         <?php
         include_once('logado.php');
         require_once('cabecalho.php');
@@ -42,7 +80,10 @@
                 echo '<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>';
                 echo '<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>';
                 echo '</div>
+
+                <div class="col-12 text-center">
                         <div class="carousel-inner">';
+
 
                 // Adicionando a imagem da capa como primeiro slide
                 echo '<div class="carousel-item active">
@@ -52,11 +93,14 @@
                 // Adicionando os slides dos moldes
                 foreach ($moldes as $Molde) {
                     echo '<div class="carousel-item">';
-                    echo '<img src="' . $Molde .  '"alt="Imagem" class="img-fluid w-100">';
+                    echo '<img class="img-responsive" src="' . $Molde .  '" alt="Imagem">';
                     echo '</div>';
                 }
+               '</div>'
+
         ?>
     </div>
+    
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
@@ -68,7 +112,15 @@
     </div>
     </div>
     </div>
+
+<div class="row">
+    <p></p>
+            </div>
+
+
+            <div class="container">
     <div class="row dados">
+    <div class="col-10 col-sm-10 col-md-10 col-xs-12 col-lg-10">
 <?php
                 if ($row['Tecido'] !== null) {
                     echo '<p class="dado">' . 'Tecido sugerido:'  . " " . $row['Tecido'] . '</p>';
@@ -109,6 +161,19 @@
                 echo '<script>alert("Erro ao carregar o modelo"); window.location.href = "index.php";</script>';
             }
         }
+
+        ?>
+
+    </div>
+    </div>
+
+    <div class="row">
+    <p></p>
+            </div>
+
+    <div class="row">
+<?php
+
 require_once('rodape.php')
 ?>
 

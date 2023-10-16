@@ -1,5 +1,30 @@
 
+<style>
+    .paginaton {
+    text-align: center;
+    padding-bottom: 1rem;
+    padding-top: 2rem;
+    
+}
 
+.paginaton-link {
+    text-decoration: none;
+    padding: 10px;
+    color: #8880FE;
+    border: 2px solid #8880FE;
+    padding: 3px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 30px;
+    font-size: 1rem;
+    background: #1B2029;
+}
+
+.paginaton-link:hover {
+    color: #ccc;
+    border: 2px solid #ccc;
+}
+    </style>
 
 <?php
 $resultados_por_pagina = 18;

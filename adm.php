@@ -13,6 +13,15 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" type="text/css" href="estilo.css">
+
+
+
+    <style>
+
+        .modelos {
+            width: 100%;
+        }
+        </style>
 </head>
 
 <body>
@@ -22,7 +31,7 @@
         require('logadoADM.php');
         ?>
 
-        <div class="row">
+<div class="row" style="margin: 0px 8px;">
             <?php
             include_once('conexao.php');
             include('paginaçaoVar.php');
@@ -46,36 +55,34 @@
             $stmt->execute();
             $res = $stmt->get_result();
 
-
             if ($res && mysqli_num_rows($res) > 0) {
                 // Exibe as imagens dentro do laço `while`
                 while ($row = mysqli_fetch_assoc($res)) {
                     if (isset($row['Capa'])) { // Verifica se a chave 'Capa' está definida
                         $caminho_imagem = $row['Capa'];
-                        echo '<div class="col-12 col-sm-12 col-md-3">';
+                        echo '<div class="col-12 text-center col-xs-12 col-sm-6 col-md-2 col-lg-2 gy-4 gx-4">';
                         echo '<a href="Acesso.php?valor=' . $row['Id modelo'] . '">';
                         echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos">';
                         echo '</a>';
                         echo '</div>';
                     }
                 }
-                echo '</div>';
 
                 require('paginaçao.php');
             } else {
-
-                echo '<p style="color: azure;">Nenhuma imagem encontrada.</p>';
+                echo '<p style="color: azure; padding-top: 10px;">Nenhuma imagem encontrada.</p>';
             }
 
             // Fecha a conexão com o banco de dados
             $conn->close();
-
             ?>
 
-            <?php
-            require_once('rodape.php')
-            ?>
         </div>
+
+        <?php
+        require_once('rodape.php')
+        ?>
+    </div>
 </body>
 
 </html>

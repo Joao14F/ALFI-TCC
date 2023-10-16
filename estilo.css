@@ -66,6 +66,10 @@ select:focus {
     border-radius: 10px;
 }
 
+.resultado {
+    color: whitesmoke;
+}
+
 /* Acesso */
 .Titulo {
     color: aliceblue;
@@ -101,7 +105,8 @@ select:focus {
 /* Paginação */
 .paginaton {
     text-align: center;
-    
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    border-color: #8880FE;    
 }
 
 .paginaAtual {

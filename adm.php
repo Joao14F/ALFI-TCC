@@ -20,62 +20,65 @@
         <?php
         require_once('cabecalho.php');
         require('logadoADM.php');
+        include_once('conexao.php');
+        include('paginaçaoVar.php');
         ?>
 
-        <div class="row">
+<div class="row justify-content-center align-items-center justify-content-md-start" style="margin: 0px 8px;">
             <?php
-            include_once('conexao.php');
-            include('paginaçaoVar.php');
-
             if (isset($_GET['peça'])) {
                 $peca = $_GET['peça'];
+                $verificado = 'Não';
                 if ($peca == 'Toda') {
-                    $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Verificado` = 'Não' ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                    $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `verificado` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
-                    $stmt->bind_param("ii", $offset, $resultados_por_pagina);
-                } else {
-                    $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Tipo` = ?  AND `Verificado` = 'Não' ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                    $stmt->bind_param("sii", $verificado, $offset, $resultados_por_pagina);
+                } elseif ($peca == 'Sustentável') {
+                    $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Sustentável` = 'Sim' AND `verificado` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
-                    $stmt->bind_param("sii", $peca, $offset, $resultados_por_pagina);
+                    $stmt->bind_param("sii", $verificado, $offset, $resultados_por_pagina);
+                } 
+                else{
+                    $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Tipo` = ? AND `verificado` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                    $stmt = $conn->prepare($query);
+                    $stmt->bind_param("ssii", $peca, $verificado, $offset, $resultados_por_pagina);
                 }
+                
             } else {
-                $sql = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Verificado` = 'Não' ORDER BY `Id modelo` DESC LIMIT ?, ?";
-                $stmt = $conn->prepare($sql);
-                $stmt->bind_param("ii", $offset, $resultados_por_pagina);
+                $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `verificado` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param("sii", $verificado, $offset, $resultados_por_pagina);
             }
             $stmt->execute();
             $res = $stmt->get_result();
-
 
             if ($res && mysqli_num_rows($res) > 0) {
                 // Exibe as imagens dentro do laço `while`
                 while ($row = mysqli_fetch_assoc($res)) {
                     if (isset($row['Capa'])) { // Verifica se a chave 'Capa' está definida
                         $caminho_imagem = $row['Capa'];
-                        echo '<div class="col-12 col-sm-12 col-md-3">';
+                        echo '<div class="col-10 col-sm-10 col-md-2 gy-1 gx-4">';
                         echo '<a href="Acesso.php?valor=' . $row['Id modelo'] . '">';
-                        echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos">';
+                        echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos img-fluid">';
                         echo '</a>';
+                        echo '<p class="text-truncate text-white">' . $row['Título'] . '</p>';
                         echo '</div>';
                     }
                 }
-                echo '</div>';
-
-                require('paginaçao.php');
-            } else {
-
-                echo '<p style="color: azure;">Nenhuma imagem encontrada.</p>';
             }
-
-            // Fecha a conexão com o banco de dados
-            $conn->close();
-
-            ?>
-
-            <?php
-            require_once('rodape.php')
+            else {
+                echo '<p class="resultado">Nenhum modelo encontrado</p>';
+            }
             ?>
         </div>
+
+        <?php
+        require_once('paginaçao.php');
+        require_once('rodape.php');
+        $conn->close();
+        ?>
+
+
 </body>
 
 </html>

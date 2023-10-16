@@ -15,13 +15,8 @@ header {
     background-color: #1B2029;
 }
 
-.logo img {
-    width: 90%;
-}
-
 .CadastraModelo {
-    border: 2px solid #8880FE;
-    padding: 8px;
+    border: 2px solid #8880FE; 
     border-radius: 30px;
     font-size: 1.5rem;
     background: #1B2029;
@@ -34,7 +29,6 @@ header {
     border-radius: 30px;
     font-size: 1.5rem;
     background: #1B2029;
-    margin-right: 2rem;
     color: #8880FE;
     margin-top: 10px;
 }
@@ -71,35 +65,10 @@ select:focus {
 }
 
 /* Acesso */
-.Titulo {
-    color: aliceblue;
-    text-align: center;
-}
 
 .dados {
-    background-color: whitesmoke;
-    text-indent: 5px;
     margin: 10px;
     border-radius: 10px;
-}
-
-/* ADMacesso */
-.deleta {
-    cursor: pointer;
-    width: 50%;
-    margin-top: 2.5rem;
-    border: none;
-    border-radius: 32px;
-    background: #6C63FF;
-    color: white;
-    font-size: 1.1rem;
-    transition: all .3s ease-in-out;
-    padding: 5px;
-    margin-right: 10rem;
-}
-
-.verifica {
-    color: blue;
 }
 
 /* Paginação */
@@ -123,88 +92,4 @@ select:focus {
 
 .paginaton-link:hover {
     color: rgb(89, 89, 89);
-}
-
-/* Rodapé */
-footer {
-    font-size: 12px;
-    background: #1B2029;
-    height: 2.5rem;
-}
-
-h2 {
-    font-size: 22px;
-}
-
-.caixote {
-    width: 100%;
-    background: #1B2029;
-}
-
-.sec h2 {
-    font-weight: 600;
-}
-
-.sec p {
-    color: #d9d9d9;
-    padding-top: 0.1rem;
-    text-align: justify;
-    line-height: 2;
-}
-
-.quicklinks h2 {
-    font-weight: 600;
-}
-
-.quicklinks ul li {
-    list-style: none;
-}
-
-.quicklinks ul li a {
-    color: #d9d9d9;
-    text-decoration: none;
-}
-
-.quicklinks ul li a:hover {
-    color: #8880FE;
-    transition: 0.3s all;
-}
-
-.contact h2 {
-    font-weight: 600;
-}
-
-.contact ul li span {
-    font-size: 20px;
-}
-
-.contact ul li a {
-    color: #d9d9d9;
-    text-decoration: none;
-}
-
-.xinga {
-    cursor: pointer;
-    width: 15%;
-    border: none;
-    border-radius: 32px;
-    background: white;
-    color: #161923;
-    font-size: 0.9rem;
-    transition: all .3s ease-in-out;
-    text-align: center;
-    padding: 5px;
-    text-decoration: none;
-}
-.contact ul li i {
-    color: white;
-}
-
-.copyrightText {
-    width: 100%;
-    padding: 8px;
-    text-align: center;
-    background: #1f252f;
-    border-top: 1px solid rgba(0, 0, 0, 0.15);
-    border-color: #8880FE;
 }

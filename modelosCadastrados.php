@@ -8,11 +8,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="imagens/logonav.png">
-    <title>Index</title>
+    <title>Modelos Cadastrados</title>
 
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" type="text/css" href="estilo.css">
+
+    <style>
+    .modelos {
+    border-radius: 10px;
+    width: 100%;
+}
+
+
+
+    </style>
     
 </head>
 
@@ -22,9 +32,10 @@
         require_once('cabecalho.php')
         ?>
 
-        <div class="row">
+            <div class="row" style="margin: 0px 8px;">
             <?php
             include_once('conexao.php');
+            include('paginaçaoVar.php');
 
             // Define a quantidade de resultados a serem exibidos por página
             $resultados_por_pagina = 8;
@@ -60,72 +71,32 @@
                 $res = $stmt->get_result();
             }
 
-
-
-            echo '<div>';
             if ($res && mysqli_num_rows($res) > 0) {
                 // Exibe as imagens dentro do laço `while`
                 while ($row = mysqli_fetch_assoc($res)) {
                     if (isset($row['Capa'])) { // Verifica se a chave 'Capa' está definida
                         $caminho_imagem = $row['Capa'];
+                        echo '<div class="col-12 text-center col-xs-12 col-sm-4 col-md-2 col-lg-2 gy-4 gx-4">';
                         echo '<a href="Acesso.php?valor=' . $row['Id modelo'] . '">';
-                        echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos col-8 col-sm-8 col-md-8">';
+                        echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos img-fluid h-100">';
                         echo '</a>';
+                        echo '</div>';
+                        
                     }
                 }
                 echo '</div>';
 
-                // Cria os links de paginação
-                $sql_total = "SELECT COUNT(*) AS total FROM `modelo`";
-                $res_total = mysqli_query($conn, $sql_total);
-                $row_total = mysqli_fetch_assoc($res_total);
-                $total_resultados = $row_total['total'];
-                $total_paginas = ceil($total_resultados / $resultados_por_pagina);
-
-                echo '<div class="row">';
-
-                echo '<div class="pagination">';
-
-                // Link para a página anterior, se não estiver na primeira página
-                if ($pagina_atual > 1) {
-                    echo '<a href="?pagina=' . ($pagina_atual - 1);
-                    if (isset($_GET['peça'])) {
-                        echo '&peça=' . urlencode($_GET['peça']);
-                    }
-                    echo '">Anterior</a>' . ' ';
-                }
-
-                // Links para as páginas individuais
-                for ($i = 1; $i <= $total_paginas; $i++) {
-                    echo '<a href="?pagina=' . $i;
-                    if (isset($_GET['peça'])) {
-                        echo '&peça=' . urlencode($_GET['peça']);
-                    }
-                    echo '">' . $i . '</a>' . ' ';
-                }
-
-                // Link para a próxima página, se não estiver na última página
-                if ($pagina_atual < $total_paginas) {
-                    echo '<a href="?pagina=' . ($pagina_atual + 1);
-                    if (isset($_GET['peça'])) {
-                        echo '&peça=' . urlencode($_GET['peça']);
-                    }
-                    echo '">Próxima</a>' . ' ';
-                }
-
-
-                echo '</div>';
-                echo '</div>';
+                require('paginaçao.php');
             } else {
 
-                echo '<p style="color: azure;">Nenhuma imagem encontrada.</p>';
+                echo '<p style="color: white; padding-top: 10px;">Nenhuma imagem encontrada.</p>';
             }
 
             // Fecha a conexão com o banco de dados
             $conn->close();
 
             ?>
-        </div>
+        
         <?php
         require_once('rodape.php')
         ?>

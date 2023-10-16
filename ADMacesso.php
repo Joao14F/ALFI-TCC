@@ -1,3 +1,34 @@
+<style>
+
+.deletar {
+    cursor: pointer;
+    width: 50%;
+    border: none;
+    border-radius: 32px;
+    background: #6C63FF;
+    color: white;
+    font-size: 1.1rem;
+    transition: all .3s ease-in-out;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+.verificar {
+    cursor: pointer;
+    width: 50%;
+    border: none;
+    border-radius: 32px;
+    background: #6C63FF;
+    color: white;
+    font-size: 1.1rem;
+    transition: all .3s ease-in-out;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+    </style>
+
+
 <?php include('sessao.php'); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -87,15 +118,15 @@
             }
         }
         ?>
-        <form action="" method="post">
-            <div class="row">
-                <div class="col-12 col-sm-12 col-md-12">
+        <form action="" method="POST">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-12 text-center col-xs-12 col-sm-12 col-md-4 col-lg-3">
 
-                    <button type="submit" name="deleta" class="deleta">Deletar</button>
+                    <button type="submit" name="deleta" class="deletar">Deletar</button>
 
                 </div>
-                <div class="col-12 col-sm-12 col-md-12">
-                    <button type="submit" name="verifica" class="verifica">Verificar</button>
+                <div class="col-12 text-center col-xs-12 col-sm-12 col-md-4 col-lg-3">
+                    <button type="submit" name="verifica" class="verificar">Verificar</button>
                 </div>
         </form>
 

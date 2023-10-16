@@ -1,38 +1,33 @@
-<style>
+<footer style="color: white;">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-4 align-self-start">
+            <h2>Sobre Nós</h2>
+            <p>O ALFI é um site de compartilhamento de moldes de roupas,
+                focado em disponibilizar aos usúarios uma plataforma para
+                obter e compartilhar os moldes das roupas desejedas pelos mesmos.
+            </p>
+        </div>
 
-footer {
-    color: white;
-}
-
-a {
-    color: #d9d9d9;
-    text-decoration: none;
-}
-
-.ttl {
-    padding-left: 15px;
-}
-
-.ctt {
-    cursor: pointer;
-    width: 15%;
-    border: none;
-    border-radius: 32px;
-    background: white;
-    color: #161923;
-    font-size: 0.9rem;
-    transition: all .3s ease-in-out;
-    text-align: center;
-    padding: 5px;
-    text-decoration: none;
-}
-
-.ctt:hover {
-    background: #d9d9d9;
-}
+        <div class="col-12 col-md-4 align-self-start">
+            <h2 class="ttl" style="padding-left: 15px;">Suporte</h2>
+            <ul>
+                <li><a href="FAQ.php" style="color: #d9d9d9; text-decoration: none;">FAQ</a></li>
+                <li><a href="pdep.php" style="color: #d9d9d9; text-decoration: none;">Política de Privacidade</a></li>
+            </ul>
+        </div>
 
 
+        <div class="col-12 col-md-4 align-self-start justify-content-center align-items-center">
+            <h2 class="ttl" style="padding-left: 15px;">Entre em Contato</h2>
+            <ul class="info">
+                <li>
+                   <p>Caso queira enviar alguma sugestão, solicitação ou mensagem, você pode nos contatar clicando no botão abaixo ou através do e-mail: <a href="mailto:teamalfi2023@gmail.com" class="mail">teamalfi2023@gmail.com</a></p>
+                </li>
+                <a class="xinga" href="testeform.php">Contato</a>
+            </ul>
+        </div>
 
+<<<<<<< HEAD
 
 
     </style>
@@ -70,12 +65,14 @@ a {
                         </div>
 
                 </div>
+=======
+    </div>
+    <div class="row">
+        <div class="col-12 gx-0">
+            <div class="copyrightText">
+                <p>Copyright © 2023 ALFI All rights reserved.</p>
+>>>>>>> fea756968f088a71955626cf84efd418517a88d9
             </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="copyrightText">
-                        <p>Copyright © 2023 ALFI All rights reserved.</p>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        </div>
+    </div>
+</footer>

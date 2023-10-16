@@ -11,26 +11,25 @@
    <link rel="icon" type="image/png" href="imagens/logonav.png">
 
    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+      * {
+         font-family: "Poppins", sans-serif;
+      }
 
-* {
-    font-family: "Poppins", sans-serif;
-}
+      body {
+         background: #1B2029;
+         color: white;
+         font-weight: 400;
 
-body {
-    background: #1B2029;
-    color: white;
-    font-weight: 400;
-   
-}
+      }
 
       .form-group {
          margin: 10px 0px;
 
       }
 
-        input[type="submit"] {
+      input[type="submit"] {
          cursor: pointer;
          width: 20%;
          margin-top: 1rem;
@@ -45,92 +44,90 @@ body {
       }
 
       input[type="submit"]:hover {
-            background: #5952d4;
-        }
+         background: #5952d4;
+      }
 
       input {
-        background: #161923;
-        width: 300px;
-        height: 50px;
-        padding: 0 0.5rem;
-        margin-top: 1rem;
-        outline: none;
-        color: rgba(166, 166, 166);
-        font-size: 1rem;
-        border: 1px solid #040B18;
-        border-radius: 8px;
-    }
+         background: #161923;
+         width: 300px;
+         height: 50px;
+         padding: 0 0.5rem;
+         margin-top: 1rem;
+         outline: none;
+         color: rgba(166, 166, 166);
+         font-size: 1rem;
+         border: 1px solid #040B18;
+         border-radius: 8px;
+      }
 
-    input.form-control {
-            background: #161923;
-            outline: none;
-            color: rgba(166, 166, 166);
-            font-size: 1rem;
-            border: 1px solid #040B18;
-            border-radius: 8px;
-            margin: 5px;
-        }
+      input.form-control {
+         background: #161923;
+         outline: none;
+         color: rgba(166, 166, 166);
+         font-size: 1rem;
+         border: 1px solid #040B18;
+         border-radius: 8px;
+         margin: 5px;
+      }
 
-        label {
-           color: white; 
-           padding: 0px 0px 0px 10px; 
-        
-        }
+      label {
+         color: white;
+         padding: 0px 0px 0px 10px;
 
-        input[type="radio"] {
+      }
+
+      input[type="radio"] {
          width: 2.5%;
          margin-left: 10px;
-        }
+      }
 
-        label.lab {
+      label.lab {
          padding-left: 15px;
-        }
+      }
 
-        .areass {
+      .areass {
          padding-top: 1.2rem;
 
-        }
+      }
 
-        @media (max-width: 387px) {
+      @media (max-width: 387px) {
 
-    input[type="submit"] {
-        text-align: center;
-    }
-}
-
-
-@media (max-width: 610px) {
-    input[type="submit"]{
-        width: 130px;
-    }
-
-    body {
-      padding-left: 15px;
-      padding-right: 15px;   
-    }
-}
+         input[type="submit"] {
+            text-align: center;
+         }
+      }
 
 
-@media (min-width: 1201px) and (max-width: 2000px) {
-   input[type="submit"]{
-   text-align: center;
-  }
+      @media (max-width: 610px) {
+         input[type="submit"] {
+            width: 130px;
+         }
 
-  input.form-control {
-   display: flex;
-   justify-content: center;
-  }
-}
+         body {
+            padding-left: 15px;
+            padding-right: 15px;
+         }
+      }
 
 
+      @media (min-width: 1201px) and (max-width: 2000px) {
+         input[type="submit"] {
+            text-align: center;
+         }
+
+         input.form-control {
+            display: flex;
+            justify-content: center;
+         }
+      }
    </style>
 </head>
 
 <body>
-<?php 
-include('sessao.php'); 
-include_once('logado.php'); 
-?>
+   <?php
+   include('sessao.php');
+   include_once('logado.php');
+   ?>
    <form enctype="multipart/form-data" action="enviaModelo.php" method="POST">
       <div class="container">
          <div class="row justify-content-center align-items-center">
@@ -176,7 +173,7 @@ include_once('logado.php');
                            <option value="Calça">Calça</option>
                            <option value="Camisa">Camisa</option>
                            <option value="Casacos">Casacos</option>
-                           <option value="Saia">Saia</option>                                             
+                           <option value="Saia">Saia</option>
                            <option value="Top">Top</option>
                            <option value="Vestido">Vestido</option>
                         </select>
@@ -273,7 +270,7 @@ include_once('logado.php');
                   </div>
                </div>
                <div class="row justify-content-center align-items-center">
-               <div class="col-12 col-sm-12 col-md-12 col-xs-12 col-lg-12"></div>
+                  <div class="col-12 col-sm-12 col-md-12 col-xs-12 col-lg-12"></div>
                   <input class=" justify-xs-center" type="submit" name="submit" value="Cadastrar">
                </div>
             </div>

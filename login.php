@@ -65,99 +65,98 @@
         }
 
         label {
-           padding: 25px 0px 10px 10px; 
+            padding: 25px 0px 10px 10px;
         }
 
         input {
-        background: #161923;
-        width: 300px;
-        height: 50px;
-        padding: 0 0.5rem;
-        margin-top: 1rem;
-        outline: none;
-        color: rgba(166, 166, 166);
-        font-size: 1rem;
-        border: 1px solid #040B18;
-        border-radius: 8px;
-    }
+            background: #161923;
+            width: 300px;
+            height: 50px;
+            padding: 0 0.5rem;
+            margin-top: 1rem;
+            outline: none;
+            color: rgba(166, 166, 166);
+            font-size: 1rem;
+            border: 1px solid #040B18;
+            border-radius: 8px;
+        }
 
-    @media (max-width: 387px) {
-    h1 {
-        text-align: center;
-        font-size: 1.5rem;
-    }
+        @media (max-width: 387px) {
+            h1 {
+                text-align: center;
+                font-size: 1.5rem;
+            }
 
-    p {
-        text-align: center;
-        font-size: 10px; 
-    }
+            p {
+                text-align: center;
+                font-size: 10px;
+            }
 
-    input[type="submit"] {
-        text-align: center;
-    }
-}
+            input[type="submit"] {
+                text-align: center;
+            }
+        }
 
-    @media (max-width: 454px) {
-        h1 {
-    display: flex;
-    justify-content: center;
-    padding-top: 4.5rem;
-    font-size: 2rem;
-    }
+        @media (max-width: 454px) {
+            h1 {
+                display: flex;
+                justify-content: center;
+                padding-top: 4.5rem;
+                font-size: 2rem;
+            }
 
-    p {
-    display: flex;
-    justify-content: center;
-    font-size: 10px;
-    }
+            p {
+                display: flex;
+                justify-content: center;
+                font-size: 10px;
+            }
 
-}
+        }
 
-@media (max-width: 575px) {
-    input[type="submit"]{
-        width: 100px;
-    }
-}
+        @media (max-width: 575px) {
+            input[type="submit"] {
+                width: 100px;
+            }
+        }
 
-@media (min-width: 118px) and (max-width: 767px) {
-    h1 {
-    display: flex;
-    justify-content: center;
-    padding-top: 3rem;
-    }
+        @media (min-width: 118px) and (max-width: 767px) {
+            h1 {
+                display: flex;
+                justify-content: center;
+                padding-top: 3rem;
+            }
 
-    p {
-    display: flex;
-    justify-content: center;
-    }
-}
+            p {
+                display: flex;
+                justify-content: center;
+            }
+        }
 
-@media (min-width: 768px) and (max-width: 1200px) {
-    h1 {
-    display: flex;
-    justify-content: center;
-    padding-top: 4.5rem;
-    }
+        @media (min-width: 768px) and (max-width: 1200px) {
+            h1 {
+                display: flex;
+                justify-content: center;
+                padding-top: 4.5rem;
+            }
 
-    p {
-    display: flex;
-    justify-content: center;
-    }
-}
+            p {
+                display: flex;
+                justify-content: center;
+            }
+        }
 
-@media (min-width: 1201px) and (max-width: 2000px) {
-    h1 {
-    display: flex;
-    justify-content: center;
-    padding-top: 4.5rem;
-    }
+        @media (min-width: 1201px) and (max-width: 2000px) {
+            h1 {
+                display: flex;
+                justify-content: center;
+                padding-top: 4.5rem;
+            }
 
-    p {
-    display: flex;
-    justify-content: center;
-    }
-}
-
+            p {
+                display: flex;
+                justify-content: center;
+            }
+        }
     </style>
 
 </head>
@@ -194,7 +193,7 @@
 
             <div class="row justify-content-center align-items-center">
                 <div class="col-12 col-sm-12 col-md-12 col-xs-12 col-lg-12"></div>
-                    <input class="col-0 col-xs-12 col-sm-2 col-md-1 justify-xs-center" type="submit" name="submit" value="Login">
+                <input class="col-0 col-xs-12 col-sm-2 col-md-1 justify-xs-center" type="submit" name="submit" value="Login">
             </div>
 
         </form>

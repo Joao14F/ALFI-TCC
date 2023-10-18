@@ -84,22 +84,28 @@ select:focus {
     text-align: center;
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     border-color: #8880FE;    
+    text-align: center;
+    padding-bottom: 1rem;
+    padding-top: 2rem;
 }
 
 .paginaAtual {
-    color: #8880FE;
+    color: #80c5da;
 }
 
 .paginaton-link {
     text-decoration: none;
     padding: 5px 10px;
     color: #ccc;
-    padding: 10 px; 
-    color: #ccc;
+    border: 2px solid #8880FE;
+    border-radius: 30px;
+    font-size: 1.3rem;
+    background: #1B2029;
 }
 
 .paginaton-link:hover {
     color: rgb(89, 89, 89);
+    border: 2px solid #ccc;
 }
 
 /* Rodapé */

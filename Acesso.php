@@ -84,22 +84,13 @@
                 <div class="col-12 text-center">
                         <div class="carousel-inner">';
 
-<<<<<<< HEAD
-
-                // Adicionando a imagem da capa como primeiro slide
-=======
->>>>>>> fea756968f088a71955626cf84efd418517a88d9
                 echo '<div class="carousel-item active">
                         <img src="' . $capa . '" class="img-fluid" alt="Imagem de Capa">
                       </div>';
 
                 foreach ($moldes as $Molde) {
                     echo '<div class="carousel-item">';
-<<<<<<< HEAD
-                    echo '<img class="img-responsive" src="' . $Molde .  '" alt="Imagem">';
-=======
                     echo '<img src="' . $Molde .  '"alt="Imagem" class="w-100">';
->>>>>>> fea756968f088a71955626cf84efd418517a88d9
                     echo '</div>';
                 }
                '</div>'

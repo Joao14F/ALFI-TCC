@@ -1,5 +1,3 @@
-
-
 <?php include('sessao.php'); ?>
 
 <!DOCTYPE html>
@@ -26,7 +24,7 @@
         include('paginaçaoVar.php');
         ?>
 
-        <div class="row justify-content-center align-items-center justify-content-md-start" style="margin: 0px 8px;">
+        <div class="row corpo justify-content-center align-items-center justify-content-md-start">
             <?php
             if (isset($_GET['peça'])) {
                 $peca = $_GET['peça'];
@@ -67,11 +65,12 @@
                 }
             }
             else {
-                echo '<p class="resultado">Nenhum modelo encontrado</p>'
+                echo '<p class="resultado">Nenhum modelo encontrado</p>';
+            }
             ?>
         </div>
 
-        <div class="row justify-content-center align-items-center d-md-none d-lg-none d-xl-none d-xxl-none" style="margin: 0px 8px;">
+        <div class="row corpo justify-content-center align-items-center d-md-none d-lg-none d-xl-none d-xxl-none">
             <?php
             if (isset($_GET['peça'])) {
                 $peca = $_GET['peça'];

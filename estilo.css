@@ -15,6 +15,10 @@ header {
     background-color: #1B2029;
 }
 
+.logo{
+    width: 90%;
+}
+
 .CadastraModelo {
     border: 2px solid #8880FE; 
     border-radius: 30px;
@@ -60,6 +64,10 @@ select:focus {
     border-radius: 10px;
 }
 
+.corpo {
+    padding: 0px 8px;
+}
+
 .resultado {
     color: whitesmoke;
 }
@@ -92,4 +100,40 @@ select:focus {
 
 .paginaton-link:hover {
     color: rgb(89, 89, 89);
+}
+
+/* Rodapé */
+footer {
+    font-size: 12px;
+    background: #1B2029;
+    height: 2.5rem;
+    color: white;
+}
+
+.ttl {
+    font-size: 22px;
+    padding-left: 15px;
+}
+
+.xinga {
+    cursor: pointer;
+    width: 15%;
+    border: none;
+    border-radius: 32px;
+    background: white;
+    color: #161923;
+    font-size: 0.9rem;
+    transition: all .3s ease-in-out;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.copyrightText {
+    width: 100%;
+    padding: 8px;
+    text-align: center;
+    background: #1f252f;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+    border-color: #8880FE;
 }

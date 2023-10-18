@@ -74,6 +74,12 @@ select:focus {
 
 /* Acesso */
 
+.bi {
+    background-color: white;
+    font-size: 3rem;
+}
+
+
 .dados {
     margin: 10px;
     border-radius: 10px;

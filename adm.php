@@ -17,11 +17,10 @@
 
 
     <style>
-
         .modelos {
             width: 100%;
         }
-        </style>
+    </style>
 </head>
 
 <body>
@@ -33,7 +32,7 @@
         include('paginaçaoVar.php');
         ?>
 
-<div class="row justify-content-center align-items-center justify-content-md-start" style="margin: 0px 8px;">
+        <div class="row justify-content-center align-items-center justify-content-md-start" style="margin: 0px 8px;">
             <?php
             if (isset($_GET['peça'])) {
                 $peca = $_GET['peça'];
@@ -46,13 +45,11 @@
                     $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Sustentável` = 'Sim' AND `verificado` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
                     $stmt->bind_param("sii", $verificado, $offset, $resultados_por_pagina);
-                } 
-                else{
+                } else {
                     $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Tipo` = ? AND `verificado` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
                     $stmt->bind_param("ssii", $peca, $verificado, $offset, $resultados_por_pagina);
                 }
-                
             } else {
                 $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `verificado` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
                 $stmt = $conn->prepare($query);
@@ -74,8 +71,7 @@
                         echo '</div>';
                     }
                 }
-            }
-            else {
+            } else {
                 echo '<p class="resultado">Nenhum modelo encontrado</p>';
             }
             ?>

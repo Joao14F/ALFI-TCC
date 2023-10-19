@@ -149,6 +149,10 @@ if (isset($_POST['submit'])) {
 
         }
 
+        .form-control::placeholder {
+            color: gray;           
+        }
+
         @media (max-width: 1300px) {
             input[type="submit"] {
                 width: 120px;

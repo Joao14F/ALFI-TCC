@@ -81,6 +81,10 @@
             border-radius: 8px;
         }
 
+        .form-control::placeholder {
+            color: gray;           
+        }
+
         @media (max-width: 387px) {
             h1 {
                 text-align: center;

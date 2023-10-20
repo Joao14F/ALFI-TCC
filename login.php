@@ -82,7 +82,7 @@
         }
 
         .form-control::placeholder {
-            color: gray;           
+            color: gray;
         }
 
         @media (max-width: 387px) {
@@ -166,6 +166,16 @@
 </head>
 
 <body>
+    <?php
+    if (isset($_GET['valor'])) {
+        $valor = $_GET['valor'];
+        if (isset($_POST['submit'])) {
+            include_once('sessao.php.?valor=' . 'urlencode($valor))');
+        }
+    } elseif (isset($_POST['submit'])) {
+        include_once('sessao.php');
+    }
+    ?>
     <div class="container-fluid">
         <div class="row justify-content-center align-items-center">
             <div class="col-12 col-sm-10 col-md-12 col-xs-10 col-lg-12">
@@ -174,7 +184,6 @@
         </div>
 
         <form action="sessao.php" method="POST">
-
             <div class="row justify-content-center align-items-center">
                 <div class="col-10 col-sm-10 col-md-6 col-xs-6 col-lg-6">
                     <label for="password">E-mail</label>
@@ -201,12 +210,6 @@
             </div>
 
         </form>
-
-        <?php
-        if (isset($_POST['submit'])) {
-            include_once('sessao.php');
-        }
-        ?>
     </div>
 </body>
 

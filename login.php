@@ -199,10 +199,11 @@
                 <div class="col-12 col-sm-12 col-md-12 col-xs-12 col-lg-12"></div>
                 <input class="col-0 col-xs-12 col-sm-2 col-md-1 justify-xs-center" type="submit" name="submit" value="Login">
             </div>
-
+            <input type="hidden" name="valor" value="<?php echo isset($_GET['valor']) ? $_GET['valor'] : ''; ?>">
         </form>
 
         <?php
+        $_GET['valor'];
         if (isset($_POST['submit'])) {
             include_once('sessao.php');
         }

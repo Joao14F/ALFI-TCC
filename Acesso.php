@@ -110,26 +110,36 @@
     </div>
     </div>
     </div>
-    <div class="row">
+    <div class="row justify-content-center m-2">
         <div class="col-5">
-            <i id="icone" class="bi bi-bookmark-plus" style="font-size: 2rem; cursor: pointer;"></i>
+            <a href="download_modelo.php?valor=<?php echo $valor; ?>" download="Modelo_<?php echo $row['Título']; ?>.zip" class="btn btn-secondary w-100">Download</a>
         </div>
     </div>
-    <script>
-        $(document).ready(function() {
-            $("#icone").click(function() {
-                if ($(this).hasClass("bi-bookmark-plus")) {
-                    $(this).removeClass("bi-bookmark-plus");
-                    $(this).addClass("bi-bookmark-check");
-                    alert("Modelo adicionado aos modelos salvos");
-                } else {
-                    $(this).removeClass("bi-bookmark-check");
-                    $(this).addClass("bi-bookmark-plus");
-                    alert("Modelo removido dos modelos salvos");
-                }
-            });
-        });
-    </script>
+    <div class="row justify-content-center m-2">
+        <div class="col-5">
+        <?php
+$sqlcad = "SELECT `Usuário cadastrador` FROM `modelo` WHERE `Id modelo` = ?";
+$stmt = mysqli_prepare($conn, $sqlcad);
+mysqli_stmt_bind_param($stmt, "i", $valor);
+mysqli_stmt_execute($stmt);
+$rescad = mysqli_stmt_get_result($stmt);
+
+if ($rescad) {
+    $rowcad = mysqli_fetch_assoc($rescad);
+
+    if ($rowcad['Usuário cadastrador'] == $_SESSION['Id usuário']) {
+        echo '<form method="POST" action="deletaModelo.php">';
+        echo '<input type="hidden" name="valor" value="' . $valor . '">';
+        echo '<button type="submit" name="submit" class="btn btn-danger w-100" onclick="return confirm(\'Deseja deletar o modelo?\')">Deletar modelo</button>';
+        echo '</form>';
+    }
+}
+?>
+
+
+
+        </div>
+    </div>
     <div class="row">
         <p></p>
     </div>

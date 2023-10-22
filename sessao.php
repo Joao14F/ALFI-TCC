@@ -13,7 +13,6 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
         $locais = ['index.php', 'adm.php'];
     }
 
-
     // Consulta para verificar na tabela 'usuário'
     $sql = "SELECT * FROM `usuário` WHERE `E-mail usuário` = ? AND `Senha usuário` = ?";
     $stmt = $conn->prepare($sql);

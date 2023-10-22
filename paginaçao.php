@@ -1,5 +1,5 @@
 <?php
-echo '<div class="row mt-md-4 mt-sm-2 mt-2 mb-3">';
+echo '<div class="row mt-md-2 mt-sm-2 mt-2 mb-3">';
 echo '<div class="paginaton">';
 if (isset($_GET['pagina'])) {
     if ($pagina_atual > 1) {
@@ -54,7 +54,5 @@ if (isset($_GET['pagina'])) {
         echo '" class="paginaton-link">' . $i . '</a>' . ' ';
     }
 }
-
-
 echo '</div>';
 echo '</div>';

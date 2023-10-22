@@ -92,11 +92,17 @@ select:focus {
     border-color: #8880FE;    
     text-align: center;
     padding-bottom: 1rem;
-    padding-top: 2rem;
+    padding-top: 1rem;
 }
 
 .paginaAtual {
+    border: 2px solid #2619db;
+    padding: 5px 10px;
+    border-radius: 30px;
+    font-size: 1.3rem;
+    background: #1B2029;
     color: #80c5da;
+    text-decoration: none;
 }
 
 .paginaton-link {
@@ -110,8 +116,9 @@ select:focus {
 }
 
 .paginaton-link:hover {
-    color: rgb(89, 89, 89);
-    border: 2px solid #ccc;
+    background: #8880FE;
+    color: white;
+    transition: 0.3s all;
 }
 
 /* Rodapé */

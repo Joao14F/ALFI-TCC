@@ -8,20 +8,10 @@
    <link rel="stylesheet" href="CSS/bootstrap.min.css">
    <title>Cadastro</title>
 
-   <link rel="icon" type="image/png" href="imagens/logonav.png">
-
    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
-
-      * {
-         font-family: "Poppins", sans-serif;
-      }
-
       body {
-         background: #1B2029;
-         color: white;
-         font-weight: 400;
-
+         background-color: #1B2029;
+         color: #8880FE;
       }
 
       .form-group {
@@ -29,10 +19,20 @@
 
       }
 
-      input[type="submit"] {
+      form select:focus {
+         border-color: #6C63FF !important;
+         box-shadow: 0 0 0 0.25rem rgba(108, 99, 255, 0.25) !important;
+      }
+
+      form input:focus {
+         border-color: #6C63FF !important;
+         box-shadow: 0 0 0 0.25rem rgba(108, 99, 255, 0.25) !important;
+      }
+
+      button {
          cursor: pointer;
-         width: 20%;
-         margin-top: 1rem;
+         width: 50%;
+         margin-top: 2.5rem;
          border: none;
          border-radius: 32px;
          background: #6C63FF;
@@ -40,85 +40,12 @@
          font-size: 1.1rem;
          transition: all .3s ease-in-out;
          padding: 5px;
-         margin-bottom: 15px;
+         margin-right: 10rem;
+         margin-bottom: 8px;
       }
 
-      input[type="submit"]:hover {
+      button:hover {
          background: #5952d4;
-      }
-
-      input {
-         background: #161923;
-         width: 300px;
-         height: 50px;
-         padding: 0 0.5rem;
-         margin-top: 1rem;
-         outline: none;
-         color: rgba(166, 166, 166);
-         font-size: 1rem;
-         border: 1px solid #040B18;
-         border-radius: 8px;
-      }
-
-      input.form-control {
-         background: #161923;
-         outline: none;
-         color: rgba(166, 166, 166);
-         font-size: 1rem;
-         border: 1px solid #040B18;
-         border-radius: 8px;
-         margin: 5px;
-      }
-
-      label {
-         color: white;
-         padding: 0px 0px 0px 10px;
-
-      }
-
-      input[type="radio"] {
-         width: 2.5%;
-         margin-left: 10px;
-      }
-
-      label.lab {
-         padding-left: 15px;
-      }
-
-      .areass {
-         padding-top: 1.2rem;
-
-      }
-
-      @media (max-width: 387px) {
-
-         input[type="submit"] {
-            text-align: center;
-         }
-      }
-
-
-      @media (max-width: 610px) {
-         input[type="submit"] {
-            width: 130px;
-         }
-
-         body {
-            padding-left: 15px;
-            padding-right: 15px;
-         }
-      }
-
-
-      @media (min-width: 1201px) and (max-width: 2000px) {
-         input[type="submit"] {
-            text-align: center;
-         }
-
-         input.form-control {
-            display: flex;
-            justify-content: center;
-         }
       }
    </style>
 </head>
@@ -129,50 +56,53 @@
    include_once('logado.php');
    ?>
    <form enctype="multipart/form-data" action="enviaModelo.php" method="POST">
-      <div class="container">
-         <div class="row justify-content-center align-items-center">
-            <div class="col-12 col-xs-12 col-sm-12 col-md-10 col-lg-8 ">
+      <div class="container-fluid">
+         <div class="row">
+            <p class="col-0 col-sm-0 col-md-1"></p>
+            <div class="col-sm-12 col-md-10">
                <div class="form-group">
-                  <label class="areass" for="Titulo">Insira o titulo do modelo</label>
+                  <label class="areas" for="Titulo">Insira o titulo do modelo</label>
                   <input type="name" class="form-control" id="Titulo" placeholder="Titulo" name="Título">
                </div>
             </div>
          </div>
-         <div class="row justify-content-center align-items-center">
-            <div class="col-12 col-xs-12 col-sm-12 col-md-10 col-lg-8 ">
+         <div class="row">
+            <p class="col-0 col-sm-0 col-md-1"></p>
+            <div class="col-sm-12 col-md-10">
                <div class="form-group">
                   <label class="areas" for="Tecido">Tecido sugerido</label>
                   <input type="text" class="form-control" id="Tecido" placeholder="Tecido" name="Tecido">
                </div>
             </div>
          </div>
-         <div class="row justify-content-center align-items-center">
-            <div class="col-12 col-xs-12 col-sm-12 col-md-10 col-lg-8 ">
+         <div class="row">
+            <p class="col-0 col-sm-0 col-md-1"></p>
+            <div class="col-12 col-sm-12 col-md-10">
                <div class="form-group">
                   <label class="label">
-                     É Sustentável ?
+                     É Sustentável
                   </label>
                   <br>
                   <input type="radio" value="Sim" name="Sustentável">
-                  <label class="lab">
+                  <label class="label">
                      Sim
                   </label>
                   <input type="radio" value="Não" name="Sustentável">
-                  <label class="lab">
+                  <label class="label">
                      Não
                   </label>
                </div>
-               <div class="row justify-content-center align-items-center">
-                  <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+               <div class="row">
+                  <div class="col-12 col-sm-12 col-md-12">
                      <div class="form-group">
                         <label for="select-options">Selecione o tipo de roupa</label>
                         <select id="select-options" class="form-select" name="Tipo">
-                           <option value="option0">Selecione uma das opções</option>
+                           <option value="option0" hidden>Selecione uma das opções</option>
                            <option value="Bermuda">Bermuda</option>
                            <option value="Blusa">Blusa</option>
                            <option value="Calça">Calça</option>
                            <option value="Camisa">Camisa</option>
-                           <option value="Casacos">Casacos</option>
+                           <option value="Casaco">Casacos</option>
                            <option value="Saia">Saia</option>
                            <option value="Top">Top</option>
                            <option value="Vestido">Vestido</option>
@@ -215,6 +145,61 @@
                         formFields.appendChild(field2);
                         formFields.appendChild(field3);
                         formFields.appendChild(field4);
+                     } else if (select.value === "Vestido") {
+                        var field2 = createFormField("Comprimento em cm", "text", "Comprimento");
+                        var field3 = createFormField("Medidas quadril em cm", "text", "Quadril");
+                        var field5 = createFormField("Medidas ombro em cm", "text", "Ombro");
+                        var field1 = createFormField("Medidas cintura em cm", "text", "Cintura");
+                        var field1 = createFormField("Medidas busto em cm", "text", "Busto");
+                        var field4 = createFormField("Altura de gancho em cm", "text", "Gancho");
+                        formFields.appendChild(field1);
+                        formFields.appendChild(field2);
+                        formFields.appendChild(field3);
+                        formFields.appendChild(field4);
+                     } else if (select.value === "Casaco") {
+                        var field2 = createFormField("Comprimento em cm", "text", "Comprimento");
+                        var field6 = createFormField("Comprimento de manga em cm", "text", "Comprimento");
+                        var field3 = createFormField("Medidas quadril em cm", "text", "Quadril");
+                        var field5 = createFormField("Medidas ombro em cm", "text", "Ombro");
+                        var field1 = createFormField("Medidas cintura em cm", "text", "Cintura");
+                        var field7 = createFormField("Medidas busto em cm", "text", "Busto");
+                        formFields.appendChild(field1);
+                        formFields.appendChild(field2);
+                        formFields.appendChild(field3);
+                        formFields.appendChild(field4);
+                     } else if (select.value === "Blusa") {
+                        var field2 = createFormField("Comprimento em cm", "text", "Comprimento");
+                        var field6 = createFormField("Comprimento de manga em cm", "text", "Comprimento");
+                        var field3 = createFormField("Medidas quadril em cm", "text", "Quadril");
+                        var field5 = createFormField("Medidas ombro em cm", "text", "Ombro");
+                        var field8 = createFormField("Medidas punho em cm", "text", "Ombro");
+                        var field1 = createFormField("Medidas cintura em cm", "text", "Cintura");
+                        var field1 = createFormField("Medidas busto em cm", "text", "Busto");
+                        formFields.appendChild(field1);
+                        formFields.appendChild(field2);
+                        formFields.appendChild(field3);
+                        formFields.appendChild(field4);
+                     } else if (select.value === "Top") {
+                        var field2 = createFormField("Comprimento em cm", "text", "Comprimento");
+                        var field5 = createFormField("Medidas ombro em cm", "text", "Ombro");
+                        var field1 = createFormField("Medidas cintura em cm", "text", "Cintura");
+                        var field1 = createFormField("Medidas busto em cm", "text", "Busto");
+                        formFields.appendChild(field1);
+                        formFields.appendChild(field2);
+                        formFields.appendChild(field3);
+                        formFields.appendChild(field4);
+                     } else if (select.value === "Camisa") {
+                        var field2 = createFormField("Comprimento em cm", "text", "Comprimento");
+                        var field6 = createFormField("Comprimento de manga em cm", "text", "Comprimento");
+                        var field3 = createFormField("Medidas quadril em cm", "text", "Quadril");
+                        var field5 = createFormField("Medidas ombro em cm", "text", "Ombro");
+                        var field8 = createFormField("Medidas punho em cm", "text", "Ombro");
+                        var field1 = createFormField("Medidas cintura em cm", "text", "Cintura");
+                        var field1 = createFormField("Medidas busto em cm", "text", "Busto");
+                        formFields.appendChild(field1);
+                        formFields.appendChild(field2);
+                        formFields.appendChild(field3);
+                        formFields.appendChild(field4);
                      }
                   });
 
@@ -253,25 +238,25 @@
                      return field;
                   }
                </script>
-               <div class="row justify-content-center align-items-center">
-                  <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+               <div class="row">
+                  <div class="col-12 col-sm-12 col-md-12">
                      <div class="form-group">
-                        <label for="Tipo">Insira o arquivo referente a peça concluída</label>
+                        <label for="Tipo">Insira o arquivo referente a peça concluida</label>
                         <input type="file" class="form-control" placeholder="Capa" name="Capa">
                      </div>
                   </div>
                </div>
-               <div class="row justify-content-center align-items-center">
-                  <div class="col-12 col-xs-10 col-sm-12 col-md-12 col-lg-12">
+               <div class="row">
+                  <div class="col-12 col-sm-12 col-md-12">
                      <div class="form-group">
                         <label for="Tipo">Insira o arquivo referente aos moldes</label>
                         <input type="file" class="form-control" placeholder="moldes" name="Moldes[]" multiple>
                      </div>
                   </div>
                </div>
-               <div class="row justify-content-center align-items-center">
-                  <div class="col-12 col-sm-12 col-md-12 col-xs-12 col-lg-12"></div>
-                  <input class=" justify-xs-center" type="submit" name="submit" value="Cadastrar">
+               <div class="row gx-0 gy-1">
+                  <p class="col-1 col-sm-3 col-md-1"></p>
+                  <button type="submit" value="Enviar">Cadastrar</button>
                </div>
             </div>
    </form>

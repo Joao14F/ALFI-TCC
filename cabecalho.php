@@ -242,14 +242,14 @@
                 } else {
                     echo '<div class="row">';
                     echo '<div class="col-6">';
-                    echo '<a href="cadastro.php"><button class="CadastraModelo">Cadastro</button></a>';
+                    echo '<a href="cadastro.php"><button class="CadastraModelo w-100">Cadastro</button></a>';
                     echo '</div>';
                     echo '<div class="col-6">';
-                    echo '<a href="login.php"><button class="CadastraModelo">Login</button></a>';
+                    echo '<a href="login.php"><button class="CadastraModelo w-100">Login</button></a>';
                     echo '</div>';
                     echo '</div>';
                     echo '<div class="row">';
-                    echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
+                    echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo w-100">Cadastrar Modelos</button></a>';
                     echo '</div>';
                 }
                 break;

@@ -56,7 +56,7 @@ $Cintura = isset($_POST['Cintura']) ? $_POST['Cintura'] : null;
 $Gancho = isset($_POST['Gancho']) ? $_POST['Gancho'] : null;
 $Ombro = isset($_POST['Ombro']) ? $_POST['Ombro'] : null;
 $Busto = isset($_POST['Busto']) ? $_POST['Busto'] : null;
-$Comprimento_manga = isset($_POST['Comprimento_manga']) ? $_POST['Comprimento_manga'] : null;
+$Comprimento_manga = isset($_POST['Comprimento de manga']) ? $_POST['Comprimento de manga'] : null;
 $Punho = isset($_POST['Punho']) ? $_POST['Punho'] : null;
 
 if (isset($_SESSION['Id usuário'])) {

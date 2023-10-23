@@ -110,22 +110,25 @@
     </div>
     </div>
     </div>
-    <div class="row justify-content-center m-2">
-        <div class="col-5">
-            <a href="download_modelo.php?valor=<?php echo $valor; ?>" download="Modelo_<?php echo $row['Título']; ?>.zip" class="btn btn-secondary w-100">Download</a>
+    <form action="ADMacesso.php" method="POST">
+        <div class="row justify-content-center m-2">
+            <div class="col-5">
+                <a href="download_modelo.php?valor=<?php echo $valor; ?>" download="Modelo_<?php echo $row['Título']; ?>.zip" class="btn btn-secondary w-100">Download</a>
+            </div>
         </div>
-    </div>
-    <div class="row justify-content-center m-2">
-        <div class="col-5">
-            <input type="button" value="delete" class="btn btn-danger w-100">
+        <div class="row justify-content-center m-2">
+            <div class="col-5">
+                <input type="submit" name="deleta" value="Deletar" class="btn btn-danger w-100">
+            </div>
         </div>
-    </div>
-    <div class="row justify-content-center m-2">
-        <div class="col-5">
-            <input type="button" value="vereifica" class="btn btn-success w-100">
+        <div class="row justify-content-center m-2">
+            <div class="col-5">
+                <input type="submit" name="verifica" value="Verificar" class="btn btn-success w-100">
+            </div>
         </div>
-    </div>
-            <?php
+    </form>
+
+    <?php
                     if (isset($_POST['deleta'])) {
                         $query = "DELETE FROM `modelo` WHERE `Id modelo` = ?";
                         $stmt = $conn->prepare($query);
@@ -147,7 +150,7 @@
                             echo '<script>alert("Erro ao verificar modelo"); window.location.href = "ADMacesso.php?valor=$valor";</script>';
                         }
                     }
-            ?>
+    ?>
     <div class="row">
         <p></p>
     </div>

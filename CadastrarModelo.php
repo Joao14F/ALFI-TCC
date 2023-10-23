@@ -158,7 +158,7 @@
                         formFields.appendChild(field4);
                      } else if (select.value === "Casaco") {
                         var field2 = createFormField("Comprimento em cm", "text", "Comprimento");
-                        var field6 = createFormField("Comprimento de manga em cm", "text", "Comprimento");
+                        var field6 = createFormField("Comprimento de manga em cm", "text", "Comprimento de manga");
                         var field3 = createFormField("Medidas quadril em cm", "text", "Quadril");
                         var field5 = createFormField("Medidas ombro em cm", "text", "Ombro");
                         var field1 = createFormField("Medidas cintura em cm", "text", "Cintura");
@@ -169,10 +169,10 @@
                         formFields.appendChild(field4);
                      } else if (select.value === "Blusa") {
                         var field2 = createFormField("Comprimento em cm", "text", "Comprimento");
-                        var field6 = createFormField("Comprimento de manga em cm", "text", "Comprimento");
+                        var field6 = createFormField("Comprimento de manga em cm", "text", "Comprimento de manga");
                         var field3 = createFormField("Medidas quadril em cm", "text", "Quadril");
                         var field5 = createFormField("Medidas ombro em cm", "text", "Ombro");
-                        var field8 = createFormField("Medidas punho em cm", "text", "Ombro");
+                        var field8 = createFormField("Medidas punho em cm", "text", "Punho");
                         var field1 = createFormField("Medidas cintura em cm", "text", "Cintura");
                         var field1 = createFormField("Medidas busto em cm", "text", "Busto");
                         formFields.appendChild(field1);
@@ -190,10 +190,10 @@
                         formFields.appendChild(field4);
                      } else if (select.value === "Camisa") {
                         var field2 = createFormField("Comprimento em cm", "text", "Comprimento");
-                        var field6 = createFormField("Comprimento de manga em cm", "text", "Comprimento");
+                        var field6 = createFormField("Comprimento de manga em cm", "text", "Comprimento de manga");
                         var field3 = createFormField("Medidas quadril em cm", "text", "Quadril");
                         var field5 = createFormField("Medidas ombro em cm", "text", "Ombro");
-                        var field8 = createFormField("Medidas punho em cm", "text", "Ombro");
+                        var field8 = createFormField("Medidas punho em cm", "text", "Punho");
                         var field1 = createFormField("Medidas cintura em cm", "text", "Cintura");
                         var field1 = createFormField("Medidas busto em cm", "text", "Busto");
                         formFields.appendChild(field1);

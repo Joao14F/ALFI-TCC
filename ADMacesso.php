@@ -110,7 +110,7 @@
     </div>
     </div>
     </div>
-    <form action="ADMacesso.php" method="POST">
+    <form action="" method="POST">
     <div class="row justify-content-center m-2">
         <div class="col-5">
             <a href="download_modelo.php?valor=<?php echo $valor; ?>" download="Modelo_<?php echo $row['Título']; ?>.zip" class="btn btn-secondary w-100">Download</a>
@@ -118,12 +118,12 @@
     </div>
     <div class="row justify-content-center m-2">
         <div class="col-5">
-            <button type="submit" name="deleta" class="btn btn-danger w-100">Deletar</button>
+            <button type="submit" name="deleta" value="deleta" class="btn btn-danger w-100">Deletar</button>
         </div>
     </div>
     <div class="row justify-content-center m-2">
         <div class="col-5">
-            <button type="submit" name="verifica" class="btn btn-success w-100">Verificar</button>
+            <button type="submit" name="verifica" value="verifica" class="btn btn-success w-100">Verificar</button>
         </div>
     </div>
 </form>

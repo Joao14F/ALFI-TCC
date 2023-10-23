@@ -54,10 +54,15 @@ $Comprimento = isset($_POST['Comprimento']) ? $_POST['Comprimento'] : null;
 $Quadril = isset($_POST['Quadril']) ? $_POST['Quadril'] : null;
 $Cintura = isset($_POST['Cintura']) ? $_POST['Cintura'] : null;
 $Gancho = isset($_POST['Gancho']) ? $_POST['Gancho'] : null;
+$Ombro = isset($_POST['Ombro']) ? $_POST['Ombro'] : null;
+$Busto = isset($_POST['Busto']) ? $_POST['Busto'] : null;
+$Comprimento_manga = isset($_POST['Comprimento de manga']) ? $_POST['Comprimento de manga'] : null;
+$Comprimento_cintura = isset($_POST['Comprimento de cintura']) ? $_POST['Comprimento de cintura'] : null;
+$Punho = isset($_POST['Punho']) ? $_POST['Punho'] : null;
 
 if (isset($_SESSION['Id usuário'])) {
-    $sql = "INSERT INTO modelo (`Título`, `Tecido`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Gancho`, `Capa`, `Moldes`, `Usuário cadastrador`) 
-    VALUES ('$Título', '$Tecido', '$Sustentável', '$Tipo', '$Comprimento', '$Quadril', '$Cintura', '$Gancho', '$Capa', '$Moldes', '" . $_SESSION['Id usuário'] . "')";
+    $sql = "INSERT INTO modelo (`Título`, `Tecido`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Gancho`, 'Ombro', 'Busto', 'Comprimento de manga', 'Comprimento de cintura', 'Punho', `Capa`, `Moldes`, `Usuário cadastrador`) 
+    VALUES ('$Título', '$Tecido', '$Sustentável', '$Tipo', '$Comprimento', '$Quadril', '$Cintura', '$Gancho', '$Ombro', '$Busto', '$Comprimento_manga', '$Comprimento_cintura', '$Punho', '$Capa', '$Moldes', '" . $_SESSION['Id usuário'] . "')";
 }
 
 

@@ -185,23 +185,31 @@
                 // Verifica se o usuário está logado
                 if (isset($_SESSION['Id usuário'])) {
                     echo '<div class="row">';
-                    echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
+                    echo '<div class="col-6 justify-content-end">';
+                    echo '<a href="sair.php"><button class="CadastraModelo w-100">Sair</button></a>';
                     echo '</div>';
-                    echo '<div class="row">';
-                    echo '<a href="modelosCadastrados.php"><button class="CadastraModelo">Modelos Cadastrados</button></a>';
+                    echo '<div class="col-12">';
+                    echo '<a href="login.php"><button class="CadastraModelo w-100">Modelos cadastrados</button></a>';
                     echo '</div>';
-                    echo '<div class="row">';
-                    echo '<a href="sair.php"><button class="CadastraModelo">Sair</button></a>';
                     echo '</div>';
+                    echo '<div class="row">';                       
+                    echo '<div class="col-12">';
+                    echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo w-100">Cadastrar Modelos</button></a>';
+                    echo '</div>';
+                    echo '</div>';          
                 } else {
-                    echo '<div class "row">';
-                    echo '<a href="cadastro.php"><button class="CadastraModelo">Cadastro</button></a>';
-                    echo '</div>';
                     echo '<div class="row">';
-                    echo '<a href="login.php"><button class="CadastraModelo">Login</button></a>';
+                        echo '<div class="col-6">';
+                            echo '<a href="login.php"><button class="CadastraModelo w-100">Login</button></a>';
+                        echo '</div>';
+                        echo '<div class="col-6">';
+                            echo '<a href="cadastro.php"><button class="CadastraModelo w-100">Cadastro</button></a>';
+                        echo '</div>';
                     echo '</div>';
-                    echo '<div class="row">';
-                    echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
+                    echo '<div class="row">';                        
+                        echo '<div class="col-12">';
+                            echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo w-100">Cadastrar Modelos</button></a>';
+                        echo '</div>';
                     echo '</div>';
                 }
                 break;
@@ -231,31 +239,37 @@
                 // Verifica se o usuário está logado
                 if (isset($_SESSION['Id usuário'])) {
                     echo '<div class="row">';
-                    echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
+                    echo '<div class="col-6">';
+                    echo '<a href="login.php"><button class="CadastraModelo w-100">Modelos cadastrados</button></a>';
                     echo '</div>';
-                    echo '<div class="row">';
-                    echo '<a href="modelosCadastrados.php"><button class="CadastraModelo">Modelos Cadastrados</button></a>';
-                    echo '</div>';
-                    echo '<div class="row">';
-                    echo '<a href="sair.php"><button class="CadastraModelo">Sair</button></a>';
-                    echo '</div>';
-                } else {
-                    echo '<div class="row">';
                     echo '<div class="col-6">';
                     echo '<a href="cadastro.php"><button class="CadastraModelo w-100">Cadastro</button></a>';
                     echo '</div>';
+                    echo '</div>';
+                    echo '<div class="row">';                       
                     echo '<div class="col-6">';
-                    echo '<a href="login.php"><button class="CadastraModelo w-100">Login</button></a>';
-                    echo '</div>';
-                    echo '</div>';
-                    echo '<div class="row">';
                     echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo w-100">Cadastrar Modelos</button></a>';
+                    echo '</div>';
+                    echo '</div>';          
+                } else {
+                    echo '<div class="row">';
+                        echo '<div class="col-6">';
+                            echo '<a href="login.php"><button class="CadastraModelo w-100">Login</button></a>';
+                        echo '</div>';
+                        echo '<div class="col-6">';
+                            echo '<a href="cadastro.php"><button class="CadastraModelo w-100">Cadastro</button></a>';
+                        echo '</div>';
+                    echo '</div>';
+                    echo '<div class="row">';                        
+                        echo '<div class="col-12">';
+                            echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo w-100">Cadastrar Modelos</button></a>';
+                        echo '</div>';
                     echo '</div>';
                 }
                 break;
-        
         }
         ?>
+        
     </div>
 </header>
 

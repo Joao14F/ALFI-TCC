@@ -28,25 +28,6 @@ header {
     margin-top: 1rem;
 }
 
-.login {
-    border: 2px solid #8880FE;
-    padding: 10px;
-    border-radius: 30px;
-    font-size: 1.5rem;
-    background: #1B2029;
-    color: #8880FE;
-    margin-top: 10px;
-}
-
-.cadastro {
-    border: 2px solid #8880FE;
-    padding: 8px;
-    border-radius: 30px;
-    font-size: 1.5rem;
-    background: #1B2029;
-    color: #8880FE;
-}
-
 .CadastraModelo:hover,
 .login:hover,
 .cadastro:hover {

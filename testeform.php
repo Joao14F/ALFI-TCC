@@ -92,6 +92,11 @@
             margin: 5px;
         }
 
+        .form-control::placeholder {
+            color: gray;
+        }
+
+
         textarea.form-control {
             background: #161923;
             outline: none;

@@ -1,32 +1,33 @@
 <style>
+    img {
+        width: 550px;
+    }
 
-.deletar {
-    cursor: pointer;
-    width: 50%;
-    border: none;
-    border-radius: 32px;
-    background: #6C63FF;
-    color: white;
-    font-size: 1.1rem;
-    transition: all .3s ease-in-out;
-    margin-bottom: 20px;
-    padding: 5px;
-}
+    .Titulo {
+        color: #8880FE;
+        text-align: center;
+        font-size: 2.5rem;
+        padding: 7px;
+    }
 
-.verificar {
-    cursor: pointer;
-    width: 50%;
-    border: none;
-    border-radius: 32px;
-    background: #6C63FF;
-    color: white;
-    font-size: 1.1rem;
-    transition: all .3s ease-in-out;
-    padding: 5px;
-    margin-bottom: 20px;
-}
+    .dados {
+        margin-left: 5px;
+        margin-right: 5px;
+        background-color: whitesmoke;
+    }
 
-    </style>
+    .carousel-item img {
+        width: 50%;
+        height: auto;
+    }
+
+    @media (max-width: 720px) {
+        .carousel-item img {
+            width: 100%;
+            /* Ou qualquer outro estilo desejado para telas menores */
+        }
+    }
+</style>
 
 
 <?php include('sessao.php'); ?>
@@ -38,135 +39,178 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="imagens/navlogo.png">
-    <title>Index</title>
+    <title>Modelo</title>
 
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" type="text/css" href="estilo.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha384-n6KAgNq2Yo46bTT4pG1zYK2l/EAq/ZGW0pmKwXkgH70VxObekHvJVsj02StilL3p" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 
 <body>
     <div class="container-fluid">
-        <?php
-        include_once('logadoADM.php');
-        require_once('cabecalho.php');
-        include_once('conexao.php');
-        if (isset($_GET['valor'])) {
-            $valor = $_GET['valor'];
+        <div class="col-12 col-sm-12 col-md-12 col-xs-12 col-lg-12">
+            <?php
+            include_once('logadoADM.php');
+            require_once('cabecalho.php');
+            include_once('conexao.php');
+            if (isset($_GET['valor'])) {
+                $valor = $_GET['valor'];
 
-            $sql = "SELECT `Título`, `Tecido`, `Sustentável`, `Capa`, `Moldes`, `Tipo` FROM `modelo` WHERE `Id modelo` = $valor";
-            $res = mysqli_query($conn, $sql);
+                $sql = "SELECT `Título`, `Tecido`, `Sustentável`, `Capa`, `Moldes`, `Tipo` FROM `modelo` WHERE `Id modelo` = $valor";
+                $res = mysqli_query($conn, $sql);
 
-            if ($res && mysqli_num_rows($res) > 0) {
-                $row = mysqli_fetch_assoc($res);
-                $Titulo = $row['Título'];
-                echo '<div class="row">' . '<h1 class="col-12 col-sm-12 col-md-12 Titulo">' . $Titulo . '</h1>' . '</div>';
+                if ($res && mysqli_num_rows($res) > 0) {
+                    $row = mysqli_fetch_assoc($res);
+                    $Titulo = $row['Título'];
+                    $capa = $row['Capa'];
+                    $moldes = explode(',', $row['Moldes']);
 
-                $endereco_capa = $row['Capa'];
-                if ($endereco_capa) {
-                    echo '<div class="row linhagimg">' . '<img id="big-image" src="' . $endereco_capa .  '"alt="Imagem" class=" imagem col-12 col-sm-12 col-md-12">' .  '</div>';
-                    echo '<div class="row linhagimg">' . '<img src="' . $endereco_capa .  '"alt="Imagem" class=" imagensp col-12 col-sm-12 col-md-12" onclick="changeImage(' .  "'" . $endereco_capa . "'" . ')">';
-                } else {
-                    echo 'Falha ao buscar imagem.';
-                }
-                //termina essa funçao
-                $Moldes = $row['Moldes'];
-                $Moldes = explode(',', $Moldes);
-                foreach ($Moldes as $Molde) {
-                    echo '<img src="' . $Molde .  '"alt="Imagem" class="  imagensp col-12 col-sm-12 col-md-12" onclick="changeImage(' . "'" . $Molde . "'" . ')">';
-                }
+                    echo '<div class="row">' . '<h1 class="col-12 col-sm-12 col-md-12 Titulo">' . $Titulo . '</h1>' . '</div>';
+                    echo '<div class="row justify-content-center">';
+                    echo '<div class=" col-6 justfy-content-center">';
+                    echo '<div id="carouselExampleIndicators" class="carousel slide"> <div class="carousel-indicators">';
 
-                echo '</div>';
-                echo '<div class="row dados">';
-                if ($row['Tecido'] !== null) {
-                    echo '<p class="dado">' . 'Tecido sugerido:'  . " " . $row['Tecido'] . '</p>';
-                }
+                    echo '<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>';
+                    echo '<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>';
+                    echo '</div>
 
-                echo '<p class="dado">Sustentável:' . " " . $row['Sustentável'] . '</p>';
-                $Tipo = $row['Tipo'];
-                if ($Tipo == 'Saia') {
-                    $sqlMedidas = "SELECT `Comprimento`, `Quadril`, `Cintura` FROM `modelo` WHERE `Id modelo` = $valor";
-                    $resMedidas = mysqli_query($conn, $sqlMedidas);
+                <div class="col-12 text-center">
+                        <div class="carousel-inner">';
 
-                    if ($resMedidas && mysqli_num_rows($resMedidas) > 0) {
-                        $rowMedidas = mysqli_fetch_assoc($resMedidas);
-                        $Comprimento = $rowMedidas['Comprimento'];
-                        $Quadril = $rowMedidas['Quadril'];
-                        $Cintura = $rowMedidas['Cintura'];
-                        echo '<p class="dado">Comprimento:' . " " . $Comprimento . ' cm' . '</p>';
-                        echo '<p class="dado">Quadril:' . " " . $Quadril . ' cm' . '</p>';
-                        echo '<p class="dado">Cintura:' . " " . $Cintura . ' cm' . '</p>';
+                    echo '<div class="carousel-item active">
+                        <img src="' . $capa . '" class="img-fluid" alt="Imagem de Capa">
+                      </div>';
+
+                    foreach ($moldes as $Molde) {
+                        echo '<div class="carousel-item">';
+                        echo '<img src="' . $Molde .  '"alt="Imagem" class="w-100">';
+                        echo '</div>';
                     }
-                } elseif ($Tipo == 'Bermuda' || $Tipo == 'Calça') {
-                    $sqlMedidas = "SELECT `Comprimento`, `Quadril`, `Cintura`, `Gancho` FROM `modelo` WHERE `Id modelo` = $valor";
-                    $resMedidas = mysqli_query($conn, $sqlMedidas);
+                    '</div>'
 
-                    if ($resMedidas && mysqli_num_rows($resMedidas) > 0) {
-                        $rowMedidas = mysqli_fetch_assoc($resMedidas);
-                        $Comprimento = $rowMedidas['Comprimento'];
-                        $Quadril = $rowMedidas['Quadril'];
-                        $Cintura = $rowMedidas['Cintura'];
-                        $Gancho = $rowMedidas['Gancho'];
-                        echo '<p class="dado">Comprimento:' . " " . $Comprimento . ' cm' . '</p>';
-                        echo '<p class="dado">Quadril:' . " " . $Quadril . ' cm' . '</p>';
-                        echo '<p class="dado">Cintura:' . " " . $Cintura . ' cm' . '</p>';
-                        echo '<p class="dado">Gancho:' . " " . $Gancho . ' cm' . '</p>';
-                    }
-                }
-            } else {
-                echo '<script>alert("Erro ao carregar o modelo"); window.location.href = "index.php";</script>';
-            }
-        }
-        ?>
-        <form action="" method="POST">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-12 text-center col-xs-12 col-sm-12 col-md-4 col-lg-3">
+            ?>
+        </div>
 
-                    <button type="submit" name="deleta" class="deletar">Deletar</button>
-
-                </div>
-                <div class="col-12 text-center col-xs-12 col-sm-12 col-md-4 col-lg-3">
-                    <button type="submit" name="verifica" class="verificar">Verificar</button>
-                </div>
-        </form>
-
-        <?php
-        if (isset($_POST['deleta'])) {
-            $query = "DELETE FROM `modelo` WHERE `Id modelo` = ?";
-            $stmt = $conn->prepare($query);
-            $stmt->bind_param("i", $valor);
-            if ($stmt->execute()) {
-                echo '<script>alert("Modelo deletado"); window.location.href = "adm.php";</script>';
-            } else {
-                echo '<script>alert("Erro ao deletar modelo"); window.location.href = "ADMacesso.php?valor=$valor";</script>';
-            }
-        }
-
-
-        if (isset($_POST['verifica'])) {
-            $verificado = 'Sim' . ' ' . 'por' . ' ' . $_SESSION['Id moderador'];
-            $query = "UPDATE `modelo` SET `Verificado` = ? WHERE `Id modelo` = ?";
-            $stmt = $conn->prepare($query);
-            $stmt->bind_param("si", $verificado, $valor);
-            if ($stmt->execute()) {
-                echo '<script>alert("Modelo verificado"); window.location.href = "adm.php";</script>';
-            } else {
-                echo '<script>alert("Erro ao verificar modelo"); window.location.href = "ADMacesso.php?valor=$valor";</script>';
-            }
-        }
-
-
-
-
-        require_once('rodape.php')
-        ?>
-        <script>
-            function changeImage(newImageSrc) {
-                var bigImage = document.getElementById('big-image');
-                bigImage.src = newImageSrc;
-            }
-        </script>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
+    </div>
+    </div>
+    <div class="row justify-content-center m-2">
+        <div class="col-5">
+            <a href="download_modelo.php?valor=<?php echo $valor; ?>" download="Modelo_<?php echo $row['Título']; ?>.zip" class="btn btn-secondary w-100">Download</a>
+        </div>
+    </div>
+    <div class="row justify-content-center m-2">
+        <div class="col-5">
+            <input type="button" value="delete" class="btn btn-danger w-100">
+        </div>
+    </div>
+    <div class="row justify-content-center m-2">
+        <div class="col-5">
+            <input type="button" value="vereifica" class="btn btn-success w-100">
+        </div>
+    </div>
+            <?php
+                    if (isset($_POST['deleta'])) {
+                        $query = "DELETE FROM `modelo` WHERE `Id modelo` = ?";
+                        $stmt = $conn->prepare($query);
+                        $stmt->bind_param("i", $valor);
+                        if ($stmt->execute()) {
+                            echo '<script>alert("Modelo deletado"); window.location.href = "adm.php";</script>';
+                        } else {
+                            echo '<script>alert("Erro ao deletar modelo"); window.location.href = "ADMacesso.php?valor=$valor";</script>';
+                        }
+                    }
+                    if (isset($_POST['verifica'])) {
+                        $verificado = 'Sim' . ' ' . 'por' . ' ' . $_SESSION['Id moderador'];
+                        $query = "UPDATE `modelo` SET `Verificado` = ? WHERE `Id modelo` = ?";
+                        $stmt = $conn->prepare($query);
+                        $stmt->bind_param("si", $verificado, $valor);
+                        if ($stmt->execute()) {
+                            echo '<script>alert("Modelo verificado"); window.location.href = "adm.php";</script>';
+                        } else {
+                            echo '<script>alert("Erro ao verificar modelo"); window.location.href = "ADMacesso.php?valor=$valor";</script>';
+                        }
+                    }
+            ?>
+    <div class="row">
+        <p></p>
+    </div>
+
+    <div class="container">
+        <div class="row dados">
+            <div class="col-10 col-sm-10 col-md-10 col-xs-12 col-lg-10">
+        <?php
+                    if ($row['Tecido'] !== null) {
+                        echo '<p class="dado">' . 'Tecido sugerido:'  . " " . $row['Tecido'] . '</p>';
+                    }
+
+                    echo '<p class="dado">Sustentável:' . " " . $row['Sustentável'] . '</p>';
+                    $Tipo = $row['Tipo'];
+                    if ($Tipo == 'Saia') {
+                        $sqlMedidas = "SELECT `Comprimento`, `Quadril`, `Cintura` FROM `modelo` WHERE `Id modelo` = $valor";
+                        $resMedidas = mysqli_query($conn, $sqlMedidas);
+
+                        if ($resMedidas && mysqli_num_rows($resMedidas) > 0) {
+                            $rowMedidas = mysqli_fetch_assoc($resMedidas);
+                            $Comprimento = $rowMedidas['Comprimento'];
+                            $Quadril = $rowMedidas['Quadril'];
+                            $Cintura = $rowMedidas['Cintura'];
+                            echo '<p class="dado">Comprimento:' . " " . $Comprimento . ' cm' . '</p>';
+                            echo '<p class="dado">Quadril:' . " " . $Quadril . ' cm' . '</p>';
+                            echo '<p class="dado">Cintura:' . " " . $Cintura . ' cm' . '</p>';
+                        }
+                    } elseif ($Tipo == 'Bermuda' || $Tipo == 'Calça') {
+                        $sqlMedidas = "SELECT `Comprimento`, `Quadril`, `Cintura`, `Gancho` FROM `modelo` WHERE `Id modelo` = $valor";
+                        $resMedidas = mysqli_query($conn, $sqlMedidas);
+
+                        if ($resMedidas && mysqli_num_rows($resMedidas) > 0) {
+                            $rowMedidas = mysqli_fetch_assoc($resMedidas);
+                            $Comprimento = $rowMedidas['Comprimento'];
+                            $Quadril = $rowMedidas['Quadril'];
+                            $Cintura = $rowMedidas['Cintura'];
+                            $Gancho = $rowMedidas['Gancho'];
+                            echo '<p class="dado">Comprimento:' . " " . $Comprimento . ' cm' . '</p>';
+                            echo '<p class="dado">Quadril:' . " " . $Quadril . ' cm' . '</p>';
+                            echo '<p class="dado">Cintura:' . " " . $Cintura . ' cm' . '</p>';
+                            echo '<p class="dado">Gancho:' . " " . $Gancho . ' cm' . '</p>';
+                        }
+                    }
+                } else {
+                    echo '<script>alert("Erro ao carregar o modelo"); window.location.href = "index.php";</script>';
+                }
+            }
+
+        ?>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <p></p>
+        </div>
+
+        <div class="row">
+            <?php
+            require_once('rodape.php')
+            ?>
+
+        </div>
 </body>
 
 </html>

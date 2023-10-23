@@ -29,25 +29,26 @@
             if (isset($_GET['peça'])) {
                 $peca = $_GET['peça'];
                 if ($peca == 'Toda') {
-                    $query = "SELECT * FROM `modelo` WHERE `Verificado` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                    $query = "SELECT * FROM `modelo` WHERE `Verificado` != 'Não' ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
-                    $stmt->bind_param("iis", 'sim', $offset, $resultados_por_pagina);
+                    $stmt->bind_param("ii", $offset, $resultados_por_pagina);
                 } elseif ($peca == 'Sustentável') {
-                    $query = "SELECT * FROM `modelo` WHERE `Sustentável` = ? And `Verificado` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                    $query = "SELECT * FROM `modelo` WHERE `Sustentável` = 'sim' And `Verificado` != 'Não' ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
-                    $stmt->bind_param("ssii", 'sim', 'sim', $offset, $resultados_por_pagina);
+                    $stmt->bind_param("ii", $offset, $resultados_por_pagina);
                 } else {
-                    $query = "SELECT * FROM `modelo` WHERE `Tipo` = ? And `Verificado` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                    $query = "SELECT * FROM `modelo` WHERE `Tipo` = ? And `Verificado` != 'Não' ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
-                    $stmt->bind_param("ssii", $peca, 'sim', $offset, $resultados_por_pagina);
+                    $stmt->bind_param("sii", $peca, $offset, $resultados_por_pagina);
                 }
             } else {
-                $query = "SELECT * FROM `modelo` WHERE `Verificado` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                $query = "SELECT * FROM `modelo` WHERE `Verificado` != 'Não' ORDER BY `Id modelo` DESC LIMIT ?, ?";
                 $stmt = $conn->prepare($query);
-                $stmt->bind_param("sii", 'sim', $offset, $resultados_por_pagina);
+                $stmt->bind_param("ii", $offset, $resultados_por_pagina);
             }
             $stmt->execute();
             $res = $stmt->get_result();
+            
             
 
             if ($res && mysqli_num_rows($res) > 0) {
@@ -75,22 +76,22 @@
             if (isset($_GET['peça'])) {
                 $peca = $_GET['peça'];
                 if ($peca == 'Toda') {
-                    $query = "SELECT * FROM `modelo` WHERE `Verificado` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                    $query = "SELECT * FROM `modelo` WHERE `Verificado` = 'sim' ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
-                    $stmt->bind_param("iis", 'sim', $offset, $resultados_por_pagina);
+                    $stmt->bind_param("ii", $offset, $resultados_por_pagina);
                 } elseif ($peca == 'Sustentável') {
-                    $query = "SELECT * FROM `modelo` WHERE `Sustentável` = ? And `Verificado` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                    $query = "SELECT * FROM `modelo` WHERE `Sustentável` = 'sim' And `Verificado` = 'sim' ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
-                    $stmt->bind_param("ssii", 'sim', 'sim', $offset, $resultados_por_pagina);
+                    $stmt->bind_param("ii", $offset, $resultados_por_pagina);
                 } else {
-                    $query = "SELECT * FROM `modelo` WHERE `Tipo` = ? And `Verificado` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                    $query = "SELECT * FROM `modelo` WHERE `Tipo` = ? And `Verificado` = 'sim' ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
-                    $stmt->bind_param("ssii", $peca, 'sim', $offset, $resultados_por_pagina);
+                    $stmt->bind_param("sii", $peca, $offset, $resultados_por_pagina);
                 }
             } else {
-                $query = "SELECT * FROM `modelo` WHERE `Verificado` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                $query = "SELECT * FROM `modelo` WHERE `Verificado` = 'sim' ORDER BY `Id modelo` DESC LIMIT ?, ?";
                 $stmt = $conn->prepare($query);
-                $stmt->bind_param("sii", 'sim', $offset, $resultados_por_pagina);
+                $stmt->bind_param("ii", $offset, $resultados_por_pagina);
             }
             $stmt->execute();
             $res = $stmt->get_result();

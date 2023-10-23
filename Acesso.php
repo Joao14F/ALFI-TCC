@@ -58,7 +58,7 @@
     <div class="container-fluid">
         <div class="col-12 col-sm-12 col-md-12 col-xs-12 col-lg-12">
             <?php
-            include_once('logado.php');
+            include_once('logadoADM.php');
             require_once('cabecalho.php');
             include_once('conexao.php');
             if (isset($_GET['valor'])) {
@@ -117,24 +117,24 @@
     </div>
     <div class="row justify-content-center m-2">
         <div class="col-5">
-        <?php
-$sqlcad = "SELECT `Usuário cadastrador` FROM `modelo` WHERE `Id modelo` = ?";
-$stmt = mysqli_prepare($conn, $sqlcad);
-mysqli_stmt_bind_param($stmt, "i", $valor);
-mysqli_stmt_execute($stmt);
-$rescad = mysqli_stmt_get_result($stmt);
+            <?php
+                    $sqlcad = "SELECT `Usuário cadastrador` FROM `modelo` WHERE `Id modelo` = ?";
+                    $stmt = mysqli_prepare($conn, $sqlcad);
+                    mysqli_stmt_bind_param($stmt, "i", $valor);
+                    mysqli_stmt_execute($stmt);
+                    $rescad = mysqli_stmt_get_result($stmt);
 
-if ($rescad) {
-    $rowcad = mysqli_fetch_assoc($rescad);
+                    if ($rescad) {
+                        $rowcad = mysqli_fetch_assoc($rescad);
 
-    if ($rowcad['Usuário cadastrador'] == $_SESSION['Id usuário']) {
-        echo '<form method="POST" action="deletaModelo.php">';
-        echo '<input type="hidden" name="valor" value="' . $valor . '">';
-        echo '<button type="submit" name="submit" class="btn btn-danger w-100" onclick="return confirm(\'Deseja deletar o modelo?\')">Deletar modelo</button>';
-        echo '</form>';
-    }
-}
-?>
+                        if ($rowcad['Usuário cadastrador'] == $_SESSION['Id usuário']) {
+                            echo '<form method="POST" action="deletaModelo.php">';
+                            echo '<input type="hidden" name="valor" value="' . $valor . '">';
+                            echo '<button type="submit" name="submit" class="btn btn-danger w-100" onclick="return confirm(\'Deseja deletar o modelo?\')">Deletar modelo</button>';
+                            echo '</form>';
+                        }
+                    }
+            ?>
 
 
 

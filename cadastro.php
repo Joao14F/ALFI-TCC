@@ -42,6 +42,9 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
@@ -52,6 +55,15 @@ if (isset($_POST['submit'])) {
         body {
             background: #1B2029;
             color: white;
+        }
+
+        .voltar:hover {
+            background-color: #8880FE;
+            border-radius: 8px;
+        }
+
+        i{
+            font-size: 2rem;
         }
 
         h1 {
@@ -136,7 +148,6 @@ if (isset($_POST['submit'])) {
             h1 {
                 display: flex;
                 justify-content: center;
-                padding-top: 2.5rem;
                 font-size: 2rem;
             }
 
@@ -150,7 +161,7 @@ if (isset($_POST['submit'])) {
         }
 
         .form-control::placeholder {
-            color: gray;           
+            color: gray;
         }
 
         @media (max-width: 1300px) {
@@ -163,7 +174,6 @@ if (isset($_POST['submit'])) {
             h1 {
                 display: flex;
                 justify-content: center;
-                padding-top: 2.5rem;
             }
 
             p {
@@ -177,7 +187,6 @@ if (isset($_POST['submit'])) {
             h1 {
                 display: flex;
                 justify-content: center;
-                padding-top: 2.5rem;
             }
 
             p {
@@ -191,7 +200,6 @@ if (isset($_POST['submit'])) {
             h1 {
                 display: flex;
                 justify-content: center;
-                padding-top: 2.5rem;
             }
 
             p {
@@ -207,8 +215,11 @@ if (isset($_POST['submit'])) {
     <div class="container-fluid">
         <div class="row">
         </div>
-        <div class="row justify-content-center align-items-center">
-            <div class="col-12 col-sm-10 col-md-12 col-xs-10 col-lg-12">
+        <div class="row align-items-center">
+            <div class="col-4 voltar">
+                <i class="bi bi-arrow-left"></i>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
                 <h1>Crie sua conta</h1>
             </div>
         </div>

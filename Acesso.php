@@ -58,7 +58,7 @@
     <div class="container-fluid">
         <div class="col-12 col-sm-12 col-md-12 col-xs-12 col-lg-12">
             <?php
-            include_once('logadoADM.php');
+            include_once('logado.php');
             require_once('cabecalho.php');
             include_once('conexao.php');
             if (isset($_GET['valor'])) {

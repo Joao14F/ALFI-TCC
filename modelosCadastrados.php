@@ -29,7 +29,7 @@
 <body>
     <div class="container-fluid">
         <?php
-        require_once('cabecalho.php')
+        require_once('cabecalho.php');
         ?>
 
             <div class="row" style="margin: 0px 8px;">

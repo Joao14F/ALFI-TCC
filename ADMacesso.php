@@ -29,7 +29,6 @@
     }
 </style>
 
-
 <?php include('sessao.php'); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -48,7 +47,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha384-n6KAgNq2Yo46bTT4pG1zYK2l/EAq/ZGW0pmKwXkgH70VxObekHvJVsj02StilL3p" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 

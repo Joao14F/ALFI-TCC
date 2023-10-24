@@ -128,7 +128,7 @@
                         formFields.appendChild(field2);
                         formFields.appendChild(field3);
                      } else if (select.value === "Calça") {
-                        var field1 = createFormField("Medidas de cintura em cm", "text", "Cintura");
+                        var field1 = createFormField("CMedidas de cintura em cm", "text", "Cintura");
                         var field2 = createFormField("Comprimento em cm", "text", "Comprimento");
                         var field3 = createFormField("Medidas de quadril em cm", "text", "Quadril");
                         var field4 = createFormField("Altura de gancho em cm", "text", "Gancho");
@@ -162,20 +162,22 @@
                         var field1 = createFormField("Medidas de cintura em cm", "text", "Cintura");
                         var field2 = createFormField("Comprimento em cm", "text", "Comprimento");
                         var field3 = createFormField("Medidas de quadril em cm", "text", "Quadril");
-                        var field4 = createFormField("Altura de gancho em cm", "text", "Gancho");
+                        var field4 = createFormField("Comprimento de manga em cm", "text", "Comprimento de manga");
                         var field5 = createFormField("Medidas de ombro em cm", "text", "Ombro");
                         var field6 = createFormField("Medidas de busto em cm", "text", "Busto");
+                        var field7 = createFormField("Comprimento de cintura em cm", "text", "Cintura");
                         formFields.appendChild(field1);
                         formFields.appendChild(field2);
                         formFields.appendChild(field3);
                         formFields.appendChild(field4);
                         formFields.appendChild(field5);
                         formFields.appendChild(field6);
+                        formFields.appendChild(field7);
                      } else if (select.value === "Blusa") {
                         var field1 = createFormField("Medidas de cintura em cm", "text", "Cintura");
                         var field2 = createFormField("Comprimento em cm", "text", "Comprimento");
+                        var field4 = createFormField("Comprimento de manga em cm", "text", "Comprimento de manga");
                         var field3 = createFormField("Medidas de quadril em cm", "text", "Quadril");
-                        var field4 = createFormField("Altura de gancho em cm", "text", "Gancho");
                         var field5 = createFormField("Medidas de ombro em cm", "text", "Ombro");
                         var field6 = createFormField("Medidas de busto em cm", "text", "Busto");
                         var field7 = createFormField("Medidas de punho em cm", "text", "Punho");
@@ -187,7 +189,7 @@
                         formFields.appendChild(field6);
                         formFields.appendChild(field7);
                      } else if (select.value === "Top") {
-                        var field1 = createFormField("Medidas de cintura em cm", "text", "Cintura");
+                        var field1 = createFormField("Comprimento de cintura em cm", "text", "Cintura");
                         var field2 = createFormField("Comprimento em cm", "text", "Comprimento");
                         var field3 = createFormField("Medidas de busto em cm", "text", "Busto");
                         var field4 = createFormField("Medidas de ombro em cm", "text", "Ombro");
@@ -199,14 +201,12 @@
                         var field1 = createFormField("Medidas de cintura em cm", "text", "Cintura");
                         var field2 = createFormField("Comprimento em cm", "text", "Comprimento");
                         var field3 = createFormField("Medidas de quadril em cm", "text", "Quadril");
-                        var field4 = createFormField("Altura de gancho em cm", "text", "Gancho");
                         var field5 = createFormField("Medidas de ombro em cm", "text", "Ombro");
                         var field6 = createFormField("Medidas de busto em cm", "text", "Busto");
                         var field7 = createFormField("Comprimento de manga em cm", "text", "Comprimento de manga");
                         formFields.appendChild(field1);
                         formFields.appendChild(field2);
                         formFields.appendChild(field3);
-                        formFields.appendChild(field4);
                         formFields.appendChild(field5);
                         formFields.appendChild(field6);
                         formFields.appendChild(field7);

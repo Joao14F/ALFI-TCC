@@ -128,7 +128,7 @@
                         formFields.appendChild(field2);
                         formFields.appendChild(field3);
                      } else if (select.value === "Calça") {
-                        var field1 = createFormField("CMedidas de cintura em cm", "text", "Cintura");
+                        var field1 = createFormField("Medidas de cintura em cm", "text", "Cintura");
                         var field2 = createFormField("Comprimento em cm", "text", "Comprimento");
                         var field3 = createFormField("Medidas de quadril em cm", "text", "Quadril");
                         var field4 = createFormField("Altura de gancho em cm", "text", "Gancho");
@@ -176,8 +176,8 @@
                      } else if (select.value === "Blusa") {
                         var field1 = createFormField("Medidas de cintura em cm", "text", "Cintura");
                         var field2 = createFormField("Comprimento em cm", "text", "Comprimento");
-                        var field4 = createFormField("Comprimento de manga em cm", "text", "Comprimento de manga");
                         var field3 = createFormField("Medidas de quadril em cm", "text", "Quadril");
+                        var field4 = createFormField("Altura de gancho em cm", "text", "Gancho");
                         var field5 = createFormField("Medidas de ombro em cm", "text", "Ombro");
                         var field6 = createFormField("Medidas de busto em cm", "text", "Busto");
                         var field7 = createFormField("Medidas de punho em cm", "text", "Punho");

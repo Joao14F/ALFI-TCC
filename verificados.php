@@ -13,22 +13,16 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" type="text/css" href="estilo.css">
-
-    <style>
-    .modelos {
-    border-radius: 10px;
-    width: 100%;
-}
-
-    </style>
 </head>
 
 <body>
     <div class="container-fluid">
         <?php
-        require_once('cabecalho.php')
+        require_once('cabecalho.php');
+        require('logadoADM.php');
+        include('paginaçaoVar.php');
         ?>
-        
+
         <div class="row">
             <?php
             include_once('conexao.php');
@@ -45,10 +39,9 @@
 
             // Calcula o deslocamento (offset) com base na página atual
             $offset = ($pagina_atual - 1) * $resultados_por_pagina;
-            
+            $verificado = 'Sim' . ' ' . 'por' . ' ' . $_SESSION['Id moderador'];
             if (isset($_GET['peça'])) {
                 $peca = $_GET['peça'];
-                $verificado = 'Sim' . ' ' . 'por' . ' ' . $_SESSION['Id moderador'];
                 if ($peca == 'Toda') {
                     $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `verificado` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
@@ -57,13 +50,11 @@
                     $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Sustentável` = 'Sim' AND `verificado` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
                     $stmt->bind_param("sii", $verificado, $offset, $resultados_por_pagina);
-                } 
-                else{
+                } else {
                     $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Tipo` = ? AND `verificado` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
                     $stmt->bind_param("ssii", $peca, $verificado, $offset, $resultados_por_pagina);
                 }
-                
             } else {
                 $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `verificado` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
                 $stmt = $conn->prepare($query);
@@ -88,47 +79,7 @@
                 }
                 echo '</div>';
 
-                // Cria os links de paginação
-                $sql_total = "SELECT COUNT(*) AS total FROM `modelo`";
-                $res_total = mysqli_query($conn, $sql_total);
-                $row_total = mysqli_fetch_assoc($res_total);
-                $total_resultados = $row_total['total'];
-                $total_paginas = ceil($total_resultados / $resultados_por_pagina);
-
-                echo '<div class="row">';
-
-                echo '<div class="pagination">';
-
-                // Link para a página anterior, se não estiver na primeira página
-                if ($pagina_atual > 1) {
-                    echo '<a href="?pagina=' . ($pagina_atual - 1);
-                    if (isset($_GET['peça'])) {
-                        echo '&peça=' . urlencode($_GET['peça']);
-                    }
-                    echo '">Anterior</a>' . ' ';
-                }
-
-                // Links para as páginas individuais
-                for ($i = 1; $i <= $total_paginas; $i++) {
-                    echo '<a href="?pagina=' . $i;
-                    if (isset($_GET['peça'])) {
-                        echo '&peça=' . urlencode($_GET['peça']);
-                    }
-                    echo '">' . $i . '</a>' . ' ';
-                }
-
-                // Link para a próxima página, se não estiver na última página
-                if ($pagina_atual < $total_paginas) {
-                    echo '<a href="?pagina=' . ($pagina_atual + 1);
-                    if (isset($_GET['peça'])) {
-                        echo '&peça=' . urlencode($_GET['peça']);
-                    }
-                    echo '">Próxima</a>' . ' ';
-                }
-
-
-                echo '</div>';
-                echo '</div>';
+                require('paginaçao.php');
             } else {
 
                 echo '<p style="color: azure; padding-top: 10px;">Nenhuma imagem encontrada.</p>';

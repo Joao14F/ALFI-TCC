@@ -13,42 +13,16 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" type="text/css" href="estilo.css">
-
-    <style>
-    .modelos {
-    border-radius: 10px;
-    width: 100%;
-}
-
-
-
-    </style>
-    
 </head>
 
 <body>
     <div class="container-fluid">
-        <?php
-        require_once('cabecalho.php');
-        ?>
-
-            <div class="row" style="margin: 0px 8px;">
+        <div class="row corpo justify-content-center align-items-center justify-content-md-start">
             <?php
+            require_once('cabecalho.php');
             include_once('conexao.php');
             include('paginaçaoVar.php');
 
-            // Define a quantidade de resultados a serem exibidos por página
-            $resultados_por_pagina = 8;
-
-            // Obtém o número da página atual a partir do parâmetro "pagina" na URL
-            if (isset($_GET['pagina']) && is_numeric($_GET['pagina'])) {
-                $pagina_atual = $_GET['pagina'];
-            } else {
-                $pagina_atual = 1;
-            }
-
-            // Calcula o deslocamento (offset) com base na página atual
-            $offset = ($pagina_atual - 1) * $resultados_por_pagina;
 
             if (isset($_GET['peça'])) {
                 $peca = $_GET['peça'];
@@ -71,36 +45,32 @@
                 $res = $stmt->get_result();
             }
 
+
+
             if ($res && mysqli_num_rows($res) > 0) {
                 // Exibe as imagens dentro do laço `while`
                 while ($row = mysqli_fetch_assoc($res)) {
                     if (isset($row['Capa'])) { // Verifica se a chave 'Capa' está definida
                         $caminho_imagem = $row['Capa'];
-                        echo '<div class="col-12 text-center col-xs-12 col-sm-4 col-md-2 col-lg-2 gy-4 gx-4">';
+                        echo '<div class="col-10 col-sm-10 col-md-2 gy-1 gx-4">';
                         echo '<a href="Acesso.php?valor=' . $row['Id modelo'] . '">';
-                        echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos img-fluid h-100">';
+                        echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos">';
                         echo '</a>';
+                        echo '<p class="text-truncate text-white">' . $row['Título'] . '</p>';
                         echo '</div>';
-                        
                     }
                 }
-                echo '</div>';
-
-                require('paginaçao.php');
             } else {
-
-                echo '<p style="color: white; padding-top: 10px;">Nenhuma imagem encontrada.</p>';
+                echo '<p class="resultado">Nenhum modelo encontrado</p>';
             }
-
-            // Fecha a conexão com o banco de dados
-            $conn->close();
-
             ?>
-        
+        </div>
+
         <?php
-        require_once('rodape.php')
+        require_once('paginaçao.php');
+        require_once('rodape.php');
+        $conn->close();
         ?>
-    </div>
 </body>
 
 </html>

@@ -1,8 +1,4 @@
 <style>
-    img {
-        width: 550px;
-    }
-
     .Titulo {
         color: #8880FE;
         text-align: center;
@@ -14,18 +10,6 @@
         margin-left: 5px;
         margin-right: 5px;
         background-color: whitesmoke;
-    }
-
-    .carousel-item img {
-        width: 50%;
-        height: auto;
-    }
-
-    @media (max-width: 720px) {
-        .carousel-item img {
-            width: 100%;
-            /* Ou qualquer outro estilo desejado para telas menores */
-        }
     }
 </style>
 
@@ -62,7 +46,7 @@
             if (isset($_GET['valor'])) {
                 $valor = $_GET['valor'];
 
-                $sql = "SELECT `Título`, `Tecido`, `Sustentável`, `Capa`, `Moldes`, `Tipo` FROM `modelo` WHERE `Id modelo` = $valor";
+                $sql = "SELECT `Título`, `Tecido`, `Sustentável`, `Capa`, `Moldes`, `Tipo`, `Verificado` FROM `modelo` WHERE `Id modelo` = $valor";
                 $res = mysqli_query($conn, $sql);
 
                 if ($res && mysqli_num_rows($res) > 0) {
@@ -109,47 +93,52 @@
     </div>
     </div>
     <form action="" method="POST">
-    <div class="row justify-content-center m-2">
-        <div class="col-5">
-            <a href="download_modelo.php?valor=<?php echo $valor; ?>" download="Modelo_<?php echo $row['Título']; ?>.zip" class="btn btn-secondary w-100">Download</a>
+        <div class="row justify-content-center m-2">
+            <div class="col-5">
+                <a href="download_modelo.php?valor=<?php echo $valor; ?>" download="Modelo_<?php echo $row['Título']; ?>.zip" class="btn btn-secondary w-100">Download</a>
+            </div>
         </div>
-    </div>
-    <div class="row justify-content-center m-2">
-        <div class="col-5">
-            <button type="submit" name="deleta" value="deleta" class="btn btn-danger w-100">Deletar</button>
+        <div class="row justify-content-center m-2">
+            <div class="col-5">
+                <button type="submit" name="deleta" value="deleta" class="btn btn-danger w-100">Deletar</button>
+            </div>
         </div>
-    </div>
-    <div class="row justify-content-center m-2">
-        <div class="col-5">
-            <button type="submit" name="verifica" value="verifica" class="btn btn-success w-100">Verificar</button>
-        </div>
-    </div>
-</form>
-
-<?php
-if (isset($_POST['deleta'])) {
-    $query = "DELETE FROM `modelo` WHERE `Id modelo` = ?";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("i", $valor);
-    if ($stmt->execute()) {
-        echo '<script>alert("Modelo deletado"); window.location.href = "adm.php";</script>';
-    } else {
-        echo '<script>alert("Erro ao deletar modelo"); window.location.href = "ADMacesso.php?valor=' . $valor . '";</script>';
-    }
+        <div class="row justify-content-center m-2">
+            <div class="col-5">
+            <?php
+if ($row['Verificado'] != 'Sim por ' . $_SESSION['Id moderador']) {
+    echo '<button type="submit" name="verifica" value="verifica" class="btn btn-success w-100">Verificar</button>';
+    
 }
+?>            
+                </div>
+        </div>
+    </form>
 
-if (isset($_POST['verifica'])) {
-    $verificado = 'Sim por ' . $_SESSION['Id moderador'];
-    $query = "UPDATE `modelo` SET `Verificado` = ? WHERE `Id modelo` = ?";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("si", $verificado, $valor);
-    if ($stmt->execute()) {
-        echo '<script>alert("Modelo verificado"); window.location.href = "adm.php";</script>';
-    } else {
-        echo '<script>alert("Erro ao verificar modelo"); window.location.href = "ADMacesso.php?valor=' . $valor . '";</script>';
-    }
-}
-?>
+    <?php
+                    if (isset($_POST['deleta'])) {
+                        $query = "DELETE FROM `modelo` WHERE `Id modelo` = ?";
+                        $stmt = $conn->prepare($query);
+                        $stmt->bind_param("i", $valor);
+                        if ($stmt->execute()) {
+                            echo '<script>alert("Modelo deletado"); window.location.href = "adm.php";</script>';
+                        } else {
+                            echo '<script>alert("Erro ao deletar modelo"); window.location.href = "ADMacesso.php?valor=' . $valor . '";</script>';
+                        }
+                    }
+
+                    if (isset($_POST['verifica'])) {
+                        $verificado = 'Sim por ' . $_SESSION['Id moderador'];
+                        $query = "UPDATE `modelo` SET `Verificado` = ? WHERE `Id modelo` = ?";
+                        $stmt = $conn->prepare($query);
+                        $stmt->bind_param("si", $verificado, $valor);
+                        if ($stmt->execute()) {
+                            echo '<script>alert("Modelo verificado"); window.location.href = "adm.php";</script>';
+                        } else {
+                            echo '<script>alert("Erro ao verificar modelo"); window.location.href = "ADMacesso.php?valor=' . $valor . '";</script>';
+                        }
+                    }
+    ?>
 
     <div class="row">
         <p></p>

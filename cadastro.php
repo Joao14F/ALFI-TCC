@@ -57,13 +57,28 @@ if (isset($_POST['submit'])) {
             color: white;
         }
 
+        i {
+            font-size: 2rem;
+        }
+
         .voltar:hover {
             background-color: #8880FE;
             border-radius: 8px;
         }
 
-        i{
-            font-size: 2rem;
+        .voltar::after {
+            content: "Voltar";
+            display: none;
+            color: white;   
+            align-items: center;
+            margin-top: -40px;
+            border-radius: 5px;
+            white-space: nowrap;
+        }
+
+        /* Estilo para mostrar o texto "Voltar" quando passar o mouse sobre .voltar */
+        .voltar:hover::after {
+            display: inline-block;
         }
 
         h1 {
@@ -209,6 +224,11 @@ if (isset($_POST['submit'])) {
             }
         }
     </style>
+    <script>
+        document.getElementsByClassName("voltar").addEventListener("click", function() {
+            window.history.back();
+        });
+    </script>
 </head>
 
 <body>
@@ -216,7 +236,7 @@ if (isset($_POST['submit'])) {
         <div class="row">
         </div>
         <div class="row align-items-center">
-            <div class="col-4 voltar">
+            <div class="col-2 voltar text-start">
                 <i class="bi bi-arrow-left"></i>
             </div>
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
@@ -235,13 +255,6 @@ if (isset($_POST['submit'])) {
                 <div class="col-10 col-sm-8 col-md-6 col-xs-12 col-lg-6">
                     <label for="email">Insira seu E-mail</label>
                     <input class="form-control" type="email" id="email" name="email" placeholder="E-mail" required>
-                </div>
-            </div>
-
-            <div class="row justify-content-center align-items-center">
-                <div class="col-10 col-sm-8 col-md-6 col-xs-12 col-lg-6">
-                    <label for="telefone">Insira seu telefone </label>
-                    <input class="form-control" type="tel" id="telefone" name="telefone" placeholder="Telefone" required>
                 </div>
             </div>
 

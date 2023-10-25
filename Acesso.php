@@ -1,8 +1,4 @@
 <style>
-    img {
-        width: 550px;
-    }
-
     .Titulo {
         color: #8880FE;
         text-align: center;
@@ -14,18 +10,6 @@
         margin-left: 5px;
         margin-right: 5px;
         background-color: whitesmoke;
-    }
-
-    .carousel-item img {
-        width: 50%;
-        height: auto;
-    }
-
-    @media (max-width: 720px) {
-        .carousel-item img {
-            width: 100%;
-            /* Ou qualquer outro estilo desejado para telas menores */
-        }
     }
 </style>
 
@@ -147,11 +131,11 @@
     <div class="container">
         <div class="row dados">
             <div class="col-10 col-sm-10 col-md-10 col-xs-12 col-lg-10">
+                
         <?php
                     if ($row['Tecido'] !== null) {
                         echo '<p class="dado">' . 'Tecido sugerido:'  . " " . $row['Tecido'] . '</p>';
                     }
-
                     echo '<p class="dado">Sustentável:' . " " . $row['Sustentável'] . '</p>';
                     $Tipo = $row['Tipo'];
                     if ($Tipo == 'Saia') {

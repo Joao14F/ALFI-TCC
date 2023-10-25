@@ -128,7 +128,11 @@
                         formFields.appendChild(field2);
                         formFields.appendChild(field3);
                      } else if (select.value === "Calça") {
+<<<<<<< HEAD
                         var field1 = createFormField("Medidas da cintura em cm", "text", "Cintura");
+=======
+                        var field1 = createFormField("Medidas de cintura em cm", "text", "Cintura");
+>>>>>>> 43b5b43f6fbb2dd33db200e444eeee872db2e339
                         var field2 = createFormField("Comprimento em cm", "text", "Comprimento");
                         var field3 = createFormField("Medidas do quadril em cm", "text", "Quadril");
                         var field4 = createFormField("Altura do gancho em cm", "text", "Gancho");
@@ -176,11 +180,19 @@
                      } else if (select.value === "Blusa") {
                         var field1 = createFormField("Medidas da cintura em cm", "text", "Cintura");
                         var field2 = createFormField("Comprimento em cm", "text", "Comprimento");
+<<<<<<< HEAD
                         var field4 = createFormField("Comprimento da manga em cm", "text", "Comprimento de manga");
                         var field3 = createFormField("Medidas do quadril em cm", "text", "Quadril");
                         var field5 = createFormField("Medidas do ombro em cm", "text", "Ombro");
                         var field6 = createFormField("Medidas do busto em cm", "text", "Busto");
                         var field7 = createFormField("Medidas do punho em cm", "text", "Punho");
+=======
+                        var field3 = createFormField("Medidas de quadril em cm", "text", "Quadril");
+                        var field4 = createFormField("Altura de gancho em cm", "text", "Gancho");
+                        var field5 = createFormField("Medidas de ombro em cm", "text", "Ombro");
+                        var field6 = createFormField("Medidas de busto em cm", "text", "Busto");
+                        var field7 = createFormField("Medidas de punho em cm", "text", "Punho");
+>>>>>>> 43b5b43f6fbb2dd33db200e444eeee872db2e339
                         formFields.appendChild(field1);
                         formFields.appendChild(field2);
                         formFields.appendChild(field3);

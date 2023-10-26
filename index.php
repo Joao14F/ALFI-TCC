@@ -17,7 +17,7 @@
 
 <body>
     <div class="container-fluid">
-        <div class="row corpo justify-content-center align-items-centeresd justify-content-md-start">
+        <div class="row corpo justify-content-center justify-content-md-start">
             <?php
             require_once('cabecalho.php');
             include_once('conexao.php');
@@ -53,9 +53,9 @@
                 while ($row = mysqli_fetch_assoc($res)) {
                     if (isset($row['Capa'])) { // Verifica se a chave 'Capa' está definida
                         $caminho_imagem = $row['Capa'];
-                        echo '<div class="col-10 col-md-2 gy-1 gx-4 centro">';
+                        echo '<div class="col-10 col-md-2 espaço">';
                         echo '<a href="Acesso.php?valor=' . $row['Id modelo'] . '">';
-                        echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos">';
+                        echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos img-fluid">';
                         echo '</a>';
                         echo '<p class="text-truncate text-white">' . $row['Título'] . '</p>';
                         echo '</div>';

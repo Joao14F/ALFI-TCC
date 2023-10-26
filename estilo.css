@@ -42,16 +42,24 @@ select:focus {
 }
 
 /* Index */
-.modelos {
-    border-radius: 10px;
-    width: 100%;
-    min-height: 80%;
-    height: 80%;
-    max-height: 80%;
-}
-
 .corpo {
     padding: 0px 8px;
+}
+
+.espaco{
+    max-width: 16vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modelos {
+    border-radius: 10px;
+    height: 15vh;
+    width: 15vh;
+        /*
+    min-height: 100%;
+    */
 }
 
 .resultado {

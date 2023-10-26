@@ -48,6 +48,7 @@ select:focus {
 
 .modelos {
     border-radius: 10px;
+    max-width: 100%;
 }
 /* 
 @media (max-width: 320px) {

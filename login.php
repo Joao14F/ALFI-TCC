@@ -196,7 +196,7 @@
             }
         }
     </style>
-<script defer>
+    <script defer>
         document.addEventListener("DOMContentLoaded", function() {
             var voltarButton = document.querySelector(".voltar");
             voltarButton.addEventListener("click", function() {
@@ -208,7 +208,7 @@
 
 <body>
     <div class="container-fluid">
-    <div class="row align-items-center">
+        <div class="row align-items-center">
             <div class="col-5 col-sm-3 col-md-3 col-lg-2 voltar m-1">
                 <i class="bi bi-arrow-left m-2"></i>
             </div>

@@ -67,7 +67,7 @@
                     echo '<div class="col-12 col-sm-12 col-md-3 justify-content-center align-items-center d-flex">';
                     echo '<a href="cadastro.php"><button class="CadastraModelo">Cadastro</button></a>';
                     echo '</div>';
-                    echo '<div class="col-12 col-sm-12 col-md-2 justify-content-center align-items-center d-flex">';
+                    echo '<div class="col-12 col-sm-12 col-md-2 justify-content-center align-items-center d-flex p-auto">';
                     echo '<a href="login.php"><button class="CadastraModelo">Login</button></a>';
                     echo '</div>';
                 }

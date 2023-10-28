@@ -29,6 +29,38 @@
             font-weight: 500;
         }
 
+        i {
+            font-size: 2rem;
+            color: #8880FE;
+        }
+
+        .voltar:hover {
+            background-color: #8880FE;
+            border-radius: 8px;
+            transition: 1s;
+        }
+
+        .voltar {
+            position: relative;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            height: 40px;
+        }
+
+        .voltar::after {
+            content: "Voltar";
+            color: white;
+            border-radius: 5px;
+            white-space: nowrap;
+            display: none;
+            justify-content: center;
+        }
+
+        .voltar:hover::after {
+            display: inline-block;
+        }
+
         h1 {
             color: #8880FE;
             font-size: 3rem;
@@ -60,29 +92,30 @@
             background: #5952d4;
         }
 
-        p{
-            margin-top: 8px;;
+        p {
+            margin-top: 8px;
+            ;
         }
-        
+
         form input:focus {
             border-color: #6C63FF !important;
             box-shadow: 0 0 0 0.25rem rgba(108, 99, 255, 0.25) !important;
         }
 
         input {
-        background: #161923;
-        width: 300px;
-        height: 50px;
-        padding: 0 0.5rem;
-        margin-top: 1rem;
-        outline: none;
-        color: rgba(166, 166, 166);
-        font-size: 1rem;
-        border: 1px solid #040B18;
-        border-radius: 8px;
-    }
+            background: #161923;
+            width: 300px;
+            height: 50px;
+            padding: 0 0.5rem;
+            margin-top: 1rem;
+            outline: none;
+            color: rgba(166, 166, 166);
+            font-size: 1rem;
+            border: 1px solid #040B18;
+            border-radius: 8px;
+        }
 
-    input.form-control {
+        input.form-control {
             background: #161923;
             outline: none;
             color: rgba(166, 166, 166);
@@ -108,73 +141,75 @@
         }
 
         label {
-           padding: 10px 0px 10px 10px; 
+            padding: 10px 0px 10px 10px;
         }
 
-        
-    @media (max-width: 387px) {
-    h1 {
-        text-align: center;
-        font-size: 1.5rem;
-    }
 
-    input[type="submit"] {
-        text-align: center;
-    }
-}
+        @media (max-width: 387px) {
+            h1 {
+                text-align: center;
+                font-size: 1.5rem;
+            }
 
-    @media (max-width: 454px) {
-        h1 {
-    display: flex;
-    justify-content: center;
-    padding-top: 3rem;
-    font-size: 2rem;
-    }
+            input[type="submit"] {
+                text-align: center;
+            }
+        }
 
-}
+        @media (max-width: 454px) {
+            h1 {
+                display: flex;
+                justify-content: center;
+                padding-top: 3rem;
+                font-size: 2rem;
+            }
 
-@media (max-width: 940px) {
-    input[type="submit"]{
-        width: 100px;
-    }
-}
+        }
 
-@media (min-width: 118px) and (max-width: 767px) {
-    h1 {
-    display: flex;
-    justify-content: center;
-    padding-top: 3rem;
-    }
+        @media (max-width: 940px) {
+            input[type="submit"] {
+                width: 100px;
+            }
+        }
 
-}
+        @media (min-width: 118px) and (max-width: 767px) {
+            h1 {
+                display: flex;
+                justify-content: center;
+                padding-top: 3rem;
+            }
 
-@media (min-width: 768px) and (max-width: 1200px) {
-    h1 {
-    display: flex;
-    justify-content: center;
-    padding-top: 3rem;
-    }
+        }
 
-}
+        @media (min-width: 768px) and (max-width: 1200px) {
+            h1 {
+                display: flex;
+                justify-content: center;
+                padding-top: 3rem;
+            }
 
-@media (min-width: 1201px) and (max-width: 2000px) {
-    h1 {
-    display: flex;
-    justify-content: center;
-    padding-top: 3rem;
-    }
+        }
 
-}
+        @media (min-width: 1201px) and (max-width: 2000px) {
+            h1 {
+                display: flex;
+                justify-content: center;
+                padding-top: 3rem;
+            }
 
+        }
     </style>
 
 </head>
 
 <body>
-<div class="container-fluid">
-        <div class="row justify-content-center align-items-center">
-            <div class="col-12 col-sm-10 col-md-12 col-xs-10 col-lg-12">
-            <h1>Contato</h1>
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-5 col-sm-3 col-md-3 col-lg-2 voltar m-1">
+                <i class="bi bi-arrow-left m-2"></i>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                <h1>Contato</h1>
             </div>
         </div>
 
@@ -203,7 +238,7 @@
 
             <div class="row justify-content-center align-items-center">
                 <div class="col-12 col-sm-12 col-md-12 col-xs-12 col-lg-12"></div>
-                <input class="col-0 col-xs-12 col-sm-2 col-md-1" type="submit" name="Enviar" value="Enviar">               
+                <input class="col-0 col-xs-12 col-sm-2 col-md-1" type="submit" name="Enviar" value="Enviar">
                 <input type="hidden" name="accessKey" value="c7eb727b-32ba-4ed6-b10f-f84b2af09f42">
                 <input type="hidden" name="redirectTo" value="http://localhost/ALFI-TCC/obrigado.php">
             </div>

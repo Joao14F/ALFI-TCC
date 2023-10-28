@@ -271,7 +271,7 @@
                 break;
         }
         ?>
-        
+
     </div>
 </header>
 
@@ -300,10 +300,14 @@
             }
 
             echo '<option value="' . $atual . '" data-peca="Toda">Todas as peças</option>';
-            echo '<option value="' . $atual . '" data-peca="Saia">Saias</option>';
-            echo '<option value="' . $atual . '" data-peca="Calça">Calças</option>';
-            echo '<option value="' . $atual . '" data-peca="Bermuda">Bermudas</option>';
-            echo '<option value="' . $atual . '" data-peca="Sustentável">Sustentáveis</option>';
+            echo '<option value="' . $atual . '" data-peca="Bermuda">Bermuda</option>';
+            echo '<option value="' . $atual . '" data-peca="Blusa">Blusa</option>';
+            echo '<option value="' . $atual . '" data-peca="Calça">Calça</option>';
+            echo '<option value="' . $atual . '" data-peca="Camisa">Camisa</option>';
+            echo '<option value="' . $atual . '" data-peca="Casaco">Casaco</option>';
+            echo '<option value="' . $atual . '" data-peca="Saia">Saia</option>';
+            echo '<option value="' . $atual . '" data-peca="Top">Top</option>';
+            echo '<option value="' . $atual . '" data-peca="Vestido">Vestido</option>';
             ?>
         </select>
         <script>

@@ -68,7 +68,7 @@
                         <div class="carousel-inner">';
 
                     echo '<div class="carousel-item active">
-                        <img src="' . $capa . '" class="img-fluid" alt="Imagem de Capa">
+                        <img src="' . $capa . '" class="w-100" alt="Imagem de Capa">
                       </div>';
 
                     foreach ($moldes as $Molde) {

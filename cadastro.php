@@ -59,24 +59,32 @@ if (isset($_POST['submit'])) {
 
         i {
             font-size: 2rem;
+            color: #8880FE;
         }
 
         .voltar:hover {
             background-color: #8880FE;
             border-radius: 8px;
+            transition: 1s;
+        }
+
+        .voltar {
+            position: relative;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            height: 40px;
         }
 
         .voltar::after {
             content: "Voltar";
-            display: none;
-            color: white;   
-            align-items: center;
-            margin-top: -40px;
+            color: white;
             border-radius: 5px;
             white-space: nowrap;
+            display: none;
+            justify-content: center;
         }
 
-        /* Estilo para mostrar o texto "Voltar" quando passar o mouse sobre .voltar */
         .voltar:hover::after {
             display: inline-block;
         }
@@ -224,9 +232,12 @@ if (isset($_POST['submit'])) {
             }
         }
     </style>
-    <script>
-        document.getElementsByClassName("voltar").addEventListener("click", function() {
-            window.history.back();
+    <script defer>
+        document.addEventListener("DOMContentLoaded", function() {
+            var voltarButton = document.querySelector(".voltar");
+            voltarButton.addEventListener("click", function() {
+                window.history.back();
+            });
         });
     </script>
 </head>
@@ -236,8 +247,8 @@ if (isset($_POST['submit'])) {
         <div class="row">
         </div>
         <div class="row align-items-center">
-            <div class="col-2 voltar text-start">
-                <i class="bi bi-arrow-left"></i>
+            <div class="col-5 col-sm-3 col-md-3 col-lg-2 voltar m-1">
+                <i class="bi bi-arrow-left m-2"></i>
             </div>
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
                 <h1>Crie sua conta</h1>

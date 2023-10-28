@@ -8,10 +8,44 @@
    <link rel="stylesheet" href="CSS/bootstrap.min.css">
    <title>Cadastro</title>
 
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
    <style>
       body {
          background-color: #1B2029;
          color: #8880FE;
+      }
+
+      i {
+         font-size: 2rem;
+      }
+
+      .voltar:hover {
+         background-color: #8880FE;
+         border-radius: 8px;
+         transition: 1s;
+      }
+
+      .voltar {
+         position: relative;
+         display: flex;
+         justify-content: left;
+         align-items: center;
+         height: 40px;
+      }
+
+      .voltar::after {
+         content: "Voltar";
+         color: white;
+         border-radius: 5px;
+         white-space: nowrap;
+         display: none;
+         justify-content: center;
+      }
+
+      .voltar:hover::after {
+         display: inline-block;
       }
 
       .form-group {
@@ -48,15 +82,32 @@
          background: #5952d4;
       }
    </style>
+   <script defer>
+        document.addEventListener("DOMContentLoaded", function() {
+            var voltarButton = document.querySelector(".voltar");
+            voltarButton.addEventListener("click", function() {
+                window.history.back();
+            });
+        });
+    </script>
 </head>
 
 <body>
-   <?php
-   include('sessao.php');
-   include_once('logado.php');
-   ?>
-   <form enctype="multipart/form-data" action="enviaModelo.php" method="POST">
-      <div class="container-fluid">
+   <div class="container-fluid">
+      <?php
+      include('sessao.php');
+      include_once('logado.php');
+      ?>
+      <div class="row align-items-center">
+         <div class="col-5 col-sm-3 col-md-3 col-lg-2 voltar m-1">
+            <i class="bi bi-arrow-left m-2"></i>
+         </div>
+         <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+            <h1>Cadastrar Modelo</h1>
+         </div>
+      </div>
+      <form enctype="multipart/form-data" action="enviaModelo.php" method="POST">
+
          <div class="row">
             <p class="col-0 col-sm-0 col-md-1"></p>
             <div class="col-sm-12 col-md-10">
@@ -128,11 +179,7 @@
                         formFields.appendChild(field2);
                         formFields.appendChild(field3);
                      } else if (select.value === "Calça") {
-<<<<<<< HEAD
-                        var field1 = createFormField("Medidas da cintura em cm", "text", "Cintura");
-=======
                         var field1 = createFormField("Medidas de cintura em cm", "text", "Cintura");
->>>>>>> 43b5b43f6fbb2dd33db200e444eeee872db2e339
                         var field2 = createFormField("Comprimento em cm", "text", "Comprimento");
                         var field3 = createFormField("Medidas do quadril em cm", "text", "Quadril");
                         var field4 = createFormField("Altura do gancho em cm", "text", "Gancho");
@@ -180,19 +227,11 @@
                      } else if (select.value === "Blusa") {
                         var field1 = createFormField("Medidas da cintura em cm", "text", "Cintura");
                         var field2 = createFormField("Comprimento em cm", "text", "Comprimento");
-<<<<<<< HEAD
                         var field4 = createFormField("Comprimento da manga em cm", "text", "Comprimento de manga");
                         var field3 = createFormField("Medidas do quadril em cm", "text", "Quadril");
                         var field5 = createFormField("Medidas do ombro em cm", "text", "Ombro");
                         var field6 = createFormField("Medidas do busto em cm", "text", "Busto");
                         var field7 = createFormField("Medidas do punho em cm", "text", "Punho");
-=======
-                        var field3 = createFormField("Medidas de quadril em cm", "text", "Quadril");
-                        var field4 = createFormField("Altura de gancho em cm", "text", "Gancho");
-                        var field5 = createFormField("Medidas de ombro em cm", "text", "Ombro");
-                        var field6 = createFormField("Medidas de busto em cm", "text", "Busto");
-                        var field7 = createFormField("Medidas de punho em cm", "text", "Punho");
->>>>>>> 43b5b43f6fbb2dd33db200e444eeee872db2e339
                         formFields.appendChild(field1);
                         formFields.appendChild(field2);
                         formFields.appendChild(field3);
@@ -281,7 +320,7 @@
                   <button type="submit" value="Enviar">Cadastrar</button>
                </div>
             </div>
-   </form>
+      </form>
 </body>
 
 </html>

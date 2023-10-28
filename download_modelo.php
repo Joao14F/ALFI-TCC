@@ -26,19 +26,53 @@ if (isset($_GET['valor'])) {
                 $zip->addFile($mold, "Molde_$i.png");
             }
 
-            $zip->close();
+            // Crie o conteúdo do arquivo de texto com as medidas
+            $sqlMedidas = "SELECT `Título`, `Tecido`, `Sustentável`, `Comprimento`, `Quadril`, `Cintura`, `Gancho`, `Ombro`, `Busto`, `Comprimento de manga`, `Comprimento de cintura`, `Punho` FROM `modelo` WHERE `Id modelo` = $valor";
+            $resMedidas = mysqli_query($conn, $sqlMedidas);
 
-            // Defina os cabeçalhos para o download
-            header("Content-Type: application/zip");
-            header("Content-Disposition: attachment; filename=$zipName");
-            header("Content-Length: " . filesize($zipName));
+            if ($resMedidas) {
+                $rowMedidas = mysqli_fetch_assoc($resMedidas);
 
-            // Envie o arquivo ZIP para o navegador
-            readfile($zipName);
+                $medidasContent = ""; // Inicialize o conteúdo sem a linha "Medidas:"
 
-            // Exclua o arquivo ZIP após o download
-            unlink($zipName);
+                foreach ($rowMedidas as $coluna => $valor) {
+                    if (!is_null($valor)) {
+                        $medidasContent .= "$coluna: $valor\n";
+                    }
+                }
+
+                // Crie um arquivo de texto temporário
+                $tempTxtFile = tempnam(sys_get_temp_dir(), 'modelo_txt');
+                file_put_contents($tempTxtFile, $medidasContent);
+
+                // Adicione o arquivo de texto ao arquivo ZIP
+                $zip->addFile($tempTxtFile, "Medidas.txt");
+
+                // Feche o arquivo ZIP
+                $zip->close();
+
+                // Defina os cabeçalhos para download do arquivo ZIP
+                header("Content-Type: application/zip");
+                header("Content-Disposition: attachment; filename=$zipName");
+                header("Content-Length: " . filesize($zipName));
+
+                // Envie o arquivo ZIP para o navegador
+                readfile($zipName);
+
+                // Exclua o arquivo ZIP e o arquivo de texto temporário após o download
+                unlink($zipName);
+                unlink($tempTxtFile);
+            } else {
+                // Trate o caso em que não foram encontradas medidas
+                echo "Não foi possível encontrar as medidas.";
+            }
         }
+    } else {
+        // Trate o caso em que os dados do modelo não foram encontrados
+        echo "Não foi possível encontrar os dados do modelo.";
     }
+} else {
+    // Trate o caso em que o parâmetro 'valor' não está definido
+    echo "O parâmetro 'valor' não está definido.";
 }
 ?>

@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="icon" type="image/png" href="imagens/logonav.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
@@ -23,6 +25,38 @@
             background: #1B2029;
             color: white;
             font-weight: 500;
+        }
+
+        i {
+            font-size: 2rem;
+            color: #8880FE;
+        }
+
+        .voltar:hover {
+            background-color: #8880FE;
+            border-radius: 8px;
+            transition: 1s;
+        }
+
+        .voltar {
+            position: relative;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            height: 40px;
+        }
+
+        .voltar::after {
+            content: "Voltar";
+            color: white;
+            border-radius: 5px;
+            white-space: nowrap;
+            display: none;
+            justify-content: center;
+        }
+
+        .voltar:hover::after {
+            display: inline-block;
         }
 
         h1 {
@@ -162,13 +196,23 @@
             }
         }
     </style>
-
+<script defer>
+        document.addEventListener("DOMContentLoaded", function() {
+            var voltarButton = document.querySelector(".voltar");
+            voltarButton.addEventListener("click", function() {
+                window.history.back();
+            });
+        });
+    </script>
 </head>
 
 <body>
     <div class="container-fluid">
-        <div class="row justify-content-center align-items-center">
-            <div class="col-12 col-sm-10 col-md-12 col-xs-10 col-lg-12">
+    <div class="row align-items-center">
+            <div class="col-5 col-sm-3 col-md-3 col-lg-2 voltar m-1">
+                <i class="bi bi-arrow-left m-2"></i>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
                 <h1>Logue sua conta</h1>
             </div>
         </div>

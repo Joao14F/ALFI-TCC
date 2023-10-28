@@ -134,8 +134,8 @@
                         $Gancho = isset($rowmed['Gancho']) ? $rowmed['Gancho'] : null;
                         $Ombro = isset($rowmed['Ombro']) ? $rowmed['Ombro'] : null;
                         $Busto = isset($rowmed['Busto']) ? $rowmed['Busto'] : null;
-                        $Comprimento_manga = isset($rowmed['Comprimento_de_manga']) ? $rowmed['Comprimento_de_manga'] : null;
-                        $Comprimento_cintura = isset($rowmed['Comprimento_de_cintura']) ? $rowmed['Comprimento_de_cintura'] : null;
+                        $Comprimento_manga = isset($rowmed['Comprimento de manga']) ? $rowmed['Comprimento de manga'] : null;
+                        $Comprimento_cintura = isset($rowmed['Comprimento de cintura']) ? $rowmed['Comprimento de cintura'] : null;
                         $Punho = isset($rowmed['Punho']) ? $rowmed['Punho'] : null;
                     }
 

@@ -17,34 +17,32 @@
 
 <body>
     <div class="container-fluid">
+
+        <?php
+        require_once('cabecalho.php');
+        include_once('conexao.php');
+        include('paginaçaoVar.php');
+        ?>
         <div class="row corpo justify-content-center align-items-center justify-content-md-start">
             <?php
-            require_once('cabecalho.php');
-            include_once('conexao.php');
-            include('paginaçaoVar.php');
-
-
             if (isset($_GET['peça'])) {
                 $peca = $_GET['peça'];
                 if ($peca == 'Toda') {
-                    $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Usuário cadastrador` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                    $query = "SELECT * FROM `modelo` WHERE `Usuário cadastrador` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
                     $stmt->bind_param("iii", $_SESSION['Id usuário'], $offset, $resultados_por_pagina);
                 } else {
-                    $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Tipo` = ? AND `Usuário cadastrador` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                    $query = "SELECT * FROM `modelo` WHERE `Tipo` = ? AND `Usuário cadastrador` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
                     $stmt->bind_param("siii", $peca, $_SESSION['Id usuário'], $offset, $resultados_por_pagina);
                 }
-                $stmt->execute();
-                $res = $stmt->get_result();
             } else {
-                $sql = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Usuário cadastrador` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                $sql = "SELECT * FROM `modelo` WHERE `Usuário cadastrador` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param("iii", $_SESSION['Id usuário'], $offset, $resultados_por_pagina);
-                $stmt->execute();
-                $res = $stmt->get_result();
             }
-
+            $stmt->execute();
+            $res = $stmt->get_result();
 
 
             if ($res && mysqli_num_rows($res) > 0) {
@@ -52,9 +50,11 @@
                 while ($row = mysqli_fetch_assoc($res)) {
                     if (isset($row['Capa'])) { // Verifica se a chave 'Capa' está definida
                         $caminho_imagem = $row['Capa'];
-                        echo '<div class="col-10 col-sm-10 col-md-2 gy-1 gx-4">';
+
+                        // Adicione uma classe para facilitar a seleção com JavaScript
+                        echo '<div class="col-10 col-md-2 espaço">';
                         echo '<a href="Acesso.php?valor=' . $row['Id modelo'] . '">';
-                        echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos">';
+                        echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos w-100 imagem-dinamica" ' . $row['Id modelo'] . '">';
                         echo '</a>';
                         echo '<p class="text-truncate text-white">' . $row['Título'] . '</p>';
                         echo '</div>';
@@ -64,6 +64,16 @@
                 echo '<p class="resultado">Nenhum modelo encontrado</p>';
             }
             ?>
+            <script>
+                // Usar JavaScript para obter a largura e definir como o atributo de estilo 'height'
+                document.addEventListener('DOMContentLoaded', function() {
+                    var imagens = document.querySelectorAll('.imagem-dinamica');
+                    imagens.forEach(function(imagem) {
+                        var largura = imagem.clientWidth;
+                        imagem.style.height = largura + 'px';
+                    });
+                });
+            </script>
         </div>
 
         <?php

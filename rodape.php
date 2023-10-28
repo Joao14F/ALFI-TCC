@@ -21,7 +21,8 @@
             <h2 class="ttl">Entre em Contato</h2>
             <ul class="info">
                 <li>
-                   <p>Caso queira enviar alguma sugestão, solicitação ou mensagem, você pode nos contatar clicando no botão abaixo ou através do e-mail: <a href="mailto:teamalfi2023@gmail.com" class="mail">teamalfi2023@gmail.com</a></p>
+                   <p>Caso queira enviar alguma sugestão, solicitação ou mensagem, você pode nos contatar clicando no botão abaixo 
+                    ou através do e-mail: <a href="mailto:teamalfi2023@gmail.com" class="mail">teamalfi2023@gmail.com</a></p>
                 </li>
                 <a class="xinga" href="testeform.php">Contato</a>
             </ul>

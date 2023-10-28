@@ -202,3 +202,102 @@ footer {
     border-top: 1px solid rgba(0, 0, 0, 0.15);
     border-color: #8880FE;
 }
+
+a {
+color: white;
+text-decoration: none;
+}
+
+/* FAQ e política de privacidade */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+
+
+body {
+    background: #1B2029;
+    text-align: justify;
+}
+
+h2 {
+    color: #8880FE;
+}
+
+.faqs-container {
+  font-family: "Poppins", sans-serif;
+  margin: 0 auto;
+  padding: 25px;
+  color: #f1faee;
+  padding-top: 40px;
+}
+
+.faqs-container .questions-container {
+  box-shadow: 0 4px 8px -3px rgba(0, 0, 0, 0.3);
+}
+
+.faqs-container h2 {
+  padding: 4px 32px;
+  font-size: 28px;
+}
+
+.faqs-container .faq-header {
+  border-radius: 1px;
+  display: flex;
+  background: #8880FE;
+  color: #f1faee;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  padding: 15px;
+  box-shadow: 0 4px 8px -3px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid #1B2029;
+}
+
+.faqs-container .faq-header .open,
+.faqs-container .faq-header .close {
+  position: absolute;
+  right: 0;
+  padding: 0 32px;
+  font-size: 22px;
+  font-weight: bold;
+  transform: translateY(-8px);
+  opacity: 0;
+  transition: all 500ms;
+}
+
+.faqs-container .faq-header .open.active,
+.faqs-container .faq-header .close.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.faqs-container .faq-header h3 {
+  font-size: 20px;
+  padding: 0 32px;
+}
+
+.faqs-container .content {
+  padding: 0 32px;
+  background: #d3d6d2;
+  line-height: 2;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 500ms;
+  color: #1B2029;
+}
+
+.faqs-container .content.active {
+  max-height: 600px;
+}
+
+img {
+    width: 18%;
+}
+
+
+.images {
+    display: flex;
+    justify-content: center;
+}
+
+

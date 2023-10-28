@@ -44,20 +44,31 @@
             $stmt->execute();
             $res = $stmt->get_result();
 
-
             if ($res && mysqli_num_rows($res) > 0) {
                 // Exibe as imagens dentro do laço `while`
                 while ($row = mysqli_fetch_assoc($res)) {
-                    if (isset($row['Capa'])) { // Verifica se a chave 'Capa' está definida
-                        $caminho_imagem = $row['Capa'];
-
-                        // Adicione uma classe para facilitar a seleção com JavaScript
-                        echo '<div class="col-10 col-md-2 espaço">';
-                        echo '<a href="Acesso.php?valor=' . $row['Id modelo'] . '">';
-                        echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos w-100 imagem-dinamica" ' . $row['Id modelo'] . '">';
-                        echo '</a>';
-                        echo '<p class="text-truncate text-white">' . $row['Título'] . '</p>';
-                        echo '</div>';
+                    if (isset($row['Capa'])) {
+                        // Verificar se a coluna "Verificado" segue o padrão "Reprovado por número"
+                        if (preg_match('/^Reprovado por \d+$/', $row['Verificado'])) {
+                            $caminho_imagem = 'Arquivos/Reprovado.png'; // Usar a imagem "Reprovado.png"
+                            echo '<div class="col-10 col-md-2 espaço">';
+                            echo '<a href="">';
+                            echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos w-100 imagem-dinamica" ' . $row['Id modelo'] . '">';
+                            echo '</a>';
+                            echo '<p class="text-truncate text-white">' . $row['Título'] . '</p>';
+                            echo '</div>';
+                            echo '<script>';
+                            echo 'alert("Este modelo foi reprovado por contrariar a política do site.");';
+                            echo '</script>';
+                        } else {
+                            $caminho_imagem = $row['Capa']; // Usar a imagem da coluna "Capa"
+                            echo '<div class="col-10 col-md-2 espaço">';
+                            echo '<a href="Acesso.php?valor=' . $row['Id modelo'] . '">';
+                            echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos w-100 imagem-dinamica" ' . $row['Id modelo'] . '">';
+                            echo '</a>';
+                            echo '<p class="text-truncate text-white">' . $row['Título'] . '</p>';
+                            echo '</div>';
+                        }
                     }
                 }
             } else {

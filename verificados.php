@@ -22,8 +22,7 @@
         require('logadoADM.php');
         include('paginaçaoVar.php');
         ?>
-
-        <div class="row">
+        <div class="row corpo justify-content-center align-items-center justify-content-md-start">
             <?php
             include_once('conexao.php');
 
@@ -39,59 +38,77 @@
 
             // Calcula o deslocamento (offset) com base na página atual
             $offset = ($pagina_atual - 1) * $resultados_por_pagina;
-            $verificado = 'Sim' . ' ' . 'por' . ' ' . $_SESSION['Id moderador'];
+            $offset = ($pagina_atual - 1) * $resultados_por_pagina;
+            $verificado = 'Sim por ' . $_SESSION['Id moderador'];
+            $reprovado = 'Reprovado por ' . $_SESSION['Id moderador'];
+
             if (isset($_GET['peça'])) {
                 $peca = $_GET['peça'];
                 if ($peca == 'Toda') {
-                    $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `verificado` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                    $query = "SELECT * FROM `modelo` WHERE (`Verificado` = ? OR `Verificado` = ?) ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
-                    $stmt->bind_param("sii", $verificado, $offset, $resultados_por_pagina);
+                    $stmt->bind_param("ssii", $verificado, $reprovado, $offset, $resultados_por_pagina);
                 } elseif ($peca == 'Sustentável') {
-                    $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Sustentável` = 'Sim' AND `verificado` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                    $query = "SELECT * FROM `modelo` WHERE (`Sustentável` = 'Sim' AND (`verificado` = ? OR `verificado` = ?)) ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
-                    $stmt->bind_param("sii", $verificado, $offset, $resultados_por_pagina);
+                    $stmt->bind_param("ssii", $verificado, $reprovado, $offset, $resultados_por_pagina);
                 } else {
-                    $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `Tipo` = ? AND `verificado` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                    $query = "SELECT * FROM `modelo` WHERE ((`Tipo` = ? AND `verificado` = ?) OR `verificado` = ?) ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
-                    $stmt->bind_param("ssii", $peca, $verificado, $offset, $resultados_por_pagina);
+                    $stmt->bind_param("ssssii", $peca, $verificado, $reprovado, $offset, $resultados_por_pagina);
                 }
             } else {
-                $query = "SELECT `Capa`, `Id modelo` FROM `modelo` WHERE `verificado` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                $query = "SELECT * FROM `modelo` WHERE (`verificado` = ? OR `verificado` = ?) ORDER BY `Id modelo` DESC LIMIT ?, ?";
                 $stmt = $conn->prepare($query);
-                $stmt->bind_param("sii", $verificado, $offset, $resultados_por_pagina);
+                $stmt->bind_param("ssii", $verificado, $reprovado, $offset, $resultados_por_pagina);
             }
+
             $stmt->execute();
             $res = $stmt->get_result();
 
-
-            echo '<div>';
+            
             if ($res && mysqli_num_rows($res) > 0) {
                 // Exibe as imagens dentro do laço `while`
                 while ($row = mysqli_fetch_assoc($res)) {
-                    if (isset($row['Capa'])) { // Verifica se a chave 'Capa' está definida
-                        $caminho_imagem = $row['Capa'];
-                        echo '<div class="col-12 text-center col-xs-12 col-sm-4 col-md-2 col-lg-2 gy-4 gx-4">';
-                        echo '<a href="ADMacesso.php?valor=' . $row['Id modelo'] . '">';
-                        echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos img-fluid h-100">';
-                        echo '</a>';
-                        echo '</div>';
+                    if (isset($row['Capa'])) {
+                        // Verificar se a coluna "Verificado" segue o padrão "Reprovado por número"
+                        if (preg_match('/^Reprovado por \d+$/', $row['Verificado'])) {
+                            $caminho_imagem = 'Arquivos/Reprovado.png'; // Usar a imagem "Reprovado.png"
+                            echo '<div class="col-10 col-md-2 espaço">';
+                            echo '<a href="ADMacesso.php?valor=' . $row['Id modelo'] . '">';
+                            echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos w-100 imagem-dinamica" ' . $row['Id modelo'] . '">';
+                            echo '</a>';
+                            echo '<p class="text-truncate text-white">' . $row['Título'] . '</p>';
+                            echo '</div>';
+                        } else {
+                            $caminho_imagem = $row['Capa']; // Usar a imagem da coluna "Capa"
+                            echo '<div class="col-10 col-md-2 espaço">';
+                            echo '<a href="ADMacesso.php?valor=' . $row['Id modelo'] . '">';
+                            echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos w-100 imagem-dinamica" ' . $row['Id modelo'] . '">';
+                            echo '</a>';
+                            echo '<p class="text-truncate text-white">' . $row['Título'] . '</p>';
+                            echo '</div>';
+                        }
                     }
                 }
-                echo '</div>';
-
-                require('paginaçao.php');
             } else {
-
-                echo '<p style="color: azure; padding-top: 10px;">Nenhuma imagem encontrada.</p>';
+                echo '<p class="resultado">Nenhum modelo encontrado</p>';
             }
-
-            // Fecha a conexão com o banco de dados
-            $conn->close();
-
             ?>
-        </div>
+            <div>
+        <script>
+                // Usar JavaScript para obter a largura e definir como o atributo de estilo 'height'
+                document.addEventListener('DOMContentLoaded', function() {
+                    var imagens = document.querySelectorAll('.imagem-dinamica');
+                    imagens.forEach(function(imagem) {
+                        var largura = imagem.clientWidth;
+                        imagem.style.height = largura + 'px';
+                    });
+                });
+            </script>
         <?php
-        require_once('rodape.php')
+        require_once('rodape.php');
+        $conn->close();
         ?>
     </div>
 </body>

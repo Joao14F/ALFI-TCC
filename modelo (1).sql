@@ -1,3 +1,32 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Tempo de geração: 28-Out-2023 às 20:17
+-- Versão do servidor: 10.4.24-MariaDB
+-- versão do PHP: 8.1.6
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Banco de dados: `tcc`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `modelo`
+--
+
 CREATE TABLE `modelo` (
   `Id modelo` int(11) NOT NULL,
   `Título` varchar(50) NOT NULL,
@@ -16,8 +45,12 @@ CREATE TABLE `modelo` (
   `Capa` varchar(50) NOT NULL,
   `Moldes` varchar(200) NOT NULL,
   `Usuário cadastrador` int(11) DEFAULT NULL,
-  `Verificado` varchar(10) NOT NULL DEFAULT 'Não'
+  `Verificado` varchar(20) NOT NULL DEFAULT 'Não'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `modelo`
+--
 
 INSERT INTO `modelo` (`Id modelo`, `Título`, `Tecido`, `Sustentável`, `Tipo`, `Comprimento`, `Quadril`, `Cintura`, `Gancho`, `Ombro`, `Busto`, `Comprimento de manga`, `Comprimento de cintura`, `Punho`, `Capa`, `Moldes`, `Usuário cadastrador`, `Verificado`) VALUES
 (21, 'Bermuda 155555555555555555555555555555555555555555', 'Pano', 'Sim', 'Bermuda', '52', '78,75', '60', '27', NULL, NULL, NULL, NULL, NULL, 'Arquivos/Capas/64f2602903390.jpg', 'Arquivos/Moldes/64f2602903709.jpg', 1, 'Não'),
@@ -39,59 +72,48 @@ INSERT INTO `modelo` (`Id modelo`, `Título`, `Tecido`, `Sustentável`, `Tipo`, 
 (45, 'j', 'r', 'Sim', 'Vestido', '6', '7', '1', '8', '9', '3', NULL, NULL, NULL, 'Arquivos/Capas/65388e9aca624.jpg', 'Arquivos/Moldes/65388e9acadd3.jpg', 2, 'Sim por 1'),
 (46, 'Bermuda 1', 'Pano', 'Sim', 'Bermuda', '52', '78,75', '60', '27', NULL, NULL, NULL, NULL, NULL, 'Arquivos/Capas/64f2602903390.jpg', 'Arquivos/Moldes/64f2602903709.jpg', 1, 'Não'),
 (47, 'Bermuda 2', 'Palha', 'Não', 'Bermuda', '34', '58,8', '52', '29', NULL, NULL, NULL, NULL, NULL, 'Arquivos/Capas/64f261dc28169.jpg', 'Arquivos/Moldes/64f261dc283a8.jpg', 2, 'Sim por 1'),
-(48, 'Bermuda 1', 'Pano', 'Sim', 'Bermuda', '52', '78,75', '60', '27', NULL, NULL, NULL, NULL, NULL, 'Arquivos/Capas/64f2602903390.jpg', 'Arquivos/Moldes/64f2602903709.jpg', 1, 'Não'),
+(48, 'Bermuda 1', 'Pano', 'Sim', 'Bermuda', '52', '78,75', '60', '27', NULL, NULL, NULL, NULL, NULL, 'Arquivos/Capas/64f2602903390.jpg', 'Arquivos/Moldes/64f2602903709.jpg', 1, 'Reprovado por 1'),
 (49, 'Bermuda 2', 'Palha', 'Não', 'Bermuda', '34', '58,8', '52', '29', NULL, NULL, NULL, NULL, NULL, 'Arquivos/Capas/64f261dc28169.jpg', 'Arquivos/Moldes/64f261dc283a8.jpg', 2, 'Sim por 1'),
 (50, 'Bermuda 1', 'Pano', 'Sim', 'Bermuda', '52', '78,75', '60', '27', NULL, NULL, NULL, NULL, NULL, 'Arquivos/Capas/64f2602903390.jpg', 'Arquivos/Moldes/64f2602903709.jpg', 1, 'Sim por 1'),
-(51, 'Bermuda 2', 'Palha', 'Não', 'Bermuda', '34', '58,8', '52', '29', NULL, NULL, NULL, NULL, NULL, 'Arquivos/Capas/64f261dc28169.jpg', 'Arquivos/Moldes/64f261dc283a8.jpg', 2, 'Não'),
+(51, 'Bermuda 2', 'Palha', 'Não', 'Bermuda', '34', '58,8', '52', '29', NULL, NULL, NULL, NULL, NULL, 'Arquivos/Capas/64f261dc28169.jpg', 'Arquivos/Moldes/64f261dc283a8.jpg', 2, 'Reprovado '),
 (52, 'Bermuda 1', 'Pano', 'Sim', 'Bermuda', '52', '78,75', '60', '27', NULL, NULL, NULL, NULL, NULL, 'Arquivos/Capas/64f2602903390.jpg', 'Arquivos/Moldes/64f2602903709.jpg', 1, 'Não'),
 (53, 'Bermuda 2', 'Palha', 'Não', 'Bermuda', '34', '58,8', '52', '29', NULL, NULL, NULL, NULL, NULL, 'Arquivos/Capas/64f261dc28169.jpg', 'Arquivos/Moldes/64f261dc283a8.jpg', 2, 'Sim por 1'),
 (54, 'Bermuda 1', 'Pano', 'Sim', 'Bermuda', '52', '78,75', '60', '27', NULL, NULL, NULL, NULL, NULL, 'Arquivos/Capas/64f2602903390.jpg', 'Arquivos/Moldes/64f2602903709.jpg', 1, 'Não'),
 (55, 'Bermuda 2', 'Palha', 'Não', 'Bermuda', '34', '58,8', '52', '29', NULL, NULL, NULL, NULL, NULL, 'Arquivos/Capas/64f261dc28169.jpg', 'Arquivos/Moldes/64f261dc283a8.jpg', 2, 'Sim por 1'),
-(56, '1', '3', 'Sim', 'Blusa', '5', '7', '3', NULL, '9', '2', NULL, NULL, '9', 'Arquivos/Capas/653a84ed2c750.jpg', 'Arquivos/Moldes/653a84ed2d654.jpg', 1, 'Não');
+(56, '1', '3', 'Sim', 'Blusa', '5', '7', '3', NULL, '9', '2', NULL, NULL, '9', 'Arquivos/Capas/653a84ed2c750.jpg', 'Arquivos/Moldes/653a84ed2d654.jpg', 1, 'Reprovado ');
 
-CREATE TABLE `moderador` (
-  `Id moderador` int(11) NOT NULL,
-  `Nome moderador` varchar(30) NOT NULL,
-  `E-mail moderador` varchar(30) NOT NULL,
-  `Senha moderador` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+--
+-- Índices para tabelas despejadas
+--
 
-INSERT INTO `moderador` (`Id moderador`, `Nome moderador`, `E-mail moderador`, `Senha moderador`) VALUES
-(1, '[value-3]', '1@adm', '123');
-
-CREATE TABLE `usuário` (
-  `Id usuário` int(11) NOT NULL,
-  `Nome usuário` varchar(30) NOT NULL,
-  `E-mail usuário` varchar(30) NOT NULL,
-  `Senha usuário` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-INSERT INTO `usuário` (`Id usuário`, `Nome usuário`, `E-mail usuário`, `Senha usuário`) VALUES
-(1, 'eu', 'eu@gmail.com', '123'),
-(2, 'jf', 'jfranciscobratti@gmail.com', '123'),
-(3, 'victor', 'victorgraeff.sb@gmail.com', 'senha12345678910'),
-(4, 'guga', 'guga@1.com', 'guga'),
-(5, 'jose', 'jose@gmail.com', '123');
-
+--
+-- Índices para tabela `modelo`
+--
 ALTER TABLE `modelo`
   ADD PRIMARY KEY (`Id modelo`),
   ADD KEY `cadastrador` (`Usuário cadastrador`);
 
-ALTER TABLE `moderador`
-  ADD PRIMARY KEY (`Id moderador`);
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
 
-ALTER TABLE `usuário`
-  ADD PRIMARY KEY (`Id usuário`);
-
+--
+-- AUTO_INCREMENT de tabela `modelo`
+--
 ALTER TABLE `modelo`
   MODIFY `Id modelo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
-ALTER TABLE `moderador`
-  MODIFY `Id moderador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- Restrições para despejos de tabelas
+--
 
-ALTER TABLE `usuário`
-  MODIFY `Id usuário` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
+--
+-- Limitadores para a tabela `modelo`
+--
 ALTER TABLE `modelo`
   ADD CONSTRAINT `cadastrador` FOREIGN KEY (`Usuário cadastrador`) REFERENCES `usuário` (`Id usuário`) ON DELETE CASCADE ON UPDATE CASCADE;
-  
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

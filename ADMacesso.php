@@ -98,35 +98,33 @@
                 <a href="download_modelo.php?valor=<?php echo $valor; ?>" download="Modelo_<?php echo $row['Título']; ?>.zip" class="btn btn-secondary w-100">Download</a>
             </div>
         </div>
-        <div class="row justify-content-center m-2">
-            <div class="col-5">
-                <button type="submit" name="deleta" value="deleta" class="btn btn-danger w-100">Deletar</button>
-            </div>
-        </div>
-        <div class="row justify-content-center m-2">
-            <div class="col-5">
-            <?php
-if ($row['Verificado'] != 'Sim por ' . $_SESSION['Id moderador']) {
-    echo '<button type="submit" name="verifica" value="verifica" class="btn btn-success w-100">Verificar</button>';
-    
-}
-?>            
-                </div>
-        </div>
+        <?php
+                   
+                        echo '<div class="row justify-content-center m-2">';
+                        echo '<div class="col-5">';
+                        echo '<button type="submit" name="verifica" value="verifica" class="btn btn-success w-100">Verificar</button>';
+                        echo '</div>';
+                        echo '</div>';
+
+                        echo '<div class="row justify-content-center m-2">';
+                        echo '<div class="col-5">';
+                        echo '<button type="submit" id="reprovar-button" name="reprova" value="reprova" class="btn btn-danger w-100">Reprovar</button>';
+
+                        echo '</div>';
+                        echo '</div>';
+
+        ?>
+        <script>
+            document.getElementById('reprovar-button').addEventListener('click', function(e) {
+                if (!confirm('Tem certeza de que deseja reprovar este modelo?')) {
+                    e.preventDefault(); // Impede o envio do formulário se o usuário clicar em "Cancelar"
+                }
+            });
+        </script>
+
     </form>
 
     <?php
-                    if (isset($_POST['deleta'])) {
-                        $query = "DELETE FROM `modelo` WHERE `Id modelo` = ?";
-                        $stmt = $conn->prepare($query);
-                        $stmt->bind_param("i", $valor);
-                        if ($stmt->execute()) {
-                            echo '<script>alert("Modelo deletado"); window.location.href = "adm.php";</script>';
-                        } else {
-                            echo '<script>alert("Erro ao deletar modelo"); window.location.href = "ADMacesso.php?valor=' . $valor . '";</script>';
-                        }
-                    }
-
                     if (isset($_POST['verifica'])) {
                         $verificado = 'Sim por ' . $_SESSION['Id moderador'];
                         $query = "UPDATE `modelo` SET `Verificado` = ? WHERE `Id modelo` = ?";
@@ -138,6 +136,41 @@ if ($row['Verificado'] != 'Sim por ' . $_SESSION['Id moderador']) {
                             echo '<script>alert("Erro ao verificar modelo"); window.location.href = "ADMacesso.php?valor=' . $valor . '";</script>';
                         }
                     }
+
+                    if (isset($_POST['reprova'])) {
+                        /*
+                        $sql = "SELECT `Capa`, `Moldes` FROM `modelo` WHERE `Id modelo` = $valor";
+                        $res = mysqli_query($conn, $sql);
+
+                        if ($res && mysqli_num_rows($res) > 0) {
+                            $row = mysqli_fetch_assoc($res);
+                            $capaPath = $row['Capa'];
+                            $moldesPaths = explode(',', $row['Moldes']);
+
+                            // Exclua o arquivo de capa
+                            if (file_exists($capaPath)) {
+                                unlink($capaPath);
+                            }
+
+                            // Exclua os arquivos de moldes
+                            foreach ($moldesPaths as $moldesPath) {
+                                if (file_exists($moldesPath)) {
+                                    unlink($moldesPath);
+                                }
+                            }
+                        }
+                        */
+                        $verificado = 'Reprovado por ' . $_SESSION['Id moderador'];
+                        $query = "UPDATE `modelo` SET `Verificado` = ? WHERE `Id modelo` = ?";
+                        $stmt = $conn->prepare($query);
+                        $stmt->bind_param("si", $verificado, $valor);
+                        if ($stmt->execute()) {
+                            echo '<script>alert("Modelo reprovado"); window.location.href = "adm.php";</script>';
+                        } else {
+                            echo '<script>alert("Erro ao reprovar modelo"); window.location.href = "ADMacesso.php?valor=' . $valor . '";</script>';
+                        }
+                    }
+
     ?>
 
     <div class="row">

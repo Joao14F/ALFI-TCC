@@ -2,7 +2,7 @@
     <div class="row justify-content-center align-items-center">
         <div class="col-12 col-md-4 align-self-start">
             <h2 class="ttl">Sobre Nós</h2>
-            <p>O ALFI é um site de compartilhamento de moldes de roupas,
+            <p class="p1">O ALFI é um site de compartilhamento de moldes de roupas,
                 focado em disponibilizar aos usúarios uma plataforma para
                 obter e compartilhar os moldes das roupas desejedas pelos mesmos.
             </p>
@@ -11,8 +11,8 @@
         <div class="col-12 col-md-4 align-self-start">
             <h2 class="ttl">Suporte</h2>
             <ul>
-                <li><a href="FAQ.php" style="color: #d9d9d9; text-decoration: none;">FAQ</a></li>
-                <li><a href="pdep.php" style="color: #d9d9d9; text-decoration: none;">Política de Privacidade</a></li>
+                <li><a href="FAQ.php" style=" text-decoration: none;">FAQ</a></li>
+                <li><a href="pdep.php" style=" text-decoration: none;">Política de Privacidade</a></li>
             </ul>
         </div>
 

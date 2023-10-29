@@ -180,6 +180,10 @@ footer {
     padding-left: 15px;
 }
 
+.ttl:hover {
+    color: #8880FE;
+}
+
 .xinga {
     cursor: pointer;
     width: 15%;
@@ -203,10 +207,20 @@ footer {
     border-color: #8880FE;
 }
 
+.p1 {
+    margin-left: 15px;
+}
+
 a {
 color: white;
 text-decoration: none;
 }
+
+a:hover {
+color: #8880FE;
+}
+
+::after
 
 /* FAQ e política de privacidade */
 

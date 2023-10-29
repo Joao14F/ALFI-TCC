@@ -170,18 +170,42 @@ h2 {
           </div>
         </div>
 
+
         <div class="content-container">
           <div class="faq-header">
-            <h3>4- Alterações nesta política</h3>
+            <h3>5- Gestão de conteúdo</h3>
             <span class="open active">+</span>
             <span class="close">-</span>
           </div>
 
           <div class="content">
             <p>
-            Reservamo-nos o direito de atualizar ou modificar esta Política de Privacidade periodicamente. Quaisquer alterações serão 
-            publicadas nesta página com a nova data de atualização. É sua responsabilidade revisar periodicamente esta política para 
-            estar ciente de quaisquer mudanças.
+            Com relação às postagens e comentários em nossa plataforma, Entendemos a importância de manter um ambiente seguro e agradável 
+            para todos os participantes, e, portanto, adotamos medidas para lidar com postagens que possam conter conteúdos ou comentários 
+            inapropriados.
+            </p>
+
+            <p>
+            No caso de postagens que contenham conteúdos ou comentários considerados inapropriados e que não tenham relação com o tema de modelagem de roupas, reservamo-nos o direito de suspender 
+            tais postagens. Isso visa preservar a qualidade do ambiente online que oferecemos a nossa comunidade de usuários.
+            </p>
+
+          </div>
+        </div>
+
+
+        <div class="content-container">
+          <div class="faq-header">
+            <h3>6- Recuperações de postagens</h3>
+            <span class="open active">+</span>
+            <span class="close">-</span>
+          </div>
+
+          <div class="content">
+            <p>
+            Se, por algum motivo, você perceber que suas postagens desapareceram e estas não estavam em desacordo com nossas diretrizes de 
+            conteúdo, encorajamos você a entrar em contato com nosso suporte. Estamos à disposição para esclarecer a situação e, quando for 
+            o caso, auxiliá-lo na recuperação das postagens que foram removidas injustamente.
             </p>
 
           </div>
@@ -189,7 +213,7 @@ h2 {
 
         <div class="content-container">
           <div class="faq-header">
-            <h3>5- Contato</h3>
+            <h3>7- Contato</h3>
             <span class="open active">+</span>
             <span class="close">-</span>
           </div>
@@ -207,7 +231,6 @@ h2 {
           </div>
         </div>
 
-       
 
       </div>
     </div>

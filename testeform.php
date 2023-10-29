@@ -7,6 +7,9 @@
     <title>Contato</title>
     <link rel="icon" type="image/png" href="imagens/logonav.png">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -160,7 +163,7 @@
             h1 {
                 display: flex;
                 justify-content: center;
-                padding-top: 3rem;
+                padding-top: 1rem;
                 font-size: 2rem;
             }
 
@@ -176,7 +179,7 @@
             h1 {
                 display: flex;
                 justify-content: center;
-                padding-top: 3rem;
+                padding-top: 1rem;
             }
 
         }
@@ -185,7 +188,7 @@
             h1 {
                 display: flex;
                 justify-content: center;
-                padding-top: 3rem;
+                padding-top: 1rem;
             }
 
         }
@@ -194,7 +197,7 @@
             h1 {
                 display: flex;
                 justify-content: center;
-                padding-top: 3rem;
+                padding-top: 2rem;
             }
 
         }
@@ -204,6 +207,14 @@
 
 <body>
     <div class="container-fluid">
+        <script defer>
+            document.addEventListener("DOMContentLoaded", function() {
+                var voltarButton = document.querySelector(".voltar");
+                voltarButton.addEventListener("click", function() {
+                    window.history.back();
+                });
+            });
+        </script>
         <div class="row align-items-center">
             <div class="col-5 col-sm-3 col-md-3 col-lg-2 voltar m-1">
                 <i class="bi bi-arrow-left m-2"></i>

@@ -28,15 +28,21 @@
             if (isset($_GET['peça'])) {
                 $peca = $_GET['peça'];
                 if ($peca == 'Toda') {
+                    $sql_total = "SELECT COUNT(*) AS total FROM `modelo` WHERE `Usuário cadastrador` = '" . $_SESSION['Id usuário'] . "'";
+
                     $query = "SELECT * FROM `modelo` WHERE `Usuário cadastrador` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
                     $stmt->bind_param("iii", $_SESSION['Id usuário'], $offset, $resultados_por_pagina);
                 } else {
+                    $sql_total = "SELECT COUNT(*) AS total FROM `modelo` WHERE `Tipo` = '" . $peca . "' AND `Usuário cadastrador` = '" . $_SESSION['Id usuário'] . "'";
+
                     $query = "SELECT * FROM `modelo` WHERE `Tipo` = ? AND `Usuário cadastrador` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
                     $stmt->bind_param("siii", $peca, $_SESSION['Id usuário'], $offset, $resultados_por_pagina);
                 }
             } else {
+                $sql_total = "SELECT COUNT(*) AS total FROM `modelo` WHERE `Usuário cadastrador` = '" . $_SESSION['Id usuário'] . "'";
+
                 $sql = "SELECT * FROM `modelo` WHERE `Usuário cadastrador` = ? ORDER BY `Id modelo` DESC LIMIT ?, ?";
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param("iii", $_SESSION['Id usuário'], $offset, $resultados_por_pagina);
@@ -88,6 +94,7 @@
         </div>
 
         <?php
+        require_once('quantidadePag.php');
         require_once('paginaçao.php');
         require_once('rodape.php');
         $conn->close();

@@ -28,20 +28,28 @@
             if (isset($_GET['peça'])) {
                 $peca = $_GET['peça'];
                 if ($peca == 'Toda') {
-                    $query = "SELECT * FROM `modelo` WHERE `Verificado` != 'Não' ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                    $sql_total = "SELECT COUNT(*) AS total FROM `modelo` WHERE `Verificado` != 'Não' AND `Verificado` NOT REGEXP '^Reprovado por \\d+$'";
+
+                    $query = "SELECT * FROM `modelo` WHERE `Verificado` != 'Não' OR `Verificado` NOT REGEXP '^Reprovado por \\d+$' ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
                     $stmt->bind_param("ii", $offset, $resultados_por_pagina);
                 } elseif ($peca == 'Sustentável') {
-                    $query = "SELECT * FROM `modelo` WHERE `Sustentável` = 'sim' And `Verificado` != 'Não' ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                    $sql_total = "SELECT COUNT(*) AS total FROM `modelo` WHERE `Sustentável` = 'sim' And `Verificado` != 'Não' AND `Verificado` NOT REGEXP '^Reprovado por [0-9]+$'";
+
+                    $query = "SELECT * FROM `modelo` WHERE `Sustentável` = 'sim' And `Verificado` != 'Não' AND `Verificado` NOT REGEXP '^Reprovado por [0-9]+$' ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
                     $stmt->bind_param("ii", $offset, $resultados_por_pagina);
                 } else {
+                    $sql_total = "SELECT COUNT(*) AS total FROM `modelo` WHERE `Tipo` = '" . $peca . "' And `Verificado` != 'Não' AND `Verificado` NOT REGEXP '^Reprovado por [0-9]+$'";
+
                     $query = "SELECT * FROM `modelo` WHERE `Tipo` = ? And `Verificado` != 'Não' ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
                     $stmt->bind_param("sii", $peca, $offset, $resultados_por_pagina);
                 }
             } else {
-                $query = "SELECT * FROM `modelo` WHERE `Verificado` != 'Não' ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                $sql_total = "SELECT COUNT(*) AS total FROM `modelo` WHERE `Verificado` != 'Não' AND `Verificado` NOT REGEXP '^Reprovado por [0-9]+$'";
+
+                $query = "SELECT * FROM `modelo` WHERE `Verificado` != 'Não' AND `Verificado` NOT REGEXP '^Reprovado por [0-9]+$' ORDER BY `Id modelo` DESC LIMIT ?, ?";
                 $stmt = $conn->prepare($query);
                 $stmt->bind_param("ii", $offset, $resultados_por_pagina);
             }
@@ -82,6 +90,7 @@
 
 
         <?php
+        require_once('quantidadePag.php');
         require_once('paginaçao.php');
         require_once('rodape.php');
         $conn->close();

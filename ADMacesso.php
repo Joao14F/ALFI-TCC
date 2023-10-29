@@ -180,48 +180,64 @@
     <div class="container">
         <div class="row dados">
             <div class="col-10 col-sm-10 col-md-10 col-xs-12 col-lg-10">
-        <?php
+            <?php
+            $sqlmed = "SELECT * FROM `modelo` WHERE `Id modelo` = ?";
+                    $stmt = mysqli_prepare($conn, $sqlmed);
+                    mysqli_stmt_bind_param($stmt, "i", $valor);
+                    mysqli_stmt_execute($stmt);
+                    $resmed = mysqli_stmt_get_result($stmt);
+
+                    if ($resmed) {
+                        $rowmed = mysqli_fetch_assoc($resmed);
+
+                        $Comprimento = isset($rowmed['Comprimento']) ? $rowmed['Comprimento'] : null;
+                        $Quadril = isset($rowmed['Quadril']) ? $rowmed['Quadril'] : null;
+                        $Cintura = isset($rowmed['Cintura']) ? $rowmed['Cintura'] : null;
+                        $Gancho = isset($rowmed['Gancho']) ? $rowmed['Gancho'] : null;
+                        $Ombro = isset($rowmed['Ombro']) ? $rowmed['Ombro'] : null;
+                        $Busto = isset($rowmed['Busto']) ? $rowmed['Busto'] : null;
+                        $Comprimento_manga = isset($rowmed['Comprimento de manga']) ? $rowmed['Comprimento de manga'] : null;
+                        $Comprimento_cintura = isset($rowmed['Comprimento de cintura']) ? $rowmed['Comprimento de cintura'] : null;
+                        $Punho = isset($rowmed['Punho']) ? $rowmed['Punho'] : null;
+                    }
+
+
                     if ($row['Tecido'] !== null) {
                         echo '<p class="dado">' . 'Tecido sugerido:'  . " " . $row['Tecido'] . '</p>';
                     }
+                    echo '<p class="dado">Sustentável:' . " " . $row['Sustentável'] . '</p';
+                    echo '<br>';
 
-                    echo '<p class="dado">Sustentável:' . " " . $row['Sustentável'] . '</p>';
-                    $Tipo = $row['Tipo'];
-                    if ($Tipo == 'Saia') {
-                        $sqlMedidas = "SELECT `Comprimento`, `Quadril`, `Cintura` FROM `modelo` WHERE `Id modelo` = $valor";
-                        $resMedidas = mysqli_query($conn, $sqlMedidas);
-
-                        if ($resMedidas && mysqli_num_rows($resMedidas) > 0) {
-                            $rowMedidas = mysqli_fetch_assoc($resMedidas);
-                            $Comprimento = $rowMedidas['Comprimento'];
-                            $Quadril = $rowMedidas['Quadril'];
-                            $Cintura = $rowMedidas['Cintura'];
-                            echo '<p class="dado">Comprimento:' . " " . $Comprimento . ' cm' . '</p>';
-                            echo '<p class="dado">Quadril:' . " " . $Quadril . ' cm' . '</p>';
-                            echo '<p class="dado">Cintura:' . " " . $Cintura . ' cm' . '</p>';
-                        }
-                    } elseif ($Tipo == 'Bermuda' || $Tipo == 'Calça') {
-                        $sqlMedidas = "SELECT `Comprimento`, `Quadril`, `Cintura`, `Gancho` FROM `modelo` WHERE `Id modelo` = $valor";
-                        $resMedidas = mysqli_query($conn, $sqlMedidas);
-
-                        if ($resMedidas && mysqli_num_rows($resMedidas) > 0) {
-                            $rowMedidas = mysqli_fetch_assoc($resMedidas);
-                            $Comprimento = $rowMedidas['Comprimento'];
-                            $Quadril = $rowMedidas['Quadril'];
-                            $Cintura = $rowMedidas['Cintura'];
-                            $Gancho = $rowMedidas['Gancho'];
-                            echo '<p class="dado">Comprimento:' . " " . $Comprimento . ' cm' . '</p>';
-                            echo '<p class="dado">Quadril:' . " " . $Quadril . ' cm' . '</p>';
-                            echo '<p class="dado">Cintura:' . " " . $Cintura . ' cm' . '</p>';
-                            echo '<p class="dado">Gancho:' . " " . $Gancho . ' cm' . '</p>';
-                        }
+                    // Exibir os campos que não são nulos
+                    if (!is_null($Comprimento)) {
+                        echo '<p class="dado">Comprimento:' . " " . $Comprimento . ' cm' . '</p>';
+                    }
+                    if (!is_null($Quadril)) {
+                        echo '<p class="dado">Quadril:' . " " . $Quadril . ' cm' . '</p>';
+                    }
+                    if (!is_null($Cintura)) {
+                        echo '<p class="dado">Cintura:' . " " . $Cintura . ' cm' . '</p>';
+                    }
+                    if (!is_null($Gancho)) {
+                        echo '<p class="dado">Gancho:' . " " . $Gancho . ' cm' . '</p>';
+                    }
+                    if (!is_null($Ombro)) {
+                        echo '<p class="dado">Ombro:' . " " . $Ombro . ' cm' . '</p>';
+                    }
+                    if (!is_null($Busto)) {
+                        echo '<p class="dado">Busto:' . " " . $Busto . ' cm' . '</p>';
+                    }
+                    if (!is_null($Comprimento_manga)) {
+                        echo '<p class="dado">Comprimento de manga:' . " " . $Comprimento_manga . ' cm' . '</p>';
+                    }
+                    if (!is_null($Punho)) {
+                        echo '<p class="dado">Punho:' . " " . $Punho . ' cm' . '</p>';
                     }
                 } else {
                     echo '<script>alert("Erro ao carregar o modelo"); window.location.href = "index.php";</script>';
                 }
             }
-
-        ?>
+            ?>
 
             </div>
         </div>

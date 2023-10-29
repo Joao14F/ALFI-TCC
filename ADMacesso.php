@@ -57,7 +57,7 @@
 
                     echo '<div class="row">' . '<h1 class="col-12 col-sm-12 col-md-12 Titulo">' . $Titulo . '</h1>' . '</div>';
                     echo '<div class="row justify-content-center">';
-                    echo '<div class=" col-6 justfy-content-center">';
+                    echo '<div class="col-10 col-sm-8 col-md-6 justfy-content-center">';
                     echo '<div id="carouselExampleIndicators" class="carousel slide"> <div class="carousel-indicators">';
 
                     echo '<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>';
@@ -68,12 +68,12 @@
                         <div class="carousel-inner">';
 
                     echo '<div class="carousel-item active">
-                        <img src="' . $capa . '" class="w-100" alt="Imagem de Capa">
+                        <img src="' . $capa . '" class="acessado w-100" alt="Imagem de Capa">
                       </div>';
 
                     foreach ($moldes as $Molde) {
                         echo '<div class="carousel-item">';
-                        echo '<img src="' . $Molde .  '"alt="Imagem" class="w-100">';
+                        echo '<img src="' . $Molde .  '"alt="Imagem" class="acessado w-100">';
                         echo '</div>';
                     }
                     '</div>'

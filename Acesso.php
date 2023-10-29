@@ -52,7 +52,7 @@
 
                     echo '<div class="row">' . '<h1 class="col-12 col-sm-12 col-md-12 Titulo">' . $Titulo . '</h1>' . '</div>';
                     echo '<div class="row justify-content-center">';
-                    echo '<div class="col-6 justify-content-center">';
+                    echo '<div class="col-10 col-sm-8 col-md-6 justify-content-center">';
                     echo '<div id="carouselExampleIndicators" class="carousel slide"> <div class="carousel-indicators">';
 
                     echo '<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>';

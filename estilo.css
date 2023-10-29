@@ -159,6 +159,64 @@ select:focus {
 
 /* Acesso */
 
+@media (min-width: 320px) and (max-width: 400px) {
+    .acessado {
+        max-height: 380px;
+    }
+}
+
+@media (min-width: 401px) and (max-width: 560px) {
+    .acessado {
+        max-height: 500px;    
+    }
+}
+
+@media (min-width: 561px) and (max-width: 720px) {
+    .acessado {
+        max-height: 670px;    
+    }
+}
+
+@media (min-width: 721px) and (max-width: 940px) {
+    .acessado {
+        max-height: 800px;    
+    }
+}
+
+@media (min-width: 941px) and (max-width: 1060px) {
+    .acessado {
+        max-height: 1000px;    
+    }
+}
+
+@media (min-width: 1061px) and (max-width: 1400px) {
+    .acessado {
+        max-height: 1200px;    
+    }
+}
+
+@media (min-width: 1401px) and (max-width: 1800px) {
+    .acessado {
+        max-height: 1600px;    
+    }
+}
+
+@media (min-width: 2000px) and (max-width: 2600px) {
+    .acessado {
+        max-height: 2100px;    
+    }
+}
+
+.carousel-control-prev-icon{
+    background-color: gainsboro;
+    border-radius: 8px;
+}
+
+.carousel-control-next-icon{
+    background-color: gainsboro;
+    border-radius: 8px;
+}
+
 .bi {
     background-color: white;
     font-size: 3rem;

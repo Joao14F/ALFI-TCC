@@ -67,45 +67,84 @@ select:focus {
 }
 
 
-@media (min-width: 375px) and (max-width: 424px) {
+@media (min-width: 375px) and (max-width: 400px) {
     .modelos {
         height: 275.5px;
         width: 275.5px;
     }
 }
 
+@media (min-width: 401px) and (max-width: 424px) {
+    .modelos {
+        height: 300.5px;
+        width: 300.5px;
+    }
+}
 
-@media (min-width: 425px) and (max-width: 765px) {
+
+@media (min-width: 425px) and (max-width: 520px) {
     .modelos {
         height: 317px;
         width: 317px;
     }
 }
 
+@media (min-width: 521px) and (max-width: 765px) {
+    .modelos {
+        height: 400px;
+        width: 400px;
+    }
+}
 
-@media (min-width: 768px) and (max-width: 1023px) {
+
+@media (min-width: 768px) and (max-width: 900px) {
     .modelos {
         height: 101.4px;
         width: 101.4px;
     }
 }
 
+@media (min-width: 901px) and (max-width: 1023px) {
+    .modelos {
+        height: 120.4px;
+        width: 120.4px;
+    }
+}
 
-@media (min-width: 1024px) and (max-width: 1439px) {
+@media (min-width: 1024px) and (max-width: 1200px) {
     .modelos {
         height: 144px;
         width: 144px;
     }
 }
 
+@media (min-width: 1201px) and (max-width: 1439px) {
+    .modelos {
+        height: 180px;
+        width: 180px;
+    }
+}
 
-@media (min-width: 1440px) and (max-width: 2559px) {
+@media (min-width: 1440px) and (max-width: 1600px) {
     .modelos {
         height: 213.4px;
         width: 213.4px;
     }
 }
 
+@media (min-width: 1601px) and (max-width: 1899px) {
+    .modelos {
+        height: 250.4px;
+        width: 250.4px;
+    }
+}
+
+@media (min-width: 1900px) and (max-width: 2500px) {
+    .modelos {
+        height: 300px;
+        width: 300px;
+    }
+}
 
 @media (min-width: 2560px) {
     .modelos {

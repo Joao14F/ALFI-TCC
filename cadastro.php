@@ -5,7 +5,6 @@ if (isset($_POST['submit'])) {
 
     $nome = $_POST['nome'];
     $email = $_POST['email'];
-    $telefone = $_POST['telefone'];
     $senha = $_POST['senha'];
 
     $query = 'SELECT `E-mail usuário` FROM `usuário`';
@@ -19,8 +18,8 @@ if (isset($_POST['submit'])) {
         $stmt->execute();
         $res = $stmt->get_result();
         if ($email !== $res) {
-            $sql = "INSERT INTO usuário (`Nome usuário`, `E-mail usuário`, `Telefone usuário`, `Senha usuário`)
-        VALUES ('$nome', '$email', '$telefone', '$senha')";
+            $sql = "INSERT INTO usuário (`Nome usuário`, `E-mail usuário`, `Senha usuário`)
+        VALUES ('$nome', '$email', '$senha')";
             $result = mysqli_query($conn, $sql);
 
             header('Location: login.php');

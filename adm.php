@@ -66,7 +66,7 @@
                         $caminho_imagem = $row['Capa'];
                         echo '<div class="col-10 col-sm-10 col-md-2 gy-1 gx-4">';
                         echo '<a href="ADMacesso.php?valor=' . $row['Id modelo'] . '">';
-                        echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos w-100">';
+                        echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos">';
                         echo '</a>';
                         echo '<p class="text-truncate text-white">' . $row['Título'] . '</p>';
                         echo '</div>';

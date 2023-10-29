@@ -50,11 +50,11 @@ select:focus {
     border-radius: 10px;
     max-width: 100%;
 }
-/* 
+
 @media (max-width: 320px) {
     .modelos {
         height: 90px;
-   
+        width: 90px;
     }
 }
 
@@ -62,7 +62,7 @@ select:focus {
 @media (min-width: 320px) and (max-width: 374px) {
     .modelos {
         height: 230px;
-     
+        width: 230px;
     }
 }
 
@@ -70,7 +70,7 @@ select:focus {
 @media (min-width: 375px) and (max-width: 424px) {
     .modelos {
         height: 275.5px;
-       
+        width: 275.5px;
     }
 }
 
@@ -78,7 +78,7 @@ select:focus {
 @media (min-width: 425px) and (max-width: 765px) {
     .modelos {
         height: 317px;
-       
+        width: 317px;
     }
 }
 
@@ -86,7 +86,7 @@ select:focus {
 @media (min-width: 768px) and (max-width: 1023px) {
     .modelos {
         height: 101.4px;
-        
+        width: 101.4px;
     }
 }
 
@@ -94,7 +94,7 @@ select:focus {
 @media (min-width: 1024px) and (max-width: 1439px) {
     .modelos {
         height: 144px;
-     
+        width: 144px;
     }
 }
 
@@ -102,7 +102,7 @@ select:focus {
 @media (min-width: 1440px) and (max-width: 2559px) {
     .modelos {
         height: 213.4px;
-       
+        width: 213.4px;
     }
 }
 
@@ -110,10 +110,10 @@ select:focus {
 @media (min-width: 2560px) {
     .modelos {
         height: 400px;
-        
+        width: 400px;
     }
 }
-*/
+
 .resultado {
     color: whitesmoke;
 }
@@ -219,8 +219,6 @@ text-decoration: none;
 a:hover {
 color: #8880FE;
 }
-
-::after
 
 /* FAQ e política de privacidade */
 

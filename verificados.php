@@ -70,7 +70,7 @@
                             $caminho_imagem = 'Arquivos/Reprovado.png'; // Usar a imagem "Reprovado.png"
                             echo '<div class="col-10 col-md-2 espaço">';
                             echo '<a href="ADMacesso.php?valor=' . $row['Id modelo'] . '">';
-                            echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos w-100 imagem-dinamica" ' . $row['Id modelo'] . '">';
+                            echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos" ' . $row['Id modelo'] . '">';
                             echo '</a>';
                             echo '<p class="text-truncate text-white">' . $row['Título'] . '</p>';
                             echo '</div>';
@@ -78,7 +78,7 @@
                             $caminho_imagem = $row['Capa']; // Usar a imagem da coluna "Capa"
                             echo '<div class="col-10 col-md-2 espaço">';
                             echo '<a href="ADMacesso.php?valor=' . $row['Id modelo'] . '">';
-                            echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos w-100 imagem-dinamica" ' . $row['Id modelo'] . '">';
+                            echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos" ' . $row['Id modelo'] . '">';
                             echo '</a>';
                             echo '<p class="text-truncate text-white">' . $row['Título'] . '</p>';
                             echo '</div>';
@@ -93,7 +93,7 @@
         <script>
                 // Usar JavaScript para obter a largura e definir como o atributo de estilo 'height'
                 document.addEventListener('DOMContentLoaded', function() {
-                    var imagens = document.querySelectorAll('.imagem-dinamica');
+                    var imagens = document.querySelectorAll('.modelos');
                     imagens.forEach(function(imagem) {
                         var largura = imagem.clientWidth;
                         imagem.style.height = largura + 'px';

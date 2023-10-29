@@ -63,7 +63,7 @@
                         $caminho_imagem = $row['Capa'];
 
                         // Adicione uma classe para facilitar a seleção com JavaScript
-                        echo '<div class="col-10 col-md-2 espaço">';
+                        echo '<div class="col-10 col-md-2 espaço text-center">';
                         echo '<a href="Acesso.php?valor=' . $row['Id modelo'] . '">';
                         echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos" ' . $row['Id modelo'] . '">';
                         echo '</a>';
@@ -76,6 +76,7 @@
             }
             ?>
             <script>
+                /*
                 // Usar JavaScript para obter a largura e definir como o atributo de estilo 'height'
                 document.addEventListener('DOMContentLoaded', function() {
                     var imagens = document.querySelectorAll('.modelos');
@@ -84,6 +85,7 @@
                         imagem.style.height = largura + 'px';
                     });
                 });
+                */
             </script>
 
         </div>

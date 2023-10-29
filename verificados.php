@@ -68,7 +68,7 @@
                         // Verificar se a coluna "Verificado" segue o padrão "Reprovado por número"
                         if (preg_match('/^Reprovado por \d+$/', $row['Verificado'])) {
                             $caminho_imagem = 'Arquivos/Reprovado.png'; // Usar a imagem "Reprovado.png"
-                            echo '<div class="col-10 col-md-2 espaço">';
+                            echo '<div class="col-10 col-md-2 espaço text-cente">';
                             echo '<a href="ADMacesso.php?valor=' . $row['Id modelo'] . '">';
                             echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos" ' . $row['Id modelo'] . '">';
                             echo '</a>';
@@ -76,7 +76,7 @@
                             echo '</div>';
                         } else {
                             $caminho_imagem = $row['Capa']; // Usar a imagem da coluna "Capa"
-                            echo '<div class="col-10 col-md-2 espaço">';
+                            echo '<div class="col-10 col-md-2 espaço text-cente">';
                             echo '<a href="ADMacesso.php?valor=' . $row['Id modelo'] . '">';
                             echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos" ' . $row['Id modelo'] . '">';
                             echo '</a>';
@@ -91,6 +91,7 @@
             ?>
             <div>
         <script>
+            /*
                 // Usar JavaScript para obter a largura e definir como o atributo de estilo 'height'
                 document.addEventListener('DOMContentLoaded', function() {
                     var imagens = document.querySelectorAll('.modelos');
@@ -99,6 +100,7 @@
                         imagem.style.height = largura + 'px';
                     });
                 });
+                */
             </script>
         <?php
         require_once('quantidadePag.php');

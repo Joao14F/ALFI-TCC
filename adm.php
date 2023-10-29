@@ -64,7 +64,7 @@
                 while ($row = mysqli_fetch_assoc($res)) {
                     if (isset($row['Capa'])) { // Verifica se a chave 'Capa' está definida
                         $caminho_imagem = $row['Capa'];
-                        echo '<div class="col-10 col-sm-10 col-md-2 gy-1 gx-4">';
+                        echo '<div class="col-10 col-sm-10 col-md-2 text-center">';
                         echo '<a href="ADMacesso.php?valor=' . $row['Id modelo'] . '">';
                         echo '<img src="' . $caminho_imagem . '" alt="Imagem" class="modelos">';
                         echo '</a>';
@@ -78,6 +78,7 @@
             ?>
         </div>
         <script>
+            /*
             // Usar JavaScript para obter a largura e definir como o atributo de estilo 'height'
             document.addEventListener('DOMContentLoaded', function() {
                 var imagens = document.querySelectorAll('.modelos');
@@ -86,6 +87,7 @@
                     imagem.style.height = largura + 'px';
                 });
             });
+            */
         </script>
         <?php
         require_once('quantidadePag.php');

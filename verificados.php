@@ -7,8 +7,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="imagens/navlogo.png">
-    <title>Index</title>
+    <link rel="icon" type="image/png" href="imagens/logonav.png">
+   <title>Modelos Verificads</title>
 
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -18,46 +18,40 @@
 <body>
     <div class="container-fluid">
         <?php
+        include_once('conexao.php');
         require_once('cabecalho.php');
         require('logadoADM.php');
         include('paginaçaoVar.php');
         ?>
         <div class="row corpo justify-content-center align-items-center justify-content-md-start">
             <?php
-            include_once('conexao.php');
-
-            // Define a quantidade de resultados a serem exibidos por página
-            $resultados_por_pagina = 8;
-
-            // Obtém o número da página atual a partir do parâmetro "pagina" na URL
-            if (isset($_GET['pagina']) && is_numeric($_GET['pagina'])) {
-                $pagina_atual = $_GET['pagina'];
-            } else {
-                $pagina_atual = 1;
-            }
-
-            // Calcula o deslocamento (offset) com base na página atual
-            $offset = ($pagina_atual - 1) * $resultados_por_pagina;
-            $offset = ($pagina_atual - 1) * $resultados_por_pagina;
             $verificado = 'Sim por ' . $_SESSION['Id moderador'];
             $reprovado = 'Reprovado por ' . $_SESSION['Id moderador'];
 
             if (isset($_GET['peça'])) {
                 $peca = $_GET['peça'];
                 if ($peca == 'Toda') {
+                    $sql_total = "SELECT COUNT(*) AS total FROM `modelo` WHERE (`Verificado` = '". $verificado . "' OR `Verificado` = '" . $reprovado . "')";
+
                     $query = "SELECT * FROM `modelo` WHERE (`Verificado` = ? OR `Verificado` = ?) ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
                     $stmt->bind_param("ssii", $verificado, $reprovado, $offset, $resultados_por_pagina);
                 } elseif ($peca == 'Sustentável') {
-                    $query = "SELECT * FROM `modelo` WHERE (`Sustentável` = 'Sim' AND (`verificado` = ? OR `verificado` = ?)) ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                    $sql_total = "SELECT COUNT(*) AS total FROM `modelo` WHERE (`Sustentável` = 'Sim' AND (`Verificado` = '". $verificado . "' OR `Verificado` = '" . $reprovado . "'))";
+
+                    $query = "SELECT * FROM `modelo` WHERE (`Sustentável` = 'Sim' AND (`Verificado` = ? OR `Verificado` = ?)) ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
                     $stmt->bind_param("ssii", $verificado, $reprovado, $offset, $resultados_por_pagina);
                 } else {
-                    $query = "SELECT * FROM `modelo` WHERE ((`Tipo` = ? AND `verificado` = ?) OR `verificado` = ?) ORDER BY `Id modelo` DESC LIMIT ?, ?";
+                    $sql_total = "SELECT COUNT(*) AS total FROM `modelo` WHERE ((`Tipo` = '" . $peca . "' AND `Verificado` = '". $verificado . "') OR `Verificado` = '" . $reprovado . "')";
+
+                    $query = "SELECT * FROM `modelo` WHERE ((`Tipo` = ? AND `Verificado` = ?) OR `Verificado` = ?) ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
-                    $stmt->bind_param("ssssii", $peca, $verificado, $reprovado, $offset, $resultados_por_pagina);
+                    $stmt->bind_param("sssii", $peca, $verificado, $reprovado, $offset, $resultados_por_pagina);
                 }
             } else {
+                $sql_total = "SELECT COUNT(*) AS total FROM `modelo` WHERE (`verificado` = '". $verificado . "' OR `verificado` = '" . $reprovado . "')";
+
                 $query = "SELECT * FROM `modelo` WHERE (`verificado` = ? OR `verificado` = ?) ORDER BY `Id modelo` DESC LIMIT ?, ?";
                 $stmt = $conn->prepare($query);
                 $stmt->bind_param("ssii", $verificado, $reprovado, $offset, $resultados_por_pagina);
@@ -107,6 +101,8 @@
                 });
             </script>
         <?php
+        require_once('quantidadePag.php');
+        require_once('paginaçao.php');
         require_once('rodape.php');
         $conn->close();
         ?>

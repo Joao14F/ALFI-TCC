@@ -17,7 +17,7 @@
 
 <body>
     <div class="container-fluid">
-        
+
         <?php
         require_once('cabecalho.php');
         require('logadoADM.php');
@@ -30,27 +30,34 @@
             if (isset($_GET['peça'])) {
                 $peca = $_GET['peça'];
                 if ($peca == 'Toda') {
+                    $sql_total = "SELECT COUNT(*) AS total FROM `modelo` WHERE `Verificado` = 'Não'";
+
                     $query = "SELECT * FROM `modelo` WHERE `Verificado` = 'Não' ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
                     $stmt->bind_param("ii", $offset, $resultados_por_pagina);
                 } elseif ($peca == 'Sustentável') {
+                    $sql_total = "SELECT COUNT(*) AS total FROM `modelo` WHERE `Sustentável` = 'sim' And `Verificado` = 'Não'";
+
                     $query = "SELECT * FROM `modelo` WHERE `Sustentável` = 'sim' And `Verificado` = 'Não' ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
                     $stmt->bind_param("ii", $offset, $resultados_por_pagina);
                 } else {
+                    $sql_total = "SELECT COUNT(*) AS total FROM `modelo` WHERE `Tipo` = '" . $peca . "' And `Verificado` = 'Não'";
+
                     $query = "SELECT * FROM `modelo` WHERE `Tipo` = ? And `Verificado` = 'Não' ORDER BY `Id modelo` DESC LIMIT ?, ?";
                     $stmt = $conn->prepare($query);
                     $stmt->bind_param("sii", $peca, $offset, $resultados_por_pagina);
                 }
             } else {
+                $sql_total = "SELECT COUNT(*) AS total FROM `modelo` WHERE `Verificado` = 'Não'";
                 $query = "SELECT * FROM `modelo` WHERE `Verificado` = 'Não' ORDER BY `Id modelo` DESC LIMIT ?, ?";
                 $stmt = $conn->prepare($query);
                 $stmt->bind_param("ii", $offset, $resultados_por_pagina);
             }
             $stmt->execute();
             $res = $stmt->get_result();
-            
-            
+
+
 
             if ($res && mysqli_num_rows($res) > 0) {
                 // Exibe as imagens dentro do laço `while`
@@ -65,26 +72,27 @@
                         echo '</div>';
                     }
                 }
-            }
-            else {
+            } else {
                 echo '<p class="resultado">Nenhum modelo encontrado</p>';
             }
             ?>
         </div>
         <script>
-                // Usar JavaScript para obter a largura e definir como o atributo de estilo 'height'
-                document.addEventListener('DOMContentLoaded', function() {
-                    var imagens = document.querySelectorAll('.modelos');
-                    imagens.forEach(function(imagem) {
-                        var largura = imagem.clientWidth;
-                        imagem.style.height = largura + 'px';
-                    });
+            // Usar JavaScript para obter a largura e definir como o atributo de estilo 'height'
+            document.addEventListener('DOMContentLoaded', function() {
+                var imagens = document.querySelectorAll('.modelos');
+                imagens.forEach(function(imagem) {
+                    var largura = imagem.clientWidth;
+                    imagem.style.height = largura + 'px';
                 });
-            </script>
+            });
+        </script>
         <?php
+        require_once('quantidadePag.php');
         require_once('paginaçao.php');
         require_once('rodape.php');
         $conn->close();
         ?>
 </body>
+
 </html>

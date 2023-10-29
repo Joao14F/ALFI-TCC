@@ -146,39 +146,42 @@
         // Switch case para definir o conteúdo do header de acordo com a página atual
         switch ($atual) {
             case 'adm.php':
-                echo '<div class="row">';
-                echo '<a href="sair.php"><button class="CadastraModelo">Sair</button></a>';
+                echo '<div class="row justify-content-end">';
+                echo '<div class="col-6">';
+                echo '<a href="sair.php"><button class="CadastraModelo w-100">Sair</button></a>';
+                echo '</div>';
                 echo '</div>';
                 echo '<div class="row">';
-                echo '<a href="verificados.php"><button class="CadastraModelo">Modelos verificados</button></a>';
+                echo '<a href="verificados.php"><button class="CadastraModelo w-100">Modelos verificados</button></a>';
                 echo '</div>';
                 echo '<div class="row">';
-                echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
+                echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo w-100">Cadastrar Modelos</button></a>';
                 echo '</div>';
                 break;
             case 'ADMacesso.php':
-                echo '<div class="row">';
-                echo '<a href="sair.php"><button class="CadastraModelo">Sair</button></a>';
+                echo '<div class="row justify-content-end">';
+                echo '<div class="col-6">';
+                echo '<a href="adm.php"><button class="CadastraModelo w-100">Início</button></a>';
+                echo '</div>';
+                echo '<div class="col-6">';
+                echo '<a href="sair.php"><button class="CadastraModelo w-100">Sair</button></a>';
+                echo '</div>';
                 echo '</div>';
                 echo '<div class="row">';
-                echo '<a href="verificados.php"><button class="CadastraModelo">Modelos verificados</button></a>';
-                echo '</div>';
-                echo '<div class="row">';
-                echo '<a href="adm.php"><button class="CadastraModelo">Início</button></a>';
-                echo '</div>';
-                echo '<div class="row">';
-                echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
+                echo '<a href="verificados.php"><button class="CadastraModelo w-100">Verificar Modelos</button></a>';
                 echo '</div>';
                 break;
             case 'verificados.php':
-                echo '<div class="row">';
-                echo '<a href="sair.php"><button class="CadastraModelo">Sair</button></a>';
+                echo '<div class="row ">';
+                echo '<div class="col-6">';
+                echo '<a href="adm.php"><button class="CadastraModelo w-100">Início</button></a>';
                 echo '</div>';
-                echo '<div class "row">';
-                echo '<a href="adm.php"><button class="CadastraModelo">Verificar Modelos</button></a>';
+                echo '<div class="col-6">';
+                echo '<a href="sair.php"><button class="CadastraModelo w-100">Sair</button></a>';
+                echo '</div>';
                 echo '</div>';
                 echo '<div class="row">';
-                echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
+                echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo w-100">Cadastrar Modelos</button></a>';
                 echo '</div>';
                 break;
             case 'index.php':
@@ -228,13 +231,18 @@
                 break;
             case 'Acesso.php':
                 echo '<div class="row">';
-                echo '<a href="sair.php"><button class="CadastraModelo">Sair</button></a>';
+                echo '<div class="col-6">';
+                echo '<a href="sair.php"><button class="CadastraModelo w-100">Início</button></a>';
+                echo '</div>';
+                echo '<div class="col-6">';
+                echo '<a href="sair.php"><button class="CadastraModelo w-100">Sair</button></a>';
+                echo '</div>';
                 echo '</div>';
                 echo '<div class="row">';
-                echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo">Cadastrar Modelos</button></a>';
+                echo '<a href="modelosCadastrados.php"><button class="CadastraModelo w-100">Modelos Cadastrados</button></a>';
                 echo '</div>';
                 echo '<div class="row">';
-                echo '<a href="modelosCadastrados.php"><button class="CadastraModelo">Modelos Cadastrados</button></a>';
+                echo '<a href="Cadastrarmodelo.php"><button class="CadastraModelo w-100">Cadastrar Modelos</button></a>';
                 echo '</div>';
                 break;
             default:

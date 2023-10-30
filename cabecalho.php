@@ -308,6 +308,7 @@
             }
 
             echo '<option value="' . $atual . '" data-peca="Todas as peça">Todas as peças</option>';
+            echo '<option value="' . $atual . '" data-peca="Sustentável">Sustentável</option>';
             echo '<option value="' . $atual . '" data-peca="Bermuda">Bermuda</option>';
             echo '<option value="' . $atual . '" data-peca="Blusa">Blusa</option>';
             echo '<option value="' . $atual . '" data-peca="Calça">Calça</option>';

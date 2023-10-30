@@ -269,23 +269,36 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div class="row justify-content-center align-items-center">
-                <div class="col-10 col-sm-8 col-md-6 col-xs-12 col-lg-6">
+                <div class="col-10 col-sm-8 col-md-6 col-lg-6">
                     <div class="form-group">
                         <label for="password">Insira sua senha</label>
                         <input class="form-control" type="password" id="senha" name="senha" placeholder="Senha" required>
                     </div>
                 </div>
-
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-12 col-sm-12 col-md-12 col-xs-4 col-lg-12">
-                        <p>Já possui uma conta? <a class="login" href="login.php">Login</a> </p>
+            </div>
+            <div class="row justify-content-center align-items-center">
+                <div class="col-10 col-sm-8- col-md-6 gx-5">
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Concordo com a <a href="pdep.php">Politíca de privacidade</a>
+                            </label>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-12 col-sm-12 col-md-12 col-xs-12 col-lg-12"></div>
-                    <input class="col-0 col-xs-12 col-sm-2 col-md-1" type="submit" value="Cadastrar" id="button" name="submit" class="col-12 col-sm-12 col-md-10">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-10 col-sm-8- col-md-6">
+                    <p>Já possui uma conta? <a class="login" href="login.php">Login</a> </p>
                 </div>
+            </div>
+
+            <div class="row justify-content-center align-items-center">
+                <div class="col-12 col-sm-12 col-md-12 col-xs-12 col-lg-12"></div>
+                <input class="col-0 col-xs-12 col-sm-2 col-md-1" type="submit" value="Cadastrar" id="button" name="submit" class="col-12 col-sm-12 col-md-10">
+            </div>
         </form>
     </div>
 </body>

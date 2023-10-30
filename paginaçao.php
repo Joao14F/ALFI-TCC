@@ -53,6 +53,9 @@ if (isset($_GET['pagina'])) {
         }
         echo '" class="paginaton-link">' . $i . '</a>' . ' ';
     }
+    if ($total_paginas > 1) {
+        echo '<a href="?pagina=' . 2 . '"class="paginaton-link">Próxima</a>';
+    }
 }
 echo '</div>';
 echo '</div>';

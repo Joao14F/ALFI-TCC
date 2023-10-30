@@ -236,13 +236,13 @@
 
             <div class="content">
               <p>
-                Com relação às postagens e comentários em nossa plataforma, Entendemos a importância de manter um ambiente seguro e agradável
+                Com relação às postagens em nossa plataforma, Entendemos a importância de manter um ambiente seguro e agradável
                 para todos os participantes, e, portanto, adotamos medidas para lidar com postagens que possam conter conteúdos ou comentários
                 inapropriados.
               </p>
 
               <p>
-                No caso de postagens que contenham conteúdos ou comentários considerados inapropriados e que não tenham relação com o tema de modelagem de roupas, reservamo-nos o direito de suspender
+                No caso de postagens que contenham imagens ou descrições consideradas inapropriados, com claras más intenções ou que não tenham relação com o tema de modelagem de roupas, reservamo-nos o direito de suspender
                 tais postagens. Isso visa preservar a qualidade do ambiente online que oferecemos a nossa comunidade de usuários.
               </p>
 
